@@ -1011,6 +1011,7 @@ trip:
         priority: highly_recommended
         type: landmark
         visit_duration_hours: 1
+        drive_time_minutes: 5
         coordinates:
           lat: 64.1417
           lon: -21.9266
@@ -1020,6 +1021,7 @@ trip:
         priority: if_time
         type: architecture
         visit_duration_hours: 1
+        drive_time_minutes: 5
         coordinates:
           lat: 64.1500
           lon: -21.9320
@@ -1029,6 +1031,7 @@ trip:
         priority: highly_recommended
         type: city_walk
         visit_duration_hours: 1.5
+        drive_time_minutes: 5
         coordinates:
           lat: 64.1526
           lon: -21.9417
@@ -1038,6 +1041,7 @@ trip:
         priority: if_time
         type: city_walk
         visit_duration_hours: 0.5
+        drive_time_minutes: 5
         coordinates:
           lat: 64.1432
           lon: -21.9287
@@ -1047,6 +1051,7 @@ trip:
         priority: optional_paid_activity
         type: geothermal_bath
         visit_duration_hours: 2.5
+        drive_time_minutes: 15
         coordinates:
           lat: 64.1206
           lon: -21.9118

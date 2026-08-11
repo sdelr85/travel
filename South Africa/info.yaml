@@ -76,6 +76,7 @@ trip:
           name: Table Mountain
           priority: must_do
           type: hiking_viewpoint
+          visit_duration_hours: 4
           coordinates:
             lat: -33.9628
             lon: 18.4098
@@ -84,6 +85,7 @@ trip:
           name: Lions Head
           priority: highly_recommended
           type: hike
+          visit_duration_hours: 3
           coordinates:
             lat: -33.9349
             lon: 18.3946
@@ -92,6 +94,7 @@ trip:
           name: Cape of Good Hope
           priority: must_do
           type: coastal_landscape
+          visit_duration_hours: 4
           coordinates:
             lat: -34.3568
             lon: 18.4740
@@ -100,6 +103,7 @@ trip:
           name: Boulders Beach Penguins
           priority: must_do
           type: wildlife
+          visit_duration_hours: 2
           coordinates:
             lat: -34.1961
             lon: 18.4510
@@ -108,6 +112,7 @@ trip:
           name: Chapmans Peak Drive
           priority: highly_recommended
           type: scenic_drive
+          visit_duration_hours: 2
           coordinates:
             lat: -34.0719
             lon: 18.3530
@@ -116,6 +121,7 @@ trip:
           name: Camps Bay
           priority: if_time
           type: beach
+          visit_duration_hours: 2
           coordinates:
             lat: -33.9500
             lon: 18.3770
@@ -136,6 +142,7 @@ trip:
           name: Hermanus Cliff Path
           priority: must_do
           type: coastal_walk
+          visit_duration_hours: 2
           coordinates:
             lat: -34.4180
             lon: 19.2430
@@ -144,6 +151,7 @@ trip:
           name: Whale Watching
           priority: optional_paid_activity
           type: boat_trip
+          visit_duration_hours: 3
           coordinates:
             lat: -34.4187
             lon: 19.2345
@@ -164,6 +172,7 @@ trip:
           name: Knysna Heads
           priority: must_do
           type: viewpoint
+          visit_duration_hours: 2
           coordinates:
             lat: -34.0550
             lon: 23.0560
@@ -172,6 +181,7 @@ trip:
           name: Robberg Peninsula
           priority: must_do
           type: hiking
+          visit_duration_hours: 3
           coordinates:
             lat: -34.1015
             lon: 23.3630
@@ -180,6 +190,7 @@ trip:
           name: Plettenberg Bay Beaches
           priority: highly_recommended
           type: beach
+          visit_duration_hours: 2
           coordinates:
             lat: -34.0500
             lon: 23.3710
@@ -200,6 +211,7 @@ trip:
           name: Storms River Suspension Bridge
           priority: must_do
           type: coastal_walk
+          visit_duration_hours: 2
           coordinates:
             lat: -34.0280
             lon: 23.8930
@@ -208,6 +220,7 @@ trip:
           name: Waterfall Trail
           priority: highly_recommended
           type: hiking
+          visit_duration_hours: 2
           coordinates:
             lat: -34.0230
             lon: 23.8890
@@ -216,6 +229,7 @@ trip:
           name: Storms River Kayaking
           priority: optional_paid_activity
           type: adventure
+          visit_duration_hours: 3
           coordinates:
             lat: -34.0240
             lon: 23.8920
@@ -236,6 +250,7 @@ trip:
           name: Addo Game Drive
           priority: must_do
           type: safari
+          visit_duration_hours: 6
           coordinates:
             lat: -33.4830
             lon: 25.7480
@@ -256,6 +271,7 @@ trip:
           name: Kruger Safari
           priority: must_do
           type: safari
+          visit_duration_hours: 8
           coordinates:
             lat: -24.9950
             lon: 31.5960
@@ -264,6 +280,7 @@ trip:
           name: Sunrise Safari
           priority: highly_recommended
           type: safari
+          visit_duration_hours: 4
           coordinates:
             lat: -24.9950
             lon: 31.5960
@@ -272,6 +289,7 @@ trip:
           name: Sunset Safari
           priority: highly_recommended
           type: safari
+          visit_duration_hours: 4
           coordinates:
             lat: -24.9950
             lon: 31.5960
