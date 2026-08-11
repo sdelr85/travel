@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_73fabbb790ed26ab27a03f9aabd247c1 {
+                #map_5482a23633167a424cc5c65d3f949b23 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,7 +55,20 @@
 <body>
     
     
-    <div style="
+    <style>
+        @media (max-width: 600px) {
+            .travel-legend {
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+    </style>
+    <div class="travel-legend" style="
         position: fixed; bottom: 30px; left: 30px; z-index: 1000;
         background: white; padding: 12px 16px; border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
@@ -77,14 +90,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_73fabbb790ed26ab27a03f9aabd247c1" ></div>
+            <div class="folium-map" id="map_5482a23633167a424cc5c65d3f949b23" ></div>
         
 </body>
 <script>
     
     
-            var map_73fabbb790ed26ab27a03f9aabd247c1 = L.map(
-                "map_73fabbb790ed26ab27a03f9aabd247c1",
+            var map_5482a23633167a424cc5c65d3f949b23 = L.map(
+                "map_5482a23633167a424cc5c65d3f949b23",
                 {
                     center: [38.164500000000004, -26.92485],
                     crs: L.CRS.EPSG3857,
@@ -101,7 +114,7 @@
 
         
     
-            var tile_layer_2cbf132f71faac1ec08504eac3b2ebaa = L.tileLayer(
+            var tile_layer_9430d85116d551177e0b56d2d5ed2b9b = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -118,30 +131,30 @@
             );
         
     
-            tile_layer_2cbf132f71faac1ec08504eac3b2ebaa.addTo(map_73fabbb790ed26ab27a03f9aabd247c1);
+            tile_layer_9430d85116d551177e0b56d2d5ed2b9b.addTo(map_5482a23633167a424cc5c65d3f949b23);
         
     
-            map_73fabbb790ed26ab27a03f9aabd247c1.fitBounds(
+            map_5482a23633167a424cc5c65d3f949b23.fitBounds(
                 [[37.793, -25.3237], [38.536, -28.526]],
                 {}
             );
         
     
-            var feature_group_f3f1f96125512b7ba51dfe7c5c83eb8c = L.featureGroup(
+            var feature_group_d44d3c1f20dbaecde6dfc8143624afe7 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_486d8ecf4152870a23af2cfa8c21c72b = L.marker(
+            var marker_c0b2d204da91835cf40f1d3f56b9ead6 = L.marker(
                 [37.793, -25.3237],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_f3f1f96125512b7ba51dfe7c5c83eb8c);
+            ).addTo(feature_group_d44d3c1f20dbaecde6dfc8143624afe7);
         
     
-            var icon_2e154a4302558890e255b09788da3741 = L.AwesomeMarkers.icon(
+            var icon_662a8f04773fa06b670818174354f08b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -152,7 +165,7 @@
             );
         
     
-            marker_486d8ecf4152870a23af2cfa8c21c72b.bindTooltip(
+            marker_c0b2d204da91835cf40f1d3f56b9ead6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Furnas / Sao Miguel</b><br><span style="color:#555">Sao Miguel</span><br><hr style="margin:4px 0"><b>Nights:</b> 6<br><i style="color:#666;font-size:14px">Excellent location near geothermal activity while still allowing easy access to the full island.
 </i></div>
@@ -163,18 +176,18 @@
             );
         
     
-                marker_486d8ecf4152870a23af2cfa8c21c72b.setIcon(icon_2e154a4302558890e255b09788da3741);
+                marker_c0b2d204da91835cf40f1d3f56b9ead6.setIcon(icon_662a8f04773fa06b670818174354f08b);
             
     
-            var marker_b946b92082594915f6e2405535941737 = L.marker(
+            var marker_2a80ffffba5b57122b7891d58767b1b9 = L.marker(
                 [38.536, -28.526],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_f3f1f96125512b7ba51dfe7c5c83eb8c);
+            ).addTo(feature_group_d44d3c1f20dbaecde6dfc8143624afe7);
         
     
-            var icon_317d6faf86032f682aba74b2cfea7a16 = L.AwesomeMarkers.icon(
+            var icon_46c22124f0c5751d378628d30ee671eb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -185,7 +198,7 @@
             );
         
     
-            marker_b946b92082594915f6e2405535941737.bindTooltip(
+            marker_2a80ffffba5b57122b7891d58767b1b9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Madalena / Pico</b><br><span style="color:#555">Pico</span><br><hr style="margin:4px 0"><b>Nights:</b> 5<br><i style="color:#666;font-size:14px">Best location for Pico Mountain and the UNESCO vineyards.
 </i></div>
@@ -196,25 +209,25 @@
             );
         
     
-                marker_b946b92082594915f6e2405535941737.setIcon(icon_317d6faf86032f682aba74b2cfea7a16);
+                marker_2a80ffffba5b57122b7891d58767b1b9.setIcon(icon_46c22124f0c5751d378628d30ee671eb);
             
     
-            feature_group_f3f1f96125512b7ba51dfe7c5c83eb8c.addTo(map_73fabbb790ed26ab27a03f9aabd247c1);
+            feature_group_d44d3c1f20dbaecde6dfc8143624afe7.addTo(map_5482a23633167a424cc5c65d3f949b23);
         
     
-            var feature_group_a00521bf7df358156c91ee0818eb8c78 = L.featureGroup(
+            var feature_group_e7602af6cea9f7978ec5afb7099ff55a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_8110d650385d4c5d482028e9b3a56f6b = L.circleMarker(
+            var circle_marker_18f99ed264deffabedcdbbc0dc30c72b = L.circleMarker(
                 [37.8617, -25.7285],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_8110d650385d4c5d482028e9b3a56f6b.bindTooltip(
+            circle_marker_18f99ed264deffabedcdbbc0dc30c72b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sete Cidades</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcanic Caldera<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -224,13 +237,13 @@
             );
         
     
-            var circle_marker_a07e9c2feba53b5c34d3ccc4cbcdbf67 = L.circleMarker(
+            var circle_marker_b59c500a43f12480d84af11d03488777 = L.circleMarker(
                 [37.8392, -25.7397],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_a07e9c2feba53b5c34d3ccc4cbcdbf67.bindTooltip(
+            circle_marker_b59c500a43f12480d84af11d03488777.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vista do Rei Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -240,13 +253,13 @@
             );
         
     
-            var circle_marker_c01a3a48b7bbcb8b753c2a09626654a0 = L.circleMarker(
+            var circle_marker_9fe4509e208303f226f8d7eaca8591a3 = L.circleMarker(
                 [37.7693, -25.4976],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_c01a3a48b7bbcb8b753c2a09626654a0.bindTooltip(
+            circle_marker_9fe4509e208303f226f8d7eaca8591a3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lagoa do Fogo</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcanic Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -256,13 +269,13 @@
             );
         
     
-            var circle_marker_c61617a525894ab86070aa5b3e9976b8 = L.circleMarker(
+            var circle_marker_6fd8444a20f20efcc70ecc015f25fcd6 = L.circleMarker(
                 [37.793, -25.3237],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_c61617a525894ab86070aa5b3e9976b8.bindTooltip(
+            circle_marker_6fd8444a20f20efcc70ecc015f25fcd6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Furnas Geothermal Area</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Area<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -272,13 +285,13 @@
             );
         
     
-            var circle_marker_0ac4596a614fe1fb2949abd444529b12 = L.circleMarker(
+            var circle_marker_1027db2a1d14a6eddd861dddc436658c = L.circleMarker(
                 [37.7937, -25.3214],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_0ac4596a614fe1fb2949abd444529b12.bindTooltip(
+            circle_marker_1027db2a1d14a6eddd861dddc436658c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Terra Nostra Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Thermal Pool<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -288,13 +301,13 @@
             );
         
     
-            var circle_marker_7773c88464f7cb5d28a2344f69aaa40b = L.circleMarker(
+            var circle_marker_3b49468a0641b6ece1c397446df853c2 = L.circleMarker(
                 [37.7919, -25.321],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_7773c88464f7cb5d28a2344f69aaa40b.bindTooltip(
+            circle_marker_3b49468a0641b6ece1c397446df853c2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Poca da Dona Beija</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Thermal Pool<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -304,13 +317,13 @@
             );
         
     
-            var circle_marker_87e871be79259e52735abd5250c5efcb = L.circleMarker(
+            var circle_marker_3699afd6a4f063decf085f676b77dd97 = L.circleMarker(
                 [37.8007, -25.5402],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_87e871be79259e52735abd5250c5efcb.bindTooltip(
+            circle_marker_3699afd6a4f063decf085f676b77dd97.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Salto do Cabrito</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Hike<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -320,13 +333,13 @@
             );
         
     
-            var circle_marker_02321efc32f9fdca05d98509779544d2 = L.circleMarker(
+            var circle_marker_3da039abee921d642e3934ff7ef0f4ae = L.circleMarker(
                 [37.8178, -25.2501],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_02321efc32f9fdca05d98509779544d2.bindTooltip(
+            circle_marker_3da039abee921d642e3934ff7ef0f4ae.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ribeira dos Caldeiroes</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Park<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -336,13 +349,13 @@
             );
         
     
-            var circle_marker_b8d3a650da892ca790f43d3df49dcb3f = L.circleMarker(
+            var circle_marker_711b051356d83699a7aafb4d22268c9d = L.circleMarker(
                 [37.7341, -25.1862],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_b8d3a650da892ca790f43d3df49dcb3f.bindTooltip(
+            circle_marker_711b051356d83699a7aafb4d22268c9d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sanguinho Trail</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -352,13 +365,13 @@
             );
         
     
-            var circle_marker_c40dc40c50c6d615d4f46d32987dbf8c = L.circleMarker(
+            var circle_marker_65c40989338ba8ac4ba5adb7c934aec4 = L.circleMarker(
                 [37.7412, -25.6756],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_c40dc40c50c6d615d4f46d32987dbf8c.bindTooltip(
+            circle_marker_65c40989338ba8ac4ba5adb7c934aec4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ponta Delgada</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -368,13 +381,13 @@
             );
         
     
-            var circle_marker_36d2edef07d91616a319d699a9825ae2 = L.circleMarker(
+            var circle_marker_467d6168e7fd90d67068ace59fbeed84 = L.circleMarker(
                 [37.7412, -25.6756],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_36d2edef07d91616a319d699a9825ae2.bindTooltip(
+            circle_marker_467d6168e7fd90d67068ace59fbeed84.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Whale Watching</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Boat Trip<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -384,13 +397,13 @@
             );
         
     
-            var circle_marker_ee409f26aec593b8fa9bd970f72a4b24 = L.circleMarker(
+            var circle_marker_82a4517d21044533cf3fb0d44e7186e3 = L.circleMarker(
                 [38.4699, -28.4008],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_ee409f26aec593b8fa9bd970f72a4b24.bindTooltip(
+            circle_marker_82a4517d21044533cf3fb0d44e7186e3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mount Pico</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcano Hike<br><b>Duration:</b> 7 h<br><b>Base:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -400,13 +413,13 @@
             );
         
     
-            var circle_marker_52312fc274742a839babefb4cc2a0199 = L.circleMarker(
+            var circle_marker_2a1a6a1b2dc80b13e880f9627efaf721 = L.circleMarker(
                 [38.5208, -28.4835],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_52312fc274742a839babefb4cc2a0199.bindTooltip(
+            circle_marker_2a1a6a1b2dc80b13e880f9627efaf721.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Pico Wine Landscape</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Unesco Landscape<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -416,13 +429,13 @@
             );
         
     
-            var circle_marker_079aa6fd16667e413c82b5319d43c26b = L.circleMarker(
+            var circle_marker_d61d100692e58ff92be9e2d35a42d769 = L.circleMarker(
                 [38.3962, -28.251],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_a00521bf7df358156c91ee0818eb8c78);
+            ).addTo(feature_group_e7602af6cea9f7978ec5afb7099ff55a);
         
     
-            circle_marker_079aa6fd16667e413c82b5319d43c26b.bindTooltip(
+            circle_marker_d61d100692e58ff92be9e2d35a42d769.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lajes do Pico</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -432,37 +445,37 @@
             );
         
     
-            feature_group_a00521bf7df358156c91ee0818eb8c78.addTo(map_73fabbb790ed26ab27a03f9aabd247c1);
+            feature_group_e7602af6cea9f7978ec5afb7099ff55a.addTo(map_5482a23633167a424cc5c65d3f949b23);
         
     
-            var feature_group_b2537706b1506d5df333ca650e383288 = L.featureGroup(
+            var feature_group_2fae7e0b46715dfa1d5b133aea5518ce = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_b2537706b1506d5df333ca650e383288.addTo(map_73fabbb790ed26ab27a03f9aabd247c1);
+            feature_group_2fae7e0b46715dfa1d5b133aea5518ce.addTo(map_5482a23633167a424cc5c65d3f949b23);
         
     
-            var layer_control_8107830f2d7e4943fca3e3b22a0cda89_layers = {
+            var layer_control_bfd848202a5d6a015b144f542b79fb80_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_2cbf132f71faac1ec08504eac3b2ebaa,
+                    "cartodbpositron" : tile_layer_9430d85116d551177e0b56d2d5ed2b9b,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Lodging" : feature_group_f3f1f96125512b7ba51dfe7c5c83eb8c,
-                    "\u25cf Base attractions" : feature_group_a00521bf7df358156c91ee0818eb8c78,
-                    "\u25c7 En-route stops" : feature_group_b2537706b1506d5df333ca650e383288,
+                    "\ud83c\udfe8 Lodging" : feature_group_d44d3c1f20dbaecde6dfc8143624afe7,
+                    "\u25cf Base attractions" : feature_group_e7602af6cea9f7978ec5afb7099ff55a,
+                    "\u25c7 En-route stops" : feature_group_2fae7e0b46715dfa1d5b133aea5518ce,
                 },
             };
-            let layer_control_8107830f2d7e4943fca3e3b22a0cda89 = L.control.layers(
-                layer_control_8107830f2d7e4943fca3e3b22a0cda89_layers.base_layers,
-                layer_control_8107830f2d7e4943fca3e3b22a0cda89_layers.overlays,
+            let layer_control_bfd848202a5d6a015b144f542b79fb80 = L.control.layers(
+                layer_control_bfd848202a5d6a015b144f542b79fb80_layers.base_layers,
+                layer_control_bfd848202a5d6a015b144f542b79fb80_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_73fabbb790ed26ab27a03f9aabd247c1);
+            ).addTo(map_5482a23633167a424cc5c65d3f949b23);
 
         
 </script>

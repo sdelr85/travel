@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_47ba9e3cb66a69f9caba1719f94cfc86 {
+                #map_4fd0daa60d814efc7f9d67db8b15f8cb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,7 +55,20 @@
 <body>
     
     
-    <div style="
+    <style>
+        @media (max-width: 600px) {
+            .travel-legend {
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+    </style>
+    <div class="travel-legend" style="
         position: fixed; bottom: 30px; left: 30px; z-index: 1000;
         background: white; padding: 12px 16px; border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
@@ -77,14 +90,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_47ba9e3cb66a69f9caba1719f94cfc86" ></div>
+            <div class="folium-map" id="map_4fd0daa60d814efc7f9d67db8b15f8cb" ></div>
         
 </body>
 <script>
     
     
-            var map_47ba9e3cb66a69f9caba1719f94cfc86 = L.map(
-                "map_47ba9e3cb66a69f9caba1719f94cfc86",
+            var map_4fd0daa60d814efc7f9d67db8b15f8cb = L.map(
+                "map_4fd0daa60d814efc7f9d67db8b15f8cb",
                 {
                     center: [-21.376066666666667, 15.3656],
                     crs: L.CRS.EPSG3857,
@@ -101,7 +114,7 @@
 
         
     
-            var tile_layer_43d8c61d66ec55bba44f48850aa9dcac = L.tileLayer(
+            var tile_layer_09a0ee10bb128a5a99f6fd4880abab82 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -118,30 +131,30 @@
             );
         
     
-            tile_layer_43d8c61d66ec55bba44f48850aa9dcac.addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            tile_layer_09a0ee10bb128a5a99f6fd4880abab82.addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
         
     
-            map_47ba9e3cb66a69f9caba1719f94cfc86.fitBounds(
+            map_4fd0daa60d814efc7f9d67db8b15f8cb.fitBounds(
                 [[-24.49, 15.805], [-22.6784, 14.5266], [-20.5, 14.5], [-21.3, 13.8], [-18.855, 16.329], [-20.433, 17.233]],
                 {}
             );
         
     
-            var feature_group_886248c6642bbd255df0c946b7986ebd = L.featureGroup(
+            var feature_group_cde547ee8af05c50561d0b6dfb158bb7 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_df4f1f8c9dac154c014c4fada7e11548 = L.marker(
+            var marker_2eea97b76cde255080c59d0aebb3950e = L.marker(
                 [-24.49, 15.805],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_1a12e8928a266d727010d36d6cfd0062 = L.AwesomeMarkers.icon(
+            var icon_1c43159328575b7431eb92b70778a1c2 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -152,7 +165,7 @@
             );
         
     
-            marker_df4f1f8c9dac154c014c4fada7e11548.bindTooltip(
+            marker_2eea97b76cde255080c59d0aebb3950e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Sossusvlei / Sesriem</b><br><span style="color:#555">Namib Desert</span><br><hr style="margin:4px 0"><b>Nights:</b> 3</div>
                  </div>`,
@@ -162,18 +175,18 @@
             );
         
     
-                marker_df4f1f8c9dac154c014c4fada7e11548.setIcon(icon_1a12e8928a266d727010d36d6cfd0062);
+                marker_2eea97b76cde255080c59d0aebb3950e.setIcon(icon_1c43159328575b7431eb92b70778a1c2);
             
     
-            var marker_3fbbe344a96c859978703f31dac02613 = L.marker(
+            var marker_a63f39e020008bbfcb09cb0340c6ed16 = L.marker(
                 [-22.6784, 14.5266],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_fab9c353dfc6aa969feabb7d9d79f177 = L.AwesomeMarkers.icon(
+            var icon_82a755a2cc7cbd08c89b44b0763e5414 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -184,7 +197,7 @@
             );
         
     
-            marker_3fbbe344a96c859978703f31dac02613.bindTooltip(
+            marker_a63f39e020008bbfcb09cb0340c6ed16.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Swakopmund</b><br><span style="color:#555">Central Coast</span><br><hr style="margin:4px 0"><b>Nights:</b> 3</div>
                  </div>`,
@@ -194,18 +207,18 @@
             );
         
     
-                marker_3fbbe344a96c859978703f31dac02613.setIcon(icon_fab9c353dfc6aa969feabb7d9d79f177);
+                marker_a63f39e020008bbfcb09cb0340c6ed16.setIcon(icon_82a755a2cc7cbd08c89b44b0763e5414);
             
     
-            var marker_665c063ea46f595dc3a2b03fddb4a8ec = L.marker(
+            var marker_476d671101c2960f7f2465b3f6fd0d4e = L.marker(
                 [-20.5, 14.5],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_fc69c72528f4170113b4bcb835489a49 = L.AwesomeMarkers.icon(
+            var icon_ec5d74157877d829fdd8e2638aa47cb0 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -216,7 +229,7 @@
             );
         
     
-            marker_665c063ea46f595dc3a2b03fddb4a8ec.bindTooltip(
+            marker_476d671101c2960f7f2465b3f6fd0d4e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Damaraland</b><br><span style="color:#555">Damaraland</span><br><hr style="margin:4px 0"><b>Nights:</b> 3</div>
                  </div>`,
@@ -226,18 +239,18 @@
             );
         
     
-                marker_665c063ea46f595dc3a2b03fddb4a8ec.setIcon(icon_fc69c72528f4170113b4bcb835489a49);
+                marker_476d671101c2960f7f2465b3f6fd0d4e.setIcon(icon_ec5d74157877d829fdd8e2638aa47cb0);
             
     
-            var marker_5a69c55c7dbf13e6644e3d5c2c297999 = L.marker(
+            var marker_7dca15ee09d6f640add6c530a2338b07 = L.marker(
                 [-21.3, 13.8],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_98008076a54aae32cb56487f35e5e9dd = L.AwesomeMarkers.icon(
+            var icon_1470f4c2b2192faf25ec0d5f4263724f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -248,7 +261,7 @@
             );
         
     
-            marker_5a69c55c7dbf13e6644e3d5c2c297999.bindTooltip(
+            marker_7dca15ee09d6f640add6c530a2338b07.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Skeleton Coast</b><br><span style="color:#555">Skeleton Coast</span><br><hr style="margin:4px 0"><b>Nights:</b> 2</div>
                  </div>`,
@@ -258,18 +271,18 @@
             );
         
     
-                marker_5a69c55c7dbf13e6644e3d5c2c297999.setIcon(icon_98008076a54aae32cb56487f35e5e9dd);
+                marker_7dca15ee09d6f640add6c530a2338b07.setIcon(icon_1470f4c2b2192faf25ec0d5f4263724f);
             
     
-            var marker_14113565ce303fbd7ab53e8d250275dd = L.marker(
+            var marker_ddde896284b9c3855add66b5a8f29227 = L.marker(
                 [-18.855, 16.329],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_90f3a8c44ce29b4efbcd2e67ee18effc = L.AwesomeMarkers.icon(
+            var icon_456e49ef7c20fd68ca6b22c386e6c66d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -280,7 +293,7 @@
             );
         
     
-            marker_14113565ce303fbd7ab53e8d250275dd.bindTooltip(
+            marker_ddde896284b9c3855add66b5a8f29227.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2c3e50;font-size:16px">🏨 Etosha National Park</b><br><span style="color:#555">Etosha</span><br><hr style="margin:4px 0"><b>Nights:</b> 4</div>
                  </div>`,
@@ -290,18 +303,18 @@
             );
         
     
-                marker_14113565ce303fbd7ab53e8d250275dd.setIcon(icon_90f3a8c44ce29b4efbcd2e67ee18effc);
+                marker_ddde896284b9c3855add66b5a8f29227.setIcon(icon_456e49ef7c20fd68ca6b22c386e6c66d);
             
     
-            var marker_2e13a3957aa365d1abd21fc08a3b313e = L.marker(
+            var marker_b3464718671a3a7dc9d5352dc82f56a4 = L.marker(
                 [-20.433, 17.233],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_886248c6642bbd255df0c946b7986ebd);
+            ).addTo(feature_group_cde547ee8af05c50561d0b6dfb158bb7);
         
     
-            var icon_78e0858fba2b6c8919e15a1bd46a462b = L.AwesomeMarkers.icon(
+            var icon_4f4f46ec56ea2edaabe195fa5d8bf56d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkgreen",
   "iconColor": "white",
@@ -312,7 +325,7 @@
             );
         
     
-            marker_2e13a3957aa365d1abd21fc08a3b313e.bindTooltip(
+            marker_b3464718671a3a7dc9d5352dc82f56a4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#16a085;font-size:16px">🏨 Waterberg Plateau</b><br><span style="color:#555">Central Namibia</span><br><hr style="margin:4px 0"><b>Nights:</b> 2</div>
                  </div>`,
@@ -322,25 +335,25 @@
             );
         
     
-                marker_2e13a3957aa365d1abd21fc08a3b313e.setIcon(icon_78e0858fba2b6c8919e15a1bd46a462b);
+                marker_b3464718671a3a7dc9d5352dc82f56a4.setIcon(icon_4f4f46ec56ea2edaabe195fa5d8bf56d);
             
     
-            feature_group_886248c6642bbd255df0c946b7986ebd.addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            feature_group_cde547ee8af05c50561d0b6dfb158bb7.addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
         
     
-            var feature_group_29181bdf6fe78741ab5944d7f77c6261 = L.featureGroup(
+            var feature_group_5d1baec5830e048d11be78f37f3dfe3a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_67977f817bc0189f504c43783edf6c36 = L.circleMarker(
+            var circle_marker_7acfc14794861ff953cf16716e8d1afc = L.circleMarker(
                 [-24.76, 15.3],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_67977f817bc0189f504c43783edf6c36.bindTooltip(
+            circle_marker_7acfc14794861ff953cf16716e8d1afc.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Deadvlei</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Desert Landscape<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Sossusvlei / Sesriem</span></div>
                  </div>`,
@@ -350,13 +363,13 @@
             );
         
     
-            var circle_marker_0dfc1b08f9be7302a74614f12810fc66 = L.circleMarker(
+            var circle_marker_9047521465fd39eff5bf08afed230cce = L.circleMarker(
                 [-24.728, 15.34],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_0dfc1b08f9be7302a74614f12810fc66.bindTooltip(
+            circle_marker_9047521465fd39eff5bf08afed230cce.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sossusvlei</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Dunes<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Sossusvlei / Sesriem</span></div>
                  </div>`,
@@ -366,13 +379,13 @@
             );
         
     
-            var circle_marker_47aaa2aad7060e66a1b43128bd0c19fc = L.circleMarker(
+            var circle_marker_b60b0a49e41ba7e3ec6091aef5726b67 = L.circleMarker(
                 [-24.718, 15.341],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_47aaa2aad7060e66a1b43128bd0c19fc.bindTooltip(
+            circle_marker_b60b0a49e41ba7e3ec6091aef5726b67.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dune 45</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Dune Hike<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Sossusvlei / Sesriem</span></div>
                  </div>`,
@@ -382,13 +395,13 @@
             );
         
     
-            var circle_marker_8aae51a1da685a89046c55f36ed04d7e = L.circleMarker(
+            var circle_marker_c68ecef94818447c455d2cd60aa38fa9 = L.circleMarker(
                 [-24.7606, 15.2943],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_8aae51a1da685a89046c55f36ed04d7e.bindTooltip(
+            circle_marker_c68ecef94818447c455d2cd60aa38fa9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Big Daddy</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Dune Hike<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Sossusvlei / Sesriem</span></div>
                  </div>`,
@@ -398,13 +411,13 @@
             );
         
     
-            var circle_marker_1a6d6e04845a462bc01e62dd7807039f = L.circleMarker(
+            var circle_marker_8924b539f79301d6a4f3d7585b4ae61a = L.circleMarker(
                 [-24.487, 15.809],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_1a6d6e04845a462bc01e62dd7807039f.bindTooltip(
+            circle_marker_8924b539f79301d6a4f3d7585b4ae61a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sesriem Canyon</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Sossusvlei / Sesriem</span></div>
                  </div>`,
@@ -414,13 +427,13 @@
             );
         
     
-            var circle_marker_3be97bb04f0329e08139cfc84ebc05cc = L.circleMarker(
+            var circle_marker_2acdf8050069304daaee92979c4081eb = L.circleMarker(
                 [-22.6784, 14.5266],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_3be97bb04f0329e08139cfc84ebc05cc.bindTooltip(
+            circle_marker_2acdf8050069304daaee92979c4081eb.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Swakopmund</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Town<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Swakopmund</span></div>
                  </div>`,
@@ -430,13 +443,13 @@
             );
         
     
-            var circle_marker_4a8f8380aa1a2a51b4a0502fb5381841 = L.circleMarker(
+            var circle_marker_acb16249efe4048b9fa44b93710e5661 = L.circleMarker(
                 [-22.9575, 14.5053],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_4a8f8380aa1a2a51b4a0502fb5381841.bindTooltip(
+            circle_marker_acb16249efe4048b9fa44b93710e5661.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Walvis Bay</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lagoon<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Swakopmund</span></div>
                  </div>`,
@@ -446,13 +459,13 @@
             );
         
     
-            var circle_marker_81d14b2178f16129b7e6ee88ff8da6be = L.circleMarker(
+            var circle_marker_a4a86d2a19122b98542c87770d358c43 = L.circleMarker(
                 [-23.367, 14.483],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_81d14b2178f16129b7e6ee88ff8da6be.bindTooltip(
+            circle_marker_a4a86d2a19122b98542c87770d358c43.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sandwich Harbour</b><br><span style="color:#2980b9;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Dune Excursion<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Swakopmund</span></div>
                  </div>`,
@@ -462,13 +475,13 @@
             );
         
     
-            var circle_marker_90ef825ba20a61b6d821362e1e073111 = L.circleMarker(
+            var circle_marker_f18ad5de25f1002257d3a33f994cb7d6 = L.circleMarker(
                 [-22.955, 14.505],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_90ef825ba20a61b6d821362e1e073111.bindTooltip(
+            circle_marker_f18ad5de25f1002257d3a33f994cb7d6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Walvis Bay Flamingos</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#2980b9">Swakopmund</span></div>
                  </div>`,
@@ -478,13 +491,13 @@
             );
         
     
-            var circle_marker_2f1dcaa6737b3cab6c0b02ee5c3e852a = L.circleMarker(
+            var circle_marker_aed2f8ce4c73e9c17555f4ac2419b3cd = L.circleMarker(
                 [-21.825, 15.198],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_2f1dcaa6737b3cab6c0b02ee5c3e852a.bindTooltip(
+            circle_marker_aed2f8ce4c73e9c17555f4ac2419b3cd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Spitzkoppe</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Granite Mountains<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#27ae60">Damaraland</span></div>
                  </div>`,
@@ -494,13 +507,13 @@
             );
         
     
-            var circle_marker_145a404af66a48e1111f69bcfbca1ff1 = L.circleMarker(
+            var circle_marker_b4889a7e6cab91275c8629f30ba9f336 = L.circleMarker(
                 [-20.594, 14.372],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_145a404af66a48e1111f69bcfbca1ff1.bindTooltip(
+            circle_marker_b4889a7e6cab91275c8629f30ba9f336.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Twyfelfontein</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Rock Art<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#27ae60">Damaraland</span></div>
                  </div>`,
@@ -510,13 +523,13 @@
             );
         
     
-            var circle_marker_c06ab187e4ba36037f74027fa0a08437 = L.circleMarker(
+            var circle_marker_e0d5a10f6fd0743437c90da95cf4a7d9 = L.circleMarker(
                 [-20.1, 14.0],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_c06ab187e4ba36037f74027fa0a08437.bindTooltip(
+            circle_marker_e0d5a10f6fd0743437c90da95cf4a7d9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Desert Elephant Area</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#27ae60">Damaraland</span></div>
                  </div>`,
@@ -526,13 +539,13 @@
             );
         
     
-            var circle_marker_5cc485959daa2985b6e3729c085c2b6e = L.circleMarker(
+            var circle_marker_a804b97c61aca05e5d1b36f1bf148f28 = L.circleMarker(
                 [-20.551, 14.404],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_5cc485959daa2985b6e3729c085c2b6e.bindTooltip(
+            circle_marker_a804b97c61aca05e5d1b36f1bf148f28.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Burnt Mountain</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Geology<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#27ae60">Damaraland</span></div>
                  </div>`,
@@ -542,13 +555,13 @@
             );
         
     
-            var circle_marker_7b7f724a2312631a5a71a3399a28e2cd = L.circleMarker(
+            var circle_marker_a7f9111cb780394c9c57b322a5f7dc6e = L.circleMarker(
                 [-21.3, 13.8],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_7b7f724a2312631a5a71a3399a28e2cd.bindTooltip(
+            circle_marker_a7f9111cb780394c9c57b322a5f7dc6e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Skeleton Coast</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Landscape<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#8e44ad">Skeleton Coast</span></div>
                  </div>`,
@@ -558,13 +571,13 @@
             );
         
     
-            var circle_marker_7786bd06f2e3d2253965eb794d85f052 = L.circleMarker(
+            var circle_marker_866bb80d8b61d938a5d80b313993ae82 = L.circleMarker(
                 [-21.766, 13.959],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_7786bd06f2e3d2253965eb794d85f052.bindTooltip(
+            circle_marker_866bb80d8b61d938a5d80b313993ae82.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Cape Cross Seal Colony</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#8e44ad">Skeleton Coast</span></div>
                  </div>`,
@@ -574,13 +587,13 @@
             );
         
     
-            var circle_marker_22d1bee23e07264e45baa2631e37ebef = L.circleMarker(
+            var circle_marker_b93a1c721f8e35497ee4990a496e599e = L.circleMarker(
                 [-18.855, 16.329],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_22d1bee23e07264e45baa2631e37ebef.bindTooltip(
+            circle_marker_b93a1c721f8e35497ee4990a496e599e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Etosha Pan</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 8 h<br><b>Base:</b> <span style="color:#2c3e50">Etosha National Park</span></div>
                  </div>`,
@@ -590,13 +603,13 @@
             );
         
     
-            var circle_marker_d3ca093f1720ba137c33988b0bb3ba42 = L.circleMarker(
+            var circle_marker_3270e1ca19294047efdd507c93646ad8 = L.circleMarker(
                 [-19.192, 15.912],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_d3ca093f1720ba137c33988b0bb3ba42.bindTooltip(
+            circle_marker_3270e1ca19294047efdd507c93646ad8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Okaukuejo Waterhole</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2c3e50">Etosha National Park</span></div>
                  </div>`,
@@ -606,13 +619,13 @@
             );
         
     
-            var circle_marker_9e9080f08507a1bc164019b5740c644a = L.circleMarker(
+            var circle_marker_7a7641ca7288bcbd9ff938cb5deda008 = L.circleMarker(
                 [-19.019, 16.462],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_9e9080f08507a1bc164019b5740c644a.bindTooltip(
+            circle_marker_7a7641ca7288bcbd9ff938cb5deda008.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Halali Waterhole</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2c3e50">Etosha National Park</span></div>
                  </div>`,
@@ -622,13 +635,13 @@
             );
         
     
-            var circle_marker_c397d665b789645ebe61409d41cddac0 = L.circleMarker(
+            var circle_marker_02800d478c39be3f6f3c91983d5f46b1 = L.circleMarker(
                 [-18.792, 16.995],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_c397d665b789645ebe61409d41cddac0.bindTooltip(
+            circle_marker_02800d478c39be3f6f3c91983d5f46b1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Namutoni Area</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2c3e50">Etosha National Park</span></div>
                  </div>`,
@@ -638,13 +651,13 @@
             );
         
     
-            var circle_marker_3a737115a369d2b87c3724f934b87316 = L.circleMarker(
+            var circle_marker_b4e4e902f0d50249fabd706443fd6024 = L.circleMarker(
                 [-20.433, 17.233],
                 {"bubblingMouseEvents": true, "color": "#16a085", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a085", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_3a737115a369d2b87c3724f934b87316.bindTooltip(
+            circle_marker_b4e4e902f0d50249fabd706443fd6024.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Waterberg Plateau</b><br><span style="color:#16a085;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Plateau Hike<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#16a085">Waterberg Plateau</span></div>
                  </div>`,
@@ -654,13 +667,13 @@
             );
         
     
-            var circle_marker_739a5dc14da0a10be119ea27482f15b6 = L.circleMarker(
+            var circle_marker_eb09076d440285b65fcecb6845aee87c = L.circleMarker(
                 [-20.433, 17.233],
                 {"bubblingMouseEvents": true, "color": "#16a085", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a085", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_29181bdf6fe78741ab5944d7f77c6261);
+            ).addTo(feature_group_5d1baec5830e048d11be78f37f3dfe3a);
         
     
-            circle_marker_739a5dc14da0a10be119ea27482f15b6.bindTooltip(
+            circle_marker_eb09076d440285b65fcecb6845aee87c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Rhino Tracking</b><br><span style="color:#16a085;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#16a085">Waterberg Plateau</span></div>
                  </div>`,
@@ -670,22 +683,22 @@
             );
         
     
-            feature_group_29181bdf6fe78741ab5944d7f77c6261.addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            feature_group_5d1baec5830e048d11be78f37f3dfe3a.addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
         
     
-            var feature_group_17f2beb042dcfedf389ac697d90628f8 = L.featureGroup(
+            var feature_group_6a346490983a1cd6d2057aa1eaf6d58d = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_77decc30dbe709f4360f7275e7ab3122 = L.circleMarker(
+            var circle_marker_2bb02b612af077f55527a0d50630b824 = L.circleMarker(
                 [-23.889, 16.005],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_17f2beb042dcfedf389ac697d90628f8);
+            ).addTo(feature_group_6a346490983a1cd6d2057aa1eaf6d58d);
         
     
-            circle_marker_77decc30dbe709f4360f7275e7ab3122.bindTooltip(
+            circle_marker_2bb02b612af077f55527a0d50630b824.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Solitaire</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Desert Stop<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Sossusvlei to Swakopmund</span></div>
                  </div>`,
@@ -695,23 +708,23 @@
             );
         
     
-            feature_group_17f2beb042dcfedf389ac697d90628f8.addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            feature_group_6a346490983a1cd6d2057aa1eaf6d58d.addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
         
     
-            var feature_group_f023240933f7a63740f9c7dfddc378df = L.featureGroup(
+            var feature_group_4d1a48c65f7c1bc7e2502f0bacad7ab6 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_eee5f66753743a1257a70410b5cc4c36 = L.marker(
+            var marker_8e8e6731ec9839ea82474e7cbd375439 = L.marker(
                 [-22.4799, 17.4709],
                 {
 }
-            ).addTo(feature_group_f023240933f7a63740f9c7dfddc378df);
+            ).addTo(feature_group_4d1a48c65f7c1bc7e2502f0bacad7ab6);
         
     
-            var icon_eac42a241e35c0c45ff016432705bb8a = L.AwesomeMarkers.icon(
+            var icon_a92df06c9005bbdb6b0a5c9239674ede = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -722,7 +735,7 @@
             );
         
     
-            marker_eee5f66753743a1257a70410b5cc4c36.bindTooltip(
+            marker_8e8e6731ec9839ea82474e7cbd375439.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif"><b>✈️ Hosea Kutako International Airport</b></div>
                  </div>`,
@@ -732,32 +745,32 @@
             );
         
     
-                marker_eee5f66753743a1257a70410b5cc4c36.setIcon(icon_eac42a241e35c0c45ff016432705bb8a);
+                marker_8e8e6731ec9839ea82474e7cbd375439.setIcon(icon_a92df06c9005bbdb6b0a5c9239674ede);
             
     
-            feature_group_f023240933f7a63740f9c7dfddc378df.addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            feature_group_4d1a48c65f7c1bc7e2502f0bacad7ab6.addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
         
     
-            var layer_control_cc2038cffed8731e0de8cf8eeb3508d2_layers = {
+            var layer_control_9297ea70996797d9441d219946cd5aa8_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_43d8c61d66ec55bba44f48850aa9dcac,
+                    "cartodbpositron" : tile_layer_09a0ee10bb128a5a99f6fd4880abab82,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Lodging" : feature_group_886248c6642bbd255df0c946b7986ebd,
-                    "\u25cf Base attractions" : feature_group_29181bdf6fe78741ab5944d7f77c6261,
-                    "\u25c7 En-route stops" : feature_group_17f2beb042dcfedf389ac697d90628f8,
-                    "\u2708 Airport" : feature_group_f023240933f7a63740f9c7dfddc378df,
+                    "\ud83c\udfe8 Lodging" : feature_group_cde547ee8af05c50561d0b6dfb158bb7,
+                    "\u25cf Base attractions" : feature_group_5d1baec5830e048d11be78f37f3dfe3a,
+                    "\u25c7 En-route stops" : feature_group_6a346490983a1cd6d2057aa1eaf6d58d,
+                    "\u2708 Airport" : feature_group_4d1a48c65f7c1bc7e2502f0bacad7ab6,
                 },
             };
-            let layer_control_cc2038cffed8731e0de8cf8eeb3508d2 = L.control.layers(
-                layer_control_cc2038cffed8731e0de8cf8eeb3508d2_layers.base_layers,
-                layer_control_cc2038cffed8731e0de8cf8eeb3508d2_layers.overlays,
+            let layer_control_9297ea70996797d9441d219946cd5aa8 = L.control.layers(
+                layer_control_9297ea70996797d9441d219946cd5aa8_layers.base_layers,
+                layer_control_9297ea70996797d9441d219946cd5aa8_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_47ba9e3cb66a69f9caba1719f94cfc86);
+            ).addTo(map_4fd0daa60d814efc7f9d67db8b15f8cb);
 
         
 </script>

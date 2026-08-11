@@ -201,7 +201,20 @@ def build_map(data: dict) -> folium.Map:
         for v in PRIORITY_META.values()
     )
     legend_html = f"""
-    <div style="
+    <style>
+        @media (max-width: 600px) {{
+            .travel-legend {{
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }}
+        }}
+    </style>
+    <div class="travel-legend" style="
         position: fixed; bottom: 30px; left: 30px; z-index: 1000;
         background: white; padding: 12px 16px; border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
@@ -629,6 +642,18 @@ def build_selection_page(countries: list) -> str:
             font-weight: 700;
             font-family: sans-serif;
             cursor: pointer;
+        }}
+        @media (max-width: 1024px) {{
+            .cards {{ grid-template-columns: repeat(2, 1fr); }}
+            h1 {{ font-size: 2rem; }}
+            #world-map {{ height: 320px; }}
+        }}
+        @media (max-width: 600px) {{
+            body {{ padding: 20px 12px; }}
+            .cards {{ grid-template-columns: 1fr; gap: 14px; }}
+            h1 {{ font-size: 1.6rem; }}
+            .subtitle {{ font-size: 0.95rem; margin-bottom: 24px; }}
+            #world-map {{ height: 240px; margin-bottom: 20px; }}
         }}
     </style>
 </head>
