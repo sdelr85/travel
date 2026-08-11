@@ -8,7 +8,7 @@ import yaml
 
 # ── paths ─────────────────────────────────────────────────────────────────────
 HERE = pathlib.Path(__file__).parent
-OUTPUT_SELECTION = HERE / "travel_selection.html"
+OUTPUT_SELECTION = HERE / "index.html"
 
 # ISO 3166-1 alpha-2 codes used with the flag-icons CSS library
 COUNTRY_ISO = {
@@ -218,7 +218,7 @@ def build_map(data: dict) -> folium.Map:
             🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
         </span>
         <hr style="margin:8px 0">
-        <a href="../travel_selection.html"
+        <a href="../index.html"
            style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
     </div>
     """
