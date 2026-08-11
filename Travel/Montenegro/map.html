@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_010ffe2054a29dc4e0d5116b3e444c67 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-me" style="border-radius:3px;margin-right:5px"></span>Montenegro</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Bay of Kotor / Perast / Dobrota</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Zabljak / Durmitor</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Virpazar / Lake Skadar</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_010ffe2054a29dc4e0d5116b3e444c67" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_010ffe2054a29dc4e0d5116b3e444c67 = L.map(
+                "map_010ffe2054a29dc4e0d5116b3e444c67",
+                {
+                    center: [42.60816666666667, 18.9937],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b8227b477199d4ae209f1d0564d9aef6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b8227b477199d4ae209f1d0564d9aef6.addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+        
+    
+            map_010ffe2054a29dc4e0d5116b3e444c67.fitBounds(
+                [[42.4247, 18.7712], [43.1551, 19.1221], [42.2447, 19.0878]],
+                {}
+            );
+        
+    
+            var feature_group_c7d37bbf28951e5e108b4c3985b8d7fb = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f1dd99467144277b64362d82c73b669a = L.marker(
+                [42.4247, 18.7712],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_c7d37bbf28951e5e108b4c3985b8d7fb);
+        
+    
+            var icon_10c04bad1626b394b2bbcc95fcbce7ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f1dd99467144277b64362d82c73b669a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Bay of Kotor / Perast / Dobrota</b><br><span style="color:#555">Bay of Kotor and Lovcen</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">This base covers Kotor, Perast, the Bay of Kotor, Lovcen, Cetinje and possibly Budva/Sveti Stefan as a day trip.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f1dd99467144277b64362d82c73b669a.setIcon(icon_10c04bad1626b394b2bbcc95fcbce7ff);
+            
+    
+            var marker_5c34ed327a2e92ddf0489f5b151f7f21 = L.marker(
+                [43.1551, 19.1221],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_c7d37bbf28951e5e108b4c3985b8d7fb);
+        
+    
+            var icon_f817cba458efebf8ca63fec64f6797dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_5c34ed327a2e92ddf0489f5b151f7f21.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Zabljak / Durmitor</b><br><span style="color:#555">Durmitor National Park and North Montenegro</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Mountain base for Durmitor National Park, Black Lake, Tara Canyon and the Durmitor Ring. Allow time for altitude and slower roads.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c34ed327a2e92ddf0489f5b151f7f21.setIcon(icon_f817cba458efebf8ca63fec64f6797dd);
+            
+    
+            var marker_4176d65b341e0030b83ac66689235ed5 = L.marker(
+                [42.2447, 19.0878],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_c7d37bbf28951e5e108b4c3985b8d7fb);
+        
+    
+            var icon_dafcbf8f3be8912e03810b0a94487b23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_4176d65b341e0030b83ac66689235ed5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Virpazar / Lake Skadar</b><br><span style="color:#555">Lake Skadar and the Adriatic Coast</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Excellent base for Lake Skadar boat trips, the Pavlova Strana viewpoint, Rijeka Crnojevica and a final coastal stop before departure.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4176d65b341e0030b83ac66689235ed5.setIcon(icon_dafcbf8f3be8912e03810b0a94487b23);
+            
+    
+            feature_group_c7d37bbf28951e5e108b4c3985b8d7fb.addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+        
+    
+            var feature_group_bc425ead1ed076d3cec8bbacd6778bd7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c9c345dd3bdfc1c7d6dbcb281394478b = L.circleMarker(
+                [42.4247, 18.7712],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_c9c345dd3bdfc1c7d6dbcb281394478b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kotor Old Town</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Old Town<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Best early morning or evening, especially in summer or on cruise ship days.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81e3f55171a4f8eab3ec5fd0d5973225 = L.circleMarker(
+                [42.4258, 18.7735],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_81e3f55171a4f8eab3ec5fd0d5973225.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kotor City Walls / Fortress Hike</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike Viewpoint<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Great view over the bay. Avoid midday heat.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97025c9b7c0b1258bd6217871ce202fe = L.circleMarker(
+                [42.4865, 18.699],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_97025c9b7c0b1258bd6217871ce202fe.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Perast</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Village<br><b>Duration:</b> 2 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Beautiful bay village, good for a relaxed morning or late afternoon.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11e92ca0f2dd30fb43d947e6555fbb02 = L.circleMarker(
+                [42.4869, 18.6886],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_11e92ca0f2dd30fb43d947e6555fbb02.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Our Lady of the Rocks</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Boat Trip Short<br><b>Duration:</b> 1 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Short boat trip from Perast.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f892e15f4ba843c910588c06a45f6f2 = L.circleMarker(
+                [42.3995, 18.8376],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_4f892e15f4ba843c910588c06a45f6f2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lovcen National Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain National Park<br><b>Duration:</b> 3 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Good mountain contrast to the coast. Combine with Cetinje or the Kotor serpentine road.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf0d0e8d0a0b910cfa3f288dfcd5b179 = L.circleMarker(
+                [42.3994, 18.837],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_cf0d0e8d0a0b910cfa3f288dfcd5b179.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Njegos Mausoleum</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 85 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Summit mausoleum with panoramic views. Combine with Lovcen.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30630da4d2319800b2baffa25786ad42 = L.circleMarker(
+                [42.3931, 18.9214],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_30630da4d2319800b2baffa25786ad42.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Cetinje</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Town<br><b>Duration:</b> 2 h<br><b>From base:</b> 70 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Former royal capital, good cultural half-day from Kotor.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7ecb8410a879b6baa357858511b7affc = L.circleMarker(
+                [42.2564, 18.892],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_7ecb8410a879b6baa357858511b7affc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sveti Stefan Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Iconic island hotel viewpoint. Easy day trip south along the coast.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_67b72445b8c2ad03f0b2ccf736f30236 = L.circleMarker(
+                [42.2791, 18.84],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_67b72445b8c2ad03f0b2ccf736f30236.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Budva Old Town</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Old Town<br><b>Duration:</b> 2 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#e74c3c">Bay of Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Lively coastal town, busier than Kotor but worth a short visit.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2cac024341125e5e63c848ce1a807aa = L.circleMarker(
+                [43.1401, 19.097],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_b2cac024341125e5e63c848ce1a807aa.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Black Lake / Crno Jezero</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Lake Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">Easy lakeside walk directly from Zabljak. Best first morning activity.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_565a5c84090448780563ac65dccc9d57 = L.circleMarker(
+                [43.1466, 19.2481],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_565a5c84090448780563ac65dccc9d57.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tara Canyon Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">One of Europe's deepest canyons. Curevac viewpoint is the most accessible.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c12f19daacc86c0f8686fc98cd1bf349 = L.circleMarker(
+                [43.1551, 19.1221],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_c12f19daacc86c0f8686fc98cd1bf349.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Durmitor Ring Scenic Drive</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Duration:</b> 4 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">Classic circular mountain drive through the national park with glacier lakes and peaks.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32f3b64ae819c8571e2ac2181b77e9bc = L.circleMarker(
+                [43.1504, 19.2706],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_32f3b64ae819c8571e2ac2181b77e9bc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tara Bridge / Djurdjevica Tara</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Bridge Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">Iconic concrete arch bridge above the canyon.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f8eed32881adf772e4746c2a42bc331 = L.circleMarker(
+                [43.05, 18.87],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_0f8eed32881adf772e4746c2a42bc331.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Piva Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon Scenic Drive<br><b>Duration:</b> 3 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">Dramatic road carved into the canyon walls along the Piva reservoir.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_866849a95020c4af48ce411d48fcca48 = L.circleMarker(
+                [43.1077, 19.0391],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_866849a95020c4af48ce411d48fcca48.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bobotov Kuk Hike</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Strenuous Hike<br><b>Duration:</b> 6 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#2980b9">Zabljak / Durmitor</span><br><i style="color:#666;font-size:13px">Highest peak of Durmitor. Only for a very motivated and fit family day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5cb3897e7b785f931ac53d70c7821781 = L.circleMarker(
+                [42.2447, 19.0878],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_5cb3897e7b785f931ac53d70c7821781.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Skadar Boat Trip</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Boat Trip Lake<br><b>Duration:</b> 3 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#27ae60">Virpazar / Lake Skadar</span><br><i style="color:#666;font-size:13px">The best way to experience the lake. Pelicans, water lilies, monasteries on islands.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2f97d2a80757104dba0b025e1392612 = L.circleMarker(
+                [42.304, 19.035],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_d2f97d2a80757104dba0b025e1392612.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Pavlova Strana Viewpoint</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 20 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#27ae60">Virpazar / Lake Skadar</span><br><i style="color:#666;font-size:13px">Elevated viewpoint over the lake and Rijeka Crnojevica river gorge.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2aa67d32181ffd3215219f6a1ed6844a = L.circleMarker(
+                [42.317, 19.034],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_2aa67d32181ffd3215219f6a1ed6844a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Rijeka Crnojevica</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village River Gorge<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#27ae60">Virpazar / Lake Skadar</span><br><i style="color:#666;font-size:13px">Picturesque village at the river mouth. Good pair with Pavlova Strana.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d873a4446bdff10bd32871fa55080488 = L.circleMarker(
+                [42.4304, 19.2594],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_d873a4446bdff10bd32871fa55080488.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Podgorica</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Virpazar / Lake Skadar</span><br><i style="color:#666;font-size:13px">Capital city, useful if departing from Podgorica Airport.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d2dfbdc16559425c5b217f7191c15ff = L.circleMarker(
+                [42.0948, 19.149],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bc425ead1ed076d3cec8bbacd6778bd7);
+        
+    
+            circle_marker_5d2dfbdc16559425c5b217f7191c15ff.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Old Bar / Stari Bar</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Ruins Historic Site<br><b>Duration:</b> 2 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#27ae60">Virpazar / Lake Skadar</span><br><i style="color:#666;font-size:13px">Atmospheric ruined medieval town in the hills above the modern coastal town.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_bc425ead1ed076d3cec8bbacd6778bd7.addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+        
+    
+            var feature_group_9f4a2b10d390df6fe3c15d2025742884 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_dd7910a511f8eac5a2f802f4f22a5f72 = L.circleMarker(
+                [42.4047, 18.7233],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_9f4a2b10d390df6fe3c15d2025742884);
+        
+    
+            circle_marker_dd7910a511f8eac5a2f802f4f22a5f72.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Tivat Airport</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Arrival Point<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Arrival<br><b>En route:</b> <span style="color:#e67e22">Tivat Airport to Bay of Kotor</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_866792642cd05bdfd8fe153f2586f696 = L.circleMarker(
+                [42.3995, 18.8376],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_9f4a2b10d390df6fe3c15d2025742884);
+        
+    
+            circle_marker_866792642cd05bdfd8fe153f2586f696.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Lovcen National Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain National Park<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Bay of Kotor to Zabljak via Lovcen and Cetinje</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e7fd2bd5f21ad1e80dc203132c74c63 = L.circleMarker(
+                [42.3931, 18.9214],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_9f4a2b10d390df6fe3c15d2025742884);
+        
+    
+            circle_marker_5e7fd2bd5f21ad1e80dc203132c74c63.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Cetinje</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Town<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#e74c3c">Bay of Kotor to Zabljak via Lovcen and Cetinje</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee7b92d3f32f51f053023fd9e0b1db19 = L.circleMarker(
+                [43.05, 18.87],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_9f4a2b10d390df6fe3c15d2025742884);
+        
+    
+            circle_marker_ee7b92d3f32f51f053023fd9e0b1db19.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Piva Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon Scenic Drive<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Scenic Route<br><b>En route:</b> <span style="color:#2980b9">Zabljak to Virpazar / Lake Skadar via Piva Canyon</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_9f4a2b10d390df6fe3c15d2025742884.addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+        
+    
+            var feature_group_7858d0b948b875d6a5d6f5c4a61112e1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_534cacca98cce228e49c15f468a7f516 = L.marker(
+                [42.4047, 18.7233],
+                {
+}
+            ).addTo(feature_group_7858d0b948b875d6a5d6f5c4a61112e1);
+        
+    
+            var icon_ecdb07955baa99dc7b7bba0d4d423991 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_534cacca98cce228e49c15f468a7f516.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif"><b>✈️ Tivat Airport</b></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_534cacca98cce228e49c15f468a7f516.setIcon(icon_ecdb07955baa99dc7b7bba0d4d423991);
+            
+    
+            feature_group_7858d0b948b875d6a5d6f5c4a61112e1.addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+        
+    
+            var layer_control_6e4955403259211625fc8d5b74c10d85_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_b8227b477199d4ae209f1d0564d9aef6,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_c7d37bbf28951e5e108b4c3985b8d7fb,
+                    "\u25cf Base attractions" : feature_group_bc425ead1ed076d3cec8bbacd6778bd7,
+                    "\u25c7 En-route stops" : feature_group_9f4a2b10d390df6fe3c15d2025742884,
+                    "\u2708 Airport" : feature_group_7858d0b948b875d6a5d6f5c4a61112e1,
+                },
+            };
+            let layer_control_6e4955403259211625fc8d5b74c10d85 = L.control.layers(
+                layer_control_6e4955403259211625fc8d5b74c10d85_layers.base_layers,
+                layer_control_6e4955403259211625fc8d5b74c10d85_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_010ffe2054a29dc4e0d5116b3e444c67);
+
+        
+</script>
+</html>

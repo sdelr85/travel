@@ -1,0 +1,291 @@
+trip:
+  country: South Africa
+
+  overview:
+    rank: 12
+
+    summary: >
+      19-day family fly-in self-drive trip through South Africa,
+      combining Cape Town, mountains, coastline, wildlife,
+      the Garden Route and safari.
+
+    summary_reason: >
+      A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within a single trip.
+
+    transport: "✈ Plane + 🚗 Rental car + ✈ Domestic flight"
+
+    duration_days: 19
+    duration_nights: 18
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+      - Table Mountain
+      - Cape Peninsula
+      - Boulders Penguins
+      - Hermanus
+      - Garden Route
+      - Tsitsikamma
+      - Addo Elephant Park
+      - Kruger National Park
+
+  direction: cape_town_to_kruger
+
+  duration:
+
+    days: 19
+    nights: 18
+
+    base_locations: 6
+
+    recommended_base_split:
+
+      - base: cape_town
+        nights: 5
+
+      - base: hermanus
+        nights: 2
+
+      - base: knysna
+        nights: 4
+
+      - base: tsitsikamma
+        nights: 2
+
+      - base: addo
+        nights: 2
+
+      - base: kruger
+        nights: 3
+
+  lodging_locations:
+
+    - id: cape_town
+
+      name: Cape Town
+
+      stay_nights: 5
+
+      coordinates:
+        lat: -33.9249
+        lon: 18.4241
+
+      base_attractions:
+
+        - id: table_mountain
+          name: Table Mountain
+          priority: must_do
+          type: hiking_viewpoint
+          coordinates:
+            lat: -33.9628
+            lon: 18.4098
+
+        - id: lions_head
+          name: Lions Head
+          priority: highly_recommended
+          type: hike
+          coordinates:
+            lat: -33.9349
+            lon: 18.3946
+
+        - id: cape_of_good_hope
+          name: Cape of Good Hope
+          priority: must_do
+          type: coastal_landscape
+          coordinates:
+            lat: -34.3568
+            lon: 18.4740
+
+        - id: boulders_beach
+          name: Boulders Beach Penguins
+          priority: must_do
+          type: wildlife
+          coordinates:
+            lat: -34.1961
+            lon: 18.4510
+
+        - id: chapmans_peak
+          name: Chapmans Peak Drive
+          priority: highly_recommended
+          type: scenic_drive
+          coordinates:
+            lat: -34.0719
+            lon: 18.3530
+
+        - id: camps_bay
+          name: Camps Bay
+          priority: if_time
+          type: beach
+          coordinates:
+            lat: -33.9500
+            lon: 18.3770
+
+    - id: hermanus
+
+      name: Hermanus
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -34.4187
+        lon: 19.2345
+
+      base_attractions:
+
+        - id: cliff_path
+          name: Hermanus Cliff Path
+          priority: must_do
+          type: coastal_walk
+          coordinates:
+            lat: -34.4180
+            lon: 19.2430
+
+        - id: whale_watching
+          name: Whale Watching
+          priority: optional_paid_activity
+          type: boat_trip
+          coordinates:
+            lat: -34.4187
+            lon: 19.2345
+
+    - id: knysna
+
+      name: Knysna / Plettenberg Bay
+
+      stay_nights: 4
+
+      coordinates:
+        lat: -34.0363
+        lon: 23.0471
+
+      base_attractions:
+
+        - id: knysna_heads
+          name: Knysna Heads
+          priority: must_do
+          type: viewpoint
+          coordinates:
+            lat: -34.0550
+            lon: 23.0560
+
+        - id: robberg
+          name: Robberg Peninsula
+          priority: must_do
+          type: hiking
+          coordinates:
+            lat: -34.1015
+            lon: 23.3630
+
+        - id: plett_beaches
+          name: Plettenberg Bay Beaches
+          priority: highly_recommended
+          type: beach
+          coordinates:
+            lat: -34.0500
+            lon: 23.3710
+
+    - id: tsitsikamma
+
+      name: Tsitsikamma
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -34.0300
+        lon: 23.8860
+
+      base_attractions:
+
+        - id: suspension_bridge
+          name: Storms River Suspension Bridge
+          priority: must_do
+          type: coastal_walk
+          coordinates:
+            lat: -34.0280
+            lon: 23.8930
+
+        - id: waterfall_hike
+          name: Waterfall Trail
+          priority: highly_recommended
+          type: hiking
+          coordinates:
+            lat: -34.0230
+            lon: 23.8890
+
+        - id: kayaking
+          name: Storms River Kayaking
+          priority: optional_paid_activity
+          type: adventure
+          coordinates:
+            lat: -34.0240
+            lon: 23.8920
+
+    - id: addo
+
+      name: Addo Elephant Park
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -33.4830
+        lon: 25.7480
+
+      base_attractions:
+
+        - id: addo_game_drive
+          name: Addo Game Drive
+          priority: must_do
+          type: safari
+          coordinates:
+            lat: -33.4830
+            lon: 25.7480
+
+    - id: kruger
+
+      name: Kruger National Park
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -24.9950
+        lon: 31.5960
+
+      base_attractions:
+
+        - id: kruger_safari
+          name: Kruger Safari
+          priority: must_do
+          type: safari
+          coordinates:
+            lat: -24.9950
+            lon: 31.5960
+
+        - id: sunrise_game_drive
+          name: Sunrise Safari
+          priority: highly_recommended
+          type: safari
+          coordinates:
+            lat: -24.9950
+            lon: 31.5960
+
+        - id: sunset_game_drive
+          name: Sunset Safari
+          priority: highly_recommended
+          type: safari
+          coordinates:
+            lat: -24.9950
+            lon: 31.5960
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - kruger_safari
+
+    possible_second_paid_activity:
+      - whale_watching
+
+    possible_third_paid_activity:
+      - storms_river_kayaking
+
+    planning_note: >
+      The safari experience is the one activity that should not be skipped.

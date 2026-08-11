@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_95578946e2e3174bf0cab1d994abf722 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-no" style="border-radius:3px;margin-right:5px"></span>Norway</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Rjukan / Gausta / Telemark</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Aurland / Flam / Voss</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Loen / Olden / Stryn</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_95578946e2e3174bf0cab1d994abf722" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_95578946e2e3174bf0cab1d994abf722 = L.map(
+                "map_95578946e2e3174bf0cab1d994abf722",
+                {
+                    center: [60.88616666666667, 7.542033333333333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_409f7bba4406c50c276abc7c61f3966d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_409f7bba4406c50c276abc7c61f3966d.addTo(map_95578946e2e3174bf0cab1d994abf722);
+        
+    
+            map_95578946e2e3174bf0cab1d994abf722.fitBounds(
+                [[59.8789, 8.5941], [60.908, 7.187], [61.8716, 6.845]],
+                {}
+            );
+        
+    
+            var feature_group_45a8f4b2985f8d3acef1ed03c8665b2f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f67ed0decd1acbdad49edc7a47080992 = L.marker(
+                [59.8789, 8.5941],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_45a8f4b2985f8d3acef1ed03c8665b2f);
+        
+    
+            var icon_9164fddef96786eb0b8984a9bcb54365 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f67ed0decd1acbdad49edc7a47080992.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Rjukan / Gausta / Telemark</b><br><span style="color:#555">Telemark, Gaustatoppen and Hardangervidda access</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">This replaces the Stavanger/Jorpeland base because the trip enters Norway by car via Sweden and Oslo. It avoids a large detour to Stavanger while still giving dramatic mountain scenery and family-friendly activities.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f67ed0decd1acbdad49edc7a47080992.setIcon(icon_9164fddef96786eb0b8984a9bcb54365);
+            
+    
+            var marker_35a62ee50d77b2aedd0fcc94f2c1276d = L.marker(
+                [60.908, 7.187],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_45a8f4b2985f8d3acef1ed03c8665b2f);
+        
+    
+            var icon_71edce1656669d473b298382fae4fddd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_35a62ee50d77b2aedd0fcc94f2c1276d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Aurland / Flam / Voss</b><br><span style="color:#555">Sognefjord, Naeroyfjord and Aurlandsfjord</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">This base covers classic fjord experiences: Naeroyfjord, Aurlandsfjord, Flam Railway, Stegastein and mountain roads. The main travel route remains possible by car; boat/ferry activities are optional.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35a62ee50d77b2aedd0fcc94f2c1276d.setIcon(icon_71edce1656669d473b298382fae4fddd);
+            
+    
+            var marker_2fef4fb31075b8b4d591949c54a8ee80 = L.marker(
+                [61.8716, 6.845],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_45a8f4b2985f8d3acef1ed03c8665b2f);
+        
+    
+            var icon_3203cad0e93ef114e24a78cf981e1b92 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_2fef4fb31075b8b4d591949c54a8ee80.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Loen / Olden / Stryn</b><br><span style="color:#555">Nordfjord, glaciers and Geiranger access</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">This base gives dramatic lake, glacier and fjord scenery. Geiranger can be visited by road; ferry or fjord cruise options remain optional activities.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2fef4fb31075b8b4d591949c54a8ee80.setIcon(icon_3203cad0e93ef114e24a78cf981e1b92);
+            
+    
+            feature_group_45a8f4b2985f8d3acef1ed03c8665b2f.addTo(map_95578946e2e3174bf0cab1d994abf722);
+        
+    
+            var feature_group_967ea62d11a64de4a933d7c6f251e480 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_eba6e10b077a8dc0c45f3b574b6aeaf0 = L.circleMarker(
+                [59.854, 8.649],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_eba6e10b077a8dc0c45f3b574b6aeaf0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gaustatoppen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Hike Viewpoint<br><b>Duration:</b> 5 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Iconic mountain viewpoint. Can be hiked, or partly simplified with Gaustabanen if operating and if you choose it as a paid activity.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_418e224842e7a5af7e11813bc39a9817 = L.circleMarker(
+                [59.854, 8.649],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_418e224842e7a5af7e11813bc39a9817.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gaustabanen</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Railway Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Useful if the family wants the Gaustatoppen view without a full hike. Weather-dependent.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3d11e725e4a4a148437bae471d5d1c4 = L.circleMarker(
+                [59.8719, 8.491],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_d3d11e725e4a4a148437bae471d5d1c4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vemork / Norwegian Industrial Workers Museum</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Museum History<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Strong rainy-day or history-focused option near Rjukan.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf00ceeb03312befaaa8108247f59fd8 = L.circleMarker(
+                [59.8789, 8.5941],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_bf00ceeb03312befaaa8108247f59fd8.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Rjukan</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Town Mountain Valley<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Useful for groceries, restaurants and light sightseeing.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a63fc137420a613bb5863726604bbf9f = L.circleMarker(
+                [59.8817, 8.5085],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_a63fc137420a613bb5863726604bbf9f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Krossobanen Cable Car</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cable Car Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Family-friendly viewpoint activity from Rjukan valley. Paid activity candidate.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c11b82762fc2b53abce012ffc4f1447c = L.circleMarker(
+                [60.0, 7.5],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_c11b82762fc2b53abce012ffc4f1447c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hardangervidda National Park Access</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Plateau Scenic Drive Hike<br><b>Duration:</b> 4 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Good for scenic driving and shorter walks. Weather can change quickly.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b89160f8a9d8cbdb20dbfbe1744f02a0 = L.circleMarker(
+                [59.2096, 9.608],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_b89160f8a9d8cbdb20dbfbe1744f02a0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Telemark Canal</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Canal Landscape<br><b>Duration:</b> 3 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">Interesting family excursion if you want a softer landscape day, but it is less essential than Gaustatoppen and Vemork.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f787ff02f02332a505eb3fe3b0a8479 = L.circleMarker(
+                [59.5797, 9.1762],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_0f787ff02f02332a505eb3fe3b0a8479.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Heddal Stave Church</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cultural Site<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#e74c3c">Rjukan / Gausta / Telemark</span><br><i style="color:#666;font-size:13px">One of Norway's most impressive stave churches. Good stop between Oslo and Rjukan if timing allows.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d51a43f483492c77e8a6d0ea8e691e15 = L.circleMarker(
+                [60.9085, 7.2137],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_d51a43f483492c77e8a6d0ea8e691e15.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Stegastein Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 20 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Very easy high-impact viewpoint above Aurlandsfjord.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df1efd69df54cabce5d1f286c1628b90 = L.circleMarker(
+                [60.9455, 6.9504],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_df1efd69df54cabce5d1f286c1628b90.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Naeroyfjord</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord<br><b>Duration:</b> 3 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Best experienced by cruise, ferry or kayak, but this is an optional activity rather than part of the transport route.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9a6a0117b0a38d517a8e14f9d8f0bb24 = L.circleMarker(
+                [60.861, 7.1139],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_9a6a0117b0a38d517a8e14f9d8f0bb24.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Flam Railway / Flamsbana</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Train<br><b>Duration:</b> 3 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Classic scenic railway experience. Paid activity candidate.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce327084ac50b70011053d65c0e283b0 = L.circleMarker(
+                [60.946, 7.315],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_ce327084ac50b70011053d65c0e283b0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Aurlandsfjellet Scenic Road / Snow Road</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Duration:</b> 3 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Mountain road alternative to the Laerdal Tunnel, depending on opening and weather. Fully by car.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_96189b00f92b34eaf89824a1e7d66257 = L.circleMarker(
+                [61.0471, 7.8125],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_96189b00f92b34eaf89824a1e7d66257.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Borgund Stave Church</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cultural Site<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 55 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Good cultural contrast to fjords and hikes.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cda0e9f49812fb0007cf89ca62849bd7 = L.circleMarker(
+                [60.9516, 7.102],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_cda0e9f49812fb0007cf89ca62849bd7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Undredal</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord Village<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Small fjord village, easy low-effort stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_275634e85f9d10646d5db988d6ad351a = L.circleMarker(
+                [60.8783, 6.8386],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_275634e85f9d10646d5db988d6ad351a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Viking Valley Gudvangen</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Family Cultural Activity<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Potential family-friendly cultural visit, especially in mixed weather.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb69e768eacadc623b64107f778ea4cc = L.circleMarker(
+                [60.6286, 6.4147],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_cb69e768eacadc623b64107f778ea4cc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Voss</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town Outdoor Activities<br><b>Duration:</b> 3 h<br><b>From base:</b> 65 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Good base for optional paid adventure activities, but not essential if limiting paid activities.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_493ad821251b1f947056d7670583996e = L.circleMarker(
+                [60.82, 7.55],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_493ad821251b1f947056d7670583996e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Aurlandsdalen Valley Hike</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 5 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Aurland / Flam / Voss</span><br><i style="color:#666;font-size:13px">Beautiful but should be planned as a proper hiking day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_346374af21c350e60070dc9dfd67a86f = L.circleMarker(
+                [61.8708, 6.8444],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_346374af21c350e60070dc9dfd67a86f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Loen Skylift / Mount Hoven</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint Paid Activity<br><b>Duration:</b> 3 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">High-impact viewpoint. Paid activity, but very efficient and family-friendly.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0c92ae7669f0a54012d56e374a4fd0f = L.circleMarker(
+                [61.815, 6.89],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_e0c92ae7669f0a54012d56e374a4fd0f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Lovatnet</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Lake Scenic Drive Walk<br><b>Duration:</b> 3 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">One of the most scenic easy family outings in the area.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e83d962cbea4c92435f3f9b1d2e978fd = L.circleMarker(
+                [61.6646, 6.8749],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_e83d962cbea4c92435f3f9b1d2e978fd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Briksdalsbreen Glacier</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Walk<br><b>Duration:</b> 3 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Classic glacier valley walk near Olden.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7abafdeb4e7e02b9e3805cbe884c88d3 = L.circleMarker(
+                [61.735, 6.82],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_7abafdeb4e7e02b9e3805cbe884c88d3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Oldevatnet Lake</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake Scenic Drive<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Good to combine with Briksdalsbreen.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d7bb26e58dea5f1c8677794ee692cef = L.circleMarker(
+                [62.1049, 7.205],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_0d7bb26e58dea5f1c8677794ee692cef.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Geirangerfjord</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord<br><b>Duration:</b> 5 h<br><b>From base:</b> 120 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Longer day trip by road. A fjord cruise or ferry is optional, not required for reaching the area.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cd2d365024e9188ed9629b8799a2f6a4 = L.circleMarker(
+                [62.049, 7.27],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_cd2d365024e9188ed9629b8799a2f6a4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dalsnibba / Geiranger Skywalk</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 120 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Best combined with Geiranger day if weather is clear.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_823c96e0df2f7f46ffa5c801224216c2 = L.circleMarker(
+                [62.0938, 7.232],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_823c96e0df2f7f46ffa5c801224216c2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Flydalsjuvet Viewpoint</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 0.5 h<br><b>From base:</b> 115 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Short stop above Geiranger.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15aed5bd2343b839e2e665e6e8e8359f = L.circleMarker(
+                [61.92, 7.1],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_15aed5bd2343b839e2e665e6e8e8359f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hjelle and Oppstrynsvatnet</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Lake Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Beautiful easy family stop near Stryn.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aaf8934d6fa2d5280191694594f2fa4c = L.circleMarker(
+                [61.89, 6.65],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_aaf8934d6fa2d5280191694594f2fa4c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Raksetra / Oppheimsetra Hike</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hike Viewpoint<br><b>Duration:</b> 3 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Good local hike with fjord and mountain views.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_95e50b6e48da487311b91c04485fdbbd = L.circleMarker(
+                [61.8708, 6.8444],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_967ea62d11a64de4a933d7c6f251e480);
+        
+    
+            circle_marker_95e50b6e48da487311b91c04485fdbbd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Via Ferrata Loen</b><br><span style="color:#27ae60;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Adventure Activity<br><b>Duration:</b> 5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Loen / Olden / Stryn</span><br><i style="color:#666;font-size:13px">Only if the family wants a serious paid adventure activity and all age/height requirements are met.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_967ea62d11a64de4a933d7c6f251e480.addTo(map_95578946e2e3174bf0cab1d994abf722);
+        
+    
+            var feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d0d7149275892b09d05ba7ea46a27400 = L.circleMarker(
+                [53.5511, 9.9937],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_d0d7149275892b09d05ba7ea46a27400.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Hamburg</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Or Meal Stop<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#e67e22">Belgium to Denmark or southern Sweden overnight stop</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_695c5193623e220ccacc93729a636ca8 = L.circleMarker(
+                [55.4038, 10.4024],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_695c5193623e220ccacc93729a636ca8.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Odense</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Practical Overnight Stop<br><b>Stop duration:</b> 12 h<br><b>Role:</b> Overnight Alternative<br><b>En route:</b> <span style="color:#e67e22">Belgium to Denmark or southern Sweden overnight stop</span><br><i style="color:#666;font-size:13px">Practical if Belgium to Copenhagen feels too long, but less strategically useful for a ferry-free route.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4b1c91444d1ac77c59fac9dad000ce0b = L.circleMarker(
+                [55.6761, 12.5683],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_4b1c91444d1ac77c59fac9dad000ce0b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Copenhagen</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Overnight Stop<br><b>Stop duration:</b> 12 h<br><b>Role:</b> Preferred Overnight<br><b>En route:</b> <span style="color:#e67e22">Belgium to Denmark or southern Sweden overnight stop</span><br><i style="color:#666;font-size:13px">Best Denmark stop for this ferry-free route.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2dfc418f75c0f408bb913be8ad8870e5 = L.circleMarker(
+                [55.605, 13.0038],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_2dfc418f75c0f408bb913be8ad8870e5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Malmo</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Overnight Stop<br><b>Stop duration:</b> 12 h<br><b>Role:</b> Overnight Alternative<br><b>En route:</b> <span style="color:#e67e22">Belgium to Denmark or southern Sweden overnight stop</span><br><i style="color:#666;font-size:13px">Good if you want to sleep in Sweden after crossing the Oresund Bridge.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5b6e16e7df73c63f99d9defd5b68da70 = L.circleMarker(
+                [55.576, 12.854],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_5b6e16e7df73c63f99d9defd5b68da70.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Oresund Bridge</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Bridge Crossing<br><b>Stop duration:</b> 0 h<br><b>Role:</b> Route Segment<br><b>En route:</b> <span style="color:#e67e22">Denmark/Sweden to Telemark via western Sweden and Oslo</span><br><i style="color:#666;font-size:13px">Key ferry-free connection from Denmark to Sweden.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e62acbde2c4c6e3495b885b22b24c75c = L.circleMarker(
+                [57.7089, 11.9746],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_e62acbde2c4c6e3495b885b22b24c75c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gothenburg</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Or Meal Stop<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Short Stop Or Overnight<br><b>En route:</b> <span style="color:#e67e22">Denmark/Sweden to Telemark via western Sweden and Oslo</span><br><i style="color:#666;font-size:13px">Useful if you split the Denmark-to-Norway access over more time.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec305b4708f9ba0f5967dba7378e8a03 = L.circleMarker(
+                [59.9139, 10.7522],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_ec305b4708f9ba0f5967dba7378e8a03.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Oslo</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Stop<br><b>Stop duration:</b> 4 h<br><b>Role:</b> Candidate Or Overnight<br><b>En route:</b> <span style="color:#e67e22">Denmark/Sweden to Telemark via western Sweden and Oslo</span><br><i style="color:#666;font-size:13px">Natural gateway into Norway on a ferry-free route. If you want real Oslo time, add an overnight or treat it as part of the access phase.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bea820ff6af5fefd8ccd4b0972a374f8 = L.circleMarker(
+                [59.5797, 9.1762],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_bea820ff6af5fefd8ccd4b0972a374f8.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Heddal Stave Church</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cultural Site<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e67e22">Denmark/Sweden to Telemark via western Sweden and Oslo</span><br><i style="color:#666;font-size:13px">Good stop between Oslo and Rjukan if timing allows.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_92e4b096cb229677d7063b4c22464351 = L.circleMarker(
+                [60.0, 7.5],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_92e4b096cb229677d7063b4c22464351.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Hardangervidda Scenic Route</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive Plateau<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Scenic Route<br><b>En route:</b> <span style="color:#e74c3c">Telemark / Rjukan to Aurland / Flam via Hardangervidda and Hardanger</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33ab5dfc1e78191483a29b5305edea1e = L.circleMarker(
+                [60.4266, 7.2519],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_33ab5dfc1e78191483a29b5305edea1e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Voringsfossen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Viewpoint<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Telemark / Rjukan to Aurland / Flam via Hardangervidda and Hardanger</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e1ffa8e23b422d5d70c98b1f79d710d = L.circleMarker(
+                [60.467, 7.0718],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_1e1ffa8e23b422d5d70c98b1f79d710d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eidfjord</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord Village Lunch Stop<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#e74c3c">Telemark / Rjukan to Aurland / Flam via Hardangervidda and Hardanger</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d35c1ef7bf4b89d6da882b26b0a19e8b = L.circleMarker(
+                [60.478, 6.83],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_d35c1ef7bf4b89d6da882b26b0a19e8b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Hardanger Bridge</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Route Segment<br><b>En route:</b> <span style="color:#e74c3c">Telemark / Rjukan to Aurland / Flam via Hardangervidda and Hardanger</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06d212c00fd67e22edd71d86ccbd0d32 = L.circleMarker(
+                [60.945, 7.25],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_06d212c00fd67e22edd71d86ccbd0d32.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Laerdal Tunnel or Aurlandsfjellet Snow Road</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Route Choice<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Route Choice<br><b>En route:</b> <span style="color:#2980b9">Aurland/Flam to Loen/Olden/Stryn via Sognefjord and Fjaerland</span><br><i style="color:#666;font-size:13px">Use the Snow Road if open and weather is good; use the tunnel if you want a faster/easier transfer.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_57e2ae93f8c146c0f9434dbba0a28d48 = L.circleMarker(
+                [61.4047, 6.7394],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_57e2ae93f8c146c0f9434dbba0a28d48.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Fjaerland</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord Village<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#2980b9">Aurland/Flam to Loen/Olden/Stryn via Sognefjord and Fjaerland</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d066d6afc853783c2c4b7327d4b020fa = L.circleMarker(
+                [61.5, 6.75],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_d066d6afc853783c2c4b7327d4b020fa.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Boyabreen Glacier</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Viewpoint<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#2980b9">Aurland/Flam to Loen/Olden/Stryn via Sognefjord and Fjaerland</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_373bf3e3d31cc237d9b0872beaf70402 = L.circleMarker(
+                [61.337, 6.447],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_373bf3e3d31cc237d9b0872beaf70402.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gaularfjellet / Utsikten Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Viewpoint<br><b>Stop duration:</b> 0.75 h<br><b>Role:</b> Scenic Detour<br><b>En route:</b> <span style="color:#2980b9">Aurland/Flam to Loen/Olden/Stryn via Sognefjord and Fjaerland</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4b9c41350236532afdd113c247aeee8 = L.circleMarker(
+                [61.1153, 10.4662],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_b4b9c41350236532afdd113c247aeee8.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Lillehammer</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town Stop<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#27ae60">Fully car-based return from Loen/Stryn to Belgium via Oslo, Sweden, Denmark and Germany</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b552faca53274c5d3d443265d323095 = L.circleMarker(
+                [59.9139, 10.7522],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_2b552faca53274c5d3d443265d323095.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Oslo</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Stop Or Overnight<br><b>Stop duration:</b> 4 h<br><b>Role:</b> Candidate Or Overnight<br><b>En route:</b> <span style="color:#27ae60">Fully car-based return from Loen/Stryn to Belgium via Oslo, Sweden, Denmark and Germany</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f4375a685cfb719d481e40551fe1eb32 = L.circleMarker(
+                [57.7089, 11.9746],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_f4375a685cfb719d481e40551fe1eb32.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gothenburg</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Stop Or Overnight<br><b>Stop duration:</b> 4 h<br><b>Role:</b> Candidate Or Overnight<br><b>En route:</b> <span style="color:#27ae60">Fully car-based return from Loen/Stryn to Belgium via Oslo, Sweden, Denmark and Germany</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4f43c52124c6455110518d1df68d4a0 = L.circleMarker(
+                [55.6761, 12.5683],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940);
+        
+    
+            circle_marker_e4f43c52124c6455110518d1df68d4a0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Copenhagen</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Stop Or Overnight<br><b>Stop duration:</b> 4 h<br><b>Role:</b> Candidate Or Overnight<br><b>En route:</b> <span style="color:#27ae60">Fully car-based return from Loen/Stryn to Belgium via Oslo, Sweden, Denmark and Germany</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940.addTo(map_95578946e2e3174bf0cab1d994abf722);
+        
+    
+            var layer_control_e638605b68d45dc418c011b5e3a55359_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_409f7bba4406c50c276abc7c61f3966d,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_45a8f4b2985f8d3acef1ed03c8665b2f,
+                    "\u25cf Base attractions" : feature_group_967ea62d11a64de4a933d7c6f251e480,
+                    "\u25c7 En-route stops" : feature_group_d02a5a9b70eb1a8bc5d800aa3f10e940,
+                },
+            };
+            let layer_control_e638605b68d45dc418c011b5e3a55359 = L.control.layers(
+                layer_control_e638605b68d45dc418c011b5e3a55359_layers.base_layers,
+                layer_control_e638605b68d45dc418c011b5e3a55359_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_95578946e2e3174bf0cab1d994abf722);
+
+        
+</script>
+</html>

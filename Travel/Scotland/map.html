@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_df95c9565a07867b1e8c803457e15361 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-gb-sct" style="border-radius:3px;margin-right:5px"></span>Scotland</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Glencoe / Fort William</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Isle of Skye</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Applecross / Torridon</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Ullapool / Assynt</td></tr><tr><td><span style="color:#2c3e50;font-size:18px">■</span></td><td style="padding-left:6px">Edinburgh</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_df95c9565a07867b1e8c803457e15361" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_df95c9565a07867b1e8c803457e15361 = L.map(
+                "map_df95c9565a07867b1e8c803457e15361",
+                {
+                    center: [57.09966, -5.09106],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b114f9cbd37aa41fbdc53d8b02d718d1 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b114f9cbd37aa41fbdc53d8b02d718d1.addTo(map_df95c9565a07867b1e8c803457e15361);
+        
+    
+            map_df95c9565a07867b1e8c803457e15361.fitBounds(
+                [[56.682, -5.103], [57.412, -6.194], [57.555, -5.81], [57.896, -5.16], [55.9533, -3.1883]],
+                {}
+            );
+        
+    
+            var feature_group_d2b44239cba0539731471471448eaf60 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_43cc04ed68e298e19772664602cf997b = L.marker(
+                [56.682, -5.103],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_d2b44239cba0539731471471448eaf60);
+        
+    
+            var icon_d0dfaa1ac3b59a021fe4102ba9c6b33c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_43cc04ed68e298e19772664602cf997b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Glencoe / Fort William</b><br><span style="color:#555">Western Highlands</span><br><hr style="margin:4px 0"><b>Nights:</b> 2<br><i style="color:#666;font-size:14px">Ideal first Highlands base after arriving from Newcastle via Loch Lomond.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_43cc04ed68e298e19772664602cf997b.setIcon(icon_d0dfaa1ac3b59a021fe4102ba9c6b33c);
+            
+    
+            var marker_52f1c66dcda4018a2579cfc31ca2b12e = L.marker(
+                [57.412, -6.194],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_d2b44239cba0539731471471448eaf60);
+        
+    
+            var icon_bc80fde83836b53ccb8a3e16442c791b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_52f1c66dcda4018a2579cfc31ca2b12e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Isle of Skye</b><br><span style="color:#555">Inner Hebrides</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Main hiking and photography base of the trip.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52f1c66dcda4018a2579cfc31ca2b12e.setIcon(icon_bc80fde83836b53ccb8a3e16442c791b);
+            
+    
+            var marker_338fad138da4ad9e5300e83b6a63e90f = L.marker(
+                [57.555, -5.81],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_d2b44239cba0539731471471448eaf60);
+        
+    
+            var icon_47cd5215d0a6b176471b332f83c52dc7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_338fad138da4ad9e5300e83b6a63e90f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Applecross / Torridon</b><br><span style="color:#555">Wester Ross</span><br><hr style="margin:4px 0"><b>Nights:</b> 2<br><i style="color:#666;font-size:14px">Focus on dramatic mountain scenery and Britain's highest mountain pass.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_338fad138da4ad9e5300e83b6a63e90f.setIcon(icon_47cd5215d0a6b176471b332f83c52dc7);
+            
+    
+            var marker_f10fac4f4f79b887b9e1ffecab7d4b1a = L.marker(
+                [57.896, -5.16],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_d2b44239cba0539731471471448eaf60);
+        
+    
+            var icon_4cecfcf804217ea473a80b603860cc69 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f10fac4f4f79b887b9e1ffecab7d4b1a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Ullapool / Assynt</b><br><span style="color:#555">Northwest Highlands</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Best access point for the dramatic Assynt landscape without the full NC500 loop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f10fac4f4f79b887b9e1ffecab7d4b1a.setIcon(icon_4cecfcf804217ea473a80b603860cc69);
+            
+    
+            var marker_4c81ab637207d2ce323700d57edb160e = L.marker(
+                [55.9533, -3.1883],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_d2b44239cba0539731471471448eaf60);
+        
+    
+            var icon_a3ece30f261f460443f1e16edc67a70b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_4c81ab637207d2ce323700d57edb160e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2c3e50;font-size:16px">🏨 Edinburgh</b><br><span style="color:#555">Central Scotland</span><br><hr style="margin:4px 0"><b>Nights:</b> 2<br><i style="color:#666;font-size:14px">Final cultural stop before returning to Newcastle and the ferry.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4c81ab637207d2ce323700d57edb160e.setIcon(icon_a3ece30f261f460443f1e16edc67a70b);
+            
+    
+            feature_group_d2b44239cba0539731471471448eaf60.addTo(map_df95c9565a07867b1e8c803457e15361);
+        
+    
+            var feature_group_56c1fdeea308c87bffd60312a3def01d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7a4e4c64ae9e257d12bfe636bc5f3f76 = L.circleMarker(
+                [56.6675, -4.9838],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_7a4e4c64ae9e257d12bfe636bc5f3f76.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glencoe Three Sisters</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Hiking Area<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Classic Glencoe viewpoint and valley walks.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a5bc5f2d3b7d5871a686ae630c5afb7 = L.circleMarker(
+                [56.56, -4.93],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_6a5bc5f2d3b7d5871a686ae630c5afb7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glen Etive</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Scenic side glen south of Glencoe, used in Skyfall.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1852c311e82baf39c44d34bda2bf8cee = L.circleMarker(
+                [56.8743, -5.4318],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_1852c311e82baf39c44d34bda2bf8cee.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glenfinnan Viaduct</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Harry Potter Highlight<br><b>Duration:</b> 2 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Check Jacobite steam train timetable for a timed visit.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a264775252eaf3f76f9046dc31bb35ac = L.circleMarker(
+                [56.8734, -5.434],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_a264775252eaf3f76f9046dc31bb35ac.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glenfinnan Monument</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Monument<br><b>Duration:</b> 1 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Easy add-on directly next to the viaduct viewpoint.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8f9b9d5e83a628cf67584f6c2ac43d5 = L.circleMarker(
+                [56.775, -4.9889],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_b8f9b9d5e83a628cf67584f6c2ac43d5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glen Nevis</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Valley Walk<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Beautiful valley below Ben Nevis, good for a relaxed family walk.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6a9c8ddb745c2d513531a8796e2a9a83 = L.circleMarker(
+                [56.7982, -4.9981],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_6a9c8ddb745c2d513531a8796e2a9a83.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ben Nevis Lower Valley Walks</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Glencoe / Fort William</span><br><i style="color:#666;font-size:13px">Lower-level paths around Ben Nevis, suitable for all ages.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_532035c31dde35eaaad429aa77952ce0 = L.circleMarker(
+                [57.5093, -6.1847],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_532035c31dde35eaaad429aa77952ce0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Old Man of Storr</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 3 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Iconic Skye hike. Start early to avoid crowds.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8d1a820d162e2efc1bc4b46d88776016 = L.circleMarker(
+                [57.6411, -6.2796],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_8d1a820d162e2efc1bc4b46d88776016.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Quiraing</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 3 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Dramatic landscape with unique rock formations. Best in morning light.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_616d704d86f1c418af23a7afcdc4df8a = L.circleMarker(
+                [57.25, -6.333],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_616d704d86f1c418af23a7afcdc4df8a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Fairy Pools</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Very popular crystal-clear pools. Visit early morning or in the evening.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d143ff5eb431302d0fc5c9410c67a84 = L.circleMarker(
+                [57.4237, -6.7876],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_4d143ff5eb431302d0fc5c9410c67a84.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Neist Point</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 60 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Westernmost point of Skye. Excellent sunset viewpoint.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6700d4c73820e5f30c95710846378741 = L.circleMarker(
+                [57.2924, -6.1713],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_6700d4c73820e5f30c95710846378741.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sligachan</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Classic Cuillin mountain backdrop. Great photo stop and easy walks.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_885891f9f399640c019deb687dbf74a5 = L.circleMarker(
+                [57.1547, -6.104],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_885891f9f399640c019deb687dbf74a5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Elgol</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Village<br><b>Duration:</b> 2 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Best direct Cuillin view. Boat trips to Loch Coruisk available.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f64c791b6b8db1676fb60048f6239677 = L.circleMarker(
+                [57.5012, -6.3618],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_f64c791b6b8db1676fb60048f6239677.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Coral Beach</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Beach<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Unique white shell-sand beach near Dunvegan.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f7cd396e44d4dac06dee0402f79d33be = L.circleMarker(
+                [57.3614, -6.056],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_f7cd396e44d4dac06dee0402f79d33be.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Isle of Raasay</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Island Day Trip<br><b>Duration:</b> 5 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#2980b9">Isle of Skye</span><br><i style="color:#666;font-size:13px">Peaceful island getaway. 25-min ferry from Sconser.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa8d23190aef568ee16f5b1fe588bd06 = L.circleMarker(
+                [57.4151, -5.6453],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_fa8d23190aef568ee16f5b1fe588bd06.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bealach na Ba</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Mountain Road<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#27ae60">Applecross / Torridon</span><br><i style="color:#666;font-size:13px">One of Britain's highest and most dramatic mountain passes.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c35cf0e921942ecdfb09757d70c974c5 = L.circleMarker(
+                [57.5476, -5.4923],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_c35cf0e921942ecdfb09757d70c974c5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Torridon Mountains</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountains<br><b>Duration:</b> 4 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Applecross / Torridon</span><br><i style="color:#666;font-size:13px">Ancient red sandstone mountains. Good walks from Torridon village.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9a12afd3e4e25076113cc166e04ee384 = L.circleMarker(
+                [57.4338, -5.8151],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_9a12afd3e4e25076113cc166e04ee384.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Applecross Village</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Applecross / Torridon</span><br><i style="color:#666;font-size:13px">Charming coastal village at the foot of Bealach na Ba.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ff38e8ee6d05bd9b4dc0694718e0152 = L.circleMarker(
+                [57.5184, -5.6462],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_6ff38e8ee6d05bd9b4dc0694718e0152.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Shieldaig</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#27ae60">Applecross / Torridon</span><br><i style="color:#666;font-size:13px">Pretty lochside village, good lunch stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ff84b916de9962fc95091c23f5f86dcb = L.circleMarker(
+                [57.6588, -5.6742],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_ff84b916de9962fc95091c23f5f86dcb.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Red Point Beach</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Beach<br><b>Duration:</b> 2 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#27ae60">Applecross / Torridon</span><br><i style="color:#666;font-size:13px">Remote red-sand beach with views towards the Isle of Skye.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c8c6092483613536058c9871b11d54ca = L.circleMarker(
+                [57.9938, -5.2023],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_c8c6092483613536058c9871b11d54ca.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Stac Pollaidh</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 3 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Short but steep and rewarding hike with unique Assynt panorama.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_946bfd591d7b63d87b177bc82f3e395b = L.circleMarker(
+                [58.1578, -5.321],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_946bfd591d7b63d87b177bc82f3e395b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Achmelvich Beach</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Beach<br><b>Duration:</b> 2 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Stunning turquoise-water beach, often nearly empty.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1805b41053b3f77ba962249f230e536a = L.circleMarker(
+                [58.1351, -5.3371],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_1805b41053b3f77ba962249f230e536a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Clachtoll Beach</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Beach<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Good to combine with Achmelvich in a single beach day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_770aecaed76385d86da101a8c4a1cd9e = L.circleMarker(
+                [58.0455, -5.037],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_770aecaed76385d86da101a8c4a1cd9e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Knockan Crag</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Geology Hike<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">World-famous geological landmark with short walks and good views.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04062172aa9808b4b5a6b6b98528b784 = L.circleMarker(
+                [58.1717, -5.0727],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_04062172aa9808b4b5a6b6b98528b784.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ardvreck Castle</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Castle Ruin<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Atmospheric ruin on the shores of Loch Assynt.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5aec1c9a62635ac55cc757c326cf31b4 = L.circleMarker(
+                [58.0685, -5.0971],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_5aec1c9a62635ac55cc757c326cf31b4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Suilven Viewpoints</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Landscape<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Iconic Scottish mountain silhouette, best seen from the Lochinver area.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c7f8a9d04d4d921d59a22ce6160a813 = L.circleMarker(
+                [58.5756, -4.7256],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_1c7f8a9d04d4d921d59a22ce6160a813.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Smoo Cave</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Cave<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 90 min drive<br><b>Base:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Far north detour. Large sea cave, interesting but makes for a very long day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef60b5ed4444001e7a2abadb2e707efb = L.circleMarker(
+                [55.9486, -3.1999],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_ef60b5ed4444001e7a2abadb2e707efb.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Edinburgh Castle</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Castle<br><b>Duration:</b> 3 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Iconic landmark. Book tickets in advance.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_771224857f399470591f48a4cd4c3765 = L.circleMarker(
+                [55.9441, -3.162],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_771224857f399470591f48a4cd4c3765.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Arthur's Seat</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Urban Hike<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Extinct volcano with panoramic city views. Easy family hike.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e8111b2eec6f2f9980aab0a52a9070f = L.circleMarker(
+                [55.949, -3.1896],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_6e8111b2eec6f2f9980aab0a52a9070f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Royal Mile</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Historic main street connecting the castle to Holyrood Palace.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9ab2bab0160d31682216165510e6910 = L.circleMarker(
+                [55.9556, -3.1778],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_a9ab2bab0160d31682216165510e6910.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Calton Hill</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 10 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Easy summit walk with panoramic Edinburgh views. Great at sunset.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_495dfeebe36ba5c4e1d00268174de283 = L.circleMarker(
+                [55.9493, -3.2131],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_495dfeebe36ba5c4e1d00268174de283.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dean Village</b><br><span style="color:#2c3e50;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Walk<br><b>Duration:</b> 1 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Picturesque historic village in a river gorge, short walk from city centre.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf4f0da53808f8fcfda78dce140ab55e = L.circleMarker(
+                [55.9466, -3.192],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_56c1fdeea308c87bffd60312a3def01d);
+        
+    
+            circle_marker_cf4f0da53808f8fcfda78dce140ab55e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">National Museum of Scotland</b><br><span style="color:#2c3e50;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Museum<br><b>Duration:</b> 2 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Free entry. Good rainy-day option in Edinburgh.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_56c1fdeea308c87bffd60312a3def01d.addTo(map_df95c9565a07867b1e8c803457e15361);
+        
+    
+            var feature_group_cd4b7fbf038cd3785d6357a3981c298f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_b75082efb2cac56e7b4c3e579d231674 = L.circleMarker(
+                [54.9902, -2.6028],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_b75082efb2cac56e7b4c3e579d231674.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Hadrian's Wall</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Site<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Cultural Stop<br><b>En route:</b> <span style="color:#e67e22">Newcastle to Glencoe via Hadrian's Wall and Loch Lomond</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45ac0a7c4d40c5f5df0079e562054ac6 = L.circleMarker(
+                [56.09, -4.588],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_45ac0a7c4d40c5f5df0079e562054ac6.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Loch Lomond</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Loch<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Scenic Stop<br><b>En route:</b> <span style="color:#e67e22">Newcastle to Glencoe via Hadrian's Wall and Loch Lomond</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d10d1fdfb2d45bae817c9ea66372ee0 = L.circleMarker(
+                [56.8743, -5.4318],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_3d10d1fdfb2d45bae817c9ea66372ee0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Glenfinnan Viaduct</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Harry Potter Highlight<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Glencoe / Fort William to Isle of Skye via Eilean Donan Castle</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_845931dbdfff6076923625a14bffe570 = L.circleMarker(
+                [57.274, -5.516],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_845931dbdfff6076923625a14bffe570.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eilean Donan Castle</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Castle<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Highlight<br><b>En route:</b> <span style="color:#e74c3c">Glencoe / Fort William to Isle of Skye via Eilean Donan Castle</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48000ca12dcc937a7ca9a3cb50fa84a9 = L.circleMarker(
+                [57.274, -5.516],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_48000ca12dcc937a7ca9a3cb50fa84a9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eilean Donan Castle</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Castle<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Highlight<br><b>En route:</b> <span style="color:#2980b9">Isle of Skye to Applecross / Torridon via Eilean Donan Castle</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6705a583983c1b6a5fe9a4a9a4c44a9f = L.circleMarker(
+                [57.56, -5.2],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_6705a583983c1b6a5fe9a4a9a4c44a9f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Torridon Scenic Route</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Scenic Route<br><b>En route:</b> <span style="color:#27ae60">Applecross / Torridon to Ullapool via scenic Torridon road</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c6f9c1081a164ba2a5bc2e913e8f12e2 = L.circleMarker(
+                [57.3232, -4.4244],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_c6f9c1081a164ba2a5bc2e913e8f12e2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Loch Ness / Urquhart Castle</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Loch<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#8e44ad">Ullapool to Edinburgh via Loch Ness and Pitlochry</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72aad7c370e14f5f1da3aa15bfb5bebc = L.circleMarker(
+                [56.7084, -3.7312],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_72aad7c370e14f5f1da3aa15bfb5bebc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Pitlochry</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#8e44ad">Ullapool to Edinburgh via Loch Ness and Pitlochry</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_721044b73485a3e9d35a404ef632ba19 = L.circleMarker(
+                [55.5096, -1.7127],
+                {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_cd4b7fbf038cd3785d6357a3981c298f);
+        
+    
+            circle_marker_721044b73485a3e9d35a404ef632ba19.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Northumberland Coast / Bamburgh</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Scenic<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Scenic Stop<br><b>En route:</b> <span style="color:#2c3e50">Edinburgh to Newcastle via Northumberland Coast</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_cd4b7fbf038cd3785d6357a3981c298f.addTo(map_df95c9565a07867b1e8c803457e15361);
+        
+    
+            var layer_control_692796610a57e7c30ed4c497ef0d360c_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_b114f9cbd37aa41fbdc53d8b02d718d1,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_d2b44239cba0539731471471448eaf60,
+                    "\u25cf Base attractions" : feature_group_56c1fdeea308c87bffd60312a3def01d,
+                    "\u25c7 En-route stops" : feature_group_cd4b7fbf038cd3785d6357a3981c298f,
+                },
+            };
+            let layer_control_692796610a57e7c30ed4c497ef0d360c = L.control.layers(
+                layer_control_692796610a57e7c30ed4c497ef0d360c_layers.base_layers,
+                layer_control_692796610a57e7c30ed4c497ef0d360c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_df95c9565a07867b1e8c803457e15361);
+
+        
+</script>
+</html>

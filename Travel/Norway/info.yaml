@@ -1,0 +1,848 @@
+trip:
+  country: Norway
+  overview:
+    rank: 7
+    summary: "13-day family self-drive trip from Belgium through Denmark, Sweden and Norway's southern and western fjords, without international ferries."
+    summary_reason: >
+      A perfect family road trip destination offering fjords, mountain hikes, scenic roads and highly accessible nature.
+    transport: "🚗 Own car"
+    duration_days: 13
+    travel_style: "Family road trip from Belgium"
+    highlights:
+      - "Copenhagen / Malmo / Gothenburg / Oslo access route without international ferries"
+      - "Telemark and Hardangervidda as a logical first Norway base"
+      - "Sognefjord, Naeroyfjord and Aurlandsfjord around Aurland / Flam"
+      - "Nordfjord, Loen Skylift, glacier landscapes and Geirangerfjord from Loen / Olden / Stryn"
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: belgium_denmark_sweden_oslo_western_fjords
+  travel_style: family_self_drive
+
+  target_group:
+    adults: 2
+    children: 3
+
+  transport_constraints:
+    international_ferries_to_norway: false
+    international_ferries_back_to_belgium: false
+    route_to_norway: "Belgium -> Germany -> Denmark -> Oresund Bridge -> Sweden -> Oslo -> Norway bases"
+    norwegian_local_car_ferries:
+      allowed: true
+      description: "Short Norwegian road ferries may be used if they are part of local routes or activities, but the trip should not depend on ferries to enter or leave Norway."
+    tourist_boats_or_fjord_cruises:
+      allowed: optional
+      description: "Fjord cruises, ferries or kayaks can be selected as optional paid activities, but the main travel route should remain possible by car."
+
+  duration:
+    norway_base_nights: 12
+    norway_base_days: 13
+    base_locations: 3
+    nights_per_base: 4
+    international_access_days:
+      outbound_to_norway: 2
+      return_to_belgium: 2
+      note: "The 12 Norway base nights assume the long access and return drives are handled separately, with at least one stop in Denmark or Sweden."
+
+  access_plan:
+    from: Belgium
+    by: own_car
+
+    outbound_denmark_stop:
+      recommended_options:
+        - id: copenhagen_stop
+          name: Copenhagen
+          country: Denmark
+          priority: preferred
+          coordinates:
+            lat: 55.6761
+            lon: 12.5683
+          planning_note: "Preferred stop when avoiding ferries, because the route continues naturally via the Oresund Bridge to Sweden. Better as a family city break than Odense."
+
+        - id: odense_stop
+          name: Odense
+          country: Denmark
+          priority: practical_alternative
+          coordinates:
+            lat: 55.4038
+            lon: 10.4024
+          planning_note: "Practical overnight stop if the first driving day from Belgium is already long, but less logical than Copenhagen for a ferry-free continuation via Sweden."
+
+        - id: malmo_stop
+          name: Malmo
+          country: Sweden
+          priority: practical_alternative
+          coordinates:
+            lat: 55.6050
+            lon: 13.0038
+          planning_note: "Useful if you want to cross the Oresund Bridge on the first access phase and sleep just inside Sweden."
+
+        - id: gothenburg_stop
+          name: Gothenburg
+          country: Sweden
+          priority: if_time
+          coordinates:
+            lat: 57.7089
+            lon: 11.9746
+          planning_note: "Possible stop between Copenhagen/Malmo and Oslo, but may make the outbound route feel more like a transit route than a Denmark stop."
+
+    preferred_norway_entry:
+      id: sweden_oslo_route
+      route:
+        - Copenhagen
+        - Oresund Bridge
+        - Malmo
+        - Gothenburg
+        - Oslo
+      planning_note: "Recommended entry route when avoiding all international ferries. Oslo becomes a natural gateway to Norway and Telemark."
+
+  planning_principles:
+    lodging_strategy:
+      note: "Use 3 bases of 4 nights. Because the route enters Norway from Oslo instead of Kristiansand or Stavanger, the first base is changed from Stavanger/Jorpeland to Telemark/Rjukan/Gausta."
+    transfer_day:
+      max_recommended_major_stops: 2
+      max_recommended_sightseeing_hours: 3
+      note: "Transfer days in Norway are slow because of mountains, fjords, tunnels, scenic roads and frequent viewpoints. Keep transfer days realistic."
+    base_day:
+      max_recommended_single_drive_minutes: 120
+      note: "Most major sights should be treated as day trips from a base, not squeezed into transfer days."
+    paid_activities:
+      note: "Possible paid activities are included, but the route can also be done mostly with free hikes, viewpoints, towns and natural sights."
+
+  priority_definitions:
+    must_do:
+      score: 4
+      description: "Absolute highlight. Try to include unless weather or timing makes it unrealistic."
+    highly_recommended:
+      score: 3
+      description: "Strongly recommended if weather is good and the day schedule allows it."
+    if_time:
+      score: 2
+      description: "Good addition, but not essential."
+    optional_paid_activity:
+      score: 1
+      description: "Worth considering, but not essential and should be selected deliberately."
+
+  lodging_locations:
+
+    - id: base_1
+      name: Rjukan / Gausta / Telemark
+      region: Telemark, Gaustatoppen and Hardangervidda access
+      stay_nights: 4
+      coordinates:
+        lat: 59.8789
+        lon: 8.5941
+      lodging_preference_note: "Rjukan is practical for Gaustatoppen, Vemork and Telemark sights. Gaustablikk/Gausta is more scenic and mountain-oriented."
+      planning_note: "This replaces the Stavanger/Jorpeland base because the trip enters Norway by car via Sweden and Oslo. It avoids a large detour to Stavanger while still giving dramatic mountain scenery and family-friendly activities."
+
+      base_attractions:
+        - id: gaustatoppen
+          name: Gaustatoppen
+          priority: must_do
+          type: mountain_hike_viewpoint
+          visit_duration_hours: 5
+          drive_time_minutes: 25
+          coordinates:
+            lat: 59.8540
+            lon: 8.6490
+          difficulty: moderate
+          visit_strategy:
+            primary_base: base_1
+            notes: "Iconic mountain viewpoint. Can be hiked, or partly simplified with Gaustabanen if operating and if you choose it as a paid activity."
+
+        - id: gaustabanen
+          name: Gaustabanen
+          priority: optional_paid_activity
+          type: mountain_railway_viewpoint
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 59.8540
+            lon: 8.6490
+          visit_strategy:
+            primary_base: base_1
+            notes: "Useful if the family wants the Gaustatoppen view without a full hike. Weather-dependent."
+
+        - id: vemork_museum
+          name: Vemork / Norwegian Industrial Workers Museum
+          priority: highly_recommended
+          type: museum_history
+          visit_duration_hours: 2.5
+          drive_time_minutes: 15
+          coordinates:
+            lat: 59.8719
+            lon: 8.4910
+          visit_strategy:
+            primary_base: base_1
+            notes: "Strong rainy-day or history-focused option near Rjukan."
+
+        - id: rjukan_town
+          name: Rjukan
+          priority: highly_recommended
+          type: town_mountain_valley
+          visit_duration_hours: 2
+          drive_time_minutes: 0
+          coordinates:
+            lat: 59.8789
+            lon: 8.5941
+          visit_strategy:
+            primary_base: base_1
+            notes: "Useful for groceries, restaurants and light sightseeing."
+
+        - id: krossobanen
+          name: Krossobanen Cable Car
+          priority: highly_recommended
+          type: cable_car_viewpoint
+          visit_duration_hours: 2
+          drive_time_minutes: 10
+          coordinates:
+            lat: 59.8817
+            lon: 8.5085
+          visit_strategy:
+            primary_base: base_1
+            notes: "Family-friendly viewpoint activity from Rjukan valley. Paid activity candidate."
+
+        - id: hardangervidda_national_park
+          name: Hardangervidda National Park Access
+          priority: highly_recommended
+          type: plateau_scenic_drive_hike
+          visit_duration_hours: 4
+          drive_time_minutes: 45
+          coordinates:
+            lat: 60.0000
+            lon: 7.5000
+          visit_strategy:
+            primary_base: base_1
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Good for scenic driving and shorter walks. Weather can change quickly."
+
+        - id: telemark_canal
+          name: Telemark Canal
+          priority: if_time
+          type: canal_landscape
+          visit_duration_hours: 3
+          drive_time_minutes: 75
+          coordinates:
+            lat: 59.2096
+            lon: 9.6080
+          visit_strategy:
+            primary_base: base_1
+            notes: "Interesting family excursion if you want a softer landscape day, but it is less essential than Gaustatoppen and Vemork."
+
+        - id: heddal_stave_church
+          name: Heddal Stave Church
+          priority: highly_recommended
+          type: cultural_site
+          visit_duration_hours: 1.5
+          drive_time_minutes: 75
+          coordinates:
+            lat: 59.5797
+            lon: 9.1762
+          visit_strategy:
+            primary_base: base_1
+            secondary_opportunity:
+              - transfer_oslo_to_base_1
+            notes: "One of Norway's most impressive stave churches. Good stop between Oslo and Rjukan if timing allows."
+
+      arrival_day_candidates:
+        route_from: oslo_or_sweden
+        note: "After the long access route via Denmark/Sweden/Oslo, keep this day moderate. Oslo and Heddal are candidates depending on timing."
+        candidates:
+          - external_stop_ref: oslo
+          - attraction_ref: heddal_stave_church
+
+      departure_day_candidates:
+        route_to: base_2
+        note: "The route to Aurland/Flam can cross Hardangervidda and pass waterfalls or viewpoints. Avoid adding a long hike."
+        candidates:
+          - attraction_ref: hardangervidda_national_park
+          - external_stop_ref: voringsfossen
+          - external_stop_ref: eidfjord
+
+    - id: base_2
+      name: Aurland / Flam / Voss
+      region: Sognefjord, Naeroyfjord and Aurlandsfjord
+      stay_nights: 4
+      coordinates:
+        lat: 60.9080
+        lon: 7.1870
+      lodging_preference_note: "Aurland is quieter and scenic. Flam is practical but busier. Voss is more central for activities but less fjord-intimate."
+      planning_note: "This base covers classic fjord experiences: Naeroyfjord, Aurlandsfjord, Flam Railway, Stegastein and mountain roads. The main travel route remains possible by car; boat/ferry activities are optional."
+
+      base_attractions:
+        - id: stegastein_viewpoint
+          name: Stegastein Viewpoint
+          priority: must_do
+          type: viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 20
+          coordinates:
+            lat: 60.9085
+            lon: 7.2137
+          visit_strategy:
+            primary_base: base_2
+            good_for_evening_visit: true
+            notes: "Very easy high-impact viewpoint above Aurlandsfjord."
+
+        - id: naeroyfjord
+          name: Naeroyfjord
+          priority: must_do
+          type: fjord
+          visit_duration_hours: 3
+          drive_time_minutes: 25
+          coordinates:
+            lat: 60.9455
+            lon: 6.9504
+          visit_strategy:
+            primary_base: base_2
+            notes: "Best experienced by cruise, ferry or kayak, but this is an optional activity rather than part of the transport route."
+
+        - id: flam_railway
+          name: Flam Railway / Flamsbana
+          priority: highly_recommended
+          type: scenic_train
+          visit_duration_hours: 3
+          drive_time_minutes: 10
+          coordinates:
+            lat: 60.8610
+            lon: 7.1139
+          visit_strategy:
+            primary_base: base_2
+            notes: "Classic scenic railway experience. Paid activity candidate."
+
+        - id: aurlandsfjellet_snow_road
+          name: Aurlandsfjellet Scenic Road / Snow Road
+          priority: highly_recommended
+          type: scenic_drive
+          visit_duration_hours: 3
+          drive_time_minutes: 20
+          coordinates:
+            lat: 60.9460
+            lon: 7.3150
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_2_to_base_3
+            notes: "Mountain road alternative to the Laerdal Tunnel, depending on opening and weather. Fully by car."
+
+        - id: borgund_stave_church
+          name: Borgund Stave Church
+          priority: highly_recommended
+          type: cultural_site
+          visit_duration_hours: 1.5
+          drive_time_minutes: 55
+          coordinates:
+            lat: 61.0471
+            lon: 7.8125
+          visit_strategy:
+            primary_base: base_2
+            notes: "Good cultural contrast to fjords and hikes."
+
+        - id: undredal
+          name: Undredal
+          priority: if_time
+          type: fjord_village
+          visit_duration_hours: 1.5
+          drive_time_minutes: 20
+          coordinates:
+            lat: 60.9516
+            lon: 7.1020
+          visit_strategy:
+            primary_base: base_2
+            notes: "Small fjord village, easy low-effort stop."
+
+        - id: viking_valley_gudvangen
+          name: Viking Valley Gudvangen
+          priority: if_time
+          type: family_cultural_activity
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 60.8783
+            lon: 6.8386
+          visit_strategy:
+            primary_base: base_2
+            notes: "Potential family-friendly cultural visit, especially in mixed weather."
+
+        - id: voss
+          name: Voss
+          priority: if_time
+          type: town_outdoor_activities
+          visit_duration_hours: 3
+          drive_time_minutes: 65
+          coordinates:
+            lat: 60.6286
+            lon: 6.4147
+          visit_strategy:
+            primary_base: base_2
+            notes: "Good base for optional paid adventure activities, but not essential if limiting paid activities."
+
+        - id: aurlandsdalen
+          name: Aurlandsdalen Valley Hike
+          priority: if_time
+          type: hike
+          visit_duration_hours: 5
+          drive_time_minutes: 60
+          coordinates:
+            lat: 60.8200
+            lon: 7.5500
+          difficulty: moderate_to_challenging
+          visit_strategy:
+            primary_base: base_2
+            notes: "Beautiful but should be planned as a proper hiking day."
+
+      arrival_day_candidates:
+        route_from: base_1
+        note: "Keep transfer mostly scenic. Do not add long hikes."
+        candidates:
+          - external_stop_ref: voringsfossen
+          - external_stop_ref: eidfjord
+          - external_stop_ref: hardanger_bridge
+
+      departure_day_candidates:
+        route_to: base_3
+        note: "The route to Loen/Stryn can include Fjaerland and glacier viewpoints."
+        candidates:
+          - external_stop_ref: laerdal_tunnel_or_snow_road
+          - external_stop_ref: boyabreen_glacier
+          - external_stop_ref: fjaerland
+
+    - id: base_3
+      name: Loen / Olden / Stryn
+      region: Nordfjord, glaciers and Geiranger access
+      stay_nights: 4
+      coordinates:
+        lat: 61.8716
+        lon: 6.8450
+      lodging_preference_note: "Loen and Olden are very scenic and close to lakes/glacier trips. Stryn has more services and is practical for Geiranger and Nordfjord."
+      planning_note: "This base gives dramatic lake, glacier and fjord scenery. Geiranger can be visited by road; ferry or fjord cruise options remain optional activities."
+
+      base_attractions:
+        - id: loen_skylift
+          name: Loen Skylift / Mount Hoven
+          priority: must_do
+          type: viewpoint_paid_activity
+          visit_duration_hours: 3
+          drive_time_minutes: 10
+          coordinates:
+            lat: 61.8708
+            lon: 6.8444
+          visit_strategy:
+            primary_base: base_3
+            notes: "High-impact viewpoint. Paid activity, but very efficient and family-friendly."
+
+        - id: lake_lovatnet
+          name: Lake Lovatnet
+          priority: must_do
+          type: lake_scenic_drive_walk
+          visit_duration_hours: 3
+          drive_time_minutes: 20
+          coordinates:
+            lat: 61.8150
+            lon: 6.8900
+          visit_strategy:
+            primary_base: base_3
+            notes: "One of the most scenic easy family outings in the area."
+
+        - id: briksdalsbreen
+          name: Briksdalsbreen Glacier
+          priority: highly_recommended
+          type: glacier_walk
+          visit_duration_hours: 3
+          drive_time_minutes: 45
+          coordinates:
+            lat: 61.6646
+            lon: 6.8749
+          difficulty: easy_to_moderate
+          visit_strategy:
+            primary_base: base_3
+            notes: "Classic glacier valley walk near Olden."
+
+        - id: oldevatnet
+          name: Oldevatnet Lake
+          priority: highly_recommended
+          type: lake_scenic_drive
+          visit_duration_hours: 2
+          drive_time_minutes: 30
+          coordinates:
+            lat: 61.7350
+            lon: 6.8200
+          visit_strategy:
+            primary_base: base_3
+            notes: "Good to combine with Briksdalsbreen."
+
+        - id: geirangerfjord
+          name: Geirangerfjord
+          priority: must_do
+          type: fjord
+          visit_duration_hours: 5
+          drive_time_minutes: 120
+          coordinates:
+            lat: 62.1049
+            lon: 7.2050
+          visit_strategy:
+            primary_base: base_3
+            notes: "Longer day trip by road. A fjord cruise or ferry is optional, not required for reaching the area."
+
+        - id: dalsnibba
+          name: Dalsnibba / Geiranger Skywalk
+          priority: highly_recommended
+          type: mountain_viewpoint
+          visit_duration_hours: 1.5
+          drive_time_minutes: 120
+          coordinates:
+            lat: 62.0490
+            lon: 7.2700
+          visit_strategy:
+            primary_base: base_3
+            notes: "Best combined with Geiranger day if weather is clear."
+
+        - id: flydalsjuvet
+          name: Flydalsjuvet Viewpoint
+          priority: highly_recommended
+          type: viewpoint
+          visit_duration_hours: 0.5
+          drive_time_minutes: 115
+          coordinates:
+            lat: 62.0938
+            lon: 7.2320
+          visit_strategy:
+            primary_base: base_3
+            notes: "Short stop above Geiranger."
+
+        - id: hjelle
+          name: Hjelle and Oppstrynsvatnet
+          priority: highly_recommended
+          type: village_lake_walk
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 61.9200
+            lon: 7.1000
+          visit_strategy:
+            primary_base: base_3
+            notes: "Beautiful easy family stop near Stryn."
+
+        - id: raksetra
+          name: Raksetra / Oppheimsetra Hike
+          priority: if_time
+          type: hike_viewpoint
+          visit_duration_hours: 3
+          drive_time_minutes: 20
+          coordinates:
+            lat: 61.8900
+            lon: 6.6500
+          difficulty: moderate
+          visit_strategy:
+            primary_base: base_3
+            notes: "Good local hike with fjord and mountain views."
+
+        - id: via_ferrata_loen
+          name: Via Ferrata Loen
+          priority: optional_paid_activity
+          type: adventure_activity
+          visit_duration_hours: 5
+          drive_time_minutes: 10
+          coordinates:
+            lat: 61.8708
+            lon: 6.8444
+          difficulty: challenging
+          visit_strategy:
+            primary_base: base_3
+            notes: "Only if the family wants a serious paid adventure activity and all age/height requirements are met."
+
+      arrival_day_candidates:
+        route_from: base_2
+        note: "Fjaerland and glacier stops fit well on the transfer from Aurland/Flam to Loen/Stryn."
+        candidates:
+          - external_stop_ref: fjaerland
+          - external_stop_ref: boyabreen_glacier
+          - external_stop_ref: gaularfjellet_viewpoint
+
+      departure_day_candidates:
+        route_to: belgium_via_oslo_sweden_denmark
+        note: "Return is fully by car via Oslo, Sweden, Denmark and Germany. This likely needs at least 2 long driving days after leaving the final Norway base."
+        candidates:
+          - external_stop_ref: lillehammer
+          - external_stop_ref: oslo
+          - external_stop_ref: gothenburg
+          - external_stop_ref: copenhagen
+
+  transfer_routes:
+
+    - id: transfer_belgium_to_copenhagen_or_malmo
+      from: Belgium
+      to: copenhagen_or_malmo_stop
+      description: Belgium to Denmark or southern Sweden overnight stop
+      planning_note: "This is mainly a long driving day. Copenhagen is the most attractive stop if you want a real city break; Malmo is practical if you want to cross the Oresund Bridge before stopping."
+      en_route_candidates:
+        - id: hamburg
+          name: Hamburg
+          priority: if_time
+          type: city_or_meal_stop
+          stop_duration_hours: 2
+          coordinates:
+            lat: 53.5511
+            lon: 9.9937
+          transfer_role: short_stop
+
+        - id: odense
+          name: Odense
+          priority: if_time
+          type: practical_overnight_stop
+          stop_duration_hours: 12
+          coordinates:
+            lat: 55.4038
+            lon: 10.4024
+          transfer_role: overnight_alternative
+          planning_note: "Practical if Belgium to Copenhagen feels too long, but less strategically useful for a ferry-free route."
+
+        - id: copenhagen
+          name: Copenhagen
+          priority: highly_recommended
+          type: city_overnight_stop
+          stop_duration_hours: 12
+          coordinates:
+            lat: 55.6761
+            lon: 12.5683
+          transfer_role: preferred_overnight
+          planning_note: "Best Denmark stop for this ferry-free route."
+
+        - id: malmo
+          name: Malmo
+          priority: if_time
+          type: city_overnight_stop
+          stop_duration_hours: 12
+          coordinates:
+            lat: 55.6050
+            lon: 13.0038
+          transfer_role: overnight_alternative
+          planning_note: "Good if you want to sleep in Sweden after crossing the Oresund Bridge."
+
+    - id: transfer_copenhagen_or_malmo_to_base_1
+      from: copenhagen_or_malmo_stop
+      to: base_1
+      description: Denmark/Sweden to Telemark via western Sweden and Oslo
+      estimated_direct_drive_hours: 9.0
+      planning_note: "This is a long but ferry-free access day. Consider splitting with a stop near Gothenburg or Oslo if needed. If doing it in one day, keep sightseeing minimal."
+      max_recommended_major_stops: 1
+      en_route_candidates:
+        - id: oresund_bridge
+          name: Oresund Bridge
+          priority: must_do
+          type: bridge_crossing
+          stop_duration_hours: 0
+          coordinates:
+            lat: 55.5760
+            lon: 12.8540
+          transfer_role: route_segment
+          planning_note: "Key ferry-free connection from Denmark to Sweden."
+
+        - id: gothenburg
+          name: Gothenburg
+          priority: if_time
+          type: city_or_meal_stop
+          stop_duration_hours: 2
+          coordinates:
+            lat: 57.7089
+            lon: 11.9746
+          transfer_role: short_stop_or_overnight
+          planning_note: "Useful if you split the Denmark-to-Norway access over more time."
+
+        - id: oslo
+          name: Oslo
+          priority: highly_recommended
+          type: city_stop
+          stop_duration_hours: 4
+          coordinates:
+            lat: 59.9139
+            lon: 10.7522
+          transfer_role: candidate_or_overnight
+          planning_note: "Natural gateway into Norway on a ferry-free route. If you want real Oslo time, add an overnight or treat it as part of the access phase."
+
+        - id: heddal_stave_church
+          name: Heddal Stave Church
+          priority: highly_recommended
+          type: cultural_site
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 59.5797
+            lon: 9.1762
+          transfer_role: candidate
+          planning_note: "Good stop between Oslo and Rjukan if timing allows."
+
+    - id: transfer_base_1_to_base_2
+      from: base_1
+      to: base_2
+      description: Telemark / Rjukan to Aurland / Flam via Hardangervidda and Hardanger
+      estimated_direct_drive_hours: 5.5
+      planning_note: "A scenic mountain-to-fjord transfer. Pick one or two stops, preferably Voringsfossen and a short Hardangervidda viewpoint."
+      max_recommended_major_stops: 2
+      en_route_candidates:
+        - id: hardangervidda_route
+          name: Hardangervidda Scenic Route
+          priority: highly_recommended
+          type: scenic_drive_plateau
+          stop_duration_hours: 1
+          coordinates:
+            lat: 60.0000
+            lon: 7.5000
+          transfer_role: scenic_route
+
+        - id: voringsfossen
+          name: Voringsfossen
+          priority: must_do
+          type: waterfall_viewpoint
+          stop_duration_hours: 1
+          coordinates:
+            lat: 60.4266
+            lon: 7.2519
+          transfer_role: candidate
+
+        - id: eidfjord
+          name: Eidfjord
+          priority: if_time
+          type: fjord_village_lunch_stop
+          stop_duration_hours: 1
+          coordinates:
+            lat: 60.4670
+            lon: 7.0718
+          transfer_role: short_stop
+
+        - id: hardanger_bridge
+          name: Hardanger Bridge
+          priority: highly_recommended
+          type: scenic_drive
+          stop_duration_hours: 0.5
+          coordinates:
+            lat: 60.4780
+            lon: 6.8300
+          transfer_role: route_segment
+
+    - id: transfer_base_2_to_base_3
+      from: base_2
+      to: base_3
+      description: Aurland/Flam to Loen/Olden/Stryn via Sognefjord and Fjaerland
+      estimated_direct_drive_hours: 4.5
+      planning_note: "This transfer can comfortably include one glacier stop or Fjaerland."
+      max_recommended_major_stops: 2
+      en_route_candidates:
+        - id: laerdal_tunnel_or_snow_road
+          name: Laerdal Tunnel or Aurlandsfjellet Snow Road
+          priority: highly_recommended
+          type: route_choice
+          stop_duration_hours: 0.5
+          coordinates:
+            lat: 60.9450
+            lon: 7.2500
+          transfer_role: route_choice
+          planning_note: "Use the Snow Road if open and weather is good; use the tunnel if you want a faster/easier transfer."
+
+        - id: fjaerland
+          name: Fjaerland
+          priority: highly_recommended
+          type: fjord_village
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 61.4047
+            lon: 6.7394
+          transfer_role: candidate
+
+        - id: boyabreen_glacier
+          name: Boyabreen Glacier
+          priority: highly_recommended
+          type: glacier_viewpoint
+          stop_duration_hours: 1
+          coordinates:
+            lat: 61.5000
+            lon: 6.7500
+          transfer_role: candidate
+
+        - id: gaularfjellet_viewpoint
+          name: Gaularfjellet / Utsikten Viewpoint
+          priority: if_time
+          type: scenic_viewpoint
+          stop_duration_hours: 0.75
+          coordinates:
+            lat: 61.3370
+            lon: 6.4470
+          transfer_role: scenic_detour
+
+    - id: transfer_base_3_to_belgium_via_oslo_sweden_denmark
+      from: base_3
+      to: Belgium
+      description: Fully car-based return from Loen/Stryn to Belgium via Oslo, Sweden, Denmark and Germany
+      planning_note: "This return should be treated as a separate 2-day or 3-day access route. Avoid planning it as one normal holiday day."
+      route_options:
+        - id: return_2_day_fast
+          name: Fast return with one overnight in Sweden or Denmark
+          priority: if_time
+          notes: "Possible but long and tiring. Better only if everyone tolerates long driving days."
+        - id: return_3_day_comfortable
+          name: Comfortable return with Oslo/Gothenburg/Copenhagen stop pattern
+          priority: highly_recommended
+          notes: "More relaxed and better for a family, especially after 12 nights in Norway."
+      en_route_candidates:
+        - id: lillehammer
+          name: Lillehammer
+          priority: if_time
+          type: town_stop
+          stop_duration_hours: 2
+          coordinates:
+            lat: 61.1153
+            lon: 10.4662
+          transfer_role: short_stop
+
+        - id: oslo
+          name: Oslo
+          priority: highly_recommended
+          type: city_stop_or_overnight
+          stop_duration_hours: 4
+          coordinates:
+            lat: 59.9139
+            lon: 10.7522
+          transfer_role: candidate_or_overnight
+
+        - id: gothenburg
+          name: Gothenburg
+          priority: if_time
+          type: city_stop_or_overnight
+          stop_duration_hours: 4
+          coordinates:
+            lat: 57.7089
+            lon: 11.9746
+          transfer_role: candidate_or_overnight
+
+        - id: copenhagen
+          name: Copenhagen
+          priority: highly_recommended
+          type: city_stop_or_overnight
+          stop_duration_hours: 4
+          coordinates:
+            lat: 55.6761
+            lon: 12.5683
+          transfer_role: candidate_or_overnight
+
+  replaced_route_option:
+    previous_base_1:
+      id: old_base_1_stavanger_jorpeland_tau
+      name: Stavanger / Jorpeland / Tau
+      reason_removed: "Less logical when avoiding ferries to and from Norway. Entering via Sweden and Oslo makes Stavanger a large southwest detour before heading back north/east toward Aurland and Loen."
+      still_possible_if:
+        - "Preikestolen is a top personal priority."
+        - "You are willing to accept significantly more driving."
+        - "You add extra nights or use a different route."
+
+  possible_paid_activities:
+    main_candidates:
+      - gaustabanen
+      - krossobanen
+      - naeroyfjord
+      - flam_railway
+      - loen_skylift
+    adventure_candidates:
+      - via_ferrata_loen
+      - voss_outdoor_activity
+    planning_note: "If budget control is important, choose 2 or 3 paid activities maximum. Suggested shortlist: Loen Skylift, either Naeroyfjord cruise or Flam Railway, and optionally Gaustabanen/Krossobanen depending on weather and hiking preference."

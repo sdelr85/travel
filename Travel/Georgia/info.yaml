@@ -1,0 +1,502 @@
+trip:
+
+  country: Georgia
+
+  overview:
+    rank: 9
+
+    summary: >
+      15-day family fly-in self-drive trip through Georgia,
+      combining the Caucasus Mountains, remote villages,
+      scenic roads, wine regions and hiking landscapes.
+
+    summary_reason: >
+      One of Europe's hidden gems, combining authentic culture, spectacular Caucasus mountains and exceptional value for adventurous travelers.
+
+    transport: "✈ Plane + 🚗 Rental car"
+
+    duration_days: 15
+    duration_nights: 14
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+      - Tbilisi
+      - Military Highway
+      - Kazbegi
+      - Gergeti Trinity Church
+      - Truso Valley
+      - Kakheti Wine Region
+      - Mestia
+      - Ushguli
+      - Svaneti
+      - Caucasus Mountains
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: east_to_west
+
+  duration:
+
+    days: 15
+    nights: 14
+
+    base_locations: 4
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 3
+
+      - base: base_2
+        nights: 4
+
+      - base: base_3
+        nights: 3
+
+      - base: base_4
+        nights: 4
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    vehicle:
+      recommended: suv
+
+    mountain_roads:
+      note: >
+        Roads in Svaneti and remote mountain areas can be rough.
+        Driving speeds are usually lower than expected.
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Georgia combines mountain scenery, culture and history.
+        Use a limited number of bases to avoid unnecessary packing.
+
+    transfer_day:
+      max_recommended_major_stops: 2
+
+    base_day:
+      max_recommended_single_drive_minutes: 90
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  airport:
+
+    id: tbilisi_airport
+
+    name: Tbilisi International Airport
+
+    coordinates:
+      lat: 41.6692
+      lon: 44.9547
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: Tbilisi
+
+      region: Eastern Georgia
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 41.7151
+        lon: 44.8271
+
+      base_attractions:
+
+        - id: old_tbilisi
+
+          name: Old Tbilisi
+
+          priority: must_do
+
+          type: city_walk
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 41.6907
+            lon: 44.8078
+
+        - id: narikala
+
+          name: Narikala Fortress
+
+          priority: highly_recommended
+
+          type: viewpoint
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 41.6879
+            lon: 44.8098
+
+        - id: chronicles
+
+          name: Chronicles of Georgia
+
+          priority: highly_recommended
+
+          type: monument
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 41.7700
+            lon: 44.8100
+
+        - id: mtatsminda
+
+          name: Mtatsminda Park Viewpoint
+
+          priority: if_time
+
+          type: viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 41.6940
+            lon: 44.7860
+
+    - id: base_2
+
+      name: Kazbegi / Stepantsminda
+
+      region: Greater Caucasus
+
+      stay_nights: 4
+
+      coordinates:
+        lat: 42.6560
+        lon: 44.6430
+
+      base_attractions:
+
+        - id: gergeti
+
+          name: Gergeti Trinity Church
+
+          priority: must_do
+
+          type: mountain_viewpoint
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 42.6625
+            lon: 44.6200
+
+        - id: gergeti_glacier
+
+          name: Gergeti Glacier Trail
+
+          priority: must_do
+
+          type: mountain_hike
+
+          visit_duration_hours: 6
+
+          coordinates:
+            lat: 42.7220
+            lon: 44.5600
+
+        - id: truso_valley
+
+          name: Truso Valley
+
+          priority: must_do
+
+          type: valley_hike
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: 42.6070
+            lon: 44.3630
+
+        - id: sno_valley
+
+          name: Sno Valley
+
+          priority: highly_recommended
+
+          type: scenic_valley
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 42.6060
+            lon: 44.6330
+
+        - id: military_highway
+
+          name: Georgian Military Highway
+
+          priority: must_do
+
+          type: scenic_drive
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 42.5040
+            lon: 44.5560
+
+    - id: base_3
+
+      name: Kakheti
+
+      region: Wine Region
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 41.9198
+        lon: 45.4730
+
+      base_attractions:
+
+        - id: sighnaghi
+
+          name: Sighnaghi
+
+          priority: must_do
+
+          type: hill_town
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 41.6200
+            lon: 45.9230
+
+        - id: alaverdi
+
+          name: Alaverdi Monastery
+
+          priority: highly_recommended
+
+          type: monastery
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 42.0320
+            lon: 45.3770
+
+        - id: kakheti_wineries
+
+          name: Kakheti Vineyards
+
+          priority: highly_recommended
+
+          type: scenic_drive
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 41.9198
+            lon: 45.4730
+
+    - id: base_4
+
+      name: Mestia
+
+      region: Svaneti
+
+      stay_nights: 4
+
+      coordinates:
+        lat: 43.0458
+        lon: 42.7278
+
+      planning_note: >
+        One of the most spectacular mountain regions in Europe.
+
+      base_attractions:
+
+        - id: ushguli
+
+          name: Ushguli
+
+          priority: must_do
+
+          type: mountain_village
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: 42.9160
+            lon: 43.0110
+
+        - id: chaladi
+
+          name: Chaladi Glacier
+
+          priority: must_do
+
+          type: glacier_hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 43.0670
+            lon: 42.6990
+
+        - id: koruldi
+
+          name: Koruldi Lakes
+
+          priority: must_do
+
+          type: alpine_hike
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: 43.0820
+            lon: 42.7280
+
+        - id: mestia_towers
+
+          name: Svan Towers of Mestia
+
+          priority: highly_recommended
+
+          type: cultural_site
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 43.0458
+            lon: 42.7278
+
+        - id: hatsvali
+
+          name: Hatsvali Viewpoint
+
+          priority: highly_recommended
+
+          type: mountain_viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 43.0530
+            lon: 42.7000
+
+  transfer_routes:
+
+    - id: transfer_tbilisi_to_kazbegi
+
+      from: base_1
+      to: base_2
+
+      description: Tbilisi to Kazbegi
+
+      estimated_direct_drive_hours: 3.5
+
+      en_route_candidates:
+
+        - id: ananuri
+
+          name: Ananuri Fortress
+
+          priority: must_do
+
+          type: fortress
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: 42.1630
+            lon: 44.7030
+
+        - id: gudauri
+
+          name: Gudauri Viewpoint
+
+          priority: highly_recommended
+
+          type: viewpoint
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: 42.4700
+            lon: 44.4800
+
+    - id: transfer_kazbegi_to_kakheti
+
+      from: base_2
+      to: base_3
+
+      description: Kazbegi to Kakheti
+
+      estimated_direct_drive_hours: 4.5
+
+    - id: transfer_kakheti_to_mestia
+
+      from: base_3
+      to: base_4
+
+      description: Kakheti to Mestia
+
+      estimated_direct_drive_hours: 6.5
+
+      planning_note: >
+        Longest transfer of the trip.
+        Consider a stop in Kutaisi if preferred.
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - horse_riding_svaneti
+
+    possible_second_paid_activity:
+      - wine_tasting
+
+    planning_note: >
+      Most highlights are free hikes and viewpoints.
+      Georgia does not require many paid activities.
+
+  excluded_or_future_trip_options:
+
+    batumi:
+      reason: >
+        Popular but less aligned with a mountain-focused trip.
+
+    tusheti:
+      reason: >
+        Incredible area but requires more time and more demanding roads.
+
+    borjomi:
+      reason: >
+        Nice region but lower priority than Kazbegi and Svaneti.
+
+    black_sea_coast:
+      reason: >
+        Less spectacular than the Caucasus mountain regions.

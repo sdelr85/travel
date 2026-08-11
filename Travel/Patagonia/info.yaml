@@ -1,0 +1,622 @@
+trip:
+  country: Patagonia
+
+  overview:
+    rank: 2
+    summary: >
+      17-day family self-drive trip through the most spectacular regions of Southern Patagonia,
+      combining Argentina and Chile. Focus on glaciers, iconic mountain landscapes,
+      wildlife, hiking, scenic drives and national parks.
+
+    summary_reason: >
+      Choose Patagonia for some of the most dramatic mountain and glacier landscapes on Earth, 
+      centered around Fitz Roy, Torres del Paine and Perito Moreno.
+
+    transport: "✈ Plane + 🚗 Rental car"
+
+    duration_days: 17
+    duration_nights: 16
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+      - Perito Moreno Glacier
+      - El Chalten
+      - Fitz Roy
+      - Laguna de los Tres
+      - Laguna Torre
+      - Torres del Paine
+      - Mirador Las Torres
+      - Grey Glacier
+      - Salto Grande
+      - Guanaco and condor wildlife
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: argentina_then_chile
+
+  duration:
+
+    days: 17
+    nights: 16
+
+    base_locations: 4
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 4
+
+      - base: base_2
+        nights: 5
+
+      - base: base_3
+        nights: 5
+
+      - base: base_4
+        nights: 2
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    border_crossing:
+      required: true
+
+    weather_flexibility:
+      required: true
+      note: >
+        Patagonia weather changes rapidly. Wind can be extreme and trail plans
+        should remain flexible.
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Use El Calafate, El Chalten, Torres del Paine and Puerto Natales as bases.
+        This minimizes driving while maximizing hiking time.
+
+    transfer_day:
+      max_recommended_major_stops: 2
+      max_recommended_sightseeing_hours: 4
+
+    base_day:
+      max_recommended_single_drive_minutes: 90
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  airports:
+
+    arrival_airport:
+      id: el_calafate_airport
+      name: El Calafate Airport
+
+      coordinates:
+        lat: -50.2803
+        lon: -72.0531
+
+    departure_airport:
+      id: puerto_natales_airport
+      name: Puerto Natales Airport
+
+      coordinates:
+        lat: -51.6714
+        lon: -72.5284
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: El Calafate
+
+      region: Los Glaciares National Park
+
+      stay_nights: 4
+
+      coordinates:
+        lat: -50.3379
+        lon: -72.2648
+
+      planning_note: >
+        Main glacier base and arrival point for the trip.
+
+      base_attractions:
+
+        - id: perito_moreno
+
+          name: Perito Moreno Glacier
+
+          priority: must_do
+
+          type: glacier
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: -50.4950
+            lon: -73.0485
+
+          visit_strategy:
+            primary_base: base_1
+
+            notes: >
+              One of the most impressive glaciers in the world and the major
+              reason to visit El Calafate.
+
+        - id: glacier_walkways
+
+          name: Perito Moreno Walkways
+
+          priority: must_do
+
+          type: glacier_viewpoint
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -50.4960
+            lon: -73.0480
+
+        - id: navegacion_glaciares
+
+          name: Glacier Boat Navigation
+
+          priority: highly_recommended
+
+          type: boat_trip
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -50.4950
+            lon: -73.0485
+
+        - id: laguna_nimez
+
+          name: Laguna Nimez
+
+          priority: highly_recommended
+
+          type: wildlife_walk
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -50.3343
+            lon: -72.2525
+
+        - id: el_calafate_town
+
+          name: El Calafate
+
+          priority: if_time
+
+          type: town
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -50.3379
+            lon: -72.2648
+
+      arrival_day_candidates:
+
+        route_from: airport
+
+        candidates:
+          - attraction_ref: laguna_nimez
+          - attraction_ref: el_calafate_town
+
+    - id: base_2
+
+      name: El Chalten
+
+      region: Fitz Roy Area
+
+      stay_nights: 5
+
+      coordinates:
+        lat: -49.3315
+        lon: -72.8863
+
+      planning_note: >
+        The hiking capital of Argentina. This base should carry most of the major hikes.
+
+      base_attractions:
+
+        - id: laguna_de_los_tres
+
+          name: Laguna de los Tres
+
+          priority: must_do
+
+          type: mountain_hike
+
+          visit_duration_hours: 8
+
+          coordinates:
+            lat: -49.2711
+            lon: -73.0385
+
+          difficulty: challenging
+
+        - id: fitz_roy_views
+
+          name: Fitz Roy Viewpoints
+
+          priority: must_do
+
+          type: mountain_landscape
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -49.2850
+            lon: -73.0430
+
+        - id: laguna_torre
+
+          name: Laguna Torre
+
+          priority: must_do
+
+          type: glacier_lake_hike
+
+          visit_duration_hours: 6
+
+          coordinates:
+            lat: -49.3007
+            lon: -72.9956
+
+        - id: loma_del_pliegue
+
+          name: Loma del Pliegue Tumbado
+
+          priority: highly_recommended
+
+          type: mountain_hike
+
+          visit_duration_hours: 7
+
+          coordinates:
+            lat: -49.3380
+            lon: -72.9680
+
+        - id: mirador_condores
+
+          name: Mirador de los Condores
+
+          priority: highly_recommended
+
+          type: short_hike
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -49.3351
+            lon: -72.8922
+
+        - id: chorillo_del_salto
+
+          name: Chorillo del Salto
+
+          priority: if_time
+
+          type: waterfall
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: -49.2784
+            lon: -72.8657
+
+    - id: base_3
+
+      name: Torres del Paine
+
+      region: Torres del Paine National Park
+
+      stay_nights: 5
+
+      coordinates:
+        lat: -51.0788
+        lon: -73.0308
+
+      planning_note: >
+        Most spectacular mountain scenery in Chilean Patagonia.
+
+      base_attractions:
+
+        - id: mirador_las_torres
+
+          name: Mirador Las Torres
+
+          priority: must_do
+
+          type: mountain_hike
+
+          visit_duration_hours: 8
+
+          coordinates:
+            lat: -50.9590
+            lon: -72.9790
+
+          difficulty: challenging
+
+        - id: grey_glacier
+
+          name: Grey Glacier
+
+          priority: must_do
+
+          type: glacier
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -51.1680
+            lon: -73.1660
+
+        - id: grey_viewpoint
+
+          name: Grey Glacier Viewpoint
+
+          priority: highly_recommended
+
+          type: viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.1730
+            lon: -73.1580
+
+        - id: salto_grande
+
+          name: Salto Grande
+
+          priority: must_do
+
+          type: waterfall
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: -51.0674
+            lon: -73.0152
+
+        - id: cuernos_paine
+
+          name: Cuernos del Paine
+
+          priority: must_do
+
+          type: mountain_viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.0820
+            lon: -73.0010
+
+        - id: lago_pehoe
+
+          name: Lago Pehoe
+
+          priority: highly_recommended
+
+          type: lake
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: -51.0600
+            lon: -72.9830
+
+        - id: condor_viewpoint
+
+          name: Condor Viewpoint
+
+          priority: highly_recommended
+
+          type: hike_viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.0540
+            lon: -72.9760
+
+        - id: fauna_safari
+
+          name: Wildlife Viewing Route
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -51.0800
+            lon: -72.9500
+
+    - id: base_4
+
+      name: Puerto Natales
+
+      region: Chilean Patagonia
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -51.7290
+        lon: -72.5060
+
+      planning_note: >
+        Relaxed ending before departure.
+
+      base_attractions:
+
+        - id: puerto_natales_waterfront
+
+          name: Puerto Natales Waterfront
+
+          priority: highly_recommended
+
+          type: town_walk
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.7280
+            lon: -72.5050
+
+        - id: milodon_cave
+
+          name: Milodon Cave
+
+          priority: highly_recommended
+
+          type: geological_site
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.5735
+            lon: -72.6072
+
+        - id: ultima_esperanza
+
+          name: Ultima Esperanza Sound
+
+          priority: if_time
+
+          type: coastal_landscape
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -51.7310
+            lon: -72.5000
+
+  transfer_routes:
+
+    - id: transfer_base_1_to_base_2
+
+      from: base_1
+      to: base_2
+
+      description: El Calafate to El Chalten
+
+      estimated_direct_drive_hours: 3
+
+      max_recommended_major_stops: 2
+
+      en_route_candidates:
+
+        - id: ruta_40_viewpoints
+
+          name: Ruta 40 Scenic Stops
+
+          priority: highly_recommended
+
+          type: scenic_drive
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: -49.8500
+            lon: -72.6500
+
+    - id: transfer_base_2_to_base_3
+
+      from: base_2
+      to: base_3
+
+      description: El Chalten to Torres del Paine
+
+      estimated_direct_drive_hours: 5
+
+      max_recommended_major_stops: 2
+
+      planning_note: >
+        Border crossing day. Keep sightseeing limited.
+
+    - id: transfer_base_3_to_base_4
+
+      from: base_3
+      to: base_4
+
+      description: Torres del Paine to Puerto Natales
+
+      estimated_direct_drive_hours: 2
+
+      max_recommended_major_stops: 1
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+
+      - glacier_boat_trip
+
+    possible_second_paid_activity:
+
+      - grey_glacier_navigation
+
+    possible_third_paid_activity:
+
+      - horseback_riding
+
+    planning_note: >
+      Patagonia's biggest strengths are its landscapes and hikes.
+      Paid activities are optional rather than essential.
+
+  wildlife_expectations:
+
+    commonly_seen:
+      - guanaco
+      - condor
+      - fox
+
+    possible:
+      - armadillo
+      - puma
+
+    safety_note: >
+      Patagonia is generally very safe. The biggest hazards are weather,
+      wind exposure and underestimated hiking distances.
+
+  excluded_or_future_trip_options:
+
+    ushuaia:
+      reason: >
+        Amazing destination but requires a significant detour.
+        Better combined with a dedicated Tierra del Fuego trip.
+
+    bariloche:
+      reason: >
+        Excellent destination but geographically separated from Southern Patagonia.
+
+    atacama:
+      reason: >
+        Better combined with a separate northern Chile itinerary.
+
+    carretera_austral:
+      reason: >
+        Fantastic roadtrip destination but deserving of its own 2-3 week journey.

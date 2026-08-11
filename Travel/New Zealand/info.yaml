@@ -1,0 +1,520 @@
+trip:
+  country: New Zealand
+
+  overview:
+    rank: 1
+
+    summary: >
+      24-day family fly-in self-drive trip through both the North and South Island
+      of New Zealand, focused on mountains, volcanoes, geothermal landscapes,
+      fjords, wildlife, lakes, hiking and adventure.
+
+    summary_reason: >
+      The most complete nature and adventure destination in the world, combining volcanoes, 
+      fjords, glaciers, mountains, wildlife and world-class road trips in a single journey.
+
+    transport: "✈ Plane + 🚗 Rental car + ✈ domestic flight"
+
+    duration_days: 24
+    duration_nights: 23
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+      - Tongariro Alpine Crossing
+      - Rotorua geothermal region
+      - Hobbiton
+      - Cathedral Cove
+      - Mount Cook
+      - Hooker Valley Track
+      - Wanaka
+      - Roys Peak
+      - Milford Sound
+      - Fiordland
+      - Queenstown
+      - Glenorchy
+      - Kaikoura whales
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: north_island_then_south_island
+
+  duration:
+
+    days: 24
+    nights: 23
+
+    base_locations: 8
+
+    recommended_base_split:
+
+      - base: north_rotorua
+        nights: 3
+
+      - base: north_tongariro
+        nights: 2
+
+      - base: north_coromandel
+        nights: 3
+
+      - base: south_mount_cook
+        nights: 3
+
+      - base: south_wanaka
+        nights: 3
+
+      - base: south_te_anau
+        nights: 4
+
+      - base: south_queenstown
+        nights: 3
+
+      - base: south_kaikoura
+        nights: 2
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    domestic_flight:
+      route: Auckland -> Christchurch
+
+    ferry_between_islands:
+      avoided: true
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  lodging_locations:
+
+    - id: north_rotorua
+
+      name: Rotorua
+
+      region: North Island
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -38.1368
+        lon: 176.2497
+
+      base_attractions:
+
+        - id: wai_o_tapu
+          name: Wai-O-Tapu Thermal Wonderland
+          priority: must_do
+          type: geothermal_park
+          visit_duration_hours: 3
+          coordinates:
+            lat: -38.3580
+            lon: 176.3680
+
+        - id: waimangu
+          name: Waimangu Volcanic Valley
+          priority: must_do
+          type: geothermal_hike
+          visit_duration_hours: 4
+          coordinates:
+            lat: -38.2820
+            lon: 176.3930
+
+        - id: redwoods
+          name: Rotorua Redwoods Forest
+          priority: highly_recommended
+          type: forest_walk
+          visit_duration_hours: 2
+          coordinates:
+            lat: -38.1570
+            lon: 176.2820
+
+        - id: hobbiton
+          name: Hobbiton
+          priority: highly_recommended
+          type: film_location
+          visit_duration_hours: 3
+          coordinates:
+            lat: -37.8721
+            lon: 175.6828
+
+        - id: rotorua_geysers
+          name: Te Puia Geysers
+          priority: highly_recommended
+          type: geothermal_area
+          visit_duration_hours: 2
+          coordinates:
+            lat: -38.1635
+            lon: 176.2525
+
+    - id: north_tongariro
+
+      name: Tongariro National Park
+
+      region: North Island
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -39.1920
+        lon: 175.5320
+
+      base_attractions:
+
+        - id: tongariro_crossing
+          name: Tongariro Alpine Crossing
+          priority: must_do
+          type: volcanic_hike
+          visit_duration_hours: 8
+          coordinates:
+            lat: -39.1270
+            lon: 175.6460
+
+        - id: tama_lakes
+          name: Tama Lakes
+          priority: highly_recommended
+          type: hiking
+          visit_duration_hours: 5
+          coordinates:
+            lat: -39.1500
+            lon: 175.5530
+
+        - id: tawhai_falls
+          name: Tawhai Falls
+          priority: if_time
+          type: waterfall
+          visit_duration_hours: 1
+          coordinates:
+            lat: -39.2380
+            lon: 175.5460
+
+    - id: north_coromandel
+
+      name: Coromandel
+
+      region: North Island
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -36.7540
+        lon: 175.4980
+
+      base_attractions:
+
+        - id: cathedral_cove
+          name: Cathedral Cove
+          priority: must_do
+          type: coastal_walk
+          visit_duration_hours: 3
+          coordinates:
+            lat: -36.8292
+            lon: 175.7902
+
+        - id: hot_water_beach
+          name: Hot Water Beach
+          priority: highly_recommended
+          type: geothermal_beach
+          visit_duration_hours: 2
+          coordinates:
+            lat: -36.8910
+            lon: 175.8160
+
+        - id: new_chums
+          name: New Chums Beach
+          priority: highly_recommended
+          type: beach_hike
+          visit_duration_hours: 3
+          coordinates:
+            lat: -36.7240
+            lon: 175.7930
+
+    - id: south_mount_cook
+
+      name: Mount Cook Village
+
+      region: South Island
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -43.7350
+        lon: 170.0970
+
+      base_attractions:
+
+        - id: hooker_valley
+          name: Hooker Valley Track
+          priority: must_do
+          type: hiking
+          visit_duration_hours: 4
+          coordinates:
+            lat: -43.7240
+            lon: 170.1040
+
+        - id: kea_point
+          name: Kea Point
+          priority: highly_recommended
+          type: short_hike
+          visit_duration_hours: 1
+          coordinates:
+            lat: -43.7320
+            lon: 170.0920
+
+        - id: tasman_glacier
+          name: Tasman Glacier Viewpoint
+          priority: highly_recommended
+          type: viewpoint
+          visit_duration_hours: 2
+          coordinates:
+            lat: -43.6620
+            lon: 170.1820
+
+        - id: lake_pukaki
+          name: Lake Pukaki
+          priority: must_do
+          type: glacial_lake
+          visit_duration_hours: 2
+          coordinates:
+            lat: -44.0780
+            lon: 170.1550
+
+    - id: south_wanaka
+
+      name: Wanaka
+
+      region: South Island
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -44.6970
+        lon: 169.1350
+
+      base_attractions:
+
+        - id: roys_peak
+          name: Roys Peak
+          priority: must_do
+          type: mountain_hike
+          visit_duration_hours: 6
+          coordinates:
+            lat: -44.6950
+            lon: 169.0460
+
+        - id: isthmus_peak
+          name: Isthmus Peak
+          priority: highly_recommended
+          type: mountain_hike
+          visit_duration_hours: 5
+          coordinates:
+            lat: -44.5650
+            lon: 169.2200
+
+        - id: wanaka_tree
+          name: Wanaka Tree
+          priority: if_time
+          type: viewpoint
+          visit_duration_hours: 0.5
+          coordinates:
+            lat: -44.7005
+            lon: 169.1260
+
+    - id: south_te_anau
+
+      name: Te Anau
+
+      region: Fiordland
+
+      stay_nights: 4
+
+      coordinates:
+        lat: -45.4150
+        lon: 167.7190
+
+      base_attractions:
+
+        - id: milford_sound
+          name: Milford Sound
+          priority: must_do
+          type: fjord
+          visit_duration_hours: 8
+          coordinates:
+            lat: -44.6700
+            lon: 167.9250
+
+        - id: key_summit
+          name: Key Summit
+          priority: must_do
+          type: hike
+          visit_duration_hours: 3
+          coordinates:
+            lat: -44.8210
+            lon: 168.0260
+
+        - id: kepler_track
+          name: Kepler Track Day Hike
+          priority: highly_recommended
+          type: hike
+          visit_duration_hours: 5
+          coordinates:
+            lat: -45.4070
+            lon: 167.7420
+
+        - id: doubtful_sound
+          name: Doubtful Sound
+          priority: optional_paid_activity
+          type: fjord_cruise
+          visit_duration_hours: 8
+          coordinates:
+            lat: -45.4720
+            lon: 167.1370
+
+    - id: south_queenstown
+
+      name: Queenstown
+
+      region: South Island
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -45.0310
+        lon: 168.6620
+
+      base_attractions:
+
+        - id: glenorchy
+          name: Glenorchy
+          priority: must_do
+          type: scenic_drive
+          visit_duration_hours: 4
+          coordinates:
+            lat: -44.8490
+            lon: 168.3870
+
+        - id: queenstown_gardens
+          name: Queenstown Gardens
+          priority: if_time
+          type: walk
+          visit_duration_hours: 1
+          coordinates:
+            lat: -45.0360
+            lon: 168.6630
+
+        - id: jet_boat
+          name: Shotover Jet
+          priority: optional_paid_activity
+          type: adventure
+          visit_duration_hours: 2
+          coordinates:
+            lat: -45.0480
+            lon: 168.6650
+
+        - id: skippers_canyon
+          name: Skippers Canyon Road
+          priority: highly_recommended
+          type: scenic_drive
+          visit_duration_hours: 3
+          coordinates:
+            lat: -44.9920
+            lon: 168.5610
+
+    - id: south_kaikoura
+
+      name: Kaikoura
+
+      region: South Island
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -42.4000
+        lon: 173.6800
+
+      base_attractions:
+
+        - id: whale_watching
+          name: Kaikoura Whale Watching
+
+          priority: must_do
+
+          type: wildlife
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -42.4030
+            lon: 173.6810
+
+        - id: seal_colony
+
+          name: Kaikoura Seal Colony
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -42.4480
+            lon: 173.7040
+
+        - id: peninsula_walkway
+
+          name: Kaikoura Peninsula Walkway
+
+          priority: highly_recommended
+
+          type: coastal_walk
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -42.4310
+            lon: 173.7080
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - milford_sound_cruise
+      - whale_watching
+
+    possible_second_paid_activity:
+      - jet_boat
+
+    possible_third_paid_activity:
+      - helicopter_mount_cook
+
+    planning_note: >
+      The majority of New Zealand's highlights are free hikes and viewpoints.
+      Milford Sound and whale watching are the two strongest paid experiences.
+
+  excluded_or_future_trip_options:
+
+    bay_of_islands:
+      reason: >
+        Nice area, but not strong enough compared to Tongariro and Rotorua.
+
+    abel_tasman:
+      reason: >
+        Excellent destination, but would require extending the South Island
+        section or replacing Kaikoura.
+
+    stewart_island:
+      reason: >
+        Better suited to a second trip focused on wildlife.

@@ -1,0 +1,707 @@
+trip:
+  country: Canada
+
+  overview:
+    rank: 4
+    summary: "15-day family fly-in self-drive trip through the Canadian Rockies, focused on mountains, turquoise lakes, wildlife, hiking, waterfalls and scenic drives."
+    summary_reason: >
+      The ultimate mix of alpine scenery, turquoise lakes, wildlife encounters, hiking and one of the world's greatest self-drive routes.
+
+    transport: "✈ Plane + 🚗 Rental car"
+
+    duration_days: 15
+    duration_nights: 14
+
+    travel_style: "Fly-in family self-drive"
+
+    highlights:
+      - "Banff National Park"
+      - "Lake Louise"
+      - "Moraine Lake"
+      - "Icefields Parkway"
+      - "Jasper National Park"
+      - "Yoho National Park"
+      - "Kananaskis Country"
+      - "Emerald Lake"
+      - "Athabasca Glacier"
+      - "Canadian wildlife"
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: calgary_banff_jasper_yoho_kananaskis
+
+  duration:
+
+    days: 15
+    nights: 14
+
+    base_locations: 4
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 5
+
+      - base: base_2
+        nights: 4
+
+      - base: base_3
+        nights: 3
+
+      - base: base_4
+        nights: 2
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    long_distance_flights:
+      required: true
+
+    wildlife:
+      note: >
+        Bears, elk, bighorn sheep and mountain goats are common.
+        Maintain safe distances at all times.
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Use Banff, Jasper, Golden and Kananaskis as strategic bases.
+        This minimizes accommodation changes while maximizing hiking time.
+
+    transfer_day:
+      max_recommended_major_stops: 3
+      max_recommended_sightseeing_hours: 4
+
+    base_day:
+      max_recommended_single_drive_minutes: 90
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  access_plan:
+
+    from: Belgium
+
+    by: plane
+
+    airport:
+
+      id: calgary_airport
+
+      name: Calgary International Airport
+
+      coordinates:
+        lat: 51.1139
+        lon: -114.0203
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: Canmore / Banff
+
+      region: Banff National Park
+
+      stay_nights: 5
+
+      coordinates:
+        lat: 51.1784
+        lon: -115.5708
+
+      planning_note: >
+        Ideal first base.
+        Covers Banff, Lake Louise, Moraine Lake and Bow Valley.
+
+      base_attractions:
+
+        - id: banff_town
+
+          name: Banff
+
+          priority: highly_recommended
+
+          type: mountain_town
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.1784
+            lon: -115.5708
+
+        - id: lake_louise
+
+          name: Lake Louise
+
+          priority: must_do
+
+          type: glacial_lake
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.4254
+            lon: -116.1773
+
+        - id: moraine_lake
+
+          name: Moraine Lake
+
+          priority: must_do
+
+          type: glacial_lake
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.3217
+            lon: -116.1860
+
+        - id: johnston_canyon
+
+          name: Johnston Canyon
+
+          priority: highly_recommended
+
+          type: canyon_walk
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.2450
+            lon: -115.8397
+
+        - id: sulphur_mountain
+
+          name: Sulphur Mountain
+
+          priority: highly_recommended
+
+          type: viewpoint
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.1489
+            lon: -115.5736
+
+        - id: bow_falls
+
+          name: Bow Falls
+
+          priority: if_time
+
+          type: waterfall
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 51.1660
+            lon: -115.5602
+
+        - id: lake_minnewanka
+
+          name: Lake Minnewanka
+
+          priority: highly_recommended
+
+          type: lake
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 51.2600
+            lon: -115.4917
+
+        - id: tunnel_mountain
+
+          name: Tunnel Mountain
+
+          priority: if_time
+
+          type: hike
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 51.1888
+            lon: -115.5436
+
+        - id: banff_gondola
+
+          name: Banff Gondola
+
+          priority: optional_paid_activity
+
+          type: gondola
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 51.1475
+            lon: -115.5731
+
+      arrival_day_candidates:
+
+        route_from: calgary_airport
+
+        candidates:
+
+          - attraction_ref: banff_town
+
+          - attraction_ref: bow_falls
+
+    - id: base_2
+
+      name: Jasper
+
+      region: Jasper National Park
+
+      stay_nights: 4
+
+      coordinates:
+        lat: 52.8737
+        lon: -118.0814
+
+      planning_note: >
+        Famous for wildlife and larger, wilder mountain scenery.
+
+      base_attractions:
+
+        - id: maligne_lake
+
+          name: Maligne Lake
+
+          priority: must_do
+
+          type: lake
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 52.7267
+            lon: -117.6364
+
+        - id: spirit_island_view
+
+          name: Spirit Island View Area
+
+          priority: must_do
+
+          type: iconic_viewpoint
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 52.6750
+            lon: -117.5480
+
+        - id: maligne_canyon
+
+          name: Maligne Canyon
+
+          priority: highly_recommended
+
+          type: canyon
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 52.9150
+            lon: -118.0430
+
+        - id: mount_edith_cavell
+
+          name: Mount Edith Cavell
+
+          priority: must_do
+
+          type: glacier_hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 52.6734
+            lon: -118.0561
+
+        - id: pyramid_lake
+
+          name: Pyramid Lake
+
+          priority: highly_recommended
+
+          type: lake
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 52.9425
+            lon: -118.0881
+
+        - id: medicine_lake
+
+          name: Medicine Lake
+
+          priority: if_time
+
+          type: lake
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 52.7850
+            lon: -117.8110
+
+        - id: jasper_tramway
+
+          name: Jasper SkyTram
+
+          priority: optional_paid_activity
+
+          type: tramway
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 52.8505
+            lon: -118.1530
+
+    - id: base_3
+
+      name: Golden
+
+      region: Yoho National Park
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 51.2986
+        lon: -116.9680
+
+      planning_note: >
+        Excellent location for Yoho National Park.
+
+      base_attractions:
+
+        - id: emerald_lake
+
+          name: Emerald Lake
+
+          priority: must_do
+
+          type: glacial_lake
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.4413
+            lon: -116.5320
+
+        - id: takakkaw_falls
+
+          name: Takakkaw Falls
+
+          priority: must_do
+
+          type: waterfall
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 51.4672
+            lon: -116.4827
+
+        - id: natural_bridge
+
+          name: Natural Bridge
+
+          priority: highly_recommended
+
+          type: waterfall_geology
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 51.4440
+            lon: -116.5160
+
+        - id: wapta_falls
+
+          name: Wapta Falls
+
+          priority: highly_recommended
+
+          type: waterfall_hike
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 51.7149
+            lon: -117.6075
+
+        - id: field
+
+          name: Field
+
+          priority: if_time
+
+          type: mountain_village
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 51.3992
+            lon: -116.4858
+
+    - id: base_4
+
+      name: Kananaskis
+
+      region: Kananaskis Country
+
+      stay_nights: 2
+
+      coordinates:
+        lat: 50.9013
+        lon: -115.1722
+
+      planning_note: >
+        Less crowded than Banff and a fantastic final hiking base.
+
+      base_attractions:
+
+        - id: upper_kananaskis_lake
+
+          name: Upper Kananaskis Lake
+
+          priority: must_do
+
+          type: lake
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 50.6505
+            lon: -115.1356
+
+        - id: rawson_lake
+
+          name: Rawson Lake
+
+          priority: highly_recommended
+
+          type: hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 50.6500
+            lon: -115.1470
+
+        - id: ptarmigan_cirque
+
+          name: Ptarmigan Cirque
+
+          priority: highly_recommended
+
+          type: hike
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 50.4767
+            lon: -114.9507
+
+        - id: kananaskis_village
+
+          name: Kananaskis Village Area
+
+          priority: if_time
+
+          type: mountain_resort
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 50.9382
+            lon: -115.1424
+
+  transfer_routes:
+
+    - id: transfer_base_1_to_base_2
+
+      from: base_1
+
+      to: base_2
+
+      description: Icefields Parkway
+
+      estimated_direct_drive_hours: 4
+
+      max_recommended_major_stops: 4
+
+      en_route_candidates:
+
+        - id: peyto_lake
+
+          name: Peyto Lake
+
+          priority: must_do
+
+          type: viewpoint
+
+          stop_duration_hours: 1.5
+
+          coordinates:
+            lat: 51.7236
+            lon: -116.5111
+
+        - id: bow_lake
+
+          name: Bow Lake
+
+          priority: highly_recommended
+
+          type: lake
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: 51.6769
+            lon: -116.4647
+
+        - id: athabasca_glacier
+
+          name: Athabasca Glacier
+
+          priority: must_do
+
+          type: glacier
+
+          stop_duration_hours: 2
+
+          coordinates:
+            lat: 52.2130
+            lon: -117.2270
+
+        - id: sunwapta_falls
+
+          name: Sunwapta Falls
+
+          priority: highly_recommended
+
+          type: waterfall
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: 52.6734
+            lon: -117.9247
+
+        - id: athabasca_falls
+
+          name: Athabasca Falls
+
+          priority: must_do
+
+          type: waterfall
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: 52.6632
+            lon: -117.8817
+
+    - id: transfer_base_2_to_base_3
+
+      from: base_2
+
+      to: base_3
+
+      description: Jasper to Yoho
+
+      estimated_direct_drive_hours: 3.5
+
+      max_recommended_major_stops: 2
+
+    - id: transfer_base_3_to_base_4
+
+      from: base_3
+
+      to: base_4
+
+      description: Yoho to Kananaskis
+
+      estimated_direct_drive_hours: 2.5
+
+      max_recommended_major_stops: 2
+
+    - id: transfer_base_4_to_airport
+
+      from: base_4
+
+      to: calgary_airport
+
+      description: Departure day
+
+      estimated_direct_drive_hours: 1.5
+
+  airport:
+
+    id: calgary_airport
+
+    name: Calgary International Airport
+
+    coordinates:
+      lat: 51.1139
+      lon: -114.0203
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+
+      - wildlife_safari
+
+    possible_second_paid_activity:
+
+      - helicopter_flight
+
+      - whitewater_rafting
+
+      - horseback_riding
+
+    planning_note: >
+      Wildlife encounters, hiking and viewpoints already provide most of the value.
+      A helicopter flight is probably the ultimate once-in-a-lifetime paid activity.
+
+  wildlife_expectations:
+
+    commonly_seen:
+      - elk
+      - bighorn_sheep
+      - mountain_goat
+      - mule_deer
+
+    possible:
+      - black_bear
+      - grizzly_bear
+      - moose
+      - wolf
+
+    safety_note: >
+      Never approach wildlife and always carry bear spray when hiking in the Rockies.

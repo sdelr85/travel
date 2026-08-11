@@ -1,0 +1,1068 @@
+trip:
+  country: Iceland
+  overview:
+    rank: 3
+    summary: "13-day counter-clockwise self-drive ring road trip through Iceland's most iconic landscapes."
+    summary_reason: >
+      A unique combination of volcanoes, glaciers, geothermal landscapes, hot springs and whale watching that feels unlike anywhere else on the planet.
+    transport: "✈ Plane + 🚗 Rental car"
+    duration_days: 13
+    travel_style: "Fly-in family self-drive"
+    highlights:
+      - "Golden Circle (Thingvellir, Geysir, Gullfoss)"
+      - "South Coast (waterfalls, black beaches, glaciers)"
+      - "North Iceland (Myvatn, Dettifoss, Husavik)"
+      - "Snaefellsnes Peninsula"
+    target_group:
+      adults: 2
+      children: 3
+  direction: counter_clockwise
+  duration:
+    days: 13
+    nights: 12
+
+  planning_principles:
+    transfer_day:
+      max_recommended_sightseeing_hours: 3
+      max_recommended_major_stops: 2
+      note: "Transfer days should mainly be used for driving, short scenic stops and flexibility. Avoid scheduling too many 1-2 hour visits on these days."
+    base_day:
+      max_recommended_single_drive_minutes: 105
+      note: "Most major sightseeing should be planned as day trips from the lodging bases."
+    flexibility:
+      note: "Some locations are both base attractions and transfer-day candidates. Use weather, check-in time and family energy level to decide."
+
+  priority_definitions:
+    must_do:
+      score: 4
+      description: "Absolute highlight. Try to include unless weather or timing makes it unrealistic."
+    highly_recommended:
+      score: 3
+      description: "Strongly recommended if weather is good and the day schedule allows it."
+    if_time:
+      score: 2
+      description: "Good addition, but not essential."
+    optional_paid_activity:
+      score: 1
+      description: "Worth considering, but should be limited because of budget and planning preference."
+
+  lodging_locations:
+
+    - id: base_1
+      name: Selfoss / Hella / Fludir
+      region: Golden Circle and South Iceland inland
+      stay_nights: 3
+      coordinates:
+        lat: 63.9330
+        lon: -20.9970
+
+      planning_note: "Good first base after arrival. Use this base for Golden Circle, a hot spring hike or bath, and a relaxed first Iceland experience."
+
+      base_attractions:
+
+        - id: thingvellir
+          name: Thingvellir National Park
+          priority: must_do
+          type: nature_history
+          visit_duration_hours: 3
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.2559
+            lon: -21.1295
+          visit_strategy:
+            primary_base: base_1
+            good_for_evening_visit: false
+            notes: "Best combined with Geysir and Gullfoss as part of the Golden Circle."
+
+        - id: geysir_strokkur
+          name: Geysir / Strokkur
+          priority: must_do
+          type: geothermal
+          visit_duration_hours: 1.5
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.3104
+            lon: -20.3024
+          visit_strategy:
+            primary_base: base_1
+            good_for_evening_visit: true
+            notes: "Good evening candidate after the bus crowds have left."
+
+        - id: gullfoss
+          name: Gullfoss
+          priority: must_do
+          type: waterfall
+          visit_duration_hours: 1.5
+          drive_time_minutes: 50
+          coordinates:
+            lat: 64.3271
+            lon: -20.1218
+          visit_strategy:
+            primary_base: base_1
+            good_for_evening_visit: true
+            notes: "Very suitable as a late-day visit if weather and light are good."
+
+        - id: reykjadalur_hot_river
+          name: Reykjadalur Hot River Hike
+          priority: highly_recommended
+          type: hike_hot_spring
+          visit_duration_hours: 4
+          drive_time_minutes: 30
+          coordinates:
+            lat: 64.0217
+            lon: -21.2114
+          visit_strategy:
+            primary_base: base_1
+            notes: "Very good family hike, but allow enough time for walking and bathing."
+
+        - id: secret_lagoon
+          name: Secret Lagoon
+          priority: highly_recommended
+          type: geothermal_bath
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 64.1374
+            lon: -20.3091
+          visit_strategy:
+            primary_base: base_1
+            notes: "Good lower-key alternative to Blue Lagoon or Sky Lagoon."
+
+        - id: kerid_crater
+          name: Kerid Crater
+          priority: if_time
+          type: crater
+          visit_duration_hours: 1
+          drive_time_minutes: 15
+          coordinates:
+            lat: 64.0413
+            lon: -20.8847
+          visit_strategy:
+            primary_base: base_1
+            notes: "Short and easy stop close to Selfoss."
+
+        - id: hrunalaug_hot_spring
+          name: Hrunalaug Hot Spring
+          priority: if_time
+          type: small_hot_spring
+          visit_duration_hours: 1.5
+          drive_time_minutes: 35
+          coordinates:
+            lat: 64.1407
+            lon: -20.2589
+          visit_strategy:
+            primary_base: base_1
+            notes: "Small and scenic. Better if you want a more natural-feeling bathing stop."
+
+        - id: haifoss
+          name: Haifoss
+          priority: if_time
+          type: waterfall
+          visit_duration_hours: 2
+          drive_time_minutes: 90
+          coordinates:
+            lat: 64.2073
+            lon: -19.6869
+          visit_strategy:
+            primary_base: base_1
+            notes: "Beautiful but adds more driving. Check road conditions before planning."
+
+      departure_day_candidates:
+        route_to: base_2
+        note: "These can be visited while moving toward the South Coast, but do not overload the transfer day."
+        candidates:
+          - attraction_ref: seljalandsfoss
+            recommended_if: "You want one iconic waterfall stop before driving further east."
+          - attraction_ref: gljufrabui
+            recommended_if: "You already stop at Seljalandsfoss and still have time."
+          - attraction_ref: skogafoss
+            recommended_if: "You want a second major waterfall stop on the transfer day."
+
+    - id: base_2
+      name: Kirkjubaejarklaustur
+      region: South Coast and Vatnajokull
+      stay_nights: 3
+      coordinates:
+        lat: 63.7896
+        lon: -18.0560
+
+      planning_note: "This base should carry most of the South Coast sightseeing. Do not put all South Coast stops on the transfer day from base_1."
+
+      base_attractions:
+
+        - id: seljalandsfoss
+          name: Seljalandsfoss
+          priority: highly_recommended
+          type: waterfall
+          visit_duration_hours: 1.5
+          drive_time_minutes: 105
+          coordinates:
+            lat: 63.6156
+            lon: -19.9886
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Can be visited on transfer day, but also works as part of a western South Coast day trip."
+
+        - id: gljufrabui
+          name: Gljufrabui
+          priority: highly_recommended
+          type: waterfall
+          visit_duration_hours: 0.5
+          drive_time_minutes: 105
+          coordinates:
+            lat: 63.6210
+            lon: -19.9856
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Best combined with Seljalandsfoss."
+
+        - id: skogafoss
+          name: Skogafoss
+          priority: must_do
+          type: waterfall
+          visit_duration_hours: 1.5
+          drive_time_minutes: 90
+          coordinates:
+            lat: 63.5321
+            lon: -19.5114
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Can be a transfer stop, but should not be transfer-only."
+
+        - id: kvernufoss
+          name: Kvernufoss
+          priority: highly_recommended
+          type: waterfall
+          visit_duration_hours: 1
+          drive_time_minutes: 90
+          coordinates:
+            lat: 63.5278
+            lon: -19.4806
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Good add-on near Skogafoss if the day is not too full."
+
+        - id: reynisfjara
+          name: Reynisfjara
+          priority: must_do
+          type: black_sand_beach
+          visit_duration_hours: 1.5
+          drive_time_minutes: 60
+          coordinates:
+            lat: 63.4056
+            lon: -19.0717
+          visit_strategy:
+            primary_base: base_2
+            notes: "Better planned from the base than squeezed into the transfer day. Be careful with sneaker waves."
+
+        - id: dyrholaey
+          name: Dyrholaey
+          priority: highly_recommended
+          type: viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 60
+          coordinates:
+            lat: 63.3998
+            lon: -19.1261
+          visit_strategy:
+            primary_base: base_2
+            notes: "Good to combine with Reynisfjara."
+
+        - id: fjadrargljufur_canyon
+          name: Fjadrargljufur Canyon
+          priority: highly_recommended
+          type: canyon
+          visit_duration_hours: 1.5
+          drive_time_minutes: 10
+          coordinates:
+            lat: 63.7714
+            lon: -18.1719
+          visit_strategy:
+            primary_base: base_2
+            notes: "Very easy from Kirkjubaejarklaustur. Good short outing or filler activity."
+
+        - id: skaftafell
+          name: Skaftafell
+          priority: must_do
+          type: hiking
+          visit_duration_hours: 4
+          drive_time_minutes: 60
+          coordinates:
+            lat: 64.0168
+            lon: -16.9666
+          visit_strategy:
+            primary_base: base_2
+            notes: "Plan as a proper hiking block, ideally combined with Svartifoss."
+
+        - id: svartifoss
+          name: Svartifoss
+          priority: must_do
+          type: waterfall
+          visit_duration_hours: 2
+          drive_time_minutes: 60
+          coordinates:
+            lat: 64.0275
+            lon: -16.9752
+          visit_strategy:
+            primary_base: base_2
+            notes: "Best combined with Skaftafell."
+
+        - id: jokulsarlon_glacier_lagoon
+          name: Jokulsarlon Glacier Lagoon
+          priority: must_do
+          type: glacier_lagoon
+          visit_duration_hours: 3
+          drive_time_minutes: 100
+          coordinates:
+            lat: 64.0480
+            lon: -16.1790
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_2_to_base_3
+            notes: "One of the key highlights. Better as a dedicated base_2 day trip than rushed on transfer day."
+
+        - id: diamond_beach
+          name: Diamond Beach
+          priority: must_do
+          type: black_sand_beach
+          visit_duration_hours: 1
+          drive_time_minutes: 100
+          coordinates:
+            lat: 64.0440
+            lon: -16.1770
+          visit_strategy:
+            primary_base: base_2
+            secondary_opportunity:
+              - transfer_base_2_to_base_3
+            notes: "Best combined with Jokulsarlon."
+
+        - id: glacier_kayaking_jokulsarlon
+          name: Glacier Kayaking Jokulsarlon
+          priority: optional_paid_activity
+          type: paid_activity
+          visit_duration_hours: 3
+          drive_time_minutes: 100
+          coordinates:
+            lat: 64.0480
+            lon: -16.1790
+          visit_strategy:
+            primary_base: base_2
+            notes: "Possible second paid activity, but only if budget and weather allow it."
+
+        - id: svartifoss_sjonarnipa_hike
+          name: Sjonarnipa Viewpoint Hike
+          priority: if_time
+          type: hike_viewpoint
+          visit_duration_hours: 3
+          drive_time_minutes: 60
+          coordinates:
+            lat: 64.0150
+            lon: -16.9500
+          visit_strategy:
+            primary_base: base_2
+            notes: "Good extra hike near Skaftafell if the family still has energy."
+
+      arrival_day_candidates:
+        route_from: base_1
+        note: "Pick 1-2 major stops maximum on arrival day. The rest can be done from base_2."
+        candidates:
+          - attraction_ref: seljalandsfoss
+          - attraction_ref: gljufrabui
+          - attraction_ref: skogafoss
+          - attraction_ref: kvernufoss
+
+      departure_day_candidates:
+        route_to: base_3
+        note: "The drive to Myvatn is long. Only keep short or very strategic stops on this day."
+        candidates:
+          - attraction_ref: jokulsarlon_glacier_lagoon
+            recommended_if: "You did not manage to visit it earlier from base_2."
+          - attraction_ref: diamond_beach
+            recommended_if: "Only if paired with Jokulsarlon and time allows."
+
+    - id: base_3
+      name: Reykjahlid / Lake Myvatn
+      region: North Iceland
+      stay_nights: 3
+      coordinates:
+        lat: 65.6426
+        lon: -16.9120
+
+      planning_note: "This base covers Myvatn, Husavik, Dettifoss and some Diamond Circle highlights. Studlagil is better handled from this base than on the long transfer from the South Coast."
+
+      base_attractions:
+
+        - id: whale_watching_husavik
+          name: Whale Watching Husavik
+          priority: must_do
+          type: paid_activity
+          visit_duration_hours: 3
+          drive_time_minutes: 45
+          coordinates:
+            lat: 66.0449
+            lon: -17.3389
+          visit_strategy:
+            primary_base: base_3
+            notes: "Main planned paid activity."
+
+        - id: geosea_baths
+          name: GeoSea Baths
+          priority: if_time
+          type: geothermal_bath
+          visit_duration_hours: 2
+          drive_time_minutes: 45
+          coordinates:
+            lat: 66.0538
+            lon: -17.3161
+          visit_strategy:
+            primary_base: base_3
+            notes: "Good to combine with Husavik whale watching."
+
+        - id: hverir
+          name: Hverir
+          priority: must_do
+          type: geothermal
+          visit_duration_hours: 1
+          drive_time_minutes: 10
+          coordinates:
+            lat: 65.6414
+            lon: -16.8077
+          visit_strategy:
+            primary_base: base_3
+            notes: "Short but very memorable geothermal stop."
+
+        - id: krafla
+          name: Krafla
+          priority: must_do
+          type: volcanic_area
+          visit_duration_hours: 2
+          drive_time_minutes: 15
+          coordinates:
+            lat: 65.7156
+            lon: -16.7594
+          visit_strategy:
+            primary_base: base_3
+            notes: "Best combined with Leirhnjukur and Hverir."
+
+        - id: leirhnjukur
+          name: Leirhnjukur
+          priority: must_do
+          type: lava_field
+          visit_duration_hours: 2
+          drive_time_minutes: 15
+          coordinates:
+            lat: 65.7213
+            lon: -16.7873
+          visit_strategy:
+            primary_base: base_3
+            notes: "Excellent short hike through lava fields."
+
+        - id: dettifoss
+          name: Dettifoss
+          priority: must_do
+          type: waterfall
+          visit_duration_hours: 2
+          drive_time_minutes: 60
+          coordinates:
+            lat: 65.8147
+            lon: -16.3841
+          visit_strategy:
+            primary_base: base_3
+            notes: "Plan with Selfoss waterfall if time allows."
+
+        - id: selfoss_waterfall_north
+          name: Selfoss Waterfall
+          priority: highly_recommended
+          type: waterfall
+          visit_duration_hours: 1
+          drive_time_minutes: 60
+          coordinates:
+            lat: 65.8057
+            lon: -16.3778
+          visit_strategy:
+            primary_base: base_3
+            notes: "Best combined with Dettifoss."
+
+        - id: dimmuborgir
+          name: Dimmuborgir
+          priority: highly_recommended
+          type: lava_formations
+          visit_duration_hours: 2
+          drive_time_minutes: 10
+          coordinates:
+            lat: 65.5928
+            lon: -16.9124
+          visit_strategy:
+            primary_base: base_3
+            notes: "Easy and family-friendly Myvatn stop."
+
+        - id: hverfjall
+          name: Hverfjall
+          priority: highly_recommended
+          type: crater_hike
+          visit_duration_hours: 2
+          drive_time_minutes: 10
+          coordinates:
+            lat: 65.6086
+            lon: -16.8755
+          visit_strategy:
+            primary_base: base_3
+            notes: "Great short crater hike with wide views."
+
+        - id: myvatn_nature_baths
+          name: Myvatn Nature Baths
+          priority: highly_recommended
+          type: geothermal_bath
+          visit_duration_hours: 2
+          drive_time_minutes: 15
+          coordinates:
+            lat: 65.6301
+            lon: -16.8480
+          visit_strategy:
+            primary_base: base_3
+            notes: "Good bathing option near the lodging."
+
+        - id: godafoss
+          name: Godafoss
+          priority: highly_recommended
+          type: waterfall
+          visit_duration_hours: 1
+          drive_time_minutes: 45
+          coordinates:
+            lat: 65.6828
+            lon: -17.5502
+          visit_strategy:
+            primary_base: base_3
+            secondary_opportunity:
+              - transfer_base_3_to_base_4
+            notes: "Can be visited from Myvatn or on the way west."
+
+        - id: studlagil_canyon
+          name: Studlagil Canyon
+          priority: highly_recommended
+          type: canyon
+          visit_duration_hours: 2.5
+          drive_time_minutes: 75
+          coordinates:
+            lat: 65.1650
+            lon: -15.3120
+          visit_strategy:
+            primary_base: base_3
+            secondary_opportunity:
+              - transfer_base_2_to_base_3
+            notes: "Better as a Myvatn day trip than as part of the already long South Coast to Myvatn transfer."
+
+        - id: asbyrgi_canyon
+          name: Asbyrgi Canyon
+          priority: if_time
+          type: canyon_hiking
+          visit_duration_hours: 2.5
+          drive_time_minutes: 80
+          coordinates:
+            lat: 66.0170
+            lon: -16.5055
+          visit_strategy:
+            primary_base: base_3
+            notes: "Good Diamond Circle add-on if you want a full northern excursion."
+
+        - id: hljodaklettar
+          name: Hljodaklettar
+          priority: if_time
+          type: basalt_formations
+          visit_duration_hours: 2
+          drive_time_minutes: 75
+          coordinates:
+            lat: 65.9330
+            lon: -16.5350
+          visit_strategy:
+            primary_base: base_3
+            notes: "Interesting if combining Dettifoss and Asbyrgi."
+
+      arrival_day_candidates:
+        route_from: base_2
+        note: "The South Coast to Myvatn transfer is very long. Prefer only one meaningful scenic stop plus food/fuel breaks."
+        candidates:
+          - attraction_ref: studlagil_canyon
+            recommended_if: "Only if you leave early and skip other major detours."
+          - external_stop_ref: vestrahorn
+            recommended_if: "Good scenic stop near Hofn, but it adds time."
+
+      departure_day_candidates:
+        route_to: base_4
+        note: "Pick Godafoss plus one town or pool stop maximum."
+        candidates:
+          - attraction_ref: godafoss
+          - external_stop_ref: akureyri
+          - external_stop_ref: hofsos_infinity_pool
+
+    - id: base_4
+      name: Grundarfjordur
+      region: Snaefellsnes Peninsula
+      stay_nights: 3
+      coordinates:
+        lat: 64.9247
+        lon: -23.2609
+
+      planning_note: "This base gives time to explore Snaefellsnes slowly. Most Snaefellsnes sights should be done from this base, not on the final drive to Reykjavik."
+
+      base_attractions:
+
+        - id: kirkjufell
+          name: Kirkjufell
+          priority: must_do
+          type: mountain
+          visit_duration_hours: 2
+          drive_time_minutes: 5
+          coordinates:
+            lat: 64.9417
+            lon: -23.3069
+          visit_strategy:
+            primary_base: base_4
+            good_for_evening_visit: true
+            notes: "Very close to Grundarfjordur. Good sunset or evening visit."
+
+        - id: arnarstapi
+          name: Arnarstapi
+          priority: must_do
+          type: coastal_village
+          visit_duration_hours: 1
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.7664
+            lon: -23.6275
+          visit_strategy:
+            primary_base: base_4
+            notes: "Best combined with Hellnar coastal walk."
+
+        - id: arnarstapi_hellnar_coastal_walk
+          name: Arnarstapi-Hellnar Coastal Walk
+          priority: must_do
+          type: hike
+          visit_duration_hours: 2.5
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.7600
+            lon: -23.6400
+          visit_strategy:
+            primary_base: base_4
+            notes: "Probably the best family walk on Snaefellsnes."
+
+        - id: londrangar
+          name: Londrangar
+          priority: highly_recommended
+          type: cliffs
+          visit_duration_hours: 1
+          drive_time_minutes: 50
+          coordinates:
+            lat: 64.7353
+            lon: -23.7751
+          visit_strategy:
+            primary_base: base_4
+            notes: "Good coastal viewpoint."
+
+        - id: djupalonssandur
+          name: Djupalonssandur
+          priority: highly_recommended
+          type: black_sand_beach
+          visit_duration_hours: 1.5
+          drive_time_minutes: 55
+          coordinates:
+            lat: 64.7525
+            lon: -23.8951
+          visit_strategy:
+            primary_base: base_4
+            notes: "Good to combine with Londrangar and the national park."
+
+        - id: snaefellsjokull_national_park
+          name: Snaefellsjokull National Park
+          priority: highly_recommended
+          type: national_park
+          visit_duration_hours: 4
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.8089
+            lon: -23.7767
+          visit_strategy:
+            primary_base: base_4
+            notes: "Plan as a western Snaefellsnes exploration day."
+
+        - id: stykkisholmur
+          name: Stykkisholmur
+          priority: if_time
+          type: fishing_town
+          visit_duration_hours: 2
+          drive_time_minutes: 35
+          coordinates:
+            lat: 65.0755
+            lon: -22.7298
+          visit_strategy:
+            primary_base: base_4
+            notes: "Nice town stop, especially if weather is less suitable for hiking."
+
+        - id: budir_black_church
+          name: Budir Black Church
+          priority: highly_recommended
+          type: church_viewpoint
+          visit_duration_hours: 0.5
+          drive_time_minutes: 35
+          coordinates:
+            lat: 64.8250
+            lon: -23.3840
+          visit_strategy:
+            primary_base: base_4
+            secondary_opportunity:
+              - transfer_base_4_to_final_stop
+            notes: "Good small stop on Snaefellsnes or while leaving the peninsula."
+
+        - id: ytri_tunga
+          name: Ytri Tunga
+          priority: highly_recommended
+          type: seal_colony
+          visit_duration_hours: 1
+          drive_time_minutes: 45
+          coordinates:
+            lat: 64.8039
+            lon: -23.0814
+          visit_strategy:
+            primary_base: base_4
+            secondary_opportunity:
+              - transfer_base_4_to_final_stop
+            notes: "Good wildlife stop, especially with children."
+
+        - id: saxholl_crater
+          name: Saxholl Crater
+          priority: if_time
+          type: crater
+          visit_duration_hours: 1
+          drive_time_minutes: 50
+          coordinates:
+            lat: 64.8490
+            lon: -23.9270
+          visit_strategy:
+            primary_base: base_4
+            notes: "Short stair climb with good views."
+
+        - id: raudfeldsgja_gorge
+          name: Raudfeldsgja Gorge
+          priority: if_time
+          type: gorge
+          visit_duration_hours: 1
+          drive_time_minutes: 40
+          coordinates:
+            lat: 64.7850
+            lon: -23.6370
+          visit_strategy:
+            primary_base: base_4
+            notes: "Short adventurous stop, depending on weather and footwear."
+
+      departure_day_candidates:
+        route_to: final_stop
+        note: "Use this day mainly for the drive to Reykjavik and city visit. Do not try to do a full Snaefellsnes sightseeing day and Reykjavik on the same day."
+        candidates:
+          - attraction_ref: budir_black_church
+          - attraction_ref: ytri_tunga
+
+  transfer_routes:
+
+    - id: transfer_base_1_to_base_2
+      from: base_1
+      to: base_2
+      description: Golden Circle / Selfoss area to Kirkjubaejarklaustur
+      estimated_direct_drive_hours: 3.25
+      planning_note: "This transfer passes many famous South Coast sights, but most should remain available as base_2 attractions. Choose only 1-2 meaningful stops while transferring."
+      max_recommended_major_stops: 2
+
+      en_route_candidates:
+
+        - attraction_ref: seljalandsfoss
+          priority: highly_recommended
+          type: waterfall
+          stop_duration_hours: 1
+          transfer_role: candidate
+          planning_note: "Good first major stop, but do not combine with every other South Coast sight on the same transfer day."
+
+        - attraction_ref: gljufrabui
+          priority: highly_recommended
+          type: waterfall
+          stop_duration_hours: 0.5
+          transfer_role: add_on
+          planning_note: "Only if already stopping at Seljalandsfoss."
+
+        - attraction_ref: skogafoss
+          priority: highly_recommended
+          type: waterfall
+          stop_duration_hours: 1
+          transfer_role: candidate
+          planning_note: "Good second stop if the day is going smoothly."
+
+        - attraction_ref: kvernufoss
+          priority: if_time
+          type: waterfall
+          stop_duration_hours: 1
+          transfer_role: add_on
+          planning_note: "Only if you skip another stop or arrive early."
+
+    - id: transfer_base_2_to_base_3
+      from: base_2
+      to: base_3
+      description: Kirkjubaejarklaustur to Myvatn via East Iceland
+      estimated_direct_drive_hours: 6.5
+      planning_note: "This is the longest transfer. Keep it simple. Prefer short scenic stops and avoid stacking Jokulsarlon, Vestrahorn, Seydisfjordur and Studlagil on the same day."
+      max_recommended_major_stops: 1
+      max_recommended_short_stops: 2
+
+      en_route_candidates:
+
+        - attraction_ref: jokulsarlon_glacier_lagoon
+          priority: must_do
+          type: glacier_lagoon
+          stop_duration_hours: 2
+          transfer_role: backup_only
+          planning_note: "Only use as transfer stop if not visited during the base_2 stay."
+
+        - attraction_ref: diamond_beach
+          priority: must_do
+          type: black_sand_beach
+          stop_duration_hours: 1
+          transfer_role: backup_only
+          planning_note: "Only use together with Jokulsarlon if not visited earlier."
+
+        - id: vestrahorn
+          name: Vestrahorn
+          priority: highly_recommended
+          type: mountain_viewpoint
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 64.2595
+            lon: -14.9800
+          transfer_role: candidate
+          planning_note: "Good scenic stop near Hofn, but it adds time and may involve an entrance fee."
+
+        - id: djupivogur
+          name: Djupivogur
+          priority: if_time
+          type: fishing_village
+          stop_duration_hours: 1
+          coordinates:
+            lat: 64.6570
+            lon: -14.2890
+          transfer_role: short_stop
+          planning_note: "Possible lunch or coffee stop."
+
+        - id: seydisfjordur
+          name: Seydisfjordur
+          priority: if_time
+          type: scenic_town
+          stop_duration_hours: 2
+          coordinates:
+            lat: 65.2619
+            lon: -14.0094
+          transfer_role: major_detour
+          planning_note: "Beautiful, but treat as a deliberate detour. Do not combine with Studlagil on the same transfer day."
+
+        - attraction_ref: studlagil_canyon
+          priority: highly_recommended
+          type: canyon
+          stop_duration_hours: 2.5
+          transfer_role: major_detour
+          planning_note: "Better from base_3. Only do on transfer day if leaving early and skipping Seydisfjordur."
+
+        - id: rjukandi_waterfall
+          name: Rjukandi Waterfall
+          priority: if_time
+          type: waterfall
+          stop_duration_hours: 0.5
+          coordinates:
+            lat: 65.1200
+            lon: -15.0280
+          transfer_role: short_stop
+          planning_note: "Short roadside-style stop if timing allows."
+
+    - id: transfer_base_3_to_base_4
+      from: base_3
+      to: base_4
+      description: Myvatn to Grundarfjordur / Snaefellsnes
+      estimated_direct_drive_hours: 5.5
+      planning_note: "Another long transfer. Godafoss plus Akureyri is realistic. Trollaskagi, Siglufjordur, Hofsos and Kolugljufur should be treated as choose-one options, not all-in-one."
+      max_recommended_major_stops: 2
+
+      en_route_candidates:
+
+        - attraction_ref: godafoss
+          priority: must_do
+          type: waterfall
+          stop_duration_hours: 1
+          transfer_role: candidate
+          planning_note: "Very logical stop on the way west if not already visited from base_3."
+
+        - id: akureyri
+          name: Akureyri
+          priority: highly_recommended
+          type: town
+          stop_duration_hours: 2
+          coordinates:
+            lat: 65.6835
+            lon: -18.0878
+          transfer_role: candidate
+          planning_note: "Good lunch and short city stop."
+
+        - id: trollaskagi_peninsula
+          name: Trollaskagi Peninsula
+          priority: if_time
+          type: scenic_drive
+          stop_duration_hours: 2
+          coordinates:
+            lat: 66.0500
+            lon: -18.7000
+          transfer_role: major_detour
+          planning_note: "Only if you deliberately choose a scenic detour and accept a longer day."
+
+        - id: siglufjordur
+          name: Siglufjordur
+          priority: if_time
+          type: fishing_town
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 66.1510
+            lon: -18.9080
+          transfer_role: major_detour
+          planning_note: "Choose this instead of Hofsos or Kolugljufur, not in addition to everything."
+
+        - id: hofsos_infinity_pool
+          name: Hofsos Infinity Pool
+          priority: if_time
+          type: geothermal_pool
+          stop_duration_hours: 2
+          coordinates:
+            lat: 65.9017
+            lon: -19.4167
+          transfer_role: choose_one
+          planning_note: "Nice family stop, but it turns the transfer into a longer day."
+
+        - id: kolugljufur_canyon
+          name: Kolugljufur Canyon
+          priority: if_time
+          type: canyon
+          stop_duration_hours: 1
+          coordinates:
+            lat: 65.3698
+            lon: -20.5660
+          transfer_role: choose_one
+          planning_note: "Possible short nature stop, but only if timing is good."
+
+    - id: transfer_base_4_to_final_stop
+      from: base_4
+      to: final_stop
+      description: Grundarfjordur / Snaefellsnes to Reykjavik
+      estimated_direct_drive_hours: 2.5
+      planning_note: "This is shorter than the other transfers. It can include one or two Snaefellsnes stops plus a Reykjavik city visit."
+      max_recommended_major_stops: 2
+
+      en_route_candidates:
+
+        - attraction_ref: budir_black_church
+          priority: highly_recommended
+          type: church_viewpoint
+          stop_duration_hours: 0.5
+          transfer_role: candidate
+          planning_note: "Good short stop while leaving Snaefellsnes."
+
+        - attraction_ref: ytri_tunga
+          priority: highly_recommended
+          type: seal_colony
+          stop_duration_hours: 1
+          transfer_role: candidate
+          planning_note: "Good family-friendly wildlife stop."
+
+        - id: borgarnes
+          name: Borgarnes
+          priority: if_time
+          type: town
+          stop_duration_hours: 1
+          coordinates:
+            lat: 64.5383
+            lon: -21.9206
+          transfer_role: short_stop
+          planning_note: "Possible lunch or coffee stop on the way to Reykjavik."
+
+  final_stop:
+    id: final_stop
+    name: Reykjavik
+    recommended_duration: half_day_to_full_day
+    coordinates:
+      lat: 64.1466
+      lon: -21.9426
+
+    planning_note: "Reykjavik is best kept as a final urban contrast after the nature-heavy route. A half day may be enough unless you want Sky Lagoon or more city time."
+
+    attractions:
+
+      - id: hallgrimskirkja
+        name: Hallgrimskirkja
+        priority: highly_recommended
+        type: landmark
+        visit_duration_hours: 1
+        coordinates:
+          lat: 64.1417
+          lon: -21.9266
+
+      - id: harpa
+        name: Harpa Concert Hall
+        priority: if_time
+        type: architecture
+        visit_duration_hours: 1
+        coordinates:
+          lat: 64.1500
+          lon: -21.9320
+
+      - id: old_harbour
+        name: Old Harbour
+        priority: highly_recommended
+        type: city_walk
+        visit_duration_hours: 1.5
+        coordinates:
+          lat: 64.1526
+          lon: -21.9417
+
+      - id: rainbow_street
+        name: Rainbow Street
+        priority: if_time
+        type: city_walk
+        visit_duration_hours: 0.5
+        coordinates:
+          lat: 64.1432
+          lon: -21.9287
+
+      - id: sky_lagoon
+        name: Sky Lagoon
+        priority: optional_paid_activity
+        type: geothermal_bath
+        visit_duration_hours: 2.5
+        coordinates:
+          lat: 64.1206
+          lon: -21.9118
+        planning_note: "Good final-day splurge if you want a polished hot water experience before flying home."
+
+  airport:
+    id: keflavik_airport
+    name: Keflavik International Airport
+    coordinates:
+      lat: 63.9850
+      lon: -22.6056
+
+  paid_activity_preferences:
+    intended_paid_activities:
+      - whale_watching_husavik
+    possible_second_paid_activity:
+      - glacier_kayaking_jokulsarlon
+      - sky_lagoon
+    planning_note: "Keep paid activities limited. Whale watching is the main planned paid activity. Choose at most one second paid activity based on weather, budget and family preference."

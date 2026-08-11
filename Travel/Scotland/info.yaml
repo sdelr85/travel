@@ -1,0 +1,608 @@
+trip:
+  country: Scotland
+  overview:
+    rank: 11
+    summary: "14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh."
+    summary_reason: >
+      A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.
+    transport: "🚗 Own car + ⛴ Overnight ferry to Newcastle"
+    duration_days: 14
+    travel_style: "Family road trip via ferry"
+    highlights:
+      - "Glencoe and Glenfinnan Viaduct"
+      - "Isle of Skye (Storr, Quiraing, Fairy Pools)"
+      - "Eilean Donan Castle"
+      - "Bealach na Ba and Torridon"
+      - "Assynt (Stac Pollaidh, Achmelvich Beach)"
+      - "Edinburgh"
+    target_group:
+      adults: 2
+      children: 3
+
+  transport_constraints:
+    ferry_to_scotland:
+      required: true
+      route: Amsterdam/IJmuiden to Newcastle
+    return_ferry:
+      required: true
+      route: Newcastle to Amsterdam/IJmuiden
+    additional_island_ferries:
+      allowed: optional
+
+  priority_definitions:
+    must_do:
+      score: 4
+    highly_recommended:
+      score: 3
+    if_time:
+      score: 2
+    optional_paid_activity:
+      score: 1
+
+  lodging_locations:
+
+    - id: base_1
+      name: Glencoe / Fort William
+      region: Western Highlands
+      stay_nights: 2
+      coordinates:
+        lat: 56.682
+        lon: -5.103
+      planning_note: "Ideal first Highlands base after arriving from Newcastle via Loch Lomond."
+
+      base_attractions:
+
+        - id: glencoe
+          name: Glencoe Three Sisters
+          priority: must_do
+          type: scenic_hiking_area
+          visit_duration_hours: 3
+          drive_time_minutes: 15
+          coordinates:
+            lat: 56.6675
+            lon: -4.9838
+          visit_strategy:
+            notes: "Classic Glencoe viewpoint and valley walks."
+
+        - id: glen_etive
+          name: Glen Etive
+          priority: highly_recommended
+          type: scenic_drive
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 56.5600
+            lon: -4.9300
+          visit_strategy:
+            notes: "Scenic side glen south of Glencoe, used in Skyfall."
+
+        - id: glenfinnan_viaduct
+          name: Glenfinnan Viaduct
+          priority: must_do
+          type: harry_potter_highlight
+          visit_duration_hours: 2
+          drive_time_minutes: 35
+          coordinates:
+            lat: 56.8743
+            lon: -5.4318
+          visit_strategy:
+            notes: "Check Jacobite steam train timetable for a timed visit."
+
+        - id: glenfinnan_monument
+          name: Glenfinnan Monument
+          priority: highly_recommended
+          type: monument
+          visit_duration_hours: 1
+          drive_time_minutes: 35
+          coordinates:
+            lat: 56.8734
+            lon: -5.4340
+          visit_strategy:
+            notes: "Easy add-on directly next to the viaduct viewpoint."
+
+        - id: glen_nevis
+          name: Glen Nevis
+          priority: highly_recommended
+          type: valley_walk
+          visit_duration_hours: 3
+          drive_time_minutes: 15
+          coordinates:
+            lat: 56.7750
+            lon: -4.9889
+          visit_strategy:
+            notes: "Beautiful valley below Ben Nevis, good for a relaxed family walk."
+
+        - id: ben_nevis_lower_walks
+          name: Ben Nevis Lower Valley Walks
+          priority: if_time
+          type: hiking
+          visit_duration_hours: 3
+          drive_time_minutes: 15
+          coordinates:
+            lat: 56.7982
+            lon: -4.9981
+          visit_strategy:
+            notes: "Lower-level paths around Ben Nevis, suitable for all ages."
+
+    - id: base_2
+      name: Isle of Skye
+      region: Inner Hebrides
+      stay_nights: 3
+      coordinates:
+        lat: 57.412
+        lon: -6.194
+      planning_note: "Main hiking and photography base of the trip."
+
+      base_attractions:
+
+        - id: old_man_of_storr
+          name: Old Man of Storr
+          priority: must_do
+          type: hike
+          visit_duration_hours: 3
+          drive_time_minutes: 20
+          coordinates:
+            lat: 57.5093
+            lon: -6.1847
+          visit_strategy:
+            notes: "Iconic Skye hike. Start early to avoid crowds."
+
+        - id: quiraing
+          name: Quiraing
+          priority: must_do
+          type: hike
+          visit_duration_hours: 3
+          drive_time_minutes: 45
+          coordinates:
+            lat: 57.6411
+            lon: -6.2796
+          visit_strategy:
+            notes: "Dramatic landscape with unique rock formations. Best in morning light."
+
+        - id: fairy_pools
+          name: Fairy Pools
+          priority: highly_recommended
+          type: waterfall_walk
+          visit_duration_hours: 2
+          drive_time_minutes: 45
+          coordinates:
+            lat: 57.2500
+            lon: -6.3330
+          visit_strategy:
+            notes: "Very popular crystal-clear pools. Visit early morning or in the evening."
+
+        - id: neist_point
+          name: Neist Point
+          priority: highly_recommended
+          type: coastal_viewpoint
+          visit_duration_hours: 2
+          drive_time_minutes: 60
+          coordinates:
+            lat: 57.4237
+            lon: -6.7876
+          visit_strategy:
+            good_for_evening_visit: true
+            notes: "Westernmost point of Skye. Excellent sunset viewpoint."
+
+        - id: sligachan
+          name: Sligachan
+          priority: highly_recommended
+          type: mountain_viewpoint
+          visit_duration_hours: 2
+          drive_time_minutes: 30
+          coordinates:
+            lat: 57.2924
+            lon: -6.1713
+          visit_strategy:
+            notes: "Classic Cuillin mountain backdrop. Great photo stop and easy walks."
+
+        - id: elgol
+          name: Elgol
+          priority: highly_recommended
+          type: coastal_village
+          visit_duration_hours: 2
+          drive_time_minutes: 60
+          coordinates:
+            lat: 57.1547
+            lon: -6.1040
+          visit_strategy:
+            notes: "Best direct Cuillin view. Boat trips to Loch Coruisk available."
+
+        - id: coral_beach
+          name: Coral Beach
+          priority: if_time
+          type: beach
+          visit_duration_hours: 2
+          drive_time_minutes: 30
+          coordinates:
+            lat: 57.5012
+            lon: -6.3618
+          visit_strategy:
+            notes: "Unique white shell-sand beach near Dunvegan."
+
+        - id: raasay
+          name: Isle of Raasay
+          priority: if_time
+          type: island_day_trip
+          visit_duration_hours: 5
+          drive_time_minutes: 35
+          coordinates:
+            lat: 57.3614
+            lon: -6.0560
+          visit_strategy:
+            notes: "Peaceful island getaway. 25-min ferry from Sconser."
+
+    - id: base_3
+      name: Applecross / Torridon
+      region: Wester Ross
+      stay_nights: 2
+      coordinates:
+        lat: 57.555
+        lon: -5.810
+      planning_note: "Focus on dramatic mountain scenery and Britain's highest mountain pass."
+
+      base_attractions:
+
+        - id: bealach_na_ba
+          name: Bealach na Ba
+          priority: must_do
+          type: scenic_mountain_road
+          visit_duration_hours: 3
+          drive_time_minutes: 15
+          coordinates:
+            lat: 57.4151
+            lon: -5.6453
+          visit_strategy:
+            notes: "One of Britain's highest and most dramatic mountain passes."
+
+        - id: torridon
+          name: Torridon Mountains
+          priority: must_do
+          type: mountains
+          visit_duration_hours: 4
+          drive_time_minutes: 30
+          coordinates:
+            lat: 57.5476
+            lon: -5.4923
+          visit_strategy:
+            notes: "Ancient red sandstone mountains. Good walks from Torridon village."
+
+        - id: applecross_village
+          name: Applecross Village
+          priority: highly_recommended
+          type: village
+          visit_duration_hours: 2
+          drive_time_minutes: 10
+          coordinates:
+            lat: 57.4338
+            lon: -5.8151
+          visit_strategy:
+            notes: "Charming coastal village at the foot of Bealach na Ba."
+
+        - id: shieldaig
+          name: Shieldaig
+          priority: highly_recommended
+          type: village
+          visit_duration_hours: 1.5
+          drive_time_minutes: 20
+          coordinates:
+            lat: 57.5184
+            lon: -5.6462
+          visit_strategy:
+            notes: "Pretty lochside village, good lunch stop."
+
+        - id: red_point_beach
+          name: Red Point Beach
+          priority: if_time
+          type: beach
+          visit_duration_hours: 2
+          drive_time_minutes: 40
+          coordinates:
+            lat: 57.6588
+            lon: -5.6742
+          visit_strategy:
+            notes: "Remote red-sand beach with views towards the Isle of Skye."
+
+    - id: base_4
+      name: Ullapool / Assynt
+      region: Northwest Highlands
+      stay_nights: 3
+      coordinates:
+        lat: 57.896
+        lon: -5.160
+      planning_note: "Best access point for the dramatic Assynt landscape without the full NC500 loop."
+
+      base_attractions:
+
+        - id: stac_pollaidh
+          name: Stac Pollaidh
+          priority: must_do
+          type: hike
+          visit_duration_hours: 3
+          drive_time_minutes: 25
+          coordinates:
+            lat: 57.9938
+            lon: -5.2023
+          visit_strategy:
+            notes: "Short but steep and rewarding hike with unique Assynt panorama."
+
+        - id: achmelvich
+          name: Achmelvich Beach
+          priority: must_do
+          type: beach
+          visit_duration_hours: 2
+          drive_time_minutes: 35
+          coordinates:
+            lat: 58.1578
+            lon: -5.3210
+          visit_strategy:
+            notes: "Stunning turquoise-water beach, often nearly empty."
+
+        - id: clachtoll
+          name: Clachtoll Beach
+          priority: highly_recommended
+          type: beach
+          visit_duration_hours: 1.5
+          drive_time_minutes: 35
+          coordinates:
+            lat: 58.1351
+            lon: -5.3371
+          visit_strategy:
+            notes: "Good to combine with Achmelvich in a single beach day."
+
+        - id: knockan_crag
+          name: Knockan Crag
+          priority: highly_recommended
+          type: geology_hike
+          visit_duration_hours: 2
+          drive_time_minutes: 25
+          coordinates:
+            lat: 58.0455
+            lon: -5.0370
+          visit_strategy:
+            notes: "World-famous geological landmark with short walks and good views."
+
+        - id: ardvreck_castle
+          name: Ardvreck Castle
+          priority: highly_recommended
+          type: castle_ruin
+          visit_duration_hours: 1.5
+          drive_time_minutes: 45
+          coordinates:
+            lat: 58.1717
+            lon: -5.0727
+          visit_strategy:
+            notes: "Atmospheric ruin on the shores of Loch Assynt."
+
+        - id: suilven_viewpoints
+          name: Suilven Viewpoints
+          priority: highly_recommended
+          type: landscape
+          visit_duration_hours: 2
+          drive_time_minutes: 30
+          coordinates:
+            lat: 58.0685
+            lon: -5.0971
+          visit_strategy:
+            notes: "Iconic Scottish mountain silhouette, best seen from the Lochinver area."
+
+        - id: smoo_cave
+          name: Smoo Cave
+          priority: if_time
+          type: cave
+          visit_duration_hours: 1.5
+          drive_time_minutes: 90
+          coordinates:
+            lat: 58.5756
+            lon: -4.7256
+          visit_strategy:
+            notes: "Far north detour. Large sea cave, interesting but makes for a very long day."
+
+    - id: base_5
+      name: Edinburgh
+      region: Central Scotland
+      stay_nights: 2
+      coordinates:
+        lat: 55.9533
+        lon: -3.1883
+      planning_note: "Final cultural stop before returning to Newcastle and the ferry."
+
+      base_attractions:
+
+        - id: edinburgh_castle
+          name: Edinburgh Castle
+          priority: must_do
+          type: castle
+          visit_duration_hours: 3
+          drive_time_minutes: 5
+          coordinates:
+            lat: 55.9486
+            lon: -3.1999
+          visit_strategy:
+            notes: "Iconic landmark. Book tickets in advance."
+
+        - id: arthurs_seat
+          name: Arthur's Seat
+          priority: must_do
+          type: urban_hike
+          visit_duration_hours: 2.5
+          drive_time_minutes: 10
+          coordinates:
+            lat: 55.9441
+            lon: -3.1620
+          visit_strategy:
+            notes: "Extinct volcano with panoramic city views. Easy family hike."
+
+        - id: royal_mile
+          name: Royal Mile
+          priority: highly_recommended
+          type: city_walk
+          visit_duration_hours: 2
+          drive_time_minutes: 5
+          coordinates:
+            lat: 55.9490
+            lon: -3.1896
+          visit_strategy:
+            notes: "Historic main street connecting the castle to Holyrood Palace."
+
+        - id: calton_hill
+          name: Calton Hill
+          priority: highly_recommended
+          type: viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 10
+          coordinates:
+            lat: 55.9556
+            lon: -3.1778
+          visit_strategy:
+            good_for_evening_visit: true
+            notes: "Easy summit walk with panoramic Edinburgh views. Great at sunset."
+
+        - id: dean_village
+          name: Dean Village
+          priority: if_time
+          type: city_walk
+          visit_duration_hours: 1
+          drive_time_minutes: 10
+          coordinates:
+            lat: 55.9493
+            lon: -3.2131
+          visit_strategy:
+            notes: "Picturesque historic village in a river gorge, short walk from city centre."
+
+        - id: national_museum_scotland
+          name: National Museum of Scotland
+          priority: if_time
+          type: museum
+          visit_duration_hours: 2
+          drive_time_minutes: 5
+          coordinates:
+            lat: 55.9466
+            lon: -3.1920
+          visit_strategy:
+            notes: "Free entry. Good rainy-day option in Edinburgh."
+
+  transfer_routes:
+
+    - id: transfer_newcastle_to_base_1
+      from: Newcastle
+      to: base_1
+      description: Newcastle to Glencoe via Hadrian's Wall and Loch Lomond
+      en_route_candidates:
+        - id: hadrians_wall
+          name: Hadrian's Wall
+          priority: highly_recommended
+          type: historic_site
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 54.9902
+            lon: -2.6028
+          transfer_role: cultural_stop
+        - id: loch_lomond_en_route
+          name: Loch Lomond
+          priority: highly_recommended
+          type: scenic_loch
+          stop_duration_hours: 1
+          coordinates:
+            lat: 56.0900
+            lon: -4.5880
+          transfer_role: scenic_stop
+
+    - id: transfer_base_1_to_base_2
+      from: base_1
+      to: base_2
+      description: Glencoe / Fort William to Isle of Skye via Eilean Donan Castle
+      en_route_candidates:
+        - attraction_ref: glenfinnan_viaduct
+          priority: must_do
+          stop_duration_hours: 1.5
+          transfer_role: candidate
+        - id: eilean_donan_1_to_2
+          name: Eilean Donan Castle
+          priority: must_do
+          type: castle
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 57.274
+            lon: -5.516
+          transfer_role: highlight
+
+    - id: transfer_base_2_to_base_3
+      from: base_2
+      to: base_3
+      description: Isle of Skye to Applecross / Torridon via Eilean Donan Castle
+      en_route_candidates:
+        - id: eilean_donan_2_to_3
+          name: Eilean Donan Castle
+          priority: must_do
+          type: castle
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 57.274
+            lon: -5.516
+          transfer_role: highlight
+
+    - id: transfer_base_3_to_base_4
+      from: base_3
+      to: base_4
+      description: Applecross / Torridon to Ullapool via scenic Torridon road
+      en_route_candidates:
+        - id: torridon_scenic_route
+          name: Torridon Scenic Route
+          priority: highly_recommended
+          type: scenic_drive
+          stop_duration_hours: 2
+          coordinates:
+            lat: 57.5600
+            lon: -5.2000
+          transfer_role: scenic_route
+
+    - id: transfer_base_4_to_base_5
+      from: base_4
+      to: base_5
+      description: Ullapool to Edinburgh via Loch Ness and Pitlochry
+      en_route_candidates:
+        - id: loch_ness
+          name: Loch Ness / Urquhart Castle
+          priority: highly_recommended
+          type: historic_loch
+          stop_duration_hours: 2
+          coordinates:
+            lat: 57.3232
+            lon: -4.4244
+          transfer_role: candidate
+        - id: pitlochry
+          name: Pitlochry
+          priority: if_time
+          type: town
+          stop_duration_hours: 1.5
+          coordinates:
+            lat: 56.7084
+            lon: -3.7312
+          transfer_role: short_stop
+
+    - id: transfer_base_5_to_newcastle
+      from: base_5
+      to: Newcastle
+      description: Edinburgh to Newcastle via Northumberland Coast
+      en_route_candidates:
+        - id: northumberland_coast
+          name: Northumberland Coast / Bamburgh
+          priority: highly_recommended
+          type: coastal_scenic
+          stop_duration_hours: 2
+          coordinates:
+            lat: 55.5096
+            lon: -1.7127
+          transfer_role: scenic_stop
+
+  excluded_from_this_trip:
+    - Glasgow
+    - John o Groats
+    - Full NC500 loop
+    - Outer Hebrides
+
+  rationale:
+    glasgow: "Nice city but less aligned with the family's interests in nature, hiking and scenery."
+    far_north: "Can be added in a future trip, but would increase driving substantially."
+    edinburgh: "Strongly recommended for city variety, culture and one of Europe's most beautiful historic centres."

@@ -1,0 +1,584 @@
+trip:
+
+  country: Namibia
+
+  overview:
+    rank: 5
+
+    summary: >
+      18-day family self-drive trip through Namibia,
+      focused on desert landscapes, wildlife, mountains,
+      canyons, night skies and scenic road trips.
+
+    summary_reason: >
+      A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some of the clearest night skies on Earth.
+
+    transport: "✈ Plane + 🚗 Rental car (4x4 recommended)"
+
+    duration_days: 18
+    duration_nights: 17
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+
+      - Sossusvlei
+      - Deadvlei
+      - Sesriem Canyon
+      - Swakopmund
+      - Walvis Bay
+      - Skeleton Coast
+      - Spitzkoppe
+      - Damaraland
+      - Desert Elephants
+      - Etosha National Park
+      - Waterberg Plateau
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: clockwise
+
+  duration:
+
+    days: 18
+    nights: 17
+
+    base_locations: 6
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 3
+
+      - base: base_2
+        nights: 3
+
+      - base: base_3
+        nights: 3
+
+      - base: base_4
+        nights: 2
+
+      - base: base_5
+        nights: 4
+
+      - base: base_6
+        nights: 2
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    vehicle:
+      recommended: 4x4
+
+    roads:
+      note: >
+        Large portions of Namibia are gravel roads.
+        Average speeds are often much lower than expected.
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Namibia is about distance and landscape.
+        Minimize accommodation changes and enjoy the roadtrip.
+
+    transfer_day:
+      max_recommended_major_stops: 2
+
+    base_day:
+      max_recommended_single_drive_minutes: 120
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  airport:
+
+    id: windhoek_airport
+
+    name: Hosea Kutako International Airport
+
+    coordinates:
+      lat: -22.4799
+      lon: 17.4709
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: Sossusvlei / Sesriem
+
+      region: Namib Desert
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -24.4900
+        lon: 15.8050
+
+      base_attractions:
+
+        - id: deadvlei
+
+          name: Deadvlei
+
+          priority: must_do
+
+          type: desert_landscape
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -24.7600
+            lon: 15.3000
+
+        - id: sossusvlei
+
+          name: Sossusvlei
+
+          priority: must_do
+
+          type: dunes
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -24.7280
+            lon: 15.3400
+
+        - id: dune_45
+
+          name: Dune 45
+
+          priority: must_do
+
+          type: dune_hike
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -24.7180
+            lon: 15.3410
+
+        - id: big_daddy
+
+          name: Big Daddy
+
+          priority: highly_recommended
+
+          type: dune_hike
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -24.7606
+            lon: 15.2943
+
+        - id: sesriem_canyon
+
+          name: Sesriem Canyon
+
+          priority: highly_recommended
+
+          type: canyon
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -24.4870
+            lon: 15.8090
+
+    - id: base_2
+
+      name: Swakopmund
+
+      region: Central Coast
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -22.6784
+        lon: 14.5266
+
+      base_attractions:
+
+        - id: swakopmund
+
+          name: Swakopmund
+
+          priority: highly_recommended
+
+          type: coastal_town
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -22.6784
+            lon: 14.5266
+
+        - id: walvis_bay
+
+          name: Walvis Bay
+
+          priority: highly_recommended
+
+          type: lagoon
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -22.9575
+            lon: 14.5053
+
+        - id: sandwich_harbour
+
+          name: Sandwich Harbour
+
+          priority: optional_paid_activity
+
+          type: dune_excursion
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: -23.3670
+            lon: 14.4830
+
+        - id: flamingos
+
+          name: Walvis Bay Flamingos
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: -22.9550
+            lon: 14.5050
+
+    - id: base_3
+
+      name: Damaraland
+
+      region: Damaraland
+
+      stay_nights: 3
+
+      coordinates:
+        lat: -20.5000
+        lon: 14.5000
+
+      base_attractions:
+
+        - id: spitzkoppe
+
+          name: Spitzkoppe
+
+          priority: must_do
+
+          type: granite_mountains
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -21.8250
+            lon: 15.1980
+
+        - id: twyfelfontein
+
+          name: Twyfelfontein
+
+          priority: must_do
+
+          type: rock_art
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -20.5940
+            lon: 14.3720
+
+        - id: desert_elephants
+
+          name: Desert Elephant Area
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -20.1000
+            lon: 14.0000
+
+        - id: burnt_mountain
+
+          name: Burnt Mountain
+
+          priority: if_time
+
+          type: geology
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: -20.5510
+            lon: 14.4040
+
+    - id: base_4
+
+      name: Skeleton Coast
+
+      region: Skeleton Coast
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -21.3000
+        lon: 13.8000
+
+      base_attractions:
+
+        - id: skeleton_coast
+
+          name: Skeleton Coast
+
+          priority: must_do
+
+          type: coastal_landscape
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -21.3000
+            lon: 13.8000
+
+        - id: cape_cross
+
+          name: Cape Cross Seal Colony
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -21.7660
+            lon: 13.9590
+
+    - id: base_5
+
+      name: Etosha National Park
+
+      region: Etosha
+
+      stay_nights: 4
+
+      coordinates:
+        lat: -18.8550
+        lon: 16.3290
+
+      base_attractions:
+
+        - id: etosha_pan
+
+          name: Etosha Pan
+
+          priority: must_do
+
+          type: wildlife
+
+          visit_duration_hours: 8
+
+          coordinates:
+            lat: -18.8550
+            lon: 16.3290
+
+        - id: okaukuejo
+
+          name: Okaukuejo Waterhole
+
+          priority: must_do
+
+          type: wildlife
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -19.1920
+            lon: 15.9120
+
+        - id: halali
+
+          name: Halali Waterhole
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: -19.0190
+            lon: 16.4620
+
+        - id: namutoni
+
+          name: Namutoni Area
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: -18.7920
+            lon: 16.9950
+
+    - id: base_6
+
+      name: Waterberg Plateau
+
+      region: Central Namibia
+
+      stay_nights: 2
+
+      coordinates:
+        lat: -20.4330
+        lon: 17.2330
+
+      base_attractions:
+
+        - id: waterberg
+
+          name: Waterberg Plateau
+
+          priority: must_do
+
+          type: plateau_hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -20.4330
+            lon: 17.2330
+
+        - id: rhino_tracking
+
+          name: Rhino Tracking
+
+          priority: optional_paid_activity
+
+          type: wildlife
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: -20.4330
+            lon: 17.2330
+
+  transfer_routes:
+
+    - id: transfer_1
+
+      from: base_1
+      to: base_2
+
+      description: Sossusvlei to Swakopmund
+
+      estimated_direct_drive_hours: 5
+
+      en_route_candidates:
+
+        - id: solitaire
+
+          name: Solitaire
+
+          priority: highly_recommended
+
+          type: desert_stop
+
+          stop_duration_hours: 1
+
+          coordinates:
+            lat: -23.8890
+            lon: 16.0050
+
+    - id: transfer_2
+
+      from: base_2
+      to: base_3
+
+      description: Swakopmund to Damaraland
+
+      estimated_direct_drive_hours: 4
+
+    - id: transfer_3
+
+      from: base_3
+      to: base_5
+
+      description: Damaraland to Etosha
+
+      estimated_direct_drive_hours: 5
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - etosha_guided_drive
+
+    possible_second_paid_activity:
+      - sandwich_harbour
+
+    possible_third_paid_activity:
+      - rhino_tracking
+
+  wildlife_expectations:
+
+    commonly_seen:
+      - elephant
+      - giraffe
+      - zebra
+      - oryx
+      - springbok
+      - wildebeest
+
+    possible:
+      - lion
+      - rhino
+      - leopard
+      - cheetah
+
+  excluded_or_future_trip_options:
+
+    fish_river_canyon:
+      reason: >
+        Spectacular but requires a much longer southern Namibia route.
+
+    caprivi_strip:
+      reason: >
+        Better combined with Botswana and Victoria Falls.
+
+    victoria_falls:
+      reason: >
+        Excellent add-on, but deserves a dedicated extension.

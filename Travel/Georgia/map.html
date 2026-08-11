@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_df4431204174dac1379196f6bdcd159b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-ge" style="border-radius:3px;margin-right:5px"></span>Georgia</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Tbilisi</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Kazbegi / Stepantsminda</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Kakheti</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Mestia</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_df4431204174dac1379196f6bdcd159b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_df4431204174dac1379196f6bdcd159b = L.map(
+                "map_df4431204174dac1379196f6bdcd159b",
+                {
+                    center: [42.334175, 44.417725000000004],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3026eb77b664d746a37cec920af7241e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3026eb77b664d746a37cec920af7241e.addTo(map_df4431204174dac1379196f6bdcd159b);
+        
+    
+            map_df4431204174dac1379196f6bdcd159b.fitBounds(
+                [[41.7151, 44.8271], [42.656, 44.643], [41.9198, 45.473], [43.0458, 42.7278]],
+                {}
+            );
+        
+    
+            var feature_group_aa0b29ac7d71681f2880aae298f11453 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_692fe59a71dc5f758fc872f68562553f = L.marker(
+                [41.7151, 44.8271],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_aa0b29ac7d71681f2880aae298f11453);
+        
+    
+            var icon_af3c065fd27be29791d8fc68c851c9d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_692fe59a71dc5f758fc872f68562553f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Tbilisi</b><br><span style="color:#555">Eastern Georgia</span><br><hr style="margin:4px 0"><b>Nights:</b> 3</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_692fe59a71dc5f758fc872f68562553f.setIcon(icon_af3c065fd27be29791d8fc68c851c9d8);
+            
+    
+            var marker_658a379b5b2e4e15a25258fdf8c74d96 = L.marker(
+                [42.656, 44.643],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_aa0b29ac7d71681f2880aae298f11453);
+        
+    
+            var icon_8026f8c02c3e6d83bd28af6bcc1af674 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_658a379b5b2e4e15a25258fdf8c74d96.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Kazbegi / Stepantsminda</b><br><span style="color:#555">Greater Caucasus</span><br><hr style="margin:4px 0"><b>Nights:</b> 4</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_658a379b5b2e4e15a25258fdf8c74d96.setIcon(icon_8026f8c02c3e6d83bd28af6bcc1af674);
+            
+    
+            var marker_45d2c2521b350b07c185354fb7fc5001 = L.marker(
+                [41.9198, 45.473],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_aa0b29ac7d71681f2880aae298f11453);
+        
+    
+            var icon_d20c570e2756eb91abfad2f08d7245bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_45d2c2521b350b07c185354fb7fc5001.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Kakheti</b><br><span style="color:#555">Wine Region</span><br><hr style="margin:4px 0"><b>Nights:</b> 3</div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_45d2c2521b350b07c185354fb7fc5001.setIcon(icon_d20c570e2756eb91abfad2f08d7245bb);
+            
+    
+            var marker_d1e5d8df6760e04fcf17fda970fe4157 = L.marker(
+                [43.0458, 42.7278],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_aa0b29ac7d71681f2880aae298f11453);
+        
+    
+            var icon_7cb55a93c058c4461bbc08f6ea1c089f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_d1e5d8df6760e04fcf17fda970fe4157.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Mestia</b><br><span style="color:#555">Svaneti</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">One of the most spectacular mountain regions in Europe.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d1e5d8df6760e04fcf17fda970fe4157.setIcon(icon_7cb55a93c058c4461bbc08f6ea1c089f);
+            
+    
+            feature_group_aa0b29ac7d71681f2880aae298f11453.addTo(map_df4431204174dac1379196f6bdcd159b);
+        
+    
+            var feature_group_ae79040018c6987ffcb10e01961d842b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_92a9dda5f8044ed3b4869016cab70c07 = L.circleMarker(
+                [41.6907, 44.8078],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_92a9dda5f8044ed3b4869016cab70c07.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Old Tbilisi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> City Walk<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Tbilisi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40a577ff5e9681fac5ee92a9edd3f57c = L.circleMarker(
+                [41.6879, 44.8098],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_40a577ff5e9681fac5ee92a9edd3f57c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Narikala Fortress</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e74c3c">Tbilisi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a43e1d668f6ef892f02d899fb047e99 = L.circleMarker(
+                [41.77, 44.81],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_3a43e1d668f6ef892f02d899fb047e99.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Chronicles of Georgia</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Monument<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e74c3c">Tbilisi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_517ab5919db594eb73adfc4ddc9f3ae7 = L.circleMarker(
+                [41.694, 44.786],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_517ab5919db594eb73adfc4ddc9f3ae7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mtatsminda Park Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Tbilisi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_279144cde0a2de2453f2c041b7351384 = L.circleMarker(
+                [42.6625, 44.62],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_279144cde0a2de2453f2c041b7351384.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gergeti Trinity Church</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_596ff8a73a86be7be19f19c7c3b0156f = L.circleMarker(
+                [42.722, 44.56],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_596ff8a73a86be7be19f19c7c3b0156f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gergeti Glacier Trail</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Hike<br><b>Duration:</b> 6 h<br><b>Base:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2cb4aca7f9e38786eabc6155cc3165de = L.circleMarker(
+                [42.607, 44.363],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_2cb4aca7f9e38786eabc6155cc3165de.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Truso Valley</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Valley Hike<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ade4ec6fae214a5b390fadbec1ee457 = L.circleMarker(
+                [42.606, 44.633],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_8ade4ec6fae214a5b390fadbec1ee457.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sno Valley</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Valley<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94f083475d7482bc8078252f143fb8e5 = L.circleMarker(
+                [42.504, 44.556],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_94f083475d7482bc8078252f143fb8e5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Georgian Military Highway</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a9e83755490ca37ad2ac64af82e68bf = L.circleMarker(
+                [41.62, 45.923],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_1a9e83755490ca37ad2ac64af82e68bf.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sighnaghi</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hill Town<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#27ae60">Kakheti</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e72adf2c639465d43b16ea24bd8c1a59 = L.circleMarker(
+                [42.032, 45.377],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_e72adf2c639465d43b16ea24bd8c1a59.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Alaverdi Monastery</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Monastery<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#27ae60">Kakheti</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b00bfa763921aeea45a613b4330debab = L.circleMarker(
+                [41.9198, 45.473],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_b00bfa763921aeea45a613b4330debab.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kakheti Vineyards</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#27ae60">Kakheti</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc6cf31f54240ed191ee43c6e37f0b69 = L.circleMarker(
+                [42.916, 43.011],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_cc6cf31f54240ed191ee43c6e37f0b69.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ushguli</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Village<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#8e44ad">Mestia</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_079ca909e622dcafff1e29410c4a1a69 = L.circleMarker(
+                [43.067, 42.699],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_079ca909e622dcafff1e29410c4a1a69.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Chaladi Glacier</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Hike<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#8e44ad">Mestia</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de093b312fad4b383a8db85665ca9c06 = L.circleMarker(
+                [43.082, 42.728],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_de093b312fad4b383a8db85665ca9c06.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Koruldi Lakes</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Hike<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#8e44ad">Mestia</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a186c5aa87ee7325535c76d3e24b22a9 = L.circleMarker(
+                [43.0458, 42.7278],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_a186c5aa87ee7325535c76d3e24b22a9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Svan Towers of Mestia</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cultural Site<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#8e44ad">Mestia</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f0c2e05108e8f1c78ea4c91d632a187 = L.circleMarker(
+                [43.053, 42.7],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_ae79040018c6987ffcb10e01961d842b);
+        
+    
+            circle_marker_8f0c2e05108e8f1c78ea4c91d632a187.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hatsvali Viewpoint</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#8e44ad">Mestia</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_ae79040018c6987ffcb10e01961d842b.addTo(map_df4431204174dac1379196f6bdcd159b);
+        
+    
+            var feature_group_c4ab4f42fb35a6984da584ff9d51a62c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_390f5a1ce5110566c8029fe57842f9ef = L.circleMarker(
+                [42.163, 44.703],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c4ab4f42fb35a6984da584ff9d51a62c);
+        
+    
+            circle_marker_390f5a1ce5110566c8029fe57842f9ef.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Ananuri Fortress</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Fortress<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Tbilisi to Kazbegi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7bedfb1bae6ba1945822879b99597c55 = L.circleMarker(
+                [42.47, 44.48],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_c4ab4f42fb35a6984da584ff9d51a62c);
+        
+    
+            circle_marker_7bedfb1bae6ba1945822879b99597c55.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gudauri Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Tbilisi to Kazbegi</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_c4ab4f42fb35a6984da584ff9d51a62c.addTo(map_df4431204174dac1379196f6bdcd159b);
+        
+    
+            var feature_group_7fc4d898e18d0eddbc34fa1f2814ff25 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_b17fcd39a07368a81d2bc7315d4ea027 = L.marker(
+                [41.6692, 44.9547],
+                {
+}
+            ).addTo(feature_group_7fc4d898e18d0eddbc34fa1f2814ff25);
+        
+    
+            var icon_7b7d72ade24433e8b51a32d8e69a72dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_b17fcd39a07368a81d2bc7315d4ea027.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif"><b>✈️ Tbilisi International Airport</b></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b17fcd39a07368a81d2bc7315d4ea027.setIcon(icon_7b7d72ade24433e8b51a32d8e69a72dd);
+            
+    
+            feature_group_7fc4d898e18d0eddbc34fa1f2814ff25.addTo(map_df4431204174dac1379196f6bdcd159b);
+        
+    
+            var layer_control_cd7270f57e47bc4c2540cff740006bfd_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_3026eb77b664d746a37cec920af7241e,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_aa0b29ac7d71681f2880aae298f11453,
+                    "\u25cf Base attractions" : feature_group_ae79040018c6987ffcb10e01961d842b,
+                    "\u25c7 En-route stops" : feature_group_c4ab4f42fb35a6984da584ff9d51a62c,
+                    "\u2708 Airport" : feature_group_7fc4d898e18d0eddbc34fa1f2814ff25,
+                },
+            };
+            let layer_control_cd7270f57e47bc4c2540cff740006bfd = L.control.layers(
+                layer_control_cd7270f57e47bc4c2540cff740006bfd_layers.base_layers,
+                layer_control_cd7270f57e47bc4c2540cff740006bfd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_df4431204174dac1379196f6bdcd159b);
+
+        
+</script>
+</html>

@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_89bb90edb5e3270484ba69bae285ad7f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-is" style="border-radius:3px;margin-right:5px"></span>Iceland</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Selfoss / Hella / Fludir</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Kirkjubaejarklaustur</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Reykjahlid / Lake Myvatn</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Grundarfjordur</td></tr><tr><td><span style="color:#e67e22;font-size:18px">■</span></td><td style="padding-left:6px">Reykjavik (final stop)</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_89bb90edb5e3270484ba69bae285ad7f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_89bb90edb5e3270484ba69bae285ad7f = L.map(
+                "map_89bb90edb5e3270484ba69bae285ad7f",
+                {
+                    center: [64.572475, -19.806475],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5feca7b1d98d5d48bc17554152c4fa09 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5feca7b1d98d5d48bc17554152c4fa09.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            map_89bb90edb5e3270484ba69bae285ad7f.fitBounds(
+                [[63.933, -20.997], [63.7896, -18.056], [65.6426, -16.912], [64.9247, -23.2609]],
+                {}
+            );
+        
+    
+            var feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c497f6f3dde81650a738af60d8d61c12 = L.marker(
+                [63.933, -20.997],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b);
+        
+    
+            var icon_c49427bc93e64398dca9b073ddd841b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_c497f6f3dde81650a738af60d8d61c12.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Selfoss / Hella / Fludir</b><br><span style="color:#555">Golden Circle and South Iceland inland</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Good first base after arrival. Use this base for Golden Circle, a hot spring hike or bath, and a relaxed first Iceland experience.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c497f6f3dde81650a738af60d8d61c12.setIcon(icon_c49427bc93e64398dca9b073ddd841b5);
+            
+    
+            var marker_050ad41d3112e25ad628bd60e719d5c3 = L.marker(
+                [63.7896, -18.056],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b);
+        
+    
+            var icon_1db4cdcf74b899e22a63cb85b5bcf80f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_050ad41d3112e25ad628bd60e719d5c3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Kirkjubaejarklaustur</b><br><span style="color:#555">South Coast and Vatnajokull</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">This base should carry most of the South Coast sightseeing. Do not put all South Coast stops on the transfer day from base_1.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_050ad41d3112e25ad628bd60e719d5c3.setIcon(icon_1db4cdcf74b899e22a63cb85b5bcf80f);
+            
+    
+            var marker_7233385847828799faef016ff50a29f9 = L.marker(
+                [65.6426, -16.912],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b);
+        
+    
+            var icon_de1f66c41a14d59c11f27ecc1e44f241 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_7233385847828799faef016ff50a29f9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Reykjahlid / Lake Myvatn</b><br><span style="color:#555">North Iceland</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">This base covers Myvatn, Husavik, Dettifoss and some Diamond Circle highlights. Studlagil is better handled from this base than on the long transfer from the South Coast.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7233385847828799faef016ff50a29f9.setIcon(icon_de1f66c41a14d59c11f27ecc1e44f241);
+            
+    
+            var marker_fea12b2ffccb07ff52545a426f42b577 = L.marker(
+                [64.9247, -23.2609],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b);
+        
+    
+            var icon_1e4af116b5c32d974a61aa8002a764f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_fea12b2ffccb07ff52545a426f42b577.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Grundarfjordur</b><br><span style="color:#555">Snaefellsnes Peninsula</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">This base gives time to explore Snaefellsnes slowly. Most Snaefellsnes sights should be done from this base, not on the final drive to Reykjavik.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fea12b2ffccb07ff52545a426f42b577.setIcon(icon_1e4af116b5c32d974a61aa8002a764f5);
+            
+    
+            feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            var feature_group_e759e99a0129eaad2abc80c264ab2617 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ec831d25993a1a7ec81cbcf96a0109d9 = L.circleMarker(
+                [64.2559, -21.1295],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_ec831d25993a1a7ec81cbcf96a0109d9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Thingvellir National Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Nature History<br><b>Duration:</b> 3 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Best combined with Geysir and Gullfoss as part of the Golden Circle.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd779e1b22b44d91d045cb935ed4e752 = L.circleMarker(
+                [64.3104, -20.3024],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_fd779e1b22b44d91d045cb935ed4e752.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Geysir / Strokkur</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 45 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Good evening candidate after the bus crowds have left.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f2e7a2dc686bb2f81714de37a6b0d8da = L.circleMarker(
+                [64.3271, -20.1218],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_f2e7a2dc686bb2f81714de37a6b0d8da.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gullfoss</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 50 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Very suitable as a late-day visit if weather and light are good.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e47422f67f5b342604998693a68cb51 = L.circleMarker(
+                [64.0217, -21.2114],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_9e47422f67f5b342604998693a68cb51.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Reykjadalur Hot River Hike</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hike Hot Spring<br><b>Duration:</b> 4 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Very good family hike, but allow enough time for walking and bathing.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9fdd0930576bc7b428251a1cfedee372 = L.circleMarker(
+                [64.1374, -20.3091],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_9fdd0930576bc7b428251a1cfedee372.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Secret Lagoon</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Bath<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Good lower-key alternative to Blue Lagoon or Sky Lagoon.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed58bcb023d37c6a14575262e9669e17 = L.circleMarker(
+                [64.0413, -20.8847],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_ed58bcb023d37c6a14575262e9669e17.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kerid Crater</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Crater<br><b>Duration:</b> 1 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Short and easy stop close to Selfoss.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eef0a9039bcf08d302ae016703fa8d88 = L.circleMarker(
+                [64.1407, -20.2589],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_eef0a9039bcf08d302ae016703fa8d88.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hrunalaug Hot Spring</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Small Hot Spring<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Small and scenic. Better if you want a more natural-feeling bathing stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_043c8e01692eb1bed248a64beb35cf9b = L.circleMarker(
+                [64.2073, -19.6869],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_043c8e01692eb1bed248a64beb35cf9b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Haifoss</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 2 h<br><b>From base:</b> 90 min drive<br><b>Base:</b> <span style="color:#e74c3c">Selfoss / Hella / Fludir</span><br><i style="color:#666;font-size:13px">Beautiful but adds more driving. Check road conditions before planning.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ea0bcf37301f541101bcdb6bdc217973 = L.circleMarker(
+                [63.6156, -19.9886],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_ea0bcf37301f541101bcdb6bdc217973.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Seljalandsfoss</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 105 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Can be visited on transfer day, but also works as part of a western South Coast day trip.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7f27fbcdffa2daf8a1bb2b6afe35c13 = L.circleMarker(
+                [63.621, -19.9856],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_c7f27fbcdffa2daf8a1bb2b6afe35c13.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gljufrabui</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 0.5 h<br><b>From base:</b> 105 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Best combined with Seljalandsfoss.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_690251b59cd38a03b01d6c34940b5b56 = L.circleMarker(
+                [63.5321, -19.5114],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_690251b59cd38a03b01d6c34940b5b56.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Skogafoss</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 90 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Can be a transfer stop, but should not be transfer-only.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_555fec3d0a7513ce9596de031b27e8f5 = L.circleMarker(
+                [63.5278, -19.4806],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_555fec3d0a7513ce9596de031b27e8f5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kvernufoss</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1 h<br><b>From base:</b> 90 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Good add-on near Skogafoss if the day is not too full.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fee85672daf287e50855474d90b3aa6f = L.circleMarker(
+                [63.4056, -19.0717],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_fee85672daf287e50855474d90b3aa6f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Reynisfjara</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Black Sand Beach<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Better planned from the base than squeezed into the transfer day. Be careful with sneaker waves.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_430e2f8ab93e47818a156417724c4c3d = L.circleMarker(
+                [63.3998, -19.1261],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_430e2f8ab93e47818a156417724c4c3d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dyrholaey</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Good to combine with Reynisfjara.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_73f38643d63b31f3d076725547c66050 = L.circleMarker(
+                [63.7714, -18.1719],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_73f38643d63b31f3d076725547c66050.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Fjadrargljufur Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Very easy from Kirkjubaejarklaustur. Good short outing or filler activity.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7052f751e44b186ad0b0f6e98581700b = L.circleMarker(
+                [64.0168, -16.9666],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_7052f751e44b186ad0b0f6e98581700b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Skaftafell</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 4 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Plan as a proper hiking block, ideally combined with Svartifoss.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a436fd16fdee22d102daa8182c13d665 = L.circleMarker(
+                [64.0275, -16.9752],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_a436fd16fdee22d102daa8182c13d665.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Svartifoss</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 2 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Best combined with Skaftafell.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_daae8a9b7b007e22a118990acdeffa1a = L.circleMarker(
+                [64.048, -16.179],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_daae8a9b7b007e22a118990acdeffa1a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Jokulsarlon Glacier Lagoon</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Lagoon<br><b>Duration:</b> 3 h<br><b>From base:</b> 100 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">One of the key highlights. Better as a dedicated base_2 day trip than rushed on transfer day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a985c3f02d3561d30efd1c5c17ef8cab = L.circleMarker(
+                [64.044, -16.177],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_a985c3f02d3561d30efd1c5c17ef8cab.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Diamond Beach</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Black Sand Beach<br><b>Duration:</b> 1 h<br><b>From base:</b> 100 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Best combined with Jokulsarlon.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ff6866ccafdadae752e790a2a4e3a41 = L.circleMarker(
+                [64.048, -16.179],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_6ff6866ccafdadae752e790a2a4e3a41.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Glacier Kayaking Jokulsarlon</b><br><span style="color:#2980b9;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Paid Activity<br><b>Duration:</b> 3 h<br><b>From base:</b> 100 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Possible second paid activity, but only if budget and weather allow it.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_697eafa523eebfff08a45c6c5ae260c2 = L.circleMarker(
+                [64.015, -16.95],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_697eafa523eebfff08a45c6c5ae260c2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sjonarnipa Viewpoint Hike</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hike Viewpoint<br><b>Duration:</b> 3 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Good extra hike near Skaftafell if the family still has energy.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f552b9139baab74b5da7f0fd27cea449 = L.circleMarker(
+                [66.0449, -17.3389],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_f552b9139baab74b5da7f0fd27cea449.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Whale Watching Husavik</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Paid Activity<br><b>Duration:</b> 3 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Main planned paid activity.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f2e75133ee08749a09e93f39a769a1c7 = L.circleMarker(
+                [66.0538, -17.3161],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_f2e75133ee08749a09e93f39a769a1c7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">GeoSea Baths</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Bath<br><b>Duration:</b> 2 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Good to combine with Husavik whale watching.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f970c038563fce741722be3786448878 = L.circleMarker(
+                [65.6414, -16.8077],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_f970c038563fce741722be3786448878.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hverir</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal<br><b>Duration:</b> 1 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Short but very memorable geothermal stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_59b480017626114771630fd1e8eadba5 = L.circleMarker(
+                [65.7156, -16.7594],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_59b480017626114771630fd1e8eadba5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Krafla</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcanic Area<br><b>Duration:</b> 2 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Best combined with Leirhnjukur and Hverir.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb2a48f0cec3bf0f76b0aca40b511a98 = L.circleMarker(
+                [65.7213, -16.7873],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_bb2a48f0cec3bf0f76b0aca40b511a98.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Leirhnjukur</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Lava Field<br><b>Duration:</b> 2 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Excellent short hike through lava fields.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfdeae5c8b23c55182c933951299e93a = L.circleMarker(
+                [65.8147, -16.3841],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_dfdeae5c8b23c55182c933951299e93a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dettifoss</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 2 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Plan with Selfoss waterfall if time allows.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df555ebbd726e6ed9f1d66990c042e07 = L.circleMarker(
+                [65.8057, -16.3778],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_df555ebbd726e6ed9f1d66990c042e07.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Selfoss Waterfall</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Best combined with Dettifoss.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e857209f3f242dbea98154c6dcb22163 = L.circleMarker(
+                [65.5928, -16.9124],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_e857209f3f242dbea98154c6dcb22163.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Dimmuborgir</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lava Formations<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Easy and family-friendly Myvatn stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_057e1a3ba89190351174686272bbeb16 = L.circleMarker(
+                [65.6086, -16.8755],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_057e1a3ba89190351174686272bbeb16.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hverfjall</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Crater Hike<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Great short crater hike with wide views.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e73542f702310516b4b9101fe181eac7 = L.circleMarker(
+                [65.6301, -16.848],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_e73542f702310516b4b9101fe181eac7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Myvatn Nature Baths</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Bath<br><b>Duration:</b> 2 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Good bathing option near the lodging.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acb28840df07d2215ba6c171036a49b3 = L.circleMarker(
+                [65.6828, -17.5502],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_acb28840df07d2215ba6c171036a49b3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Godafoss</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Can be visited from Myvatn or on the way west.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72705523c30367c20aecdf4ebf08d62b = L.circleMarker(
+                [65.165, -15.312],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_72705523c30367c20aecdf4ebf08d62b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Studlagil Canyon</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Better as a Myvatn day trip than as part of the already long South Coast to Myvatn transfer.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01a0e0b5eea60874a195e6282cf39858 = L.circleMarker(
+                [66.017, -16.5055],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_01a0e0b5eea60874a195e6282cf39858.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Asbyrgi Canyon</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon Hiking<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 80 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Good Diamond Circle add-on if you want a full northern excursion.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_37ac6976bb21f2262982ead644ab743c = L.circleMarker(
+                [65.933, -16.535],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_37ac6976bb21f2262982ead644ab743c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hljodaklettar</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Basalt Formations<br><b>Duration:</b> 2 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#27ae60">Reykjahlid / Lake Myvatn</span><br><i style="color:#666;font-size:13px">Interesting if combining Dettifoss and Asbyrgi.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4247e44f7235dc799ac89647304bae6e = L.circleMarker(
+                [64.9417, -23.3069],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_4247e44f7235dc799ac89647304bae6e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kirkjufell</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain<br><b>Duration:</b> 2 h<br><b>From base:</b> 5 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Very close to Grundarfjordur. Good sunset or evening visit.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7db9f57ad65e248f561b83101d44c349 = L.circleMarker(
+                [64.7664, -23.6275],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_7db9f57ad65e248f561b83101d44c349.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Arnarstapi</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Coastal Village<br><b>Duration:</b> 1 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Best combined with Hellnar coastal walk.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64db01e9cc27d6e7a69d5dbce11b8643 = L.circleMarker(
+                [64.76, -23.64],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_64db01e9cc27d6e7a69d5dbce11b8643.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Arnarstapi-Hellnar Coastal Walk</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Probably the best family walk on Snaefellsnes.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0830f491e7ce8f4970e71ab4ea439da = L.circleMarker(
+                [64.7353, -23.7751],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_d0830f491e7ce8f4970e71ab4ea439da.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Londrangar</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cliffs<br><b>Duration:</b> 1 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Good coastal viewpoint.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c409107eeb9d3d846ce3191f976108c3 = L.circleMarker(
+                [64.7525, -23.8951],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_c409107eeb9d3d846ce3191f976108c3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Djupalonssandur</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Black Sand Beach<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 55 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Good to combine with Londrangar and the national park.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1afad2d2c8c169860484fc6c640980fd = L.circleMarker(
+                [64.8089, -23.7767],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_1afad2d2c8c169860484fc6c640980fd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Snaefellsjokull National Park</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> National Park<br><b>Duration:</b> 4 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Plan as a western Snaefellsnes exploration day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_352640fa1d335fb0c8e59a35a400cc89 = L.circleMarker(
+                [65.0755, -22.7298],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_352640fa1d335fb0c8e59a35a400cc89.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Stykkisholmur</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Fishing Town<br><b>Duration:</b> 2 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Nice town stop, especially if weather is less suitable for hiking.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0bda7c031fc0763db20b7f4ea5982d5 = L.circleMarker(
+                [64.825, -23.384],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_c0bda7c031fc0763db20b7f4ea5982d5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Budir Black Church</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Church Viewpoint<br><b>Duration:</b> 0.5 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Good small stop on Snaefellsnes or while leaving the peninsula.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8a8400abba2c4ff6082ecd877a400983 = L.circleMarker(
+                [64.8039, -23.0814],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_8a8400abba2c4ff6082ecd877a400983.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ytri Tunga</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Seal Colony<br><b>Duration:</b> 1 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Good wildlife stop, especially with children.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_107d441561dce4e943e0d0cdd474db0a = L.circleMarker(
+                [64.849, -23.927],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_107d441561dce4e943e0d0cdd474db0a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Saxholl Crater</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Crater<br><b>Duration:</b> 1 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Short stair climb with good views.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7d37cd3f47d826d2249eb45b2c6cdb8b = L.circleMarker(
+                [64.785, -23.637],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e759e99a0129eaad2abc80c264ab2617);
+        
+    
+            circle_marker_7d37cd3f47d826d2249eb45b2c6cdb8b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Raudfeldsgja Gorge</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Gorge<br><b>Duration:</b> 1 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#8e44ad">Grundarfjordur</span><br><i style="color:#666;font-size:13px">Short adventurous stop, depending on weather and footwear.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_e759e99a0129eaad2abc80c264ab2617.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            var feature_group_1f5cadda84fd0fd34896eb7e54208075 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_1e66408b8dee65ba3ba1e2a85c5a393b = L.circleMarker(
+                [63.6156, -19.9886],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_1e66408b8dee65ba3ba1e2a85c5a393b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Seljalandsfoss</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Golden Circle / Selfoss area to Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Good first major stop, but do not combine with every other South Coast sight on the same transfer day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_525b56a639cb89a21d43b3f4c86cbb40 = L.circleMarker(
+                [63.621, -19.9856],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_525b56a639cb89a21d43b3f4c86cbb40.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gljufrabui</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Add On<br><b>En route:</b> <span style="color:#e74c3c">Golden Circle / Selfoss area to Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Only if already stopping at Seljalandsfoss.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b04c43a70e1cb77f7828541f3da0b347 = L.circleMarker(
+                [63.5321, -19.5114],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_b04c43a70e1cb77f7828541f3da0b347.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Skogafoss</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Golden Circle / Selfoss area to Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Good second stop if the day is going smoothly.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a89824ea9e69f1767b86c6126e2d792 = L.circleMarker(
+                [63.5278, -19.4806],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_7a89824ea9e69f1767b86c6126e2d792.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Kvernufoss</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Add On<br><b>En route:</b> <span style="color:#e74c3c">Golden Circle / Selfoss area to Kirkjubaejarklaustur</span><br><i style="color:#666;font-size:13px">Only if you skip another stop or arrive early.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2282aad10b39cb13d17921ccb7ff4e0 = L.circleMarker(
+                [64.048, -16.179],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_c2282aad10b39cb13d17921ccb7ff4e0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Jokulsarlon Glacier Lagoon</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Lagoon<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Backup Only<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Only use as transfer stop if not visited during the base_2 stay.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7065914abd8811da0f8e91a7697eeca3 = L.circleMarker(
+                [64.044, -16.177],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_7065914abd8811da0f8e91a7697eeca3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Diamond Beach</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Black Sand Beach<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Backup Only<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Only use together with Jokulsarlon if not visited earlier.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_243b871eb2b7c44cf53b867649b7109b = L.circleMarker(
+                [64.2595, -14.98],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_243b871eb2b7c44cf53b867649b7109b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Vestrahorn</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Good scenic stop near Hofn, but it adds time and may involve an entrance fee.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_622234fa6df8152d0edccee0261ae614 = L.circleMarker(
+                [64.657, -14.289],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_622234fa6df8152d0edccee0261ae614.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Djupivogur</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Fishing Village<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Possible lunch or coffee stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9114b934acd40441276c4b33d30862fe = L.circleMarker(
+                [65.2619, -14.0094],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_9114b934acd40441276c4b33d30862fe.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Seydisfjordur</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Town<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Major Detour<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Beautiful, but treat as a deliberate detour. Do not combine with Studlagil on the same transfer day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20dfe9019ec66af78e82a9165f61e24d = L.circleMarker(
+                [65.165, -15.312],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_20dfe9019ec66af78e82a9165f61e24d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Studlagil Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Stop duration:</b> 2.5 h<br><b>Role:</b> Major Detour<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Better from base_3. Only do on transfer day if leaving early and skipping Seydisfjordur.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1c6acf55e65548443c8f4d2ec0baaaa = L.circleMarker(
+                [65.12, -15.028],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_a1c6acf55e65548443c8f4d2ec0baaaa.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Rjukandi Waterfall</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#2980b9">Kirkjubaejarklaustur to Myvatn via East Iceland</span><br><i style="color:#666;font-size:13px">Short roadside-style stop if timing allows.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0695a88b3a2afe96f168b01355496d36 = L.circleMarker(
+                [65.6828, -17.5502],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_0695a88b3a2afe96f168b01355496d36.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Godafoss</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Very logical stop on the way west if not already visited from base_3.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0a4443db6cd584e822126f584bafade = L.circleMarker(
+                [65.6835, -18.0878],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_c0a4443db6cd584e822126f584bafade.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Akureyri</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Town<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Good lunch and short city stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df4c0978acdc0b6cb9c9476a6259f650 = L.circleMarker(
+                [66.05, -18.7],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_df4c0978acdc0b6cb9c9476a6259f650.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Trollaskagi Peninsula</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Drive<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Major Detour<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Only if you deliberately choose a scenic detour and accept a longer day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc2b1ce155996ac037972370373c2ee5 = L.circleMarker(
+                [66.151, -18.908],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_fc2b1ce155996ac037972370373c2ee5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Siglufjordur</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Fishing Town<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Major Detour<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Choose this instead of Hofsos or Kolugljufur, not in addition to everything.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_883eb793b5a34bcafd1fa3b1bde2ba16 = L.circleMarker(
+                [65.9017, -19.4167],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_883eb793b5a34bcafd1fa3b1bde2ba16.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Hofsos Infinity Pool</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Pool<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Choose One<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Nice family stop, but it turns the transfer into a longer day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9933a504583b8a232faea6e619886e06 = L.circleMarker(
+                [65.3698, -20.566],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_9933a504583b8a232faea6e619886e06.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Kolugljufur Canyon</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Choose One<br><b>En route:</b> <span style="color:#27ae60">Myvatn to Grundarfjordur / Snaefellsnes</span><br><i style="color:#666;font-size:13px">Possible short nature stop, but only if timing is good.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c4968ae6ca42f24ca8e430e86a77381e = L.circleMarker(
+                [64.825, -23.384],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_c4968ae6ca42f24ca8e430e86a77381e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Budir Black Church</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Church Viewpoint<br><b>Stop duration:</b> 0.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#8e44ad">Grundarfjordur / Snaefellsnes to Reykjavik</span><br><i style="color:#666;font-size:13px">Good short stop while leaving Snaefellsnes.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_883da294b764ae26f50b4d393b710dc9 = L.circleMarker(
+                [64.8039, -23.0814],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_883da294b764ae26f50b4d393b710dc9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Ytri Tunga</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Seal Colony<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#8e44ad">Grundarfjordur / Snaefellsnes to Reykjavik</span><br><i style="color:#666;font-size:13px">Good family-friendly wildlife stop.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d72174bea6965a16866ad4c9a96ca721 = L.circleMarker(
+                [64.5383, -21.9206],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_1f5cadda84fd0fd34896eb7e54208075);
+        
+    
+            circle_marker_d72174bea6965a16866ad4c9a96ca721.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Borgarnes</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Short Stop<br><b>En route:</b> <span style="color:#8e44ad">Grundarfjordur / Snaefellsnes to Reykjavik</span><br><i style="color:#666;font-size:13px">Possible lunch or coffee stop on the way to Reykjavik.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_1f5cadda84fd0fd34896eb7e54208075.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            var feature_group_2e7604c4ce1397655863a3813af26d7a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_eb7d013fd93f5664d63d33b92bcc24f1 = L.marker(
+                [64.1466, -21.9426],
+                {
+  "zIndexOffset": 2000,
+}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            var icon_2d2b18fe667856e4633b789be8b2a670 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_eb7d013fd93f5664d63d33b92bcc24f1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e67e22;font-size:16px">🏙️ Reykjavik</b><br><span style="color:#555">Final stop</span><hr style="margin:4px 0"><ul style='margin:4px 0 0 14px;padding:0'><li>Hallgrimskirkja</li><li>Harpa Concert Hall</li><li>Old Harbour</li><li>Rainbow Street</li><li>Sky Lagoon</li></ul><br><i style="color:#666;font-size:13px">Reykjavik is best kept as a final urban contrast after the nature-heavy route. A half day may be enough unless you want Sky Lagoon or more city time.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eb7d013fd93f5664d63d33b92bcc24f1.setIcon(icon_2d2b18fe667856e4633b789be8b2a670);
+            
+    
+            var circle_marker_1fd7a4d128e3e500be3f75d2e5cee2b8 = L.circleMarker(
+                [64.1417, -21.9266],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            circle_marker_1fd7a4d128e3e500be3f75d2e5cee2b8.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hallgrimskirkja</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Landmark<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e67e22">Reykjavik</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e99149838e01b1df495ef8a1f527582 = L.circleMarker(
+                [64.15, -21.932],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            circle_marker_5e99149838e01b1df495ef8a1f527582.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Harpa Concert Hall</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Architecture<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e67e22">Reykjavik</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5cad18bbadaedb334417e2f7d5105e1b = L.circleMarker(
+                [64.1526, -21.9417],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            circle_marker_5cad18bbadaedb334417e2f7d5105e1b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Old Harbour</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> City Walk<br><b>Duration:</b> 1.5 h<br><b>Base:</b> <span style="color:#e67e22">Reykjavik</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25359958755323202948f9aa8502e140 = L.circleMarker(
+                [64.1432, -21.9287],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            circle_marker_25359958755323202948f9aa8502e140.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Rainbow Street</b><br><span style="color:#e67e22;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> City Walk<br><b>Duration:</b> 0.5 h<br><b>Base:</b> <span style="color:#e67e22">Reykjavik</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e83088554edd34309438a36d165d4861 = L.circleMarker(
+                [64.1206, -21.9118],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_2e7604c4ce1397655863a3813af26d7a);
+        
+    
+            circle_marker_e83088554edd34309438a36d165d4861.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sky Lagoon</b><br><span style="color:#e67e22;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Geothermal Bath<br><b>Duration:</b> 2.5 h<br><b>Base:</b> <span style="color:#e67e22">Reykjavik</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_2e7604c4ce1397655863a3813af26d7a.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            var feature_group_1c7e04849aee64d3c1387ad10f591a67 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f59b684a8bca978e82f10fe5518a806e = L.marker(
+                [63.985, -22.6056],
+                {
+}
+            ).addTo(feature_group_1c7e04849aee64d3c1387ad10f591a67);
+        
+    
+            var icon_c026f066007bc05fb5f83edcb38c910c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f59b684a8bca978e82f10fe5518a806e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif"><b>✈️ Keflavik International Airport</b></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f59b684a8bca978e82f10fe5518a806e.setIcon(icon_c026f066007bc05fb5f83edcb38c910c);
+            
+    
+            feature_group_1c7e04849aee64d3c1387ad10f591a67.addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+        
+    
+            var layer_control_b9afe9c8101435623d37e9fbd27ed2d7_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_5feca7b1d98d5d48bc17554152c4fa09,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_177b0fa70dd9041a8eaa67e2f18a4e5b,
+                    "\u25cf Base attractions" : feature_group_e759e99a0129eaad2abc80c264ab2617,
+                    "\u25c7 En-route stops" : feature_group_1f5cadda84fd0fd34896eb7e54208075,
+                    "\u2605 Reykjavik" : feature_group_2e7604c4ce1397655863a3813af26d7a,
+                    "\u2708 Airport" : feature_group_1c7e04849aee64d3c1387ad10f591a67,
+                },
+            };
+            let layer_control_b9afe9c8101435623d37e9fbd27ed2d7 = L.control.layers(
+                layer_control_b9afe9c8101435623d37e9fbd27ed2d7_layers.base_layers,
+                layer_control_b9afe9c8101435623d37e9fbd27ed2d7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_89bb90edb5e3270484ba69bae285ad7f);
+
+        
+</script>
+</html>

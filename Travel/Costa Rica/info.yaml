@@ -1,0 +1,592 @@
+trip:
+
+  country: Costa Rica
+
+  overview:
+    rank: 8
+
+    summary: >
+      15-day family fly-in self-drive trip through Costa Rica,
+      combining rainforest, volcanoes, wildlife, waterfalls,
+      beaches, snorkeling and adventure activities.
+
+    summary_reason: >
+      The perfect complement to the other destinations on the list,
+      combining tropical rainforest, wildlife, volcanoes, sea turtles,
+      snorkeling and adventure in a compact and family-friendly itinerary.
+
+    transport: "✈ Plane + 🚗 Rental car"
+
+    duration_days: 15
+    duration_nights: 14
+
+    travel_style: Fly-in family self-drive
+
+    highlights:
+      - Arenal Volcano
+      - La Fortuna Waterfall
+      - Hanging Bridges
+      - Sloths and monkeys
+      - Rio Celeste
+      - Monteverde Cloud Forest
+      - Ziplining
+      - Tortuguero
+      - Sea turtles
+      - Manuel Antonio
+      - Snorkeling
+      - Pacific beaches
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: central_volcanoes_to_pacific
+
+  duration:
+
+    days: 15
+    nights: 14
+
+    base_locations: 5
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 3
+
+      - base: base_2
+        nights: 3
+
+      - base: base_3
+        nights: 2
+
+      - base: base_4
+        nights: 3
+
+      - base: base_5
+        nights: 3
+
+  transport_constraints:
+
+    rental_car:
+      strongly_recommended: true
+
+    road_conditions:
+      note: >
+        Roads are generally good but mountain roads can be slow.
+        Distances are short but travel times are often longer than expected.
+
+    wildlife:
+      note: >
+        Wildlife sightings are a core part of the experience.
+        Bring binoculars whenever possible.
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Use a limited number of bases and avoid moving every day.
+        Costa Rica works best when combining rainforest, volcanoes and coast.
+
+    transfer_day:
+      max_recommended_major_stops: 2
+
+    base_day:
+      max_recommended_single_drive_minutes: 90
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  airport:
+
+    id: san_jose_airport
+
+    name: Juan Santamaria International Airport
+
+    coordinates:
+      lat: 9.9981
+      lon: -84.2041
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: La Fortuna / Arenal
+
+      region: Northern Highlands
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 10.4717
+        lon: -84.6450
+
+      planning_note: >
+        Best volcano and adventure base in Costa Rica.
+
+      base_attractions:
+
+        - id: arenal_volcano
+
+          name: Arenal Volcano
+
+          priority: must_do
+
+          type: volcano
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.4636
+            lon: -84.7039
+
+        - id: la_fortuna_waterfall
+
+          name: La Fortuna Waterfall
+
+          priority: must_do
+
+          type: waterfall
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 10.4710
+            lon: -84.6450
+
+        - id: mistico_hanging_bridges
+
+          name: Mistico Hanging Bridges
+
+          priority: must_do
+
+          type: rainforest_walk
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.5002
+            lon: -84.7550
+
+        - id: arenal_hot_springs
+
+          name: Arenal Hot Springs
+
+          priority: highly_recommended
+
+          type: thermal_pool
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.4970
+            lon: -84.6980
+
+        - id: sloth_trail
+
+          name: Sloth Trail
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 10.4730
+            lon: -84.6420
+
+        - id: zipline_arenal
+
+          name: Arenal Zipline
+
+          priority: optional_paid_activity
+
+          type: adventure
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.5350
+            lon: -84.6950
+
+    - id: base_2
+
+      name: Monteverde
+
+      region: Cloud Forest
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 10.3000
+        lon: -84.8160
+
+      planning_note: >
+        Unique cloud forest ecosystem and one of Costa Rica's best wildlife regions.
+
+      base_attractions:
+
+        - id: monteverde_cloud_forest
+
+          name: Monteverde Cloud Forest
+
+          priority: must_do
+
+          type: cloud_forest
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 10.3050
+            lon: -84.8000
+
+        - id: santa_elena_cloud_forest
+
+          name: Santa Elena Reserve
+
+          priority: highly_recommended
+
+          type: cloud_forest
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.3230
+            lon: -84.8060
+
+        - id: hanging_bridges_monteverde
+
+          name: Monteverde Hanging Bridges
+
+          priority: highly_recommended
+
+          type: rainforest_walk
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.3180
+            lon: -84.8220
+
+        - id: hummingbird_gallery
+
+          name: Hummingbird Garden
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 10.3070
+            lon: -84.7950
+
+        - id: zipline_monteverde
+
+          name: Monteverde Canopy Tour
+
+          priority: optional_paid_activity
+
+          type: adventure
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.3000
+            lon: -84.8200
+
+    - id: base_3
+
+      name: Tenorio / Rio Celeste
+
+      region: Northern Costa Rica
+
+      stay_nights: 2
+
+      coordinates:
+        lat: 10.7350
+        lon: -85.0140
+
+      base_attractions:
+
+        - id: rio_celeste
+
+          name: Rio Celeste
+
+          priority: must_do
+
+          type: waterfall_hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 10.7060
+            lon: -84.9910
+
+        - id: tenorio_national_park
+
+          name: Tenorio National Park
+
+          priority: highly_recommended
+
+          type: rainforest_hike
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 10.7420
+            lon: -84.9940
+
+    - id: base_4
+
+      name: Tortuguero
+
+      region: Caribbean Coast
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 10.5410
+        lon: -83.5020
+
+      planning_note: >
+        Best wildlife region and one of the top sea turtle destinations.
+
+      base_attractions:
+
+        - id: tortuguero_canals
+
+          name: Tortuguero Canals
+
+          priority: must_do
+
+          type: wildlife_boat_trip
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 10.5410
+            lon: -83.5020
+
+        - id: sea_turtles
+
+          name: Sea Turtle Watching
+
+          priority: must_do
+
+          type: wildlife
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 10.5400
+            lon: -83.5040
+
+        - id: tortuguero_village
+
+          name: Tortuguero Village
+
+          priority: if_time
+
+          type: village
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 10.5430
+            lon: -83.5030
+
+    - id: base_5
+
+      name: Manuel Antonio
+
+      region: Pacific Coast
+
+      stay_nights: 3
+
+      coordinates:
+        lat: 9.4120
+        lon: -84.1550
+
+      planning_note: >
+        Combines rainforest, wildlife, beaches and snorkeling.
+
+      base_attractions:
+
+        - id: manuel_antonio_np
+
+          name: Manuel Antonio National Park
+
+          priority: must_do
+
+          type: rainforest_beach
+
+          visit_duration_hours: 5
+
+          coordinates:
+            lat: 9.3920
+            lon: -84.1540
+
+        - id: manuel_antonio_beach
+
+          name: Manuel Antonio Beach
+
+          priority: must_do
+
+          type: beach
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 9.3880
+            lon: -84.1680
+
+        - id: monkey_viewing
+
+          name: Monkey Viewing Areas
+
+          priority: highly_recommended
+
+          type: wildlife
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 9.3950
+            lon: -84.1600
+
+        - id: snorkeling_tour
+
+          name: Snorkeling Tour
+
+          priority: highly_recommended
+
+          type: snorkeling
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 9.3900
+            lon: -84.1700
+
+        - id: turtle_snorkeling
+
+          name: Sea Turtle Snorkeling
+
+          priority: highly_recommended
+
+          type: snorkeling_wildlife
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 9.3900
+            lon: -84.1700
+
+  transfer_routes:
+
+    - id: transfer_airport_to_base_1
+
+      from: san_jose_airport
+      to: base_1
+
+      description: San Jose to Arenal
+
+      estimated_direct_drive_hours: 3
+
+    - id: transfer_base_1_to_base_2
+
+      from: base_1
+      to: base_2
+
+      description: Arenal to Monteverde
+
+      estimated_direct_drive_hours: 3
+
+    - id: transfer_base_2_to_base_3
+
+      from: base_2
+      to: base_3
+
+      description: Monteverde to Rio Celeste
+
+      estimated_direct_drive_hours: 3
+
+    - id: transfer_base_3_to_base_4
+
+      from: base_3
+      to: base_4
+
+      description: Rio Celeste to Tortuguero
+
+      estimated_direct_drive_hours: 5
+
+    - id: transfer_base_4_to_base_5
+
+      from: base_4
+      to: base_5
+
+      description: Tortuguero to Manuel Antonio
+
+      estimated_direct_drive_hours: 5
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - turtle_snorkeling
+
+    possible_second_paid_activity:
+      - zipline_arenal
+
+    possible_third_paid_activity:
+      - zipline_monteverde
+
+    planning_note: >
+      For families, sea turtle snorkeling and wildlife-focused activities
+      are more unique than adrenaline activities.
+
+  wildlife_expectations:
+
+    commonly_seen:
+      - sloth
+      - monkey
+      - toucan
+      - iguana
+      - sea_turtle
+
+    possible:
+      - crocodile
+      - dolphin
+      - whale
+
+    safety_note: >
+      Wildlife encounters are usually safe when observing from a distance.
+      Do not feed wildlife.
+
+  excluded_or_future_trip_options:
+
+    osa_peninsula:
+      reason: >
+        One of the most biodiverse areas on Earth but requires additional
+        travel time and is better suited to an extended Costa Rica trip.
+
+    rincon_de_la_vieja:
+      reason: >
+        Excellent volcanic region but lower priority for a first family trip.
+
+    caribbean_south:
+      reason: >
+        Better combined with a longer wildlife-focused itinerary.

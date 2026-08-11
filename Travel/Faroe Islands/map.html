@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3ebafd37a41164527b551a701dbd12bf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-fo" style="border-radius:3px;margin-right:5px"></span>Faroe Islands</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Vagar / Sorvagur / Gasadalur</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Klaksvik / Northern Islands</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Torshavn / Central Streymoy</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_3ebafd37a41164527b551a701dbd12bf" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3ebafd37a41164527b551a701dbd12bf = L.map(
+                "map_3ebafd37a41164527b551a701dbd12bf",
+                {
+                    center: [62.102066666666666, -6.895333333333333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f6173c6bb9a155d3df0a7788d257717b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f6173c6bb9a155d3df0a7788d257717b.addTo(map_3ebafd37a41164527b551a701dbd12bf);
+        
+    
+            map_3ebafd37a41164527b551a701dbd12bf.fitBounds(
+                [[62.0717, -7.307], [62.2266, -6.589], [62.0079, -6.79]],
+                {}
+            );
+        
+    
+            var feature_group_ff20671703ef6997c1ffe3887f8e6885 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_eac4bbf82c643096f8623fffa8cca35e = L.marker(
+                [62.0717, -7.307],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff20671703ef6997c1ffe3887f8e6885);
+        
+    
+            var icon_7f1b9fcd0f8959e8a1eeaf7104006c2d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_eac4bbf82c643096f8623fffa8cca35e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Vagar / Sorvagur / Gasadalur</b><br><span style="color:#555">Vagar and western Faroe Islands</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Best first base after arrival. Use this base for Mulafossur, Sorvagsvatn/Leitisvatn, Bosdalafossur and optional Mykines or Drangarnir.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_eac4bbf82c643096f8623fffa8cca35e.setIcon(icon_7f1b9fcd0f8959e8a1eeaf7104006c2d);
+            
+    
+            var marker_e11b2417ee39f5e8becead2f45b4619a = L.marker(
+                [62.2266, -6.589],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff20671703ef6997c1ffe3887f8e6885);
+        
+    
+            var icon_145e3b382c7b7c39c2f42ddc665e961e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_e11b2417ee39f5e8becead2f45b4619a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Klaksvik / Northern Islands</b><br><span style="color:#555">Bordoy, Kalsoy, Kunoy and Vidoy</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Use this base for Kalsoy and Kallur Lighthouse, Vidareidi, Kunoy and dramatic northern island drives.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e11b2417ee39f5e8becead2f45b4619a.setIcon(icon_145e3b382c7b7c39c2f42ddc665e961e);
+            
+    
+            var marker_3570bcc63f99320eecfc07d16de2a65b = L.marker(
+                [62.0079, -6.79],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff20671703ef6997c1ffe3887f8e6885);
+        
+    
+            var icon_af58ca0a63f4f3ef03b0cc4acce23eb2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_3570bcc63f99320eecfc07d16de2a65b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Torshavn / Central Streymoy</b><br><span style="color:#555">Streymoy, Eysturoy and southern islands</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Use this base for Torshavn, Kirkjubour, Saksun, Tjornuvik, Gjogv/Eysturoy if not already visited, and optional Nolsoy or Sandoy.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3570bcc63f99320eecfc07d16de2a65b.setIcon(icon_af58ca0a63f4f3ef03b0cc4acce23eb2);
+            
+    
+            feature_group_ff20671703ef6997c1ffe3887f8e6885.addTo(map_3ebafd37a41164527b551a701dbd12bf);
+        
+    
+            var feature_group_3f7d8e471cd1ec8283d1c95075aea860 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e5f44d7c8fc1d5f75ef4c3d45199e6e3 = L.circleMarker(
+                [62.1049, -7.4347],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_e5f44d7c8fc1d5f75ef4c3d45199e6e3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mulafossur Waterfall and Gasadalur</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Village Viewpoint<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 20 min drive<br><span style="color:#e67e22">🌅 Good for evening visit</span><br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Iconic waterfall dropping toward the sea. Easy and high-impact first or last evening stop on Vagar.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_038f1be609620ab82d0759e90e8bb665 = L.circleMarker(
+                [62.042, -7.199],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_038f1be609620ab82d0759e90e8bb665.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sorvagsvatn / Leitisvatn Lake Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hike Viewpoint<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Famous optical illusion lake-above-the-ocean viewpoint. Combine with Bosdalafossur if weather is clear.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b6470f09a59738598d53708b735962b = L.circleMarker(
+                [62.0128, -7.2175],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_2b6470f09a59738598d53708b735962b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bosdalafossur Waterfall</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Hike<br><b>Duration:</b> 1 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Best combined with the Sorvagsvatn/Leitisvatn hike.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_71aea2326d114f92aabb9744fcbd5b7a = L.circleMarker(
+                [62.0906, -7.3686],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_71aea2326d114f92aabb9744fcbd5b7a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bour Village and Tindholmur Views</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Small village with excellent views toward Tindholmur and Drangarnir.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1602b1ca331e0df698d0fc7c8f6397a4 = L.circleMarker(
+                [62.077, -7.418],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_1602b1ca331e0df698d0fc7c8f6397a4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Drangarnir and Tindholmur View / Tour</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Guided Hike Or Boat Tour<br><b>Duration:</b> 4 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Spectacular but usually requires a guided hike or boat tour. Consider only if weather and budget allow.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4b1cd4f20b48bc30623f30bed6165fd = L.circleMarker(
+                [62.1025, -7.645],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_d4b1cd4f20b48bc30623f30bed6165fd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mykines Day Trip</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Island Ferry Hike Puffins<br><b>Duration:</b> 6 h<br><b>From base:</b> 5 min drive<br><b>Base:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Very attractive in puffin season, but ferry and access are weather-dependent. Keep a backup plan on Vagar.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b241f322dd0ffe3b0b6ea32f4e07a465 = L.circleMarker(
+                [62.373, -6.789],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_b241f322dd0ffe3b0b6ea32f4e07a465.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kallur Lighthouse Hike</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Ferry Hike Viewpoint<br><b>Duration:</b> 5 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">One of the top Faroe views. Requires ferry to Kalsoy and suitable weather. Do not schedule as the only possible highlight of the base.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de63174bc565dea16c6546882bd6fbed = L.circleMarker(
+                [62.334, -6.767],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_de63174bc565dea16c6546882bd6fbed.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mikladalur and Seal Woman Statue</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Coast<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Good add-on to Kalsoy day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88c9a4b424dcffa0176ee04b6ba14ca4 = L.circleMarker(
+                [62.3605, -6.531],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_88c9a4b424dcffa0176ee04b6ba14ca4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vidareidi</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Village Mountain Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Beautiful northern village surrounded by high mountains and sea views.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b9876fa907aeb87901ce9b7dac7f894 = L.circleMarker(
+                [62.303, -6.647],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_0b9876fa907aeb87901ce9b7dac7f894.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kunoy Village and Kunoy Park</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Short Walk<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Quiet and scenic short visit from Klaksvik.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_adb4e7658939bd87300249f4a4e15b59 = L.circleMarker(
+                [62.245, -6.602],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_adb4e7658939bd87300249f4a4e15b59.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Klakkur Hike above Klaksvik</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Short Hike Viewpoint<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Excellent local hike with views over Klaksvik and surrounding islands. Good backup if Kalsoy ferry is not suitable.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1098b95d4024e3929c765edbeab50076 = L.circleMarker(
+                [62.296, -6.515],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_1098b95d4024e3929c765edbeab50076.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hvannasund</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Village Drive<br><b>Duration:</b> 1 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Short northern-islands scenic drive option.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_971b7e12e775a750559ac3316c69ce3f = L.circleMarker(
+                [62.0097, -6.7716],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_971b7e12e775a750559ac3316c69ce3f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Torshavn Old Town and Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Town Walk Culture<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Good low-effort activity and useful for bad weather or arrival/departure timing.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13c69796e376879dd5759d4951e1e266 = L.circleMarker(
+                [61.9561, -6.7925],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_13c69796e376879dd5759d4951e1e266.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kirkjubour</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Village<br><b>Duration:</b> 2 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Historic village near Torshavn with cathedral ruins and old farm buildings.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbfceda016a5cfcde33db6843e1964c3 = L.circleMarker(
+                [62.248, -7.176],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_bbfceda016a5cfcde33db6843e1964c3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Saksun</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Village Lagoon Landscape<br><b>Duration:</b> 2 h<br><b>From base:</b> 55 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">One of the most beautiful village settings in the islands. Best with atmospheric weather but avoid unsafe tides near the lagoon.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a0532e8e4e8454769fb2cd295e7b436 = L.circleMarker(
+                [62.289, -7.147],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_7a0532e8e4e8454769fb2cd295e7b436.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tjornuvik</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Beach Viewpoint<br><b>Duration:</b> 1.5 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Beautiful valley village with beach and views toward Risin og Kellingin.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3baac1115a44de5a96f70997f25d3a3 = L.circleMarker(
+                [62.324, -6.94],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_b3baac1115a44de5a96f70997f25d3a3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gjogv</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Village Gorge Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Classic village with natural gorge harbour and short walks.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ab03df22ccd7e50dfa07eb14ae6b7b6 = L.circleMarker(
+                [62.287, -6.965],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_3ab03df22ccd7e50dfa07eb14ae6b7b6.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Funningur</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Fjord View<br><b>Duration:</b> 1 h<br><b>From base:</b> 55 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Good scenic pair with Gjogv and Eidi.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_963ccba340659cf6d52e827a9c788a0d = L.circleMarker(
+                [62.299, -7.092],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_963ccba340659cf6d52e827a9c788a0d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Eidi and Risin og Kellingin Viewpoint</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Sea Stack Viewpoint<br><b>Duration:</b> 1 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Easy viewpoint toward the famous sea stacks.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7e3d396a987b126d7795db6a5982779 = L.circleMarker(
+                [62.155, -7.166],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_e7e3d396a987b126d7795db6a5982779.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vestmanna Sea Cliffs Boat Trip</b><br><span style="color:#27ae60;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Boat Trip Sea Cliffs<br><b>Duration:</b> 2.5 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Classic boat trip, highly weather-dependent. Good optional paid activity if you do not choose Mykines or Drangarnir.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e457a1f0431f7333931fed7a3d71341f = L.circleMarker(
+                [62.009, -6.666],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_e457a1f0431f7333931fed7a3d71341f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Nolsoy Day Trip</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Short Island Ferry Walk<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Short ferry from Torshavn, useful as a lighter island day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2a007b23cc84cb004e73d6bd5aeb805 = L.circleMarker(
+                [61.842, -6.829],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_3f7d8e471cd1ec8283d1c95075aea860);
+        
+    
+            circle_marker_d2a007b23cc84cb004e73d6bd5aeb805.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sandoy Day Trip</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Island Drive Villages Beaches<br><b>Duration:</b> 5 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Now more accessible via subsea tunnel. Good if weather in the north is poor or you want a calmer island day.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_3f7d8e471cd1ec8283d1c95075aea860.addTo(map_3ebafd37a41164527b551a701dbd12bf);
+        
+    
+            var feature_group_5fe9196adeaa9beac62b9957061217d7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_9e7237c47d22acc6b60f9b0db49c420c = L.circleMarker(
+                [62.1049, -7.4347],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_9e7237c47d22acc6b60f9b0db49c420c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Mulafossur Waterfall and Gasadalur</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Village Viewpoint<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e67e22">Arrival at Vagar Airport and short transfer to Sorvagur/Gasadalur area</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7234548efe26f4d781434a51cfe3754d = L.circleMarker(
+                [62.0906, -7.3686],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_7234548efe26f4d781434a51cfe3754d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Bour Village and Tindholmur Views</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Viewpoint<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e67e22">Arrival at Vagar Airport and short transfer to Sorvagur/Gasadalur area</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e5a2ad8535499ad69f63d58acf745cc1 = L.circleMarker(
+                [62.248, -7.176],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_e5a2ad8535499ad69f63d58acf745cc1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Saksun</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Village Lagoon Landscape<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_078f3314fca9eb458431971411d68c5d = L.circleMarker(
+                [62.289, -7.147],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_078f3314fca9eb458431971411d68c5d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Tjornuvik</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Beach Viewpoint<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16c6c4d96827169657615436dae3c896 = L.circleMarker(
+                [62.13, -6.8],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_16c6c4d96827169657615436dae3c896.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eysturoyartunnilin Undersea Roundabout</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Tunnel Route Feature<br><b>Stop duration:</b> 0 h<br><b>Role:</b> Route Segment<br><b>En route:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span><br><i style="color:#666;font-size:13px">Not a sightseeing stop, but a memorable route feature if the chosen route uses the tunnel.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8a5c6b37d0bf8c9fa9a5933ef830f4e = L.circleMarker(
+                [62.324, -6.94],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_a8a5c6b37d0bf8c9fa9a5933ef830f4e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gjogv</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Village Gorge Walk<br><b>Stop duration:</b> 2 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79426456396303477545173a8defab9f = L.circleMarker(
+                [62.287, -6.965],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_79426456396303477545173a8defab9f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Funningur</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Village Fjord View<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Add On<br><b>En route:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a3d0c2e26e20923813f13ceae2f567d = L.circleMarker(
+                [62.299, -7.092],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_2a3d0c2e26e20923813f13ceae2f567d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eidi and Risin og Kellingin Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Sea Stack Viewpoint<br><b>Stop duration:</b> 1 h<br><b>Role:</b> Candidate<br><b>En route:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_43d596f5a94c7738773671d11be1af23 = L.circleMarker(
+                [62.1049, -7.4347],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_43d596f5a94c7738773671d11be1af23.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gasadalur / Mulafossur if missed earlier</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Backup Viewpoint<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Backup Only<br><b>En route:</b> <span style="color:#27ae60">Torshavn / Central Streymoy to Vagar Airport</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6562ad79976e0a7dda313fe89c62c84d = L.circleMarker(
+                [62.0097, -6.7716],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_5fe9196adeaa9beac62b9957061217d7);
+        
+    
+            circle_marker_6562ad79976e0a7dda313fe89c62c84d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Torshavn Old Town and Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Town Walk Culture<br><b>Stop duration:</b> 1.5 h<br><b>Role:</b> Backup Only<br><b>En route:</b> <span style="color:#27ae60">Torshavn / Central Streymoy to Vagar Airport</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_5fe9196adeaa9beac62b9957061217d7.addTo(map_3ebafd37a41164527b551a701dbd12bf);
+        
+    
+            var feature_group_dd381435b1b08b7e74276e38bb38de46 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_49c43d15af03850afd9ae6ab0d57a12b = L.marker(
+                [62.0636, -7.2772],
+                {
+}
+            ).addTo(feature_group_dd381435b1b08b7e74276e38bb38de46);
+        
+    
+            var icon_6dfba78073d00fc01ddea41bf540bfc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_49c43d15af03850afd9ae6ab0d57a12b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif"><b>✈️ Vagar Airport</b></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_49c43d15af03850afd9ae6ab0d57a12b.setIcon(icon_6dfba78073d00fc01ddea41bf540bfc4);
+            
+    
+            feature_group_dd381435b1b08b7e74276e38bb38de46.addTo(map_3ebafd37a41164527b551a701dbd12bf);
+        
+    
+            var layer_control_2aa308f5beb3958672eb489935a882dd_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_f6173c6bb9a155d3df0a7788d257717b,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_ff20671703ef6997c1ffe3887f8e6885,
+                    "\u25cf Base attractions" : feature_group_3f7d8e471cd1ec8283d1c95075aea860,
+                    "\u25c7 En-route stops" : feature_group_5fe9196adeaa9beac62b9957061217d7,
+                    "\u2708 Airport" : feature_group_dd381435b1b08b7e74276e38bb38de46,
+                },
+            };
+            let layer_control_2aa308f5beb3958672eb489935a882dd = L.control.layers(
+                layer_control_2aa308f5beb3958672eb489935a882dd_layers.base_layers,
+                layer_control_2aa308f5beb3958672eb489935a882dd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_3ebafd37a41164527b551a701dbd12bf);
+
+        
+</script>
+</html>

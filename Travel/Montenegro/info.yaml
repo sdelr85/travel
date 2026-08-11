@@ -1,0 +1,503 @@
+trip:
+  country: Montenegro
+
+  overview:
+    rank: 13
+    summary: "11-day family self-drive trip through Montenegro, focused on dramatic mountains, the Bay of Kotor, Durmitor National Park, Tara Canyon, Lake Skadar, scenic roads, short hikes, boat trips and coastal towns."
+    summary_reason: >
+      A compact destination offering fjords, mountains, lakes, canyons and historic towns with excellent value for money.
+
+    transport: "✈ Plane + 🚗 Rental car"
+
+    duration_days: 11
+    duration_nights: 10
+
+    travel_style: "Fly-in family self-drive"
+
+    highlights:
+      - "Bay of Kotor"
+      - "Kotor old town and city walls"
+      - "Perast and Our Lady of the Rocks"
+      - "Lovcen National Park"
+      - "Durmitor National Park"
+      - "Black Lake"
+      - "Tara Canyon"
+      - "Durmitor Ring"
+      - "Piva Canyon"
+      - "Lake Skadar"
+      - "Rijeka Crnojevica and Pavlova Strana viewpoint"
+      - "Sveti Stefan viewpoint"
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: kotor_durmitor_skadar_coast
+
+  duration:
+    days: 11
+    nights: 10
+
+    base_locations: 3
+
+    recommended_base_split:
+      - base: base_1
+        nights: 4
+
+      - base: base_2
+        nights: 3
+
+      - base: base_3
+        nights: 3
+
+    alternative_base_split_if_9_nights:
+      - base: base_1
+        nights: 3
+
+      - base: base_2
+        nights: 3
+
+      - base: base_3
+        nights: 3
+
+    note: "Montenegro is compact, but mountain roads, coastal traffic and scenic detours make travel slower than expected. Three bases keeps the trip relaxed."
+
+  access_plan:
+    from: Belgium
+
+    by: plane
+
+    recommended_airports:
+      - id: tivat_airport
+        name: Tivat Airport
+        coordinates:
+          lat: 42.4047
+          lon: 18.7233
+        planning_note: "Most convenient for starting in the Bay of Kotor."
+
+      - id: podgorica_airport
+        name: Podgorica Airport
+        coordinates:
+          lat: 42.3594
+          lon: 19.2519
+        planning_note: "More convenient if flights are cheaper or if starting near Lake Skadar."
+
+      - id: dubrovnik_airport
+        name: Dubrovnik Airport
+        coordinates:
+          lat: 42.5614
+          lon: 18.2682
+        planning_note: "Good alternative, but includes a border crossing into Montenegro."
+
+    rental_car:
+      strongly_recommended: true
+      planning_note: "A rental car is strongly recommended because the best mountain, canyon and lake viewpoints are difficult to combine using public transport."
+
+  transport_constraints:
+    rental_car:
+      required: true
+
+    road_conditions:
+      note: "Roads are generally manageable, but mountain roads can be narrow, winding and slow. Allow extra time for Durmitor, Piva, Lovcen and Skadar viewpoints."
+
+    coastal_traffic:
+      note: "In July and August, the coast around Kotor, Budva and Sveti Stefan can be crowded. Early mornings and evenings are better for popular towns."
+
+    border_crossings:
+      note: "Only relevant if flying into Dubrovnik or combining Montenegro with Croatia, Bosnia or Albania."
+
+  planning_principles:
+    lodging_strategy:
+      note: "Use one base around Kotor Bay, one mountain base around Zabljak/Durmitor, and one lake/coast base around Virpazar or Rijeka Crnojevica."
+
+    transfer_day:
+      max_recommended_major_stops: 2
+      max_recommended_sightseeing_hours: 3
+      note: "Transfer days should include scenic stops, but not full hikes plus long drives."
+
+    base_day:
+      max_recommended_single_drive_minutes: 90
+      note: "Most sightseeing should be done as day trips from the bases."
+
+    paid_activities:
+      note: "The strongest paid activity candidates are a Lake Skadar boat trip, Tara rafting and possibly a boat trip in Kotor Bay."
+
+    season:
+      recommended_months:
+        - May
+        - June
+        - September
+        - early October
+      note: "These months are usually better for road trips than peak July-August because of heat, crowds and parking pressure on the coast."
+
+  priority_definitions:
+    must_do:
+      score: 4
+      description: "Absolute highlight. Try to include unless weather, traffic or timing makes it unrealistic."
+
+    highly_recommended:
+      score: 3
+      description: "Strongly recommended if weather is good and the day schedule allows it."
+
+    if_time:
+      score: 2
+      description: "Good addition, but not essential."
+
+    optional_paid_activity:
+      score: 1
+      description: "Worth considering, but should be selected deliberately because of budget and planning preferences."
+
+  lodging_locations:
+
+    - id: base_1
+      name: Bay of Kotor / Perast / Dobrota
+      region: Bay of Kotor and Lovcen
+      stay_nights: 4
+
+      coordinates:
+        lat: 42.4247
+        lon: 18.7712
+
+      lodging_preference_note: "Dobrota or Perast are calmer than central Kotor. Kotor is atmospheric but busier and parking can be harder."
+
+      planning_note: "This base covers Kotor, Perast, the Bay of Kotor, Lovcen, Cetinje and possibly Budva/Sveti Stefan as a day trip."
+
+      base_attractions:
+
+        - id: kotor_old_town
+          name: Kotor Old Town
+          priority: must_do
+          type: old_town
+          visit_duration_hours: 2
+          drive_time_minutes: 10
+          coordinates:
+            lat: 42.4247
+            lon: 18.7712
+          visit_strategy:
+            primary_base: base_1
+            good_for_evening_visit: true
+            notes: "Best early morning or evening, especially in summer or on cruise ship days."
+
+        - id: kotor_city_walls
+          name: Kotor City Walls / Fortress Hike
+          priority: must_do
+          type: hike_viewpoint
+          visit_duration_hours: 2.5
+          drive_time_minutes: 10
+          coordinates:
+            lat: 42.4258
+            lon: 18.7735
+          difficulty: moderate
+          visit_strategy:
+            primary_base: base_1
+            good_for_early_morning: true
+            notes: "Great view over the bay. Avoid midday heat."
+
+        - id: perast
+          name: Perast
+          priority: must_do
+          type: historic_village
+          visit_duration_hours: 2
+          drive_time_minutes: 20
+          coordinates:
+            lat: 42.4865
+            lon: 18.6990
+          visit_strategy:
+            primary_base: base_1
+            notes: "Beautiful bay village, good for a relaxed morning or late afternoon."
+
+        - id: our_lady_of_the_rocks
+          name: Our Lady of the Rocks
+          priority: highly_recommended
+          type: boat_trip_short
+          visit_duration_hours: 1
+          drive_time_minutes: 20
+          coordinates:
+            lat: 42.4869
+            lon: 18.6886
+          visit_strategy:
+            primary_base: base_1
+            notes: "Short boat trip from Perast."
+
+        - id: lovcen_national_park
+          name: Lovcen National Park
+          priority: highly_recommended
+          type: mountain_national_park
+          visit_duration_hours: 3
+          drive_time_minutes: 75
+          coordinates:
+            lat: 42.3995
+            lon: 18.8376
+          visit_strategy:
+            primary_base: base_1
+            secondary_opportunity:
+              - transfer_base_1_to_base_2
+            notes: "Good mountain contrast to the coast. Combine with Cetinje or the Kotor serpentine road."
+
+        - id: njegos_mausoleum
+          name: Njegos Mausoleum
+          priority: highly_recommended
+          type: mountain_viewpoint
+          visit_duration_hours: 1.5
+          drive_time_minutes: 85
+          coordinates:
+            lat: 42.3994
+            lon: 18.8370
+          visit_strategy:
+            primary_base: base_1
+            notes: "Summit mausoleum with panoramic views. Combine with Lovcen."
+
+        - id: cetinje
+          name: Cetinje
+          priority: if_time
+          type: historic_town
+          visit_duration_hours: 2
+          drive_time_minutes: 70
+          coordinates:
+            lat: 42.3931
+            lon: 18.9214
+          visit_strategy:
+            primary_base: base_1
+            notes: "Former royal capital, good cultural half-day from Kotor."
+
+        - id: sveti_stefan_viewpoint
+          name: Sveti Stefan Viewpoint
+          priority: highly_recommended
+          type: coastal_viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 45
+          coordinates:
+            lat: 42.2564
+            lon: 18.8920
+          visit_strategy:
+            primary_base: base_1
+            notes: "Iconic island hotel viewpoint. Easy day trip south along the coast."
+
+        - id: budva_old_town
+          name: Budva Old Town
+          priority: if_time
+          type: old_town
+          visit_duration_hours: 2
+          drive_time_minutes: 35
+          coordinates:
+            lat: 42.2791
+            lon: 18.8400
+          visit_strategy:
+            primary_base: base_1
+            notes: "Lively coastal town, busier than Kotor but worth a short visit."
+
+    - id: base_2
+      name: Zabljak / Durmitor
+      region: Durmitor National Park and North Montenegro
+      stay_nights: 3
+      coordinates:
+        lat: 43.1551
+        lon: 19.1221
+      planning_note: "Mountain base for Durmitor National Park, Black Lake, Tara Canyon and the Durmitor Ring. Allow time for altitude and slower roads."
+
+      base_attractions:
+
+        - id: black_lake
+          name: Black Lake / Crno Jezero
+          priority: must_do
+          type: lake_walk
+          visit_duration_hours: 2
+          drive_time_minutes: 5
+          coordinates:
+            lat: 43.1401
+            lon: 19.0970
+          visit_strategy:
+            primary_base: base_2
+            notes: "Easy lakeside walk directly from Zabljak. Best first morning activity."
+
+        - id: tara_canyon_viewpoint
+          name: Tara Canyon Viewpoint
+          priority: must_do
+          type: canyon_viewpoint
+          visit_duration_hours: 2
+          drive_time_minutes: 20
+          coordinates:
+            lat: 43.1466
+            lon: 19.2481
+          visit_strategy:
+            primary_base: base_2
+            notes: "One of Europe's deepest canyons. Curevac viewpoint is the most accessible."
+
+        - id: durmitor_ring
+          name: Durmitor Ring Scenic Drive
+          priority: must_do
+          type: scenic_drive
+          visit_duration_hours: 4
+          drive_time_minutes: 10
+          coordinates:
+            lat: 43.1551
+            lon: 19.1221
+          visit_strategy:
+            primary_base: base_2
+            notes: "Classic circular mountain drive through the national park with glacier lakes and peaks."
+
+        - id: tara_bridge
+          name: Tara Bridge / Djurdjevica Tara
+          priority: highly_recommended
+          type: bridge_viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 25
+          coordinates:
+            lat: 43.1504
+            lon: 19.2706
+          visit_strategy:
+            primary_base: base_2
+            notes: "Iconic concrete arch bridge above the canyon."
+
+        - id: piva_canyon
+          name: Piva Canyon
+          priority: highly_recommended
+          type: canyon_scenic_drive
+          visit_duration_hours: 3
+          drive_time_minutes: 50
+          coordinates:
+            lat: 43.0500
+            lon: 18.8700
+          visit_strategy:
+            primary_base: base_2
+            notes: "Dramatic road carved into the canyon walls along the Piva reservoir."
+
+        - id: bobotov_kuk
+          name: Bobotov Kuk Hike
+          priority: if_time
+          type: strenuous_hike
+          visit_duration_hours: 6
+          drive_time_minutes: 15
+          coordinates:
+            lat: 43.1077
+            lon: 19.0391
+          difficulty: challenging
+          visit_strategy:
+            primary_base: base_2
+            notes: "Highest peak of Durmitor. Only for a very motivated and fit family day."
+
+    - id: base_3
+      name: Virpazar / Lake Skadar
+      region: Lake Skadar and the Adriatic Coast
+      stay_nights: 3
+      coordinates:
+        lat: 42.2447
+        lon: 19.0878
+      planning_note: "Excellent base for Lake Skadar boat trips, the Pavlova Strana viewpoint, Rijeka Crnojevica and a final coastal stop before departure."
+
+      base_attractions:
+
+        - id: lake_skadar_boat_trip
+          name: Lake Skadar Boat Trip
+          priority: must_do
+          type: boat_trip_lake
+          visit_duration_hours: 3
+          drive_time_minutes: 5
+          coordinates:
+            lat: 42.2447
+            lon: 19.0878
+          visit_strategy:
+            primary_base: base_3
+            notes: "The best way to experience the lake. Pelicans, water lilies, monasteries on islands."
+
+        - id: pavlova_strana
+          name: Pavlova Strana Viewpoint
+          priority: must_do
+          type: viewpoint
+          visit_duration_hours: 1
+          drive_time_minutes: 20
+          coordinates:
+            lat: 42.3040
+            lon: 19.0350
+          visit_strategy:
+            primary_base: base_3
+            good_for_evening_visit: true
+            notes: "Elevated viewpoint over the lake and Rijeka Crnojevica river gorge."
+
+        - id: rijeka_crnojevica
+          name: Rijeka Crnojevica
+          priority: highly_recommended
+          type: village_river_gorge
+          visit_duration_hours: 1.5
+          drive_time_minutes: 25
+          coordinates:
+            lat: 42.3170
+            lon: 19.0340
+          visit_strategy:
+            primary_base: base_3
+            notes: "Picturesque village at the river mouth. Good pair with Pavlova Strana."
+
+        - id: podgorica
+          name: Podgorica
+          priority: if_time
+          type: city
+          visit_duration_hours: 2
+          drive_time_minutes: 30
+          coordinates:
+            lat: 42.4304
+            lon: 19.2594
+          visit_strategy:
+            primary_base: base_3
+            notes: "Capital city, useful if departing from Podgorica Airport."
+
+        - id: old_bar
+          name: Old Bar / Stari Bar
+          priority: if_time
+          type: ruins_historic_site
+          visit_duration_hours: 2
+          drive_time_minutes: 50
+          coordinates:
+            lat: 42.0948
+            lon: 19.1490
+          visit_strategy:
+            primary_base: base_3
+            notes: "Atmospheric ruined medieval town in the hills above the modern coastal town."
+
+  transfer_routes:
+
+    - id: transfer_airport_to_base_1
+      from: Tivat
+      to: base_1
+      description: Tivat Airport to Bay of Kotor
+      en_route_candidates:
+        - id: tivat_airport_stop
+          name: Tivat Airport
+          priority: must_do
+          type: arrival_point
+          stop_duration_hours: 0.5
+          coordinates:
+            lat: 42.4047
+            lon: 18.7233
+          transfer_role: arrival
+
+    - id: transfer_base_1_to_base_2
+      from: base_1
+      to: base_2
+      description: Bay of Kotor to Zabljak via Lovcen and Cetinje
+      en_route_candidates:
+        - attraction_ref: lovcen_national_park
+          priority: highly_recommended
+          stop_duration_hours: 2
+          transfer_role: candidate
+        - attraction_ref: cetinje
+          priority: if_time
+          stop_duration_hours: 1.5
+          transfer_role: short_stop
+
+    - id: transfer_base_2_to_base_3
+      from: base_2
+      to: base_3
+      description: Zabljak to Virpazar / Lake Skadar via Piva Canyon
+      en_route_candidates:
+        - attraction_ref: piva_canyon
+          priority: highly_recommended
+          stop_duration_hours: 2
+          transfer_role: scenic_route
+
+  airport:
+    id: tivat_airport
+    name: Tivat Airport
+    coordinates:
+      lat: 42.4047
+      lon: 18.7233
+  

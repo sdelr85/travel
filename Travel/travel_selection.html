@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Plans</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(160deg, #1a2a3a 0%, #2c3e50 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .page { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,.75);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.25);
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,.25);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            padding: 14px 14px 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+        .rank-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255,255,255,.18);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 8px;
+            letter-spacing: 0.02em;
+        }
+        .flag { font-size: 3rem; line-height: 1; }
+        .card-flag {
+            width: 2rem;
+            height: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,.35);
+            flex-shrink: 0;
+            background-size: cover;
+        }
+        .card-header h2 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .card-body { padding: 12px 14px 14px; }
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .stat {
+            background: #f0f2f5;
+            border-radius: 20px;
+            padding: 4px 10px;
+            font-size: 0.82rem;
+            color: #444;
+        }
+        .summary {
+            color: #555;
+            font-size: 0.85rem;
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
+        .reason {
+            color: #2c3e50;
+            font-size: 0.82rem;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .highlights {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+        .highlights li {
+            padding: 2px 0;
+            font-size: 0.82rem;
+            color: #444;
+        }
+        .highlights li::before { content: "📍 "; }
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #2c3e50, #1a2a3a);
+            color: white;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        #world-map {
+            width: 100%;
+            height: 420px;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(0,0,0,.35);
+            margin-bottom: 32px;
+        }
+        .map-marker {
+            background: #1a2a3a;
+            color: white;
+            border: 2px solid rgba(255,255,255,.6);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>🗺️ Travel Plans</h1>
+        <p class="subtitle">Select a destination to explore the interactive map</p>
+        <div id="world-map"></div>
+        <div class="cards">
+        <div class="card" onclick="window.location='New Zealand/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#1</div>
+                <span class="fi fi-nz card-flag"></span>
+                <h2>New Zealand</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 24 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ domestic flight</span></div>
+                    <div class="stat"><span>🏨 8 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>24-day family fly-in self-drive trip through both the North and South Island of New Zealand, focused on mountains, volcanoes, geothermal landscapes, fjords, wildlife, lakes, hiking and adventure.
+</p>
+                <p class='reason'>The most complete nature and adventure destination in the world, combining volcanoes,  fjords, glaciers, mountains, wildlife and world-class road trips in a single journey.</p>
+                <ul class='highlights'><li>Tongariro Alpine Crossing</li><li>Rotorua geothermal region</li><li>Hobbiton</li><li>Cathedral Cove</li><li>Mount Cook</li><li>Hooker Valley Track</li><li>Wanaka</li><li>Roys Peak</li><li>Milford Sound</li><li>Fiordland</li><li>Queenstown</li><li>Glenorchy</li><li>Kaikoura whales</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Patagonia/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#2</div>
+                <span class="fi fi-ar card-flag"></span>
+                <h2>Patagonia</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 17 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 4 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>17-day family self-drive trip through the most spectacular regions of Southern Patagonia, combining Argentina and Chile. Focus on glaciers, iconic mountain landscapes, wildlife, hiking, scenic drives and national parks.
+</p>
+                <p class='reason'>Choose Patagonia for some of the most dramatic mountain and glacier landscapes on Earth,  centered around Fitz Roy, Torres del Paine and Perito Moreno.</p>
+                <ul class='highlights'><li>Perito Moreno Glacier</li><li>El Chalten</li><li>Fitz Roy</li><li>Laguna de los Tres</li><li>Laguna Torre</li><li>Torres del Paine</li><li>Mirador Las Torres</li><li>Grey Glacier</li><li>Salto Grande</li><li>Guanaco and condor wildlife</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Iceland/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#3</div>
+                <span class="fi fi-is card-flag"></span>
+                <h2>Iceland</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 13 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 4 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>13-day counter-clockwise self-drive ring road trip through Iceland's most iconic landscapes.</p>
+                <p class='reason'>A unique combination of volcanoes, glaciers, geothermal landscapes, hot springs and whale watching that feels unlike anywhere else on the planet.</p>
+                <ul class='highlights'><li>Golden Circle (Thingvellir, Geysir, Gullfoss)</li><li>South Coast (waterfalls, black beaches, glaciers)</li><li>North Iceland (Myvatn, Dettifoss, Husavik)</li><li>Snaefellsnes Peninsula</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Canada/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#4</div>
+                <span class="fi fi-ca card-flag"></span>
+                <h2>Canada</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 15 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 4 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>15-day family fly-in self-drive trip through the Canadian Rockies, focused on mountains, turquoise lakes, wildlife, hiking, waterfalls and scenic drives.</p>
+                <p class='reason'>The ultimate mix of alpine scenery, turquoise lakes, wildlife encounters, hiking and one of the world's greatest self-drive routes.</p>
+                <ul class='highlights'><li>Banff National Park</li><li>Lake Louise</li><li>Moraine Lake</li><li>Icefields Parkway</li><li>Jasper National Park</li><li>Yoho National Park</li><li>Kananaskis Country</li><li>Emerald Lake</li><li>Athabasca Glacier</li><li>Canadian wildlife</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Namibia/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#5</div>
+                <span class="fi fi-na card-flag"></span>
+                <h2>Namibia</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 18 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car (4x4 recommended)</span></div>
+                    <div class="stat"><span>🏨 6 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>18-day family self-drive trip through Namibia, focused on desert landscapes, wildlife, mountains, canyons, night skies and scenic road trips.
+</p>
+                <p class='reason'>A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some of the clearest night skies on Earth.</p>
+                <ul class='highlights'><li>Sossusvlei</li><li>Deadvlei</li><li>Sesriem Canyon</li><li>Swakopmund</li><li>Walvis Bay</li><li>Skeleton Coast</li><li>Spitzkoppe</li><li>Damaraland</li><li>Desert Elephants</li><li>Etosha National Park</li><li>Waterberg Plateau</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Faroe Islands/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#6</div>
+                <span class="fi fi-fo card-flag"></span>
+                <h2>Faroe Islands</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 10 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 3 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>10-day family fly-in self-drive trip through the Faroe Islands, focused on dramatic landscapes, hikes, villages, sea cliffs, waterfalls and one or two optional island/boat activities.</p>
+                <p class='reason'>A compact but incredibly photogenic destination combining dramatic cliffs, waterfalls, ocean scenery and remote island adventure.</p>
+                <ul class='highlights'><li>Vagar: Mulafossur, Lake Sorvagsvatn/Leitisvatn, Bosdalafossur and Drangarnir views</li><li>Northern islands: Klaksvik, Kalsoy, Kallur Lighthouse, Vidareidi and Kunoy</li><li>Eysturoy and Streymoy: Saksun, Tjornuvik, Gjogv, Funningur and Eidi</li><li>Torshavn and nearby islands: Kirkjubour, Nolsoy or Sandoy</li><li>Optional Mykines or Vestmanna sea cliffs depending on weather</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Norway/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#7</div>
+                <span class="fi fi-no card-flag"></span>
+                <h2>Norway</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 13 days</span></div>
+                    <div class="stat"><span>🚗 Own car</span></div>
+                    <div class="stat"><span>🏨 3 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Family road trip from Belgium</span></div>
+                </div>
+                <p class='summary'>13-day family self-drive trip from Belgium through Denmark, Sweden and Norway's southern and western fjords, without international ferries.</p>
+                <p class='reason'>A perfect family road trip destination offering fjords, mountain hikes, scenic roads and highly accessible nature.</p>
+                <ul class='highlights'><li>Copenhagen / Malmo / Gothenburg / Oslo access route without international ferries</li><li>Telemark and Hardangervidda as a logical first Norway base</li><li>Sognefjord, Naeroyfjord and Aurlandsfjord around Aurland / Flam</li><li>Nordfjord, Loen Skylift, glacier landscapes and Geirangerfjord from Loen / Olden / Stryn</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Costa Rica/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#8</div>
+                <span class="fi fi-cr card-flag"></span>
+                <h2>Costa Rica</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 15 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 5 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>15-day family fly-in self-drive trip through Costa Rica, combining rainforest, volcanoes, wildlife, waterfalls, beaches, snorkeling and adventure activities.
+</p>
+                <p class='reason'>The perfect complement to the other destinations on the list, combining tropical rainforest, wildlife, volcanoes, sea turtles, snorkeling and adventure in a compact and family-friendly itinerary.</p>
+                <ul class='highlights'><li>Arenal Volcano</li><li>La Fortuna Waterfall</li><li>Hanging Bridges</li><li>Sloths and monkeys</li><li>Rio Celeste</li><li>Monteverde Cloud Forest</li><li>Ziplining</li><li>Tortuguero</li><li>Sea turtles</li><li>Manuel Antonio</li><li>Snorkeling</li><li>Pacific beaches</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Georgia/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#9</div>
+                <span class="fi fi-ge card-flag"></span>
+                <h2>Georgia</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 15 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 4 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>15-day family fly-in self-drive trip through Georgia, combining the Caucasus Mountains, remote villages, scenic roads, wine regions and hiking landscapes.
+</p>
+                <p class='reason'>One of Europe's hidden gems, combining authentic culture, spectacular Caucasus mountains and exceptional value for adventurous travelers.</p>
+                <ul class='highlights'><li>Tbilisi</li><li>Military Highway</li><li>Kazbegi</li><li>Gergeti Trinity Church</li><li>Truso Valley</li><li>Kakheti Wine Region</li><li>Mestia</li><li>Ushguli</li><li>Svaneti</li><li>Caucasus Mountains</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Azores/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#10</div>
+                <span class="fi fi-pt card-flag"></span>
+                <h2>Azores</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 12 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ Inter-island flight</span></div>
+                    <div class="stat"><span>🏨 2 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>12-day family fly-in self-drive trip through Sao Miguel and Pico, focused on volcanic landscapes, crater lakes, thermal pools, waterfalls, hiking, whale watching and coastal scenery.</p>
+                <p class='reason'>A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale watching and excellent hiking.</p>
+                <ul class='highlights'><li>Sete Cidades</li><li>Lagoa do Fogo</li><li>Furnas geothermal area</li><li>Terra Nostra thermal baths</li><li>Whale watching</li><li>Mount Pico</li><li>Pico wine landscape</li><li>Natural lava pools</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Scotland/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#11</div>
+                <span class="fi fi-gb-sct card-flag"></span>
+                <h2>Scotland</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 14 days</span></div>
+                    <div class="stat"><span>🚗 Own car + ⛴ Overnight ferry to Newcastle</span></div>
+                    <div class="stat"><span>🏨 5 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Family road trip via ferry</span></div>
+                </div>
+                <p class='summary'>14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh.</p>
+                <p class='reason'>A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.</p>
+                <ul class='highlights'><li>Glencoe and Glenfinnan Viaduct</li><li>Isle of Skye (Storr, Quiraing, Fairy Pools)</li><li>Eilean Donan Castle</li><li>Bealach na Ba and Torridon</li><li>Assynt (Stac Pollaidh, Achmelvich Beach)</li><li>Edinburgh</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='South Africa/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#12</div>
+                <span class="fi fi-za card-flag"></span>
+                <h2>South Africa</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 19 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ Domestic flight</span></div>
+                    <div class="stat"><span>🏨 6 bases</span></div>
+                    
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>19-day family fly-in self-drive trip through South Africa, combining Cape Town, mountains, coastline, wildlife, the Garden Route and safari.
+</p>
+                <p class='reason'>A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within a single trip.</p>
+                <ul class='highlights'><li>Table Mountain</li><li>Cape Peninsula</li><li>Boulders Penguins</li><li>Hermanus</li><li>Garden Route</li><li>Tsitsikamma</li><li>Addo Elephant Park</li><li>Kruger National Park</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        <div class="card" onclick="window.location='Montenegro/map.html'">
+            <div class="card-header">
+                <div class="rank-badge">#13</div>
+                <span class="fi fi-me card-flag"></span>
+                <h2>Montenegro</h2>
+            </div>
+            <div class="card-body">
+                <div class="stats">
+                    <div class="stat"><span>📅 11 days</span></div>
+                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat"><span>🏨 3 bases</span></div>
+                    <div class="stat"><span>👨‍👩‍👧‍👦 2 adults, 3 children</span></div>
+                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                </div>
+                <p class='summary'>11-day family self-drive trip through Montenegro, focused on dramatic mountains, the Bay of Kotor, Durmitor National Park, Tara Canyon, Lake Skadar, scenic roads, short hikes, boat trips and coastal towns.</p>
+                <p class='reason'>A compact destination offering fjords, mountains, lakes, canyons and historic towns with excellent value for money.</p>
+                <ul class='highlights'><li>Bay of Kotor</li><li>Kotor old town and city walls</li><li>Perast and Our Lady of the Rocks</li><li>Lovcen National Park</li><li>Durmitor National Park</li><li>Black Lake</li><li>Tara Canyon</li><li>Durmitor Ring</li><li>Piva Canyon</li><li>Lake Skadar</li><li>Rijeka Crnojevica and Pavlova Strana viewpoint</li><li>Sveti Stefan viewpoint</li></ul>
+                <div class="cta">View map →</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var worldMap = L.map('world-map', {scrollWheelZoom: false});
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        }).addTo(worldMap);
+        var allMarkers = [];
+        allMarkers.push(L.marker([-41.9201,172.0716],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#1</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-nz\" style=\"vertical-align:middle\"></span> <b>New Zealand</b><br><span style=\"opacity:.7;font-size:11px\">#1</span><br><i style=\"color:#555;font-size:11px\">The most complete nature and adventure destination in the world, combining volcanoes,  fjo\u2026</i><br><a href=\"New Zealand/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([-50.6193,-72.6720],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#2</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-ar\" style=\"vertical-align:middle\"></span> <b>Patagonia</b><br><span style=\"opacity:.7;font-size:11px\">#2</span><br><i style=\"color:#555;font-size:11px\">Choose Patagonia for some of the most dramatic mountain and glacier landscapes on Earth,  \u2026</i><br><a href=\"Patagonia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([64.5725,-19.8065],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#3</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-is\" style=\"vertical-align:middle\"></span> <b>Iceland</b><br><span style=\"opacity:.7;font-size:11px\">#3</span><br><i style=\"color:#555;font-size:11px\">A unique combination of volcanoes, glaciers, geothermal landscapes, hot springs and whale \u2026</i><br><a href=\"Iceland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([51.5630,-116.4481],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#4</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-ca\" style=\"vertical-align:middle\"></span> <b>Canada</b><br><span style=\"opacity:.7;font-size:11px\">#4</span><br><i style=\"color:#555;font-size:11px\">The ultimate mix of alpine scenery, turquoise lakes, wildlife encounters, hiking and one o\u2026</i><br><a href=\"Canada/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([-21.3761,15.3656],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#5</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-na\" style=\"vertical-align:middle\"></span> <b>Namibia</b><br><span style=\"opacity:.7;font-size:11px\">#5</span><br><i style=\"color:#555;font-size:11px\">A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some \u2026</i><br><a href=\"Namibia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([62.1021,-6.8953],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#6</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-fo\" style=\"vertical-align:middle\"></span> <b>Faroe Islands</b><br><span style=\"opacity:.7;font-size:11px\">#6</span><br><i style=\"color:#555;font-size:11px\">A compact but incredibly photogenic destination combining dramatic cliffs, waterfalls, oce\u2026</i><br><a href=\"Faroe Islands/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([60.8862,7.5420],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#7</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-no\" style=\"vertical-align:middle\"></span> <b>Norway</b><br><span style=\"opacity:.7;font-size:11px\">#7</span><br><i style=\"color:#555;font-size:11px\">A perfect family road trip destination offering fjords, mountain hikes, scenic roads and h\u2026</i><br><a href=\"Norway/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([10.2919,-84.4264],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#8</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-cr\" style=\"vertical-align:middle\"></span> <b>Costa Rica</b><br><span style=\"opacity:.7;font-size:11px\">#8</span><br><i style=\"color:#555;font-size:11px\">The perfect complement to the other destinations on the list, combining tropical rainfores\u2026</i><br><a href=\"Costa Rica/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([42.3342,44.4177],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#9</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-ge\" style=\"vertical-align:middle\"></span> <b>Georgia</b><br><span style=\"opacity:.7;font-size:11px\">#9</span><br><i style=\"color:#555;font-size:11px\">One of Europe's hidden gems, combining authentic culture, spectacular Caucasus mountains a\u2026</i><br><a href=\"Georgia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([38.1645,-26.9248],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#10</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-pt\" style=\"vertical-align:middle\"></span> <b>Azores</b><br><span style=\"opacity:.7;font-size:11px\">#10</span><br><i style=\"color:#555;font-size:11px\">A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale wa\u2026</i><br><a href=\"Azores/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([57.0997,-5.0911],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#11</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-gb-sct\" style=\"vertical-align:middle\"></span> <b>Scotland</b><br><span style=\"opacity:.7;font-size:11px\">#11</span><br><i style=\"color:#555;font-size:11px\">A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's mo\u2026</i><br><a href=\"Scotland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([-32.4813,23.6560],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#12</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-za\" style=\"vertical-align:middle\"></span> <b>South Africa</b><br><span style=\"opacity:.7;font-size:11px\">#12</span><br><i style=\"color:#555;font-size:11px\">A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within\u2026</i><br><a href=\"South Africa/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+allMarkers.push(L.marker([42.6082,18.9937],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\">#13</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:160px;text-align:center\"><span class=\"fi fi-me\" style=\"vertical-align:middle\"></span> <b>Montenegro</b><br><span style=\"opacity:.7;font-size:11px\">#13</span><br><i style=\"color:#555;font-size:11px\">A compact destination offering fjords, mountains, lakes, canyons and historic towns with e\u2026</i><br><a href=\"Montenegro/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div>"));
+
+        if (allMarkers.length) {
+            var group = L.featureGroup(allMarkers);
+            worldMap.fitBounds(group.getBounds().pad(0.15));
+        }
+    </script>
+</body>
+</html>

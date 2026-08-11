@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_107dc874d2e0a1173d71fe4febc6152a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-ca" style="border-radius:3px;margin-right:5px"></span>Canada</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Canmore / Banff</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Jasper</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Golden</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Kananaskis</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../travel_selection.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_107dc874d2e0a1173d71fe4febc6152a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_107dc874d2e0a1173d71fe4febc6152a = L.map(
+                "map_107dc874d2e0a1173d71fe4febc6152a",
+                {
+                    center: [51.563, -116.44810000000001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_dd5591af6462a29e16261340633825d5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dd5591af6462a29e16261340633825d5.addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+        
+    
+            map_107dc874d2e0a1173d71fe4febc6152a.fitBounds(
+                [[51.1784, -115.5708], [52.8737, -118.0814], [51.2986, -116.968], [50.9013, -115.1722]],
+                {}
+            );
+        
+    
+            var feature_group_94fdc6563c2c92dd09e26710ce4f2a11 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_ce33cc50a0a0a24e2cb8679bfb436fcc = L.marker(
+                [51.1784, -115.5708],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_94fdc6563c2c92dd09e26710ce4f2a11);
+        
+    
+            var icon_c2c04ff5b57914082ea7e4aa7f444914 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_ce33cc50a0a0a24e2cb8679bfb436fcc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Canmore / Banff</b><br><span style="color:#555">Banff National Park</span><br><hr style="margin:4px 0"><b>Nights:</b> 5<br><i style="color:#666;font-size:14px">Ideal first base. Covers Banff, Lake Louise, Moraine Lake and Bow Valley.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ce33cc50a0a0a24e2cb8679bfb436fcc.setIcon(icon_c2c04ff5b57914082ea7e4aa7f444914);
+            
+    
+            var marker_b09553395f61a6065e84101f296e3e98 = L.marker(
+                [52.8737, -118.0814],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_94fdc6563c2c92dd09e26710ce4f2a11);
+        
+    
+            var icon_16f7d62e8311d405586f9b7da0f4c7d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_b09553395f61a6065e84101f296e3e98.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Jasper</b><br><span style="color:#555">Jasper National Park</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">Famous for wildlife and larger, wilder mountain scenery.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b09553395f61a6065e84101f296e3e98.setIcon(icon_16f7d62e8311d405586f9b7da0f4c7d6);
+            
+    
+            var marker_aa1ed7a34ad338e82dd88bea906122bb = L.marker(
+                [51.2986, -116.968],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_94fdc6563c2c92dd09e26710ce4f2a11);
+        
+    
+            var icon_b375449cae22784202603ce9631c2b32 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_aa1ed7a34ad338e82dd88bea906122bb.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Golden</b><br><span style="color:#555">Yoho National Park</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Excellent location for Yoho National Park.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa1ed7a34ad338e82dd88bea906122bb.setIcon(icon_b375449cae22784202603ce9631c2b32);
+            
+    
+            var marker_18a5d572c5cc672d849d982740daf9c2 = L.marker(
+                [50.9013, -115.1722],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_94fdc6563c2c92dd09e26710ce4f2a11);
+        
+    
+            var icon_7fb2eb8d7122e5510687a350ce63658f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_18a5d572c5cc672d849d982740daf9c2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Kananaskis</b><br><span style="color:#555">Kananaskis Country</span><br><hr style="margin:4px 0"><b>Nights:</b> 2<br><i style="color:#666;font-size:14px">Less crowded than Banff and a fantastic final hiking base.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_18a5d572c5cc672d849d982740daf9c2.setIcon(icon_7fb2eb8d7122e5510687a350ce63658f);
+            
+    
+            feature_group_94fdc6563c2c92dd09e26710ce4f2a11.addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+        
+    
+            var feature_group_40ef91df95e64b66a95ddcfdf039ced5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_2cc6da0327268c554a10d73dd8af1c24 = L.circleMarker(
+                [51.1784, -115.5708],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_2cc6da0327268c554a10d73dd8af1c24.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Banff</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Town<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0412c9ff25c07c01d8e5cb0b45f568af = L.circleMarker(
+                [51.4254, -116.1773],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_0412c9ff25c07c01d8e5cb0b45f568af.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Louise</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacial Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c09e59e7aa767d87405e36db482267ce = L.circleMarker(
+                [51.3217, -116.186],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_c09e59e7aa767d87405e36db482267ce.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Moraine Lake</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacial Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0aa0b4a7310898103802c3787ae2337f = L.circleMarker(
+                [51.245, -115.8397],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_0aa0b4a7310898103802c3787ae2337f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Johnston Canyon</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon Walk<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_312d3b34da2736e1b8a0a039a6953315 = L.circleMarker(
+                [51.1489, -115.5736],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_312d3b34da2736e1b8a0a039a6953315.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sulphur Mountain</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f4c457a1e8289fa48513be03a9713ea = L.circleMarker(
+                [51.166, -115.5602],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_4f4c457a1e8289fa48513be03a9713ea.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bow Falls</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b12428b879df402960febeffec6315dd = L.circleMarker(
+                [51.26, -115.4917],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_b12428b879df402960febeffec6315dd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Minnewanka</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acf398a03fe6fa79fa57503befa101bc = L.circleMarker(
+                [51.1888, -115.5436],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_acf398a03fe6fa79fa57503befa101bc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tunnel Mountain</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_89cec364d90bf8f3ffde84af9cd17b9a = L.circleMarker(
+                [51.1475, -115.5731],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_89cec364d90bf8f3ffde84af9cd17b9a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Banff Gondola</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Gondola<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Canmore / Banff</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e7150806c31daaa6562cd6907e952cd = L.circleMarker(
+                [52.7267, -117.6364],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_7e7150806c31daaa6562cd6907e952cd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Maligne Lake</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f856f351a7c30d2d9409e573e4c5ba43 = L.circleMarker(
+                [52.675, -117.548],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_f856f351a7c30d2d9409e573e4c5ba43.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Spirit Island View Area</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Iconic Viewpoint<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_77df5a1881e35ca5a898fdb0acc7cc5e = L.circleMarker(
+                [52.915, -118.043],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_77df5a1881e35ca5a898fdb0acc7cc5e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Maligne Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_114d6b0a4a780effb96b175ccd972399 = L.circleMarker(
+                [52.6734, -118.0561],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_114d6b0a4a780effb96b175ccd972399.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mount Edith Cavell</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier Hike<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75e8487d087d38b3a358c5397c328523 = L.circleMarker(
+                [52.9425, -118.0881],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_75e8487d087d38b3a358c5397c328523.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Pyramid Lake</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_653ec5a5eb5adc9d7b52fc5c593cb0df = L.circleMarker(
+                [52.785, -117.811],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_653ec5a5eb5adc9d7b52fc5c593cb0df.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Medicine Lake</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3624b4612e8a0ad209551b5430980eb1 = L.circleMarker(
+                [52.8505, -118.153],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_3624b4612e8a0ad209551b5430980eb1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Jasper SkyTram</b><br><span style="color:#2980b9;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Tramway<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Jasper</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c49795ab3a1454b23c25c396f137f27b = L.circleMarker(
+                [51.4413, -116.532],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_c49795ab3a1454b23c25c396f137f27b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Emerald Lake</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacial Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#27ae60">Golden</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20a8c9a54140569d1c2acf135c194ad3 = L.circleMarker(
+                [51.4672, -116.4827],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_20a8c9a54140569d1c2acf135c194ad3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Takakkaw Falls</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#27ae60">Golden</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30b4ec770ecdca16fad12864bd6290ce = L.circleMarker(
+                [51.444, -116.516],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_30b4ec770ecdca16fad12864bd6290ce.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Natural Bridge</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Geology<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#27ae60">Golden</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_007ae551dd975ca8b4bd5cb8b7f3fa64 = L.circleMarker(
+                [51.7149, -117.6075],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_007ae551dd975ca8b4bd5cb8b7f3fa64.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Wapta Falls</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Hike<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#27ae60">Golden</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63d74f10ddccbc5b4d2911633067dab6 = L.circleMarker(
+                [51.3992, -116.4858],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_63d74f10ddccbc5b4d2911633067dab6.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Field</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Village<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#27ae60">Golden</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_85de5eefa70e925b9296b183341beb6e = L.circleMarker(
+                [50.6505, -115.1356],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_85de5eefa70e925b9296b183341beb6e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Upper Kananaskis Lake</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#8e44ad">Kananaskis</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b44545b1456516621c5d398137b9902 = L.circleMarker(
+                [50.65, -115.147],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_6b44545b1456516621c5d398137b9902.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Rawson Lake</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#8e44ad">Kananaskis</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1333c10da957eac60974d75b1616a297 = L.circleMarker(
+                [50.4767, -114.9507],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_1333c10da957eac60974d75b1616a297.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Ptarmigan Cirque</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hike<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#8e44ad">Kananaskis</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08deecd61a6a1887dc1801a5523ea0fd = L.circleMarker(
+                [50.9382, -115.1424],
+                {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_40ef91df95e64b66a95ddcfdf039ced5);
+        
+    
+            circle_marker_08deecd61a6a1887dc1801a5523ea0fd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kananaskis Village Area</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Resort<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#8e44ad">Kananaskis</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_40ef91df95e64b66a95ddcfdf039ced5.addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+        
+    
+            var feature_group_f06db8760c536616bce0ac181f8f2016 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_aa276c5e2fccffe0d174932637ea5b5f = L.circleMarker(
+                [51.7236, -116.5111],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_f06db8760c536616bce0ac181f8f2016);
+        
+    
+            circle_marker_aa276c5e2fccffe0d174932637ea5b5f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Peyto Lake</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Stop duration:</b> 1.5 h<br><b>En route:</b> <span style="color:#e74c3c">Icefields Parkway</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_96accd60f573a20d236ed0f5a1f1563b = L.circleMarker(
+                [51.6769, -116.4647],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_f06db8760c536616bce0ac181f8f2016);
+        
+    
+            circle_marker_96accd60f573a20d236ed0f5a1f1563b.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Bow Lake</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Icefields Parkway</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5df4fce23a2f37d3de52963329a7a58e = L.circleMarker(
+                [52.213, -117.227],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_f06db8760c536616bce0ac181f8f2016);
+        
+    
+            circle_marker_5df4fce23a2f37d3de52963329a7a58e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Athabasca Glacier</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier<br><b>Stop duration:</b> 2 h<br><b>En route:</b> <span style="color:#e74c3c">Icefields Parkway</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53b9a052b57bd62caaeb5918bb0c4cee = L.circleMarker(
+                [52.6734, -117.9247],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_f06db8760c536616bce0ac181f8f2016);
+        
+    
+            circle_marker_53b9a052b57bd62caaeb5918bb0c4cee.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Sunwapta Falls</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Icefields Parkway</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a8fc8248fda2bd37c9d80043463d253 = L.circleMarker(
+                [52.6632, -117.8817],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_f06db8760c536616bce0ac181f8f2016);
+        
+    
+            circle_marker_0a8fc8248fda2bd37c9d80043463d253.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Athabasca Falls</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Stop duration:</b> 1 h<br><b>En route:</b> <span style="color:#e74c3c">Icefields Parkway</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_f06db8760c536616bce0ac181f8f2016.addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+        
+    
+            var feature_group_88713ad2e5b629e871099735710df904 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_e67e8df85ef0d98e508ca87f66126650 = L.marker(
+                [51.1139, -114.0203],
+                {
+}
+            ).addTo(feature_group_88713ad2e5b629e871099735710df904);
+        
+    
+            var icon_def3f09800832ac78ffd2033be7bf02b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_e67e8df85ef0d98e508ca87f66126650.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif"><b>✈️ Calgary International Airport</b></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e67e8df85ef0d98e508ca87f66126650.setIcon(icon_def3f09800832ac78ffd2033be7bf02b);
+            
+    
+            feature_group_88713ad2e5b629e871099735710df904.addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+        
+    
+            var layer_control_3c5a1b977656d451c08e5c6599be645b_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_dd5591af6462a29e16261340633825d5,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_94fdc6563c2c92dd09e26710ce4f2a11,
+                    "\u25cf Base attractions" : feature_group_40ef91df95e64b66a95ddcfdf039ced5,
+                    "\u25c7 En-route stops" : feature_group_f06db8760c536616bce0ac181f8f2016,
+                    "\u2708 Airport" : feature_group_88713ad2e5b629e871099735710df904,
+                },
+            };
+            let layer_control_3c5a1b977656d451c08e5c6599be645b = L.control.layers(
+                layer_control_3c5a1b977656d451c08e5c6599be645b_layers.base_layers,
+                layer_control_3c5a1b977656d451c08e5c6599be645b_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_107dc874d2e0a1173d71fe4febc6152a);
+
+        
+</script>
+</html>

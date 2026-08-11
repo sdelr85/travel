@@ -1,0 +1,331 @@
+trip:
+  country: Azores
+
+  overview:
+    rank: 10
+    summary: "12-day family fly-in self-drive trip through Sao Miguel and Pico, focused on volcanic landscapes, crater lakes, thermal pools, waterfalls, hiking, whale watching and coastal scenery."
+    summary_reason: >
+      A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale watching and excellent hiking.
+    transport: "✈ Plane + 🚗 Rental car + ✈ Inter-island flight"
+
+    duration_days: 12
+    duration_nights: 11
+
+    travel_style: "Fly-in family self-drive"
+
+    highlights:
+      - "Sete Cidades"
+      - "Lagoa do Fogo"
+      - "Furnas geothermal area"
+      - "Terra Nostra thermal baths"
+      - "Whale watching"
+      - "Mount Pico"
+      - "Pico wine landscape"
+      - "Natural lava pools"
+
+    target_group:
+      adults: 2
+      children: 3
+
+  direction: sao_miguel_then_pico
+
+  duration:
+
+    days: 12
+    nights: 11
+
+    base_locations: 2
+
+    recommended_base_split:
+
+      - base: base_1
+        nights: 6
+
+      - base: base_2
+        nights: 5
+
+  transport_constraints:
+
+    rental_car:
+      recommended: true
+
+    inter_island_flights:
+      recommended: true
+
+    ferries:
+      optional: true
+
+  planning_principles:
+
+    lodging_strategy:
+      note: >
+        Stay in one accommodation per island.
+        Sao Miguel and Pico offer enough variety that additional lodging locations
+        add complexity without substantial benefit.
+
+    transfer_day:
+      max_recommended_major_stops: 2
+      max_recommended_sightseeing_hours: 3
+
+    base_day:
+      max_recommended_single_drive_minutes: 60
+
+    weather_flexibility:
+      note: >
+        Weather changes rapidly in the Azores.
+        Keep viewpoints and hikes flexible.
+
+  priority_definitions:
+
+    must_do:
+      score: 4
+
+    highly_recommended:
+      score: 3
+
+    if_time:
+      score: 2
+
+    optional_paid_activity:
+      score: 1
+
+  lodging_locations:
+
+    - id: base_1
+
+      name: Furnas / Sao Miguel
+
+      region: Sao Miguel
+
+      stay_nights: 6
+
+      coordinates:
+        lat: 37.7930
+        lon: -25.3237
+
+      planning_note: >
+        Excellent location near geothermal activity while still allowing easy access
+        to the full island.
+
+      base_attractions:
+
+        - id: sete_cidades
+
+          name: Sete Cidades
+
+          priority: must_do
+
+          type: volcanic_caldera
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 37.8617
+            lon: -25.7285
+
+        - id: vista_do_rei
+
+          name: Vista do Rei Viewpoint
+
+          priority: must_do
+
+          type: viewpoint
+
+          visit_duration_hours: 1
+
+          coordinates:
+            lat: 37.8392
+            lon: -25.7397
+
+        - id: lagoa_do_fogo
+
+          name: Lagoa do Fogo
+
+          priority: must_do
+
+          type: volcanic_lake
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 37.7693
+            lon: -25.4976
+
+        - id: furnas
+
+          name: Furnas Geothermal Area
+
+          priority: must_do
+
+          type: geothermal_area
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 37.7930
+            lon: -25.3237
+
+        - id: terra_nostra
+
+          name: Terra Nostra Park
+
+          priority: must_do
+
+          type: thermal_pool
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 37.7937
+            lon: -25.3214
+
+        - id: poca_da_dona_beija
+
+          name: Poca da Dona Beija
+
+          priority: highly_recommended
+
+          type: thermal_pool
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 37.7919
+            lon: -25.3210
+
+        - id: saltoa_cabrito
+
+          name: Salto do Cabrito
+
+          priority: highly_recommended
+
+          type: waterfall_hike
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 37.8007
+            lon: -25.5402
+
+        - id: ribeira_dos_caldeiroes
+
+          name: Ribeira dos Caldeiroes
+
+          priority: highly_recommended
+
+          type: waterfall_park
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 37.8178
+            lon: -25.2501
+
+        - id: sanguinho_trail
+
+          name: Sanguinho Trail
+
+          priority: highly_recommended
+
+          type: hiking
+
+          visit_duration_hours: 3
+
+          coordinates:
+            lat: 37.7341
+            lon: -25.1862
+
+        - id: ponta_delgada
+
+          name: Ponta Delgada
+
+          priority: if_time
+
+          type: town
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 37.7412
+            lon: -25.6756
+
+        - id: whale_watching_sao_miguel
+
+          name: Whale Watching
+
+          priority: optional_paid_activity
+
+          type: boat_trip
+
+          visit_duration_hours: 4
+
+          coordinates:
+            lat: 37.7412
+            lon: -25.6756
+
+      departure_day_candidates:
+
+        route_to: base_2
+
+        candidates:
+
+          - attraction_ref: ponta_delgada
+
+    - id: base_2
+
+      name: Madalena / Pico
+
+      region: Pico
+
+      stay_nights: 5
+
+      coordinates:
+        lat: 38.5360
+        lon: -28.5260
+
+      planning_note: >
+        Best location for Pico Mountain and the UNESCO vineyards.
+
+      base_attractions:
+
+        - id: pico_mountain
+
+          name: Mount Pico
+
+          priority: must_do
+
+          type: volcano_hike
+
+          visit_duration_hours: 7
+
+          coordinates:
+            lat: 38.4699
+            lon: -28.4008
+
+        - id: pico_wine_landscape
+
+          name: Pico Wine Landscape
+
+          priority: must_do
+
+          type: unesco_landscape
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 38.5208
+            lon: -28.4835
+
+        - id: lajes_do_pico
+
+          name: Lajes do Pico
+
+          priority: highly_recommended
+
+          type: village
+
+          visit_duration_hours: 2
+
+          coordinates:
+            lat: 38.3962
+            lon: -28.2510
