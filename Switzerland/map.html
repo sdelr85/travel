@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a024a6532d43b5834298ec8c688366f0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>
+        @media (max-width: 600px) {
+            .travel-legend {
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+    </style>
+    <div class="travel-legend" style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-ch" style="border-radius:3px;margin-right:5px"></span>Switzerland</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Lauterbrunnen / Wengen</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Zermatt</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../index.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_a024a6532d43b5834298ec8c688366f0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a024a6532d43b5834298ec8c688366f0 = L.map(
+                "map_a024a6532d43b5834298ec8c688366f0",
+                {
+                    center: [46.30685, 7.8290500000000005],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_13d08ddb3e1cbd6815ce89d6cbb44e76 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_13d08ddb3e1cbd6815ce89d6cbb44e76.addTo(map_a024a6532d43b5834298ec8c688366f0);
+        
+    
+            map_a024a6532d43b5834298ec8c688366f0.fitBounds(
+                [[46.593, 7.909], [46.0207, 7.7491]],
+                {}
+            );
+        
+    
+            var feature_group_cc708f66f2fb8fc14120e3a03f296078 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_05341078eed50daf7caca4bf169aa9f5 = L.marker(
+                [46.593, 7.909],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_cc708f66f2fb8fc14120e3a03f296078);
+        
+    
+            var icon_0fdda7fabf502f25f457ac84705ffba8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_05341078eed50daf7caca4bf169aa9f5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Lauterbrunnen / Wengen</b><br><span style="color:#555">Bernese Oberland</span><br><hr style="margin:4px 0"><b>Nights:</b> 7<br><i style="color:#666;font-size:14px">Premier Swiss mountain base. Covers most of the iconic Bernese Oberland scenery.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05341078eed50daf7caca4bf169aa9f5.setIcon(icon_0fdda7fabf502f25f457ac84705ffba8);
+            
+    
+            var marker_09f46cbe7e7c3f26f26d807b31da8883 = L.marker(
+                [46.0207, 7.7491],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_cc708f66f2fb8fc14120e3a03f296078);
+        
+    
+            var icon_5e2579f2cb22815a92ae211e0a87118d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_09f46cbe7e7c3f26f26d807b31da8883.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Zermatt</b><br><span style="color:#555">Matterhorn Region</span><br><hr style="margin:4px 0"><b>Nights:</b> 6<br><i style="color:#666;font-size:14px">Dedicated Matterhorn base. Focus on iconic mountain scenery and glacier landscapes.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_09f46cbe7e7c3f26f26d807b31da8883.setIcon(icon_5e2579f2cb22815a92ae211e0a87118d);
+            
+    
+            feature_group_cc708f66f2fb8fc14120e3a03f296078.addTo(map_a024a6532d43b5834298ec8c688366f0);
+        
+    
+            var feature_group_17faafead10f0b7fe4ac377c6fd4e2c3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3ddade96d065799691ee8d5de3107684 = L.circleMarker(
+                [46.593, 7.909],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_3ddade96d065799691ee8d5de3107684.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lauterbrunnen Valley</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Valley<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9b5f8f44ee1d38a35f8658d2430b168a = L.circleMarker(
+                [46.5938, 7.9083],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_9b5f8f44ee1d38a35f8658d2430b168a.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Staubbach Falls</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 1 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7954f4700f50e4808da9db61f43c3c93 = L.circleMarker(
+                [46.5724, 7.9117],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_7954f4700f50e4808da9db61f43c3c93.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Trümmelbach Falls</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1fb8f341a2b3a067d74f7aec3f226b1 = L.circleMarker(
+                [46.618, 7.942],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_e1fb8f341a2b3a067d74f7aec3f226b1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Männlichen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_682fc2b9aba8140fb611314c51097aab = L.circleMarker(
+                [46.5848, 7.9619],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_682fc2b9aba8140fb611314c51097aab.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kleine Scheidegg</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Scenery<br><b>Duration:</b> 4 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_840a1cd8b1fcb32412635283466801e5 = L.circleMarker(
+                [46.6585, 8.0413],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_840a1cd8b1fcb32412635283466801e5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Grindelwald First</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Area<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f50a371d1ee32b10d3f7bfd0158fec22 = L.circleMarker(
+                [46.672, 8.038],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_f50a371d1ee32b10d3f7bfd0158fec22.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bachalpsee</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_75c0bb27018302ea01c504fa0160fcf2 = L.circleMarker(
+                [46.4989, 7.7267],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_75c0bb27018302ea01c504fa0160fcf2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Oeschinensee</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 6 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fedfa041e04442257d998ad809002b43 = L.circleMarker(
+                [46.6997, 7.855],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_fedfa041e04442257d998ad809002b43.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Harder Kulm</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e3906d3ab7e3726e6e0b2547ee2baef = L.circleMarker(
+                [46.755, 8.034],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_6e3906d3ab7e3726e6e0b2547ee2baef.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Brienz</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6658e332f25520d0022be7539846cc0f = L.circleMarker(
+                [46.717, 8.209],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_6658e332f25520d0022be7539846cc0f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Aare Gorge</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Canyon<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_07e086f523eeff277527e12cbf9db7ea = L.circleMarker(
+                [46.548, 7.985],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_07e086f523eeff277527e12cbf9db7ea.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Jungfraujoch</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optional paid activity</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Railway<br><b>Duration:</b> 6 h<br><b>Base:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bf2b9056a22fc29857b7f6f3f944f0b4 = L.circleMarker(
+                [45.9763, 7.6586],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_bf2b9056a22fc29857b7f6f3f944f0b4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Matterhorn Viewpoints</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ced8c22aab4d896087e048533fe57b48 = L.circleMarker(
+                [45.9838, 7.7841],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_ced8c22aab4d896087e048533fe57b48.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gornergrat</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Railway<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af89b88bac6e7ee123a63094077756e9 = L.circleMarker(
+                [45.9833, 7.7485],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_af89b88bac6e7ee123a63094077756e9.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Riffelsee</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_faa788772de2e997130cd5c025b5fa21 = L.circleMarker(
+                [46.003, 7.782],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_faa788772de2e997130cd5c025b5fa21.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Five Lakes Hike</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8d2660b09293168abb7afe2a79de3bf1 = L.circleMarker(
+                [46.028, 7.8],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_8d2660b09293168abb7afe2a79de3bf1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sunnegga</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 3 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_197381f5221e0e32643fdb1496cb9303 = L.circleMarker(
+                [45.938, 7.72],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_197381f5221e0e32643fdb1496cb9303.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Matterhorn Glacier Paradise</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier<br><b>Duration:</b> 5 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cffe3d8de9ce1efbe6a70c563ddfec33 = L.circleMarker(
+                [46.438, 8.041],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_cffe3d8de9ce1efbe6a70c563ddfec33.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Aletsch Glacier</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier<br><b>Duration:</b> 6 h<br><b>From base:</b> 90 min drive<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_463fe159648c14ef9d3893a068c25d28 = L.circleMarker(
+                [46.0207, 7.7491],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_17faafead10f0b7fe4ac377c6fd4e2c3);
+        
+    
+            circle_marker_463fe159648c14ef9d3893a068c25d28.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Zermatt Village</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Village<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#2980b9">Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_17faafead10f0b7fe4ac377c6fd4e2c3.addTo(map_a024a6532d43b5834298ec8c688366f0);
+        
+    
+            var feature_group_7e9eb64fddff07973dd7bdeacfa30435 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e43fed14bb0041422f91413ede38fff1 = L.circleMarker(
+                [46.438, 8.041],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_7e9eb64fddff07973dd7bdeacfa30435);
+        
+    
+            circle_marker_e43fed14bb0041422f91413ede38fff1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Aletsch Glacier</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Glacier<br><b>Stop duration:</b> ? h<br><b>En route:</b> <span style="color:#e74c3c">Bernese Oberland to Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f92d0e0ddde58889e7a03991e1590e7 = L.circleMarker(
+                [46.3167, 7.9833],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_7e9eb64fddff07973dd7bdeacfa30435);
+        
+    
+            circle_marker_6f92d0e0ddde58889e7a03991e1590e7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Brig</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Town<br><b>Stop duration:</b> ? h<br><b>En route:</b> <span style="color:#e74c3c">Bernese Oberland to Zermatt</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_7e9eb64fddff07973dd7bdeacfa30435.addTo(map_a024a6532d43b5834298ec8c688366f0);
+        
+    
+            var layer_control_73c40c01118a9520e3900fb390a2fcdd_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_13d08ddb3e1cbd6815ce89d6cbb44e76,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_cc708f66f2fb8fc14120e3a03f296078,
+                    "\u25cf Base attractions" : feature_group_17faafead10f0b7fe4ac377c6fd4e2c3,
+                    "\u25c7 En-route stops" : feature_group_7e9eb64fddff07973dd7bdeacfa30435,
+                },
+            };
+            let layer_control_73c40c01118a9520e3900fb390a2fcdd = L.control.layers(
+                layer_control_73c40c01118a9520e3900fb390a2fcdd_layers.base_layers,
+                layer_control_73c40c01118a9520e3900fb390a2fcdd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_a024a6532d43b5834298ec8c688366f0);
+
+        
+</script>
+</html>

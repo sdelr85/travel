@@ -2,7 +2,7 @@ trip:
   country: South Africa
 
   overview:
-    rank: 12
+    rank: 7
 
     summary: >
       19-day family fly-in self-drive trip through South Africa,
@@ -28,6 +28,19 @@ trip:
       - Tsitsikamma
       - Addo Elephant Park
       - Kruger National Park
+
+    cost:
+      couple:
+        eur_range: "€6,000 - €10,000"
+      family:
+        eur_range: "€10,000 - €17,000"
+      relative_costs: "high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: cape_town_to_kruger
 

@@ -3,7 +3,7 @@ trip:
   country: Georgia
 
   overview:
-    rank: 9
+    rank: 17
 
     summary: >
       15-day family fly-in self-drive trip through Georgia,
@@ -32,9 +32,18 @@ trip:
       - Svaneti
       - Caucasus Mountains
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€3,000 - €5,000"
+      family:
+        eur_range: "€5,000 - €8,000"
+      relative_costs: "low"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: east_to_west
 

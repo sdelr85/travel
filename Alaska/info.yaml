@@ -1,0 +1,346 @@
+trip:
+  country: Alaska
+
+  overview:
+    rank: 9
+    summary: "16-day family self-drive trip through Southcentral Alaska, focused on wildlife, glaciers, fjords, mountains and scenic wilderness."
+    summary_reason: >
+      Alaska combines some of the world's largest mountains, glaciers,
+      fjords and wildlife populations into a single road trip. It feels
+      like a wilder and more remote version of the Canadian Rockies,
+      with excellent opportunities to see bears, whales, moose and
+      spectacular coastal scenery.
+    transport: "✈ Plane + 🚗 Rental car"
+    duration_days: 16
+    travel_style: "Fly-in family self-drive"
+    highlights:
+      - "Kenai Fjords National Park"
+      - "Denali National Park"
+      - "Exit Glacier"
+      - "Whale watching"
+      - "Bear viewing"
+      - "Matanuska Glacier"
+      - "Talkeetna and Denali viewpoints"
+    cost:
+      couple:
+        eur_range: "€7,000 - €11,000"
+      family:
+        eur_range: "€12,000 - €20,000"
+      relative_costs: "very_high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
+
+  duration:
+    days: 16
+    nights: 15
+
+  lodging_locations:
+
+    - id: base_1
+      name: Anchorage
+      region: Arrival and Chugach Mountains
+      stay_nights: 2
+      coordinates:
+        lat: 61.2181
+        lon: -149.9003
+
+      planning_note: >
+        Recovery from intercontinental flight and introduction to Alaska.
+
+      base_attractions:
+
+        - id: flattop_mountain
+          name: Flattop Mountain
+          priority: highly_recommended
+          type: hike
+          visit_duration_hours: 3
+          drive_time_minutes: 20
+          coordinates:
+            lat: 61.0960
+            lon: -149.6810
+
+        - id: earthquake_park
+          name: Earthquake Park
+          priority: if_time
+          type: nature
+          visit_duration_hours: 1
+          drive_time_minutes: 10
+          coordinates:
+            lat: 61.1810
+            lon: -149.9590
+
+        - id: alaska_wildlife_center
+          name: Alaska Wildlife Conservation Center
+          priority: must_do
+          type: wildlife
+          visit_duration_hours: 3
+          drive_time_minutes: 50
+          coordinates:
+            lat: 60.7940
+            lon: -149.6670
+
+    - id: base_2
+      name: Seward
+      region: Kenai Peninsula
+      stay_nights: 5
+      coordinates:
+        lat: 60.1040
+        lon: -149.4420
+
+      planning_note: >
+        One of the strongest wildlife and glacier destinations in Alaska.
+        This base deserves several full days.
+
+      base_attractions:
+
+        - id: kenai_fjords_cruise
+          name: Kenai Fjords National Park Cruise
+          priority: must_do
+          type: paid_activity
+          visit_duration_hours: 8
+          drive_time_minutes: 10
+          coordinates:
+            lat: 60.1190
+            lon: -149.4410
+
+        - id: exit_glacier
+          name: Exit Glacier
+          priority: must_do
+          type: glacier
+          visit_duration_hours: 3
+          drive_time_minutes: 15
+          coordinates:
+            lat: 60.1880
+            lon: -149.6310
+
+        - id: harding_icefield
+          name: Harding Icefield Trail
+          priority: highly_recommended
+          type: hike
+          visit_duration_hours: 6
+          drive_time_minutes: 15
+          coordinates:
+            lat: 60.1880
+            lon: -149.6310
+
+        - id: resurrection_bay
+          name: Resurrection Bay
+          priority: must_do
+          type: fjord
+          visit_duration_hours: 4
+          drive_time_minutes: 10
+          coordinates:
+            lat: 60.1170
+            lon: -149.4430
+
+        - id: sea_life_center
+          name: Alaska SeaLife Center
+          priority: highly_recommended
+          type: family_activity
+          visit_duration_hours: 2
+          drive_time_minutes: 5
+          coordinates:
+            lat: 60.1020
+            lon: -149.4440
+
+        - id: whale_viewing
+          name: Whale Watching
+          priority: must_do
+          type: wildlife
+          visit_duration_hours: 5
+          drive_time_minutes: 10
+          coordinates:
+            lat: 60.1190
+            lon: -149.4410
+
+    - id: base_3
+      name: Talkeetna
+      region: Denali Gateway
+      stay_nights: 3
+      coordinates:
+        lat: 62.3209
+        lon: -150.1066
+
+      planning_note: >
+        Scenic small town with some of the best views of Denali in good weather.
+
+      base_attractions:
+
+        - id: denali_viewpoint
+          name: Denali Viewpoints
+          priority: must_do
+          type: mountain
+          visit_duration_hours: 3
+          coordinates:
+            lat: 62.3210
+            lon: -150.1070
+
+        - id: talkeetna_town
+          name: Talkeetna
+          priority: highly_recommended
+          type: town
+          visit_duration_hours: 2
+          coordinates:
+            lat: 62.3210
+            lon: -150.1090
+
+        - id: flightseeing_denali
+          name: Denali Flightseeing
+          priority: optional_paid_activity
+          type: scenic_flight
+          visit_duration_hours: 3
+          coordinates:
+            lat: 62.3200
+            lon: -150.0940
+
+    - id: base_4
+      name: Denali National Park
+      region: Alaska Range
+      stay_nights: 4
+      coordinates:
+        lat: 63.7280
+        lon: -148.8860
+
+      planning_note: >
+        Main wildlife and mountain base.
+        Several days are justified because visibility of Denali is weather dependent.
+
+      base_attractions:
+
+        - id: denali_bus
+          name: Denali Park Transit Bus
+          priority: must_do
+          type: wildlife
+          visit_duration_hours: 8
+          coordinates:
+            lat: 63.7280
+            lon: -148.8860
+
+        - id: savage_river
+          name: Savage River
+          priority: highly_recommended
+          type: hiking
+          visit_duration_hours: 3
+          coordinates:
+            lat: 63.8470
+            lon: -149.6210
+
+        - id: horseshoe_lake
+          name: Horseshoe Lake Trail
+          priority: highly_recommended
+          type: hike
+          visit_duration_hours: 2
+          coordinates:
+            lat: 63.7290
+            lon: -148.9690
+
+        - id: moose_bear_viewing
+          name: Wildlife Viewing
+          priority: must_do
+          type: wildlife
+          visit_duration_hours: 6
+
+        - id: eielson_center
+          name: Eielson Visitor Center
+          priority: highly_recommended
+          type: viewpoint
+          visit_duration_hours: 2
+          coordinates:
+            lat: 63.4580
+            lon: -150.3090
+
+    - id: base_5
+      name: Palmer
+      region: Matanuska Valley
+      stay_nights: 1
+      coordinates:
+        lat: 61.5997
+        lon: -149.1146
+
+      planning_note: >
+        Final overnight stop before returning to Anchorage.
+
+      base_attractions:
+
+        - id: matanuska_glacier
+          name: Matanuska Glacier
+          priority: must_do
+          type: glacier
+          visit_duration_hours: 4
+          drive_time_minutes: 45
+          coordinates:
+            lat: 61.8120
+            lon: -147.7340
+
+        - id: hatcher_pass
+          name: Hatcher Pass
+          priority: highly_recommended
+          type: mountain_scenery
+          visit_duration_hours: 3
+          drive_time_minutes: 45
+          coordinates:
+            lat: 61.7770
+            lon: -149.2570
+
+  transfer_routes:
+
+    - id: transfer_base_1_to_base_2
+      from: base_1
+      to: base_2
+      description: Anchorage to Seward
+      estimated_direct_drive_hours: 2.5
+
+      en_route_candidates:
+
+        - attraction_ref: alaska_wildlife_center
+
+        - id: beluga_point
+          name: Beluga Point
+          priority: highly_recommended
+          type: viewpoint
+          coordinates:
+            lat: 61.0030
+            lon: -149.6570
+
+    - id: transfer_base_2_to_base_3
+      from: base_2
+      to: base_3
+      description: Seward to Talkeetna
+      estimated_direct_drive_hours: 4.5
+
+    - id: transfer_base_3_to_base_4
+      from: base_3
+      to: base_4
+      description: Talkeetna to Denali
+      estimated_direct_drive_hours: 2.5
+
+    - id: transfer_base_4_to_base_5
+      from: base_4
+      to: base_5
+      description: Denali to Palmer
+      estimated_direct_drive_hours: 4
+
+  airport:
+    id: anchorage_airport
+    name: Ted Stevens Anchorage International Airport
+    coordinates:
+      lat: 61.1744
+      lon: -149.9964
+
+  paid_activity_preferences:
+
+    intended_paid_activities:
+      - kenai_fjords_cruise
+
+    possible_second_paid_activity:
+      - bear_viewing_flight
+      - flightseeing_denali
+
+    planning_note: >
+      The Kenai Fjords cruise is considered the single most valuable paid activity.
+      If budget allows one additional splurge, choose either a bear-viewing excursion
+      or a flightseeing trip around Denali.

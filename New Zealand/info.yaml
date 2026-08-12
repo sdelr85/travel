@@ -35,9 +35,18 @@ trip:
       - Glenorchy
       - Kaikoura whales
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€8,000 - €12,000"
+      family:
+        eur_range: "€14,000 - €22,000"
+      relative_costs: "very_high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: north_island_then_south_island
 

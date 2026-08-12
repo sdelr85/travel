@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4f956bcb9e32585d975c6e81486babf7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>
+        @media (max-width: 600px) {
+            .travel-legend {
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+    </style>
+    <div class="travel-legend" style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-it" style="border-radius:3px;margin-right:5px"></span>Italy (Dolomites)</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Ortisei / Selva di Val Gardena</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Cortina d'Ampezzo</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../index.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_4f956bcb9e32585d975c6e81486babf7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4f956bcb9e32585d975c6e81486babf7 = L.map(
+                "map_4f956bcb9e32585d975c6e81486babf7",
+                {
+                    center: [46.55805, 11.9037],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_38b647f9c96e0bb45b036b6e0aeb110c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_38b647f9c96e0bb45b036b6e0aeb110c.addTo(map_4f956bcb9e32585d975c6e81486babf7);
+        
+    
+            map_4f956bcb9e32585d975c6e81486babf7.fitBounds(
+                [[46.5756, 11.6717], [46.5405, 12.1357]],
+                {}
+            );
+        
+    
+            var feature_group_2727eb745414f5778fe260fd4901e602 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_872f38628bdd0f20d61de425257872b7 = L.marker(
+                [46.5756, 11.6717],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_2727eb745414f5778fe260fd4901e602);
+        
+    
+            var icon_193737e3110691f8e2e1f2c2880a1e51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_872f38628bdd0f20d61de425257872b7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Ortisei / Selva di Val Gardena</b><br><span style="color:#555">Western Dolomites</span><br><hr style="margin:4px 0"><b>Nights:</b> 7<br><i style="color:#666;font-size:14px">Best central base for Seceda, Alpe di Siusi, Val di Funes and the Sella Group.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_872f38628bdd0f20d61de425257872b7.setIcon(icon_193737e3110691f8e2e1f2c2880a1e51);
+            
+    
+            var marker_1def252bd72d5e4ba39986198ee6ca67 = L.marker(
+                [46.5405, 12.1357],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_2727eb745414f5778fe260fd4901e602);
+        
+    
+            var icon_b151116afb865cd73778f683ce811c73 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_1def252bd72d5e4ba39986198ee6ca67.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Cortina d'Ampezzo</b><br><span style="color:#555">Eastern Dolomites</span><br><hr style="margin:4px 0"><b>Nights:</b> 6<br><i style="color:#666;font-size:14px">Focus on Tre Cime, Lago di Braies, Cadini di Misurina and the most famous eastern Dolomite landscapes.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1def252bd72d5e4ba39986198ee6ca67.setIcon(icon_b151116afb865cd73778f683ce811c73);
+            
+    
+            feature_group_2727eb745414f5778fe260fd4901e602.addTo(map_4f956bcb9e32585d975c6e81486babf7);
+        
+    
+            var feature_group_24aba5fb396a6e396ca0d2ff358eb351 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_8f190d55004e59b1586f99d724577b32 = L.circleMarker(
+                [46.6221, 11.7283],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_8f190d55004e59b1586f99d724577b32.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Seceda Ridgeline</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Viewpoint<br><b>Duration:</b> 5 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_abd04acec345b5e0891180d251779925 = L.circleMarker(
+                [46.555, 11.654],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_abd04acec345b5e0891180d251779925.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Alpe di Siusi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Meadow<br><b>Duration:</b> 6 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3a2688db880df74733f5c8f1790d446 = L.circleMarker(
+                [46.642, 11.728],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_f3a2688db880df74733f5c8f1790d446.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Val di Funes</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Valley<br><b>Duration:</b> 4 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6af51bdbeea9396cc371216f69a5628 = L.circleMarker(
+                [46.6408, 11.7284],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_d6af51bdbeea9396cc371216f69a5628.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">St. Magdalena Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint<br><b>Duration:</b> 2 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_173b3ac6d20107351f608a7d344b7dfa = L.circleMarker(
+                [46.489, 11.81],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_173b3ac6d20107351f608a7d344b7dfa.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sass Pordoi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Cable Car Viewpoint<br><b>Duration:</b> 4 h<br><b>From base:</b> 35 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10aa9c29a7c612f2b5003ca5cbdcbadf = L.circleMarker(
+                [46.506, 11.761],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_10aa9c29a7c612f2b5003ca5cbdcbadf.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Passo Sella</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Pass<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47d8c196975d901869b1bccec1500f1d = L.circleMarker(
+                [46.41, 11.577],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_47d8c196975d901869b1bccec1500f1d.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lago di Carezza</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 2 h<br><b>From base:</b> 50 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e2fd029e27c52a24e647ea6fbea0717 = L.circleMarker(
+                [46.591, 11.688],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_7e2fd029e27c52a24e647ea6fbea0717.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Resciesa Plateau</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 4 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bfc07613e583b24e8862dc83f578a87 = L.circleMarker(
+                [46.6186, 12.3038],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_8bfc07613e583b24e8862dc83f578a87.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tre Cime di Lavaredo</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Iconic Hike<br><b>Duration:</b> 6 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_247239d5c2a1e6e0aa9e2303975bf2fd = L.circleMarker(
+                [46.6125, 12.297],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_247239d5c2a1e6e0aa9e2303975bf2fd.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Cadini di Misurina Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Viewpoint Hike<br><b>Duration:</b> 3 h<br><b>From base:</b> 40 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e2cf9454470f1c23a26ff312d2dfeccc = L.circleMarker(
+                [46.694, 12.084],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_e2cf9454470f1c23a26ff312d2dfeccc.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lago di Braies</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 3 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d132daf160cfea9edb66567cda05943f = L.circleMarker(
+                [46.518, 12.038],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_d132daf160cfea9edb66567cda05943f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Cinque Torri</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 4 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74c6a7c239e7bd93bddeb8cce9d16598 = L.circleMarker(
+                [46.482, 12.066],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_74c6a7c239e7bd93bddeb8cce9d16598.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Passo Giau</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Pass<br><b>Duration:</b> 3 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c41f0d0cc1c6d0d49c2ea2d13fb7c0c = L.circleMarker(
+                [46.552, 12.009],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_8c41f0d0cc1c6d0d49c2ea2d13fb7c0c.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lagazuoi</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Cable Car Hike<br><b>Duration:</b> 5 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40c1fcde2ba70f9a2eeb45edfae78850 = L.circleMarker(
+                [46.5864, 12.2544],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_40c1fcde2ba70f9a2eeb45edfae78850.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lago di Misurina</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 2 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91d80d86d2fdd7a55173d685269acb80 = L.circleMarker(
+                [46.486, 12.083],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_24aba5fb396a6e396ca0d2ff358eb351);
+        
+    
+            circle_marker_91d80d86d2fdd7a55173d685269acb80.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Croda da Lago</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Hiking<br><b>Duration:</b> 5 h<br><b>From base:</b> 25 min drive<br><b>Base:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_24aba5fb396a6e396ca0d2ff358eb351.addTo(map_4f956bcb9e32585d975c6e81486babf7);
+        
+    
+            var feature_group_b19613d6226f979c87f87b4687e93b27 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3d458a580b99925802e3e253c81d8e05 = L.circleMarker(
+                [46.482, 12.066],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_b19613d6226f979c87f87b4687e93b27);
+        
+    
+            circle_marker_3d458a580b99925802e3e253c81d8e05.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Passo Giau</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Pass<br><b>Stop duration:</b> ? h<br><b>En route:</b> <span style="color:#e74c3c">Val Gardena to Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_390bffc32e402bad7fd92d7acc7d6b7f = L.circleMarker(
+                [46.519, 12.008],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_b19613d6226f979c87f87b4687e93b27);
+        
+    
+            circle_marker_390bffc32e402bad7fd92d7acc7d6b7f.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Passo Falzarego</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Pass<br><b>Stop duration:</b> ? h<br><b>En route:</b> <span style="color:#e74c3c">Val Gardena to Cortina d'Ampezzo</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_b19613d6226f979c87f87b4687e93b27.addTo(map_4f956bcb9e32585d975c6e81486babf7);
+        
+    
+            var layer_control_cc742d4a0745565aafe14a46f9fdb0a7_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_38b647f9c96e0bb45b036b6e0aeb110c,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_2727eb745414f5778fe260fd4901e602,
+                    "\u25cf Base attractions" : feature_group_24aba5fb396a6e396ca0d2ff358eb351,
+                    "\u25c7 En-route stops" : feature_group_b19613d6226f979c87f87b4687e93b27,
+                },
+            };
+            let layer_control_cc742d4a0745565aafe14a46f9fdb0a7 = L.control.layers(
+                layer_control_cc742d4a0745565aafe14a46f9fdb0a7_layers.base_layers,
+                layer_control_cc742d4a0745565aafe14a46f9fdb0a7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_4f956bcb9e32585d975c6e81486babf7);
+
+        
+</script>
+</html>

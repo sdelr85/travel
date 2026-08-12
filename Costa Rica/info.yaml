@@ -3,7 +3,7 @@ trip:
   country: Costa Rica
 
   overview:
-    rank: 8
+    rank: 11
 
     summary: >
       15-day family fly-in self-drive trip through Costa Rica,
@@ -36,9 +36,18 @@ trip:
       - Snorkeling
       - Pacific beaches
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€5,000 - €9,000"
+      family:
+        eur_range: "€9,000 - €15,000"
+      relative_costs: "high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: central_volcanoes_to_pacific
 

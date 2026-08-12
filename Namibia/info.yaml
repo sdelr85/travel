@@ -3,7 +3,7 @@ trip:
   country: Namibia
 
   overview:
-    rank: 5
+    rank: 10
 
     summary: >
       18-day family self-drive trip through Namibia,
@@ -34,9 +34,18 @@ trip:
       - Etosha National Park
       - Waterberg Plateau
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€6,000 - €10,000"
+      family:
+        eur_range: "€10,000 - €17,000"
+      relative_costs: "high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: clockwise
 

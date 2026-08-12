@@ -25,6 +25,11 @@ COUNTRY_ISO = {
     "Namibia": "na",
     "Georgia": "ge",
     "Costa Rica": "cr",
+    "Italy (Dolomites)": "it",
+    "Switzerland": "ch",
+    "Alaska": "us",
+    "Reunion Island": "re",
+    "Japan": "jp",
 }
 
 FLAG_ICONS_CDN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">'
@@ -423,13 +428,43 @@ def build_selection_page(countries: list) -> str:
             if rank
             else ""
         )
-        short_reason = reason[:90] + ("…" if len(reason) > 90 else "")
-        icon_html = f'<div class="map-marker">{label}</div>'
+        cost = overview.get("cost") or trip.get("cost", {})
+        relative_cost = cost.get("relative_costs", "")
+        cost_color = {
+            "low": "#27ae60",
+            "medium": "#e67e22",
+            "high": "#e74c3c",
+            "very_high": "#1a1a1a",
+        }.get(relative_cost, "#1a2a3a")
+        icon_html = (
+            f'<div class="map-marker" style="background:{cost_color}">{label}</div>'
+        )
+        duration = overview.get("duration_days") or trip.get("duration", {}).get(
+            "days", ""
+        )
+        duration_html = (
+            f'<span style="font-size:12px">📅 {duration} days</span><br>'
+            if duration
+            else ""
+        )
+        couple_range = (cost.get("couple") or {}).get("eur_range", "")
+        family_range = (cost.get("family") or {}).get("eur_range", "")
+        cost_lines = ""
+        if couple_range:
+            cost_lines += f'<span style="font-size:12px">💑 {couple_range}</span><br>'
+        if family_range:
+            cost_lines += (
+                f'<span style="font-size:12px">👨‍👩‍👧‍👦 {family_range}</span><br>'
+            )
         popup_html = (
-            f'<div style="font-family:sans-serif;font-size:13px;min-width:160px;text-align:center">'
-            f"{flag_span}<b>{country}</b><br>{rank_line}"
-            f'<i style="color:#555;font-size:11px">{short_reason}</i><br>'
-            f'<a href="{c["map_path"]}" style="color:#2c3e50;font-weight:bold">View map →</a>'
+            f'<div style="font-family:sans-serif;font-size:13px;min-width:200px;text-align:center">'
+            f"{flag_span}<b style='font-size:14px'>{country}</b><br>{rank_line}"
+            f'<hr style="margin:5px 0">'
+            f"{duration_html}"
+            f"{cost_lines}"
+            f'<hr style="margin:5px 0">'
+            f'<i style="color:#555;font-size:11px;display:block;text-align:left">{reason}</i>'
+            f'<div style="margin-top:7px"><a href="{c["map_path"]}" style="color:#2c3e50;font-weight:bold">View map →</a></div>'
             f"</div>"
         )
         markers_js += (
@@ -456,14 +491,14 @@ def build_selection_page(countries: list) -> str:
         summary = overview.get("summary", "")
         summary_reason = overview.get("summary_reason", "").strip()
 
-        tg = overview.get("target_group") or trip.get("target_group", {})
-        adults = tg.get("adults", "")
-        children = tg.get("children", "")
-        group_html = (
-            f'<div class="stat"><span>👨‍👩‍👧‍👦 {adults} adults, {children} children</span></div>'
-            if adults and children
-            else ""
-        )
+        cost = overview.get("cost") or trip.get("cost", {})
+        couple_range = (cost.get("couple") or {}).get("eur_range", "")
+        family_range = (cost.get("family") or {}).get("eur_range", "")
+        cost_html = ""
+        if couple_range:
+            cost_html += f'<div class="stat"><span>💑 {couple_range}</span></div>'
+        if family_range:
+            cost_html += f'<div class="stat"><span>👨‍👩‍👧‍👦 {family_range}</span></div>'
         style_html = (
             f'<div class="stat"><span>🧭 {travel_style}</span></div>'
             if travel_style
@@ -484,7 +519,7 @@ def build_selection_page(countries: list) -> str:
                     <div class="stat"><span>📅 {duration} days</span></div>
                     <div class="stat"><span>{transport}</span></div>
                     <div class="stat"><span>🏨 {bases_count} bases</span></div>
-                    {group_html}
+                    {cost_html}
                     {style_html}
                 </div>
                 {"<p class='summary'>" + summary + "</p>" if summary else ""}
@@ -629,7 +664,7 @@ def build_selection_page(countries: list) -> str:
             margin-bottom: 32px;
         }}
         .map-marker {{
-            background: #1a2a3a;
+            background: #1a2a3a;  /* overridden per-marker by cost colour */
             color: white;
             border: 2px solid rgba(255,255,255,.6);
             border-radius: 50%;
@@ -661,7 +696,21 @@ def build_selection_page(countries: list) -> str:
     <div class="page">
         <h1>🗺️ Travel Plans</h1>
         <p class="subtitle">Select a destination to explore the interactive map</p>
-        <div id="world-map"></div>
+        <div style="position:relative">
+            <div id="world-map"></div>
+            <div style="
+                position:absolute;bottom:10px;left:10px;z-index:999;
+                background:rgba(255,255,255,.92);border-radius:7px;
+                padding:7px 11px;font-family:sans-serif;font-size:12px;
+                box-shadow:0 1px 5px rgba(0,0,0,.25);line-height:1.8
+            ">
+                <b style="font-size:12px">Trip cost</b><br>
+                <span style="color:#27ae60">●</span> Low
+                &nbsp;<span style="color:#e67e22">●</span> Medium
+                &nbsp;<span style="color:#e74c3c">●</span> High
+                &nbsp;<span style="color:#1a1a1a">●</span> Very high
+            </div>
+        </div>
         <div class="cards">{cards_html}
         </div>
     </div>

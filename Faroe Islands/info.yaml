@@ -2,7 +2,7 @@ trip:
   country: Faroe Islands
 
   overview:
-    rank: 6
+    rank: 13
     summary: "10-day family fly-in self-drive trip through the Faroe Islands, focused on dramatic landscapes, hikes, villages, sea cliffs, waterfalls and one or two optional island/boat activities."
     summary_reason: >
       A compact but incredibly photogenic destination combining dramatic cliffs, waterfalls, ocean scenery and remote island adventure.
@@ -24,9 +24,18 @@ trip:
   direction: vagar_torshavn_northern_islands_eysturoy_streymoy
   travel_style: family_self_drive
 
-  target_group:
-    adults: 2
-    children: 3
+  cost:
+      couple:
+        eur_range: "€4,000 - €7,000"
+      family:
+        eur_range: "€7,000 - €11,000"
+      relative_costs: "medium"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   duration:
     days: 10

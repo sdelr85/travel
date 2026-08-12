@@ -13,9 +13,18 @@ trip:
       - "South Coast (waterfalls, black beaches, glaciers)"
       - "North Iceland (Myvatn, Dettifoss, Husavik)"
       - "Snaefellsnes Peninsula"
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€5,000 - €8,000"
+      family:
+        eur_range: "€8,000 - €13,000"
+      relative_costs: "high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
   direction: counter_clockwise
   duration:
     days: 13

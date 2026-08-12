@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_84f0e50951f3473f2726b8eed72987e3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <style>
+        @media (max-width: 600px) {
+            .travel-legend {
+                bottom: 8px !important;
+                left: 8px !important;
+                right: 8px !important;
+                max-height: 38vh;
+                overflow-y: auto;
+                font-size: 11px !important;
+                padding: 8px 10px !important;
+            }
+        }
+    </style>
+    <div class="travel-legend" style="
+        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+        background: white; padding: 12px 16px; border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
+    ">
+        <b style="font-size:15px"><span class="fi fi-jp" style="border-radius:3px;margin-right:5px"></span>Japan</b>
+        <hr style="margin:6px 0 4px">
+        <b style="font-size:14px">Bases</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Hakone</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Matsumoto</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Toyama</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Tokyo</td></tr></table>
+        <hr style="margin:8px 0">
+        <b style="font-size:14px">Priority (marker size)</b>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Must do</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Highly recommended</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">If time allows</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optional paid activity</td></tr></table>
+        <hr style="margin:8px 0">
+        <span style="font-size:12px;color:#666">
+            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+        </span>
+        <hr style="margin:8px 0">
+        <a href="../index.html"
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+    </div>
+    
+    
+            <div class="folium-map" id="map_84f0e50951f3473f2726b8eed72987e3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_84f0e50951f3473f2726b8eed72987e3 = L.map(
+                "map_84f0e50951f3473f2726b8eed72987e3",
+                {
+                    center: [35.96055, 138.48505],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fc7ab7f986295bf8634a7ed8779bd6b5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fc7ab7f986295bf8634a7ed8779bd6b5.addTo(map_84f0e50951f3473f2726b8eed72987e3);
+        
+    
+            map_84f0e50951f3473f2726b8eed72987e3.fitBounds(
+                [[35.2324, 139.1069], [36.2381, 137.972], [36.6953, 137.2113], [35.6764, 139.65]],
+                {}
+            );
+        
+    
+            var feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_47f9001780ad7c28b477a2c2ffaa5b77 = L.marker(
+                [35.2324, 139.1069],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8);
+        
+    
+            var icon_e18a78ec9379dac107bfc4c05e720d10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_47f9001780ad7c28b477a2c2ffaa5b77.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Hakone</b><br><span style="color:#555">Mount Fuji and volcanic region</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">Ideal introduction to Japan. Focus on volcanoes, Mount Fuji views, lakes, ropeways and hot springs.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47f9001780ad7c28b477a2c2ffaa5b77.setIcon(icon_e18a78ec9379dac107bfc4c05e720d10);
+            
+    
+            var marker_20bc6857b3bdcc5a55ffca52c7f7f554 = L.marker(
+                [36.2381, 137.972],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8);
+        
+    
+            var icon_932b23fb8b7a2f6e13ed8a4f127335dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_20bc6857b3bdcc5a55ffca52c7f7f554.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Matsumoto</b><br><span style="color:#555">Japanese Alps</span><br><hr style="margin:4px 0"><b>Nights:</b> 4<br><i style="color:#666;font-size:14px">Main mountain base. Some of the finest hiking and alpine scenery in Japan.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_20bc6857b3bdcc5a55ffca52c7f7f554.setIcon(icon_932b23fb8b7a2f6e13ed8a4f127335dd);
+            
+    
+            var marker_85c9c1b968327832afe86d5764232ef3 = L.marker(
+                [36.6953, 137.2113],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8);
+        
+    
+            var icon_fdc9da4e83efe11ef9885bc32d26dddc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_85c9c1b968327832afe86d5764232ef3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Toyama</b><br><span style="color:#555">Tateyama Alpine Route</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Base for Japan's most spectacular mountain crossing.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_85c9c1b968327832afe86d5764232ef3.setIcon(icon_fdc9da4e83efe11ef9885bc32d26dddc);
+            
+    
+            var marker_f4b13068095e2382021f8e9d7cce9e55 = L.marker(
+                [35.6764, 139.65],
+                {
+  "zIndexOffset": 1000,
+}
+            ).addTo(feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8);
+        
+    
+            var icon_470895f0434f8517d398cd43683f5c88 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_f4b13068095e2382021f8e9d7cce9e55.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Tokyo</b><br><span style="color:#555">Arrival and departure</span><br><hr style="margin:4px 0"><b>Nights:</b> 3<br><i style="color:#666;font-size:14px">Keep the city component short. Use mainly as arrival and departure point.
+</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4b13068095e2382021f8e9d7cce9e55.setIcon(icon_470895f0434f8517d398cd43683f5c88);
+            
+    
+            feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8.addTo(map_84f0e50951f3473f2726b8eed72987e3);
+        
+    
+            var feature_group_7c5b9df6f0303209e591b41244328f6d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ec111fdd6554c788c05b659de6e9097e = L.circleMarker(
+                [35.3606, 138.7274],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_ec111fdd6554c788c05b659de6e9097e.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mount Fuji Viewpoints (Fuji Five Lakes)</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcano Scenery<br><b>Duration:</b> 6 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#e74c3c">Hakone</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_afc93799e4a771b6f55d36cacd026dc4 = L.circleMarker(
+                [35.517, 138.7518],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_afc93799e4a771b6f55d36cacd026dc4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Kawaguchi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Lake<br><b>Duration:</b> 4 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#e74c3c">Hakone</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b67df8ef3d9c77c97acc89da34d96ea0 = L.circleMarker(
+                [35.2453, 139.0191],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_b67df8ef3d9c77c97acc89da34d96ea0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hakone Ropeway</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Cable Car<br><b>Duration:</b> 2 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Hakone</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f252b704a37b0e0aed95a30d4482ec04 = L.circleMarker(
+                [35.2455, 139.0215],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_f252b704a37b0e0aed95a30d4482ec04.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Owakudani Volcanic Valley</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Volcanic Area<br><b>Duration:</b> 2 h<br><b>From base:</b> 20 min drive<br><b>Base:</b> <span style="color:#e74c3c">Hakone</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61189068a325765fba67d84800570355 = L.circleMarker(
+                [35.2045, 139.0261],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_61189068a325765fba67d84800570355.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Ashi</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Lake<br><b>Duration:</b> 3 h<br><b>From base:</b> 15 min drive<br><b>Base:</b> <span style="color:#e74c3c">Hakone</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dd067c18f515659c5b9712c1e6ebd116 = L.circleMarker(
+                [36.2486, 137.6361],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_dd067c18f515659c5b9712c1e6ebd116.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kamikochi Valley</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Valley<br><b>Duration:</b> 8 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3fb3a87186ad8b61fe4ac9feeef52b90 = L.circleMarker(
+                [36.2505, 137.6418],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_3fb3a87186ad8b61fe4ac9feeef52b90.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Taisho Pond</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Walk<br><b>Duration:</b> 2 h<br><b>From base:</b> 75 min drive<br><b>Base:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f6d6bbff6fa51cf2832d9d8faedd3789 = L.circleMarker(
+                [36.238, 137.9685],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_f6d6bbff6fa51cf2832d9d8faedd3789.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Matsumoto Castle</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Cultural Landmark<br><b>Duration:</b> 2 h<br><b>From base:</b> 10 min drive<br><b>Base:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1998c95cbeebfdabde4e7b3bcaab26f6 = L.circleMarker(
+                [36.1066, 137.5487],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_1998c95cbeebfdabde4e7b3bcaab26f6.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Norikura Highlands</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Area<br><b>Duration:</b> 6 h<br><b>From base:</b> 60 min drive<br><b>Base:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8416c8e0f6df5890b20637d5c5fa53d0 = L.circleMarker(
+                [36.2262, 138.1086],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_8416c8e0f6df5890b20637d5c5fa53d0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Utsukushigahara Highlands</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ If time allows</span><br><hr style="margin:4px 0"><b>Type:</b> Plateau Hiking<br><b>Duration:</b> 5 h<br><b>From base:</b> 45 min drive<br><b>Base:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f940c11557c3fa5d1398325d1d347c7 = L.circleMarker(
+                [36.5763, 137.6047],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_0f940c11557c3fa5d1398325d1d347c7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tateyama Alpine Route</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Route<br><b>Duration:</b> 10 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Toyama</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32f9f3f1166fbe5d6e6820c4a3b5b983 = L.circleMarker(
+                [36.5775, 137.5968],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_32f9f3f1166fbe5d6e6820c4a3b5b983.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Murodo Plateau</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Must do</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Hiking<br><b>Duration:</b> 4 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Toyama</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ceb25ec08dcd8cf2184060e3b680af6 = L.circleMarker(
+                [36.5738, 137.5973],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_0ceb25ec08dcd8cf2184060e3b680af6.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mikurigaike Pond</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Alpine Lake<br><b>Duration:</b> 2 h<br><b>From base:</b> 30 min drive<br><b>Base:</b> <span style="color:#27ae60">Toyama</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7855cb479dcbeb19b289cc8f508da9e7 = L.circleMarker(
+                [36.5612, 137.663],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
+            ).addTo(feature_group_7c5b9df6f0303209e591b41244328f6d);
+        
+    
+            circle_marker_7855cb479dcbeb19b289cc8f508da9e7.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kurobe Dam</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Highly recommended</span><br><hr style="margin:4px 0"><b>Type:</b> Engineering Landmark<br><b>Duration:</b> 2 h<br><b>Base:</b> <span style="color:#27ae60">Toyama</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_7c5b9df6f0303209e591b41244328f6d.addTo(map_84f0e50951f3473f2726b8eed72987e3);
+        
+    
+            var feature_group_d2f403492128f26bbebf3b57f183eb74 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            feature_group_d2f403492128f26bbebf3b57f183eb74.addTo(map_84f0e50951f3473f2726b8eed72987e3);
+        
+    
+            var layer_control_a56fdf7a6978af5039dd4a720659a6ba_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_fc7ab7f986295bf8634a7ed8779bd6b5,
+                },
+                overlays :  {
+                    "\ud83c\udfe8 Lodging" : feature_group_ff3e5e1069bdd69b931b8a4a5a24dcf8,
+                    "\u25cf Base attractions" : feature_group_7c5b9df6f0303209e591b41244328f6d,
+                    "\u25c7 En-route stops" : feature_group_d2f403492128f26bbebf3b57f183eb74,
+                },
+            };
+            let layer_control_a56fdf7a6978af5039dd4a720659a6ba = L.control.layers(
+                layer_control_a56fdf7a6978af5039dd4a720659a6ba_layers.base_layers,
+                layer_control_a56fdf7a6978af5039dd4a720659a6ba_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_84f0e50951f3473f2726b8eed72987e3);
+
+        
+</script>
+</html>

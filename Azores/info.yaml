@@ -2,7 +2,7 @@ trip:
   country: Azores
 
   overview:
-    rank: 10
+    rank: 16
     summary: "12-day family fly-in self-drive trip through Sao Miguel and Pico, focused on volcanic landscapes, crater lakes, thermal pools, waterfalls, hiking, whale watching and coastal scenery."
     summary_reason: >
       A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale watching and excellent hiking.
@@ -23,9 +23,18 @@ trip:
       - "Pico wine landscape"
       - "Natural lava pools"
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€4,000 - €7,000"
+      family:
+        eur_range: "€7,000 - €11,000"
+      relative_costs: "medium"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: sao_miguel_then_pico
 

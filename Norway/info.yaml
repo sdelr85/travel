@@ -1,7 +1,7 @@
 trip:
   country: Norway
   overview:
-    rank: 7
+    rank: 4
     summary: "13-day family self-drive trip from Belgium through Denmark, Sweden and Norway's southern and western fjords, without international ferries."
     summary_reason: >
       A perfect family road trip destination offering fjords, mountain hikes, scenic roads and highly accessible nature.
@@ -13,9 +13,18 @@ trip:
       - "Telemark and Hardangervidda as a logical first Norway base"
       - "Sognefjord, Naeroyfjord and Aurlandsfjord around Aurland / Flam"
       - "Nordfjord, Loen Skylift, glacier landscapes and Geirangerfjord from Loen / Olden / Stryn"
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€3,000 - €6,000"
+      family:
+        eur_range: "€5,000 - €8,000"
+      relative_costs: "low"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: belgium_denmark_sweden_oslo_western_fjords
   travel_style: family_self_drive

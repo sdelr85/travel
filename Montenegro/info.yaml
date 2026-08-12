@@ -2,7 +2,7 @@ trip:
   country: Montenegro
 
   overview:
-    rank: 13
+    rank: 18
     summary: "11-day family self-drive trip through Montenegro, focused on dramatic mountains, the Bay of Kotor, Durmitor National Park, Tara Canyon, Lake Skadar, scenic roads, short hikes, boat trips and coastal towns."
     summary_reason: >
       A compact destination offering fjords, mountains, lakes, canyons and historic towns with excellent value for money.
@@ -28,9 +28,18 @@ trip:
       - "Rijeka Crnojevica and Pavlova Strana viewpoint"
       - "Sveti Stefan viewpoint"
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€2,500 - €5,000"
+      family:
+        eur_range: "€4,000 - €8,000"
+      relative_costs: "low"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: kotor_durmitor_skadar_coast
 

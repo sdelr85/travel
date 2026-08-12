@@ -1,7 +1,7 @@
 trip:
   country: Scotland
   overview:
-    rank: 11
+    rank: 15
     summary: "14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh."
     summary_reason: >
       A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.
@@ -15,9 +15,18 @@ trip:
       - "Bealach na Ba and Torridon"
       - "Assynt (Stac Pollaidh, Achmelvich Beach)"
       - "Edinburgh"
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€3,000 - €6,000"
+      family:
+        eur_range: "€5,000 - €9,000"
+      relative_costs: "low"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   transport_constraints:
     ferry_to_scotland:

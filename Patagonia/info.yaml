@@ -31,9 +31,18 @@ trip:
       - Salto Grande
       - Guanaco and condor wildlife
 
-    target_group:
-      adults: 2
-      children: 3
+    cost:
+      couple:
+        eur_range: "€6,000 - €10,000"
+      family:
+        eur_range: "€10,000 - €17,000"
+      relative_costs: "very_high"
+      assumptions:
+        - "Mid-range accommodations"
+        - "Peak summer season"
+        - "Flights/Car rental included (if relevant)"
+        - "Normal restaurant usage"
+        - "Limited paid excursions (1-2 per base)"
 
   direction: argentina_then_chile
 
