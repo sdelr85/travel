@@ -2,21 +2,21 @@ trip:
   country: Norway
   overview:
     rank: 4
-    summary: "13-day family self-drive trip from Belgium through Denmark, Sweden and Norway's southern and western fjords, without international ferries."
+    summary: "13-daagse familie-autoreis vanuit België door Denemarken, Zweden en de zuidelijke en westelijke fjorden van Noorwegen, zonder internationale veerverbindingen."
     summary_reason: >
-      Norway's fjord country is one of the most spectacular places in Europe, and the fact that it is
-      reachable by car from Belgium makes it especially appealing. Naeroyfjord, Geirangerfjord and the
-      Loen Skylift offer world-class scenery at every turn, while the route through Denmark and Sweden
-      turns the journey itself into part of the adventure. Unlike a flight destination, the whole family
-      is immersed in the landscape from the moment you leave home.
+      Het fjordenland van Noorwegen is een van de meest spectaculaire plekken van Europa, en het feit dat
+      het vanuit België per auto bereikbaar is maakt het extra aantrekkelijk. Nærøyfjord, Geirangerfjord
+      en de Loen Skylift bieden bij elke bocht wereldklasse scenerie, terwijl de route door Denemarken en
+      Zweden de reis zelf tot een onderdeel van het avontuur maakt. Anders dan een vliegbestemming is het
+      hele gezin ondergedompeld in het landschap vanaf het moment dat je thuis vertrekt.
     transport: "🚗 Own car"
     duration_days: 13
     travel_style: "Family road trip from Belgium"
     highlights:
-      - "Copenhagen / Malmo / Gothenburg / Oslo access route without international ferries"
-      - "Telemark and Hardangervidda as a logical first Norway base"
-      - "Sognefjord, Naeroyfjord and Aurlandsfjord around Aurland / Flam"
-      - "Nordfjord, Loen Skylift, glacier landscapes and Geirangerfjord from Loen / Olden / Stryn"
+      - "Kopenhagen / Malmö / Göteborg / Oslo rijroute zonder internationale veerverbindingen"
+      - "Telemark en Hardangervidda als logische eerste basis in Noorwegen"
+      - "Sognefjord, Nærøyfjord en Aurlandsfjord rond Aurland / Flåm"
+      - "Nordfjord, Loen Skylift, gletsjerlandschappen en Geirangerfjord vanuit Loen / Olden / Stryn"
     cost:
       couple:
         eur_range: "€3,000 - €6,000"

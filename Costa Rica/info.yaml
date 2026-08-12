@@ -6,16 +6,16 @@ trip:
     rank: 11
 
     summary: >
-      15-day family fly-in self-drive trip through Costa Rica,
-      combining rainforest, volcanoes, wildlife, waterfalls,
-      beaches, snorkeling and adventure activities.
+      15-daagse familie-autoreis door Costa Rica,
+      met een combinatie van regenwoud, vulkanen, wildlife, watervallen,
+      stranden, snorkelen en avontuurlijke activiteiten.
 
     summary_reason: >
-      Costa Rica is the only destination on this list where you can watch sea turtles nest on a beach,
-      hike through cloud forest in the morning, spot sloths and toucans from the road, and stand at the
-      crater rim of an active volcano in the same week. It is the most compact and family-friendly
-      tropical adventure available — a country that has turned biodiversity and eco-tourism into an art form,
-      with wildlife encounters that feel natural and unhurried rather than staged.
+      Costa Rica is de enige bestemming op deze lijst waar je in één week zeeschildpadden kunt zien nesten
+      op een strand, 's ochtends door wolkenbos kunt wandelen, luiaards en toekans langs de weg kunt spotten
+      en op de rand van een actieve vulkaankrater kunt staan. Het is het meest compacte en gezinsvriendelijke
+      tropische avontuur dat er is — een land dat biodiversiteit en ecotoerisme tot een kunstvorm heeft verheven,
+      met wildlifemomenten die natuurlijk en ontspannen aanvoelen in plaats van geënsceneerd.
 
     transport: "✈ Plane + 🚗 Rental car"
 
@@ -25,18 +25,18 @@ trip:
     travel_style: Fly-in family self-drive
 
     highlights:
-      - Arenal Volcano
-      - La Fortuna Waterfall
-      - Hanging Bridges
-      - Sloths and monkeys
+      - Arenal Vulkaan
+      - La Fortuna Waterval
+      - Hangbruggen
+      - Luiaards en apen
       - Rio Celeste
-      - Monteverde Cloud Forest
-      - Ziplining
+      - Monteverde Wolkenbos
+      - Ziplinen
       - Tortuguero
-      - Sea turtles
+      - Zeeschildpadden
       - Manuel Antonio
-      - Snorkeling
-      - Pacific beaches
+      - Snorkelen
+      - Stille Oceaan stranden
 
     cost:
       couple:

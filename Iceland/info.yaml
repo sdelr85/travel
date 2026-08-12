@@ -2,21 +2,22 @@ trip:
   country: Iceland
   overview:
     rank: 3
-    summary: "13-day counter-clockwise self-drive ring road trip through Iceland's most iconic landscapes."
+    summary: "13-daagse autoreis tegen de klok in over de ringweg van IJsland langs de meest iconische landschappen."
     summary_reason: >
-      Iceland is the only destination on this list where the land itself still feels unfinished — active
-      volcanoes reshaping the coastline, geysers erupting on schedule, glaciers you can walk on and
-      northern lights overhead in winter. The Ring Road puts world-class waterfalls, black sand beaches,
-      glacier lagoons and whale watching within reach of a single two-week loop, with no crowds on the
-      roads and a raw, elemental atmosphere that no other European destination comes close to matching.
+      IJsland is de enige bestemming op deze lijst waar het land zelf nog onaf aanvoelt — actieve vulkanen
+      die de kustlijn hervormen, geisers die op vaste tijden uitbarsten, gletsjers waar je op kunt wandelen
+      en noorderlicht boven je hoofd in de winter. De ringweg brengt wereldklasse watervallen, zwarte
+      zandstranden, gletsjerlagunen en walvisspotten binnen bereik van één enkele rondrit van twee weken,
+      met geen drukte op de wegen en een rauwe, elementaire sfeer die geen andere Europese bestemming
+      in de buurt kan komen.
     transport: "✈ Plane + 🚗 Rental car"
     duration_days: 13
     travel_style: "Fly-in family self-drive"
     highlights:
-      - "Golden Circle (Thingvellir, Geysir, Gullfoss)"
-      - "South Coast (waterfalls, black beaches, glaciers)"
-      - "North Iceland (Myvatn, Dettifoss, Husavik)"
-      - "Snaefellsnes Peninsula"
+      - "Gouden Cirkel (Þingvellir, Geysir, Gullfoss)"
+      - "Zuidkust (watervallen, zwarte stranden, gletsjers)"
+      - "Noord-IJsland (Mývatn, Dettifoss, Húsavík)"
+      - "Snaæfellsnes Schiereiland"
     cost:
       couple:
         eur_range: "€5,000 - €8,000"

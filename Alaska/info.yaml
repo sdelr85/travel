@@ -3,12 +3,13 @@ trip:
 
   overview:
     rank: 9
-    summary: "16-day family self-drive trip through Southcentral Alaska, focused on wildlife, glaciers, fjords, mountains and scenic wilderness."
+    summary: "16-daagse familie-autoreis door Centraal-Alaska, gericht op wildlife, gletsjers, fjorden, bergen en spectaculaire wildernis."
     summary_reason: >
-      Alaska is the last great American wilderness — a place where grizzly bears fish alongside the road,
-      humpback whales breach in glacier-carved fjords, and Denali rises above everything on the continent.
-      Unlike Canada or New Zealand, the scale here is overwhelming: Kenai Fjords, Exit Glacier and
-      Denali National Park deliver a raw, untamed experience that no other self-drive destination can match.
+      Alaska is de laatste grote Amerikaanse wildernis — een plek waar grizzlyberen langs de weg vissen,
+      bultruggen opspringen in door gletsjers gesneden fjorden en Denali uittorent boven al het andere
+      op het continent. Anders dan Canada of Nieuw-Zeeland is de schaal hier overweldigend: Kenai Fjords,
+      Exit Glacier en het Denali National Park bieden een rauwe, ongetemde ervaring die geen enkele andere
+      autobestemming kan evenaren.
     transport: "✈ Plane + 🚗 Rental car"
     duration_days: 16
     travel_style: "Fly-in family self-drive"
@@ -16,10 +17,10 @@ trip:
       - "Kenai Fjords National Park"
       - "Denali National Park"
       - "Exit Glacier"
-      - "Whale watching"
-      - "Bear viewing"
+      - "Walvissen spotten"
+      - "Beren observeren"
       - "Matanuska Glacier"
-      - "Talkeetna and Denali viewpoints"
+      - "Talkeetna en uitkijkpunten over Denali"
     cost:
       couple:
         eur_range: "€7,000 - €11,000"

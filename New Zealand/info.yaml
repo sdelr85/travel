@@ -5,17 +5,17 @@ trip:
     rank: 1
 
     summary: >
-      24-day family fly-in self-drive trip through both the North and South Island
-      of New Zealand, focused on mountains, volcanoes, geothermal landscapes,
-      fjords, wildlife, lakes, hiking and adventure.
+      24-daagse familie-autoreis door zowel het Noordeiland als het Zuideiland
+      van Nieuw-Zeeland, gericht op bergen, vulkanen, geothermische landschappen,
+      fjorden, wildlife, meren, wandelen en avontuur.
 
     summary_reason: >
-      New Zealand is the only place on Earth where a single road trip takes you from active geothermal
-      fields and glowing caves to the most dramatic fjords in the southern hemisphere, past glaciers that
-      reach almost to sea level, and through mountains that look like they were designed for a fantasy film.
-      Unlike any other destination on this list, the sheer variety never stops — every two hours the
-      landscape reinvents itself completely, and the combination of Milford Sound, the Southern Alps,
-      Tongariro and Abel Tasman makes it the most complete nature journey in the world.
+      Nieuw-Zeeland is de enige plek op aarde waar één enkele autoreis je meeneemt van actieve geothermische
+      velden en gloeiende grotten naar de meest dramatische fjorden van het zuidelijk halfrond, langs gletsjers
+      die bijna tot zeeniveau reiken en door bergen die lijken alsof ze ontworpen zijn voor een fantasyfilm.
+      Anders dan elke andere bestemming op deze lijst houdt de verscheidenheid nooit op — om de twee uur
+      heruitvindt het landschap zich volledig, en de combinatie van Milford Sound, de Zuidelijke Alpen,
+      Tongariro en Abel Tasman maakt het de meest complete natuurreis ter wereld.
 
     transport: "✈ Plane + 🚗 Rental car + ✈ domestic flight"
 
@@ -26,7 +26,7 @@ trip:
 
     highlights:
       - Tongariro Alpine Crossing
-      - Rotorua geothermal region
+      - Geothermisch gebied Rotorua
       - Hobbiton
       - Cathedral Cove
       - Mount Cook
@@ -34,10 +34,10 @@ trip:
       - Wanaka
       - Roys Peak
       - Milford Sound
-      - Fiordland
+      - Fjordland
       - Queenstown
       - Glenorchy
-      - Kaikoura whales
+      - Walvissen bij Kaikōura
 
     cost:
       couple:

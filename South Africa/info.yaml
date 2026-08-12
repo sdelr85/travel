@@ -5,16 +5,16 @@ trip:
     rank: 7
 
     summary: >
-      19-day family fly-in self-drive trip through South Africa,
-      combining Cape Town, mountains, coastline, wildlife,
-      the Garden Route and safari.
+      19-daagse familie-autoreis door Zuid-Afrika,
+      met een combinatie van Kaapstad, bergen, kustlijn, wildlife,
+      de Garden Route en safari.
 
     summary_reason: >
-      South Africa is the only destination on this list where you can drive the most scenic coastal road
-      in Africa in the morning, walk among penguins at noon, hike through fynbos on the Cape Peninsula
-      in the afternoon, and have wine in Stellenbosch in the evening. Add a Kruger safari and the
-      Drakensberg mountains, and you have a trip that shifts through completely different worlds —
-      a diversity of experiences no other single country on this list can offer.
+      Zuid-Afrika is de enige bestemming op deze lijst waar je 's ochtends over de mooiste kustweg van
+      Afrika kunt rijden, 's middags tussen pinguïns kunt wandelen, door fynbos op het Kaapse Schiereiland
+      kunt trekken en 's avonds wijn kunt drinken in Stellenbosch. Voeg een Kruger-safari en de
+      Drakensbergen toe, en je hebt een reis die door volkomen verschillende werelden gaat — een
+      diversiteit aan ervaringen die geen enkel ander land op deze lijst kan bieden.
 
     transport: "✈ Plane + 🚗 Rental car + ✈ Domestic flight"
 
@@ -24,14 +24,14 @@ trip:
     travel_style: Fly-in family self-drive
 
     highlights:
-      - Table Mountain
-      - Cape Peninsula
-      - Boulders Penguins
+      - Tafelberg
+      - Kaaps Schiereiland
+      - Pinguïns bij Boulders Beach
       - Hermanus
       - Garden Route
       - Tsitsikamma
-      - Addo Elephant Park
-      - Kruger National Park
+      - Addo Olifantenpark
+      - Nationaal Park Kruger
 
     cost:
       couple:

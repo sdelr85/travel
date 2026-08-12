@@ -3,17 +3,16 @@ trip:
 
   overview:
     rank: 12
-    summary: "14-day family self-drive trip through the most spectacular regions of the Italian Dolomites."
+    summary: "14-daagse familie-autoreis door de meest spectaculaire gebieden van de Italiaanse Dolomieten."
     summary_reason: >
-      The Dolomites offer some of the most dramatic mountain scenery in Europe,
-      combining vertical limestone peaks, alpine meadows, mountain lakes,
-      panoramic cable cars and highly accessible family hiking.
-      A perfect blend of scenery, outdoor activities, villages and Italian food.
+      De Dolomieten bieden een van de meest dramatische berglandschappen van Europa, met verticale
+      kalksteenpieken, alpenweiden, bergmeren, panoramische kabelbanen en zeer toegankelijke
+      gezinswandelingen. Een perfecte combinatie van natuur, buitenactiviteiten, dorpjes en Italiaans eten.
     transport: "🚗 Own car"
     duration_days: 14
     travel_style: "Family mountain road trip"
     highlights:
-      - "Seceda Ridgeline"
+      - "Seceda Bergkam"
       - "Tre Cime di Lavaredo"
       - "Alpe di Siusi"
       - "Lago di Braies"

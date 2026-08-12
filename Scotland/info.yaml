@@ -2,22 +2,23 @@ trip:
   country: Scotland
   overview:
     rank: 15
-    summary: "14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh."
+    summary: "14-daagse familie-autoreis vanuit België via nachtboot naar Newcastle, gericht op de Hooglanden, het eiland Skye en Edinburgh."
     summary_reason: >
-      Scotland offers something the other European destinations on this list do not — a haunted, atmospheric
-      quality that comes from ancient castles half-swallowed by mist, single-track roads threading between
-      lochs, and the wild remoteness of Skye and the North Coast 500. Reachable by overnight ferry from
-      Belgium, it combines the best Highland scenery with whisky country, island landscapes and
-      a sense of history that feels genuinely epic without ever leaving Western Europe.
+      Schotland biedt iets wat de andere Europese bestemmingen op deze lijst niet hebben — een spookachtige,
+      atmosferische kwaliteit die voortkomt uit eeuwenoude kastelen die half door mist worden verzwolgen,
+      eenbaanswegen die tussen lochs door slingeren en de wilde afgeslegenheid van Skye en de North Coast 500.
+      Bereikbaar via nachtboot vanuit België combineert het de beste Hooglanden-scenerie met whiskyland,
+      eilandlandschappen en een gevoel van geschiedenis dat werkelijk episch aanvoelt zonder ooit
+      West-Europa te verlaten.
     transport: "🚗 Own car + ⛴ Overnight ferry to Newcastle"
     duration_days: 14
     travel_style: "Family road trip via ferry"
     highlights:
-      - "Glencoe and Glenfinnan Viaduct"
-      - "Isle of Skye (Storr, Quiraing, Fairy Pools)"
-      - "Eilean Donan Castle"
-      - "Bealach na Ba and Torridon"
-      - "Assynt (Stac Pollaidh, Achmelvich Beach)"
+      - "Glencoe en het Glenfinnan Viaduct"
+      - "Eiland Skye (Storr, Quiraing, Fairy Pools)"
+      - "Kasteel Eilean Donan"
+      - "Bealach na Bà en Torridon"
+      - "Assynt (Stac Pollaidh, strand Achmelvich)"
       - "Edinburgh"
     cost:
       couple:

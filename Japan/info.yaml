@@ -3,21 +3,21 @@ trip:
 
   overview:
     rank: 6
-    summary: "15-day family self-drive and rail-assisted adventure through Japan's mountains, volcanoes, alpine valleys and iconic natural landscapes."
+    summary: "15-daagse familie-reis door de bergen, vulkanen, alpiene valleien en iconische landschappen van Japan, met eigen auto en trein."
     summary_reason: >
-      A unique combination of volcanoes, alpine scenery, forests, mountain villages,
-      hot springs and Japanese culture. Unlike Europe or North America, the same
-      spectacular nature comes with a completely different atmosphere, food and way of life.
+      Een unieke combinatie van vulkanen, alpenscenerie, bossen, bergdorpen, hete bronnen en Japanse
+      cultuur. Anders dan in Europa of Noord-Amerika gaat hetzelfde spectaculaire natuurlandschap gepaard
+      met een volkomen andere sfeer, keuken en manier van leven.
     transport: "✈ Plane + 🚆 Train + 🚗 Rental car"
     duration_days: 15
     travel_style: "Fly-in family nature exploration"
     highlights:
-      - "Mount Fuji region"
-      - "Japanese Alps and Kamikochi"
-      - "Tateyama Alpine Route"
-      - "Hakone volcanic area"
-      - "Matsumoto and Nagano mountain region"
-      - "Traditional mountain villages"
+      - "Mount Fuji-gebied"
+      - "Japanse Alpen en Kamikochi"
+      - "Tateyama Alpenroute"
+      - "Vulkanisch gebied Hakone"
+      - "Matsumoto en berggebied Nagano"
+      - "Traditionele bergdorpen"
     cost:
       couple:
         eur_range: "€5,000 - €8,000"

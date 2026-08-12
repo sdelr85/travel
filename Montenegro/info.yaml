@@ -3,12 +3,13 @@ trip:
 
   overview:
     rank: 18
-    summary: "11-day family self-drive trip through Montenegro, focused on dramatic mountains, the Bay of Kotor, Durmitor National Park, Tara Canyon, Lake Skadar, scenic roads, short hikes, boat trips and coastal towns."
+    summary: "11-daagse familie-autoreis door Montenegro, gericht op dramatische bergen, de Baai van Kotor, Nationaal Park Durmitor, de Tara Canyon, Meer Skadar, schilderachtige wegen, korte wandelingen, boottochten en kustplaatsen."
     summary_reason: >
-      Montenegro packs an extraordinary range of landscapes into a country barely the size of a province —
-      the fjord-like Bay of Kotor framed by medieval fortifications, the raw peaks and glacial lakes of
-      Durmitor, Europe's deepest canyon sliced by the Tara River, and the ancient stones of Kotor old town.
-      It delivers a compressed Balkans adventure with southern European atmosphere and prices to match.
+      Montenegro propt een buitengewone verscheidenheid aan landschappen in een land dat nauwelijks groter
+      is dan een provincie — de fjordachtige Baai van Kotor omlijst door middeleeuwse vestingwerken, de
+      ruige pieken en gletsjermeren van Durmitor, de diepste canyon van Europa gesneden door de Tara-rivier
+      en de oude stenen van de historische binnenstad van Kotor. Het biedt een gecomprimeerd Balkanaavontuur
+      met een zuidelijk Europese sfeer en prijzen die daarmee overeenkomen.
 
     transport: "✈ Plane + 🚗 Rental car"
 
@@ -18,18 +19,18 @@ trip:
     travel_style: "Fly-in family self-drive"
 
     highlights:
-      - "Bay of Kotor"
-      - "Kotor old town and city walls"
-      - "Perast and Our Lady of the Rocks"
-      - "Lovcen National Park"
-      - "Durmitor National Park"
-      - "Black Lake"
+      - "Baai van Kotor"
+      - "Historische binnenstad en stadsmuren van Kotor"
+      - "Perast en Onze-Lieve-Vrouw van de Rotsen"
+      - "Nationaal Park Loćčen"
+      - "Nationaal Park Durmitor"
+      - "Zwart Meer"
       - "Tara Canyon"
       - "Durmitor Ring"
       - "Piva Canyon"
-      - "Lake Skadar"
-      - "Rijeka Crnojevica and Pavlova Strana viewpoint"
-      - "Sveti Stefan viewpoint"
+      - "Meer Skadar"
+      - "Rijeka Crnojevića en uitkijkpunt Pavlova Strana"
+      - "Uitkijkpunt Sveti Stefan"
 
     cost:
       couple:

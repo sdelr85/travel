@@ -6,16 +6,16 @@ trip:
     rank: 17
 
     summary: >
-      15-day family fly-in self-drive trip through Georgia,
-      combining the Caucasus Mountains, remote villages,
-      scenic roads, wine regions and hiking landscapes.
+      15-daagse familie-autoreis door Georgië,
+      met een combinatie van de Kaukasus, afgelegen dorpen,
+      schilderachtige wegen, wijnstreken en wandellandschappen.
 
     summary_reason: >
-      Georgia is one of Europe's best-kept secrets — ancient cave cities, medieval tower villages in the
-      Caucasus highlands, a wild mountain frontier that feels closer to Central Asia than Western Europe,
-      and a food and wine culture that is entirely its own. At a fraction of the cost of comparable Alpine
-      or Scandinavian destinations, it offers spectacular mountain scenery, genuine adventure and a level
-      of cultural richness that few other trips on this list can match.
+      Georgië is een van Europa's best bewaarde geheimen — oude grotensteden, middeleeuwse torendorpen
+      in de Kaukasische hooglanden, een wilde berggrens die dichter bij Centraal-Azië aanvoelt dan bij
+      West-Europa, en een eet- en wijncultuur die geheel eigen is. Voor een fractie van de kosten van
+      vergelijkbare Alpiene of Scandinavische bestemmingen biedt het spectaculair berglandschap, echt
+      avontuur en een culturele rijkdom die maar weinig andere reizen op deze lijst kunnen evenaren.
 
     transport: "✈ Plane + 🚗 Rental car"
 
@@ -26,15 +26,15 @@ trip:
 
     highlights:
       - Tbilisi
-      - Military Highway
+      - Georgische Heerweg
       - Kazbegi
-      - Gergeti Trinity Church
-      - Truso Valley
-      - Kakheti Wine Region
+      - Gergeti Drievuldigheidskerk
+      - Truso-vallei
+      - Kakheti Wijnstreek
       - Mestia
       - Ushguli
       - Svaneti
-      - Caucasus Mountains
+      - Kaukasus
 
     cost:
       couple:

@@ -34,6 +34,23 @@ COUNTRY_ISO = {
 
 FLAG_ICONS_CDN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">'
 
+COUNTRY_NL = {
+    "Iceland": "IJsland",
+    "Norway": "Noorwegen",
+    "Scotland": "Schotland",
+    "Faroe Islands": "Faeröer",
+    "Azores": "Azoren",
+    "Montenegro": "Montenegro",
+    "New Zealand": "Nieuw-Zeeland",
+    "Patagonia": "Patagonë",
+    "South Africa": "Zuid-Afrika",
+    "Namibia": "Namibië",
+    "Georgia": "Georgië",
+    "Italy (Dolomites)": "Italië (Dolomieten)",
+    "Switzerland": "Zwitserland",
+    "Reunion Island": "Réunion",
+}
+
 # ── colour palette (one per base + final stop) ───────────────────────────────
 BASE_COLORS = [
     {"hex": "#e74c3c", "folium": "red"},
@@ -49,24 +66,263 @@ FINAL_STOP_COLOR = {"hex": "#e67e22", "folium": "orange"}
 
 # ── priority → display info ───────────────────────────────────────────────────
 PRIORITY_META = {
-    "must_do": {"stars": "★★★★", "label": "Must do", "radius": 11},
-    "highly_recommended": {"stars": "★★★☆", "label": "Highly recommended", "radius": 9},
-    "if_time": {"stars": "★★☆☆", "label": "If time allows", "radius": 7},
+    "must_do": {"stars": "★★★★", "label": "Absoluut doen", "radius": 11},
+    "highly_recommended": {"stars": "★★★☆", "label": "Sterk aanbevolen", "radius": 9},
+    "if_time": {"stars": "★★☆☆", "label": "Als er tijd is", "radius": 7},
     "optional_paid_activity": {
         "stars": "★☆☆☆",
-        "label": "Optional paid activity",
+        "label": "Optionele betaalde activiteit",
         "radius": 6,
     },
 }
-DEFAULT_PRIORITY = {"stars": "☆☆☆☆", "label": "No rating", "radius": 6}
+DEFAULT_PRIORITY = {"stars": "☆☆☆☆", "label": "Geen beoordeling", "radius": 6}
 
 
 def _priority(p: str) -> dict:
     return PRIORITY_META.get(p, DEFAULT_PRIORITY)
 
 
+# Dutch labels for attraction/stop types
+TYPE_NL = {
+    "adventure": "avontuur",
+    "adventure_activity": "avontuurlijke activiteit",
+    "alpine_hike": "alpine wandeling",
+    "alpine_hiking": "alpine wandeling",
+    "alpine_lake": "alpenmeer",
+    "alpine_meadow": "alpenweiland",
+    "alpine_route": "alpenroute",
+    "alpine_valley": "alpenvallei",
+    "architecture": "architectuur",
+    "arrival_point": "aankomstpunt",
+    "backup_viewpoint": "alternatief uitkijkpunt",
+    "basalt_formations": "basaltformaties",
+    "beach": "strand",
+    "beach_hike": "strandwandeling",
+    "black_sand_beach": "zwart zandstrand",
+    "boat_trip": "boottocht",
+    "boat_trip_lake": "boottocht meer",
+    "boat_trip_sea_cliffs": "boottocht zeekliffen",
+    "boat_trip_short": "korte boottocht",
+    "cable_car_hike": "kabelbaan en wandeling",
+    "cable_car_viewpoint": "kabelbaan uitkijkpunt",
+    "canyon": "canyon",
+    "canyon_hiking": "canyon wandeling",
+    "canyon_scenic_drive": "canyon schilderachtige rit",
+    "canyon_viewpoint": "canyon uitkijkpunt",
+    "canyon_walk": "canyon wandeling",
+    "canyon_waterfall": "canyon waterval",
+    "castle": "kasteel",
+    "castle_ruin": "kasteelruïne",
+    "cave": "grot",
+    "church_viewpoint": "kerk uitkijkpunt",
+    "city": "stad",
+    "city_experience": "stadsbeleving",
+    "city_or_meal_stop": "stadsstop of maaltijdstop",
+    "city_overnight_stop": "stad overnachting",
+    "city_stop": "stadsstop",
+    "city_stop_or_overnight": "stadsstop of overnachting",
+    "city_walk": "stadswandeling",
+    "cliffs": "kliffen",
+    "cloud_forest": "wolkenbos",
+    "coastal_landscape": "kustlandschap",
+    "coastal_scenic": "schilderachtige kust",
+    "coastal_town": "kuststad",
+    "coastal_viewpoint": "kust uitkijkpunt",
+    "coastal_village": "kustdorp",
+    "coastal_walk": "kustwandeling",
+    "coastal_waterfalls": "kustwatervallen",
+    "crater": "krater",
+    "crater_hike": "kraterwandeling",
+    "crater_lake": "kratermeer",
+    "cultural_landmark": "cultureel monument",
+    "cultural_site": "culturele bezienswaardighed",
+    "desert_landscape": "woestijnlandschap",
+    "desert_stop": "woestijnstop",
+    "dune_excursion": "duinexcursie",
+    "dune_hike": "duinwandeling",
+    "dunes": "duinen",
+    "engineering_landmark": "ingenieursbouwwerk",
+    "family_activity": "gezinsactiviteit",
+    "family_cultural_activity": "culturele gezinsactiviteit",
+    "ferry_hike_viewpoint": "veerboot wandeling uitkijkpunt",
+    "film_location": "filmlocatie",
+    "fishing_town": "visserstadje",
+    "fishing_village": "vissersdorp",
+    "fjord": "fjord",
+    "fjord_cruise": "fjordcruise",
+    "fjord_village": "fjorddorp",
+    "fjord_village_lunch_stop": "fjorddorp lunchtussenstop",
+    "forest_walk": "boswandeling",
+    "fortress": "vesting",
+    "geological_site": "geologische locatie",
+    "geology": "geologie",
+    "geology_hike": "geologische wandeling",
+    "geothermal": "geothermisch",
+    "geothermal_area": "geothermisch gebied",
+    "geothermal_bath": "geothermisch bad",
+    "geothermal_beach": "geothermisch strand",
+    "geothermal_hike": "geothermische wandeling",
+    "geothermal_park": "geothermisch park",
+    "geothermal_pool": "geothermisch bad",
+    "glacial_lake": "gletsjermeer",
+    "glacier": "gletsjer",
+    "glacier_hike": "gletsjerwandeling",
+    "glacier_lagoon": "gletsjerlaguune",
+    "glacier_lake_hike": "gletsjermeer wandeling",
+    "glacier_viewpoint": "gletsjer uitkijkpunt",
+    "glacier_walk": "gletsjerwandeling",
+    "gondola": "gondel",
+    "gorge": "kloof",
+    "granite_mountains": "granieten bergen",
+    "guided_hike_or_boat_tour": "begeleide wandeling of boottocht",
+    "harry_potter_highlight": "Harry Potter locatie",
+    "hike": "wandeling",
+    "hike_hot_spring": "wandeling hete bron",
+    "hike_viewpoint": "wandeling uitkijkpunt",
+    "hiking": "wandelen",
+    "hiking_viewpoint": "wandelen uitkijkpunt",
+    "hill_town": "heuvelstadje",
+    "historic_loch": "historisch loch",
+    "historic_site": "historische locatie",
+    "historic_town": "historische stad",
+    "historic_village": "historisch dorp",
+    "hot_spring": "hete bron",
+    "iconic_hike": "iconische wandeling",
+    "iconic_viewpoint": "iconisch uitkijkpunt",
+    "immersive_experience": "meeslepende beleving",
+    "island_day_trip": "eiland dagtocht",
+    "island_drive_villages_beaches": "eilandrit dorpen en stranden",
+    "island_ferry_hike_puffins": "veerboot wandeling papegaaiduikers",
+    "lagoon": "lagune",
+    "lake": "meer",
+    "lake_scenic_drive": "meer schilderachtige rit",
+    "lake_scenic_drive_walk": "meer schilderachtige rit en wandeling",
+    "lake_walk": "meerwandeling",
+    "landmark": "bezienswaardigheid",
+    "landscape": "landschap",
+    "lava_field": "lavaveld",
+    "lava_formations": "lavaformaties",
+    "monastery": "klooster",
+    "monument": "monument",
+    "mountain": "berg",
+    "mountain_area": "berggebied",
+    "mountain_hike": "bergwandeling",
+    "mountain_hike_viewpoint": "bergwandeling uitkijkpunt",
+    "mountain_landscape": "berglandschap",
+    "mountain_national_park": "nationaal park (berg)",
+    "mountain_pass": "bergpas",
+    "mountain_railway": "bergspoorweg",
+    "mountain_railway_viewpoint": "bergspoorweg uitkijkpunt",
+    "mountain_resort": "bergresort",
+    "mountain_scenery": "bergscenerie",
+    "mountain_town": "bergstadje",
+    "mountain_viewpoint": "berg uitkijkpunt",
+    "mountain_village": "bergdorp",
+    "mountains": "bergen",
+    "museum": "museum",
+    "museum_history": "historisch museum",
+    "national_park": "nationaal park",
+    "nature": "natuur",
+    "nature_history": "natuur en geschiedenis",
+    "old_town": "historische binnenstad",
+    "own_car_from_belgium": "eigen auto vanuit België",
+    "paid_activity": "betaalde activiteit",
+    "plateau_hike": "plateauwandeling",
+    "plateau_hiking": "plateauwandeling",
+    "plateau_scenic_drive_hike": "plateau schilderachtige rit en wandeling",
+    "practical_overnight_stop": "praktische overnachting",
+    "rainforest": "regenwoud",
+    "rainforest_beach": "regenwoud strand",
+    "rainforest_hike": "regenwoudwandeling",
+    "rainforest_walk": "regenwoudwandeling",
+    "relaxation": "ontspanning",
+    "rock_art": "rotstekeningen",
+    "route_choice": "routekeuze",
+    "ruins_historic_site": "ruïnes historische locatie",
+    "safari": "safari",
+    "scenic_cable_car": "schilderachtige kabelbaan",
+    "scenic_drive": "schilderachtige rit",
+    "scenic_drive_plateau": "schilderachtige rit plateau",
+    "scenic_flight": "schilderachtige vlucht",
+    "scenic_hiking_area": "schilderachtig wandelgebied",
+    "scenic_lake": "schilderachtig meer",
+    "scenic_loch": "schilderachtig loch",
+    "scenic_mountain_road": "schilderachtige bergweg",
+    "scenic_pass": "schilderachtige bergpas",
+    "scenic_town": "schilderachtig stadje",
+    "scenic_train": "schilderachtige treinrit",
+    "scenic_valley": "schilderachtige vallei",
+    "scenic_viewpoint": "schilderachtig uitkijkpunt",
+    "scenic_village": "schilderachtig dorp",
+    "scenic_walk": "schilderachtige wandeling",
+    "sea_stack_viewpoint": "zeestapel uitkijkpunt",
+    "seal_colony": "zeehondenkolonie",
+    "short_hike": "korte wandeling",
+    "short_hike_viewpoint": "korte wandeling uitkijkpunt",
+    "short_island_ferry_walk": "korte eiland veerboot wandeling",
+    "small_hot_spring": "kleine hete bron",
+    "snorkeling": "snorkelen",
+    "snorkeling_wildlife": "snorkelen wildlife",
+    "strenuous_hike": "zware wandeling",
+    "thermal_pool": "thermaal bad",
+    "town": "stadje",
+    "town_mountain_valley": "stad bergvallei",
+    "town_outdoor_activities": "stad buitenactiviteiten",
+    "town_stop": "stadstussenstop",
+    "town_walk": "stadswandeling",
+    "town_walk_culture": "stadswandeling cultuur",
+    "tramway": "tram",
+    "tunnel_route_feature": "tunnelroute",
+    "unesco_landscape": "UNESCO landschap",
+    "urban_hike": "stedelijke wandeling",
+    "urban_park": "stadspark",
+    "valley": "vallei",
+    "valley_hike": "valleiwandeling",
+    "valley_walk": "valleiwandeling",
+    "viewpoint": "uitkijkpunt",
+    "viewpoint_hike": "uitkijkpunt wandeling",
+    "viewpoint_paid_activity": "uitkijkpunt betaalde activiteit",
+    "village": "dorp",
+    "village_beach_viewpoint": "dorp strand uitkijkpunt",
+    "village_coast": "kustdorp",
+    "village_drive": "dorpsrit",
+    "village_fjord_view": "dorp fjorduitzicht",
+    "village_gorge_walk": "dorp kloofwandeling",
+    "village_lagoon_landscape": "dorp laguunlandschap",
+    "village_lake_walk": "dorp meerwandeling",
+    "village_mountain_viewpoint": "dorp berg uitkijkpunt",
+    "village_river_gorge": "dorp rivierkloof",
+    "village_short_walk": "dorp korte wandeling",
+    "village_viewpoint": "dorp uitkijkpunt",
+    "volcanic_area": "vulkanisch gebied",
+    "volcanic_caldera": "vulkanische caldera",
+    "volcanic_coastline": "vulkanische kustlijn",
+    "volcanic_hike": "vulkanische wandeling",
+    "volcanic_lake": "vulkanisch meer",
+    "volcanic_landscape": "vulkanisch landschap",
+    "volcano": "vulkaan",
+    "volcano_center": "vulkaancentrum",
+    "volcano_hike": "vulkaanwandeling",
+    "volcano_scenery": "vulkaanscenerie",
+    "walk": "wandeling",
+    "water_activity": "wateractiviteit",
+    "waterfall": "waterval",
+    "waterfall_geology": "waterval geologie",
+    "waterfall_hike": "watervalwandeling",
+    "waterfall_park": "watervalpark",
+    "waterfall_viewpoint": "waterval uitkijkpunt",
+    "waterfall_village_viewpoint": "waterval dorp uitkijkpunt",
+    "waterfall_walk": "watervalwandeling",
+    "wildlife": "wildlife",
+    "wildlife_boat_trip": "wildlife boottocht",
+    "wildlife_walk": "wildlife wandeling",
+    "bridge_crossing": "brugoverstapping",
+    "canal_landscape": "kanallandschap",
+}
+
+
 def _type_label(t: str) -> str:
-    return t.replace("_", " ").title() if t else "—"
+    return TYPE_NL.get(t, t.replace("_", " ").title()) if t else "—"
 
 
 def _lodging_tooltip(loc: dict, color: str) -> str:
@@ -79,7 +335,7 @@ def _lodging_tooltip(loc: dict, color: str) -> str:
         f'<b style="color:{color};font-size:16px">🏨 {loc["name"]}</b><br>'
         f'<span style="color:#555">{region}</span><br>'
         f'<hr style="margin:4px 0">'
-        f"<b>Nights:</b> {nights}"
+        f"<b>Nachten:</b> {nights}"
         f"{note_html}"
         f"</div>"
     )
@@ -89,7 +345,7 @@ def _attraction_tooltip(attr: dict, base_name: str, color: str) -> str:
     pm = _priority(attr.get("priority", ""))
     hours = attr.get("visit_duration_hours", "?")
     drive = attr.get("drive_time_minutes")
-    drive_str = f"{drive} min drive" if drive else ""
+    drive_str = f"{drive} min rijden" if drive else ""
     atype = _type_label(attr.get("type", ""))
     strategy = attr.get("visit_strategy", {})
     note = strategy.get("notes", "")
@@ -100,13 +356,15 @@ def _attraction_tooltip(attr: dict, base_name: str, color: str) -> str:
         f'<span style="color:{color};font-weight:bold">{pm["stars"]} {pm["label"]}</span><br>',
         f'<hr style="margin:4px 0">',
         f"<b>Type:</b> {atype}<br>",
-        f"<b>Duration:</b> {hours} h",
+        f"<b>Duur:</b> {hours} h",
     ]
     if drive_str:
-        lines.append(f"<br><b>From base:</b> {drive_str}")
+        lines.append(f"<br><b>Vanaf basis:</b> {drive_str}")
     if evening is True:
-        lines.append('<br><span style="color:#e67e22">🌅 Good for evening visit</span>')
-    lines.append(f'<br><b>Base:</b> <span style="color:{color}">{base_name}</span>')
+        lines.append(
+            '<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span>'
+        )
+    lines.append(f'<br><b>Basis:</b> <span style="color:{color}">{base_name}</span>')
     if note:
         lines.append(f'<br><i style="color:#666;font-size:13px">{note}</i>')
     lines.append("</div>")
@@ -119,7 +377,7 @@ def _transfer_stop_tooltip(stop: dict, route_desc: str, color: str) -> str:
     atype = _type_label(stop.get("type", ""))
     role = stop.get("transfer_role", "").replace("_", " ").title()
     note = stop.get("planning_note", "")
-    role_html = f"<br><b>Role:</b> {role}" if role else ""
+    role_html = f"<br><b>Rol:</b> {role}" if role else ""
     note_html = f'<br><i style="color:#666;font-size:13px">{note}</i>' if note else ""
     return (
         f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">'
@@ -127,9 +385,9 @@ def _transfer_stop_tooltip(stop: dict, route_desc: str, color: str) -> str:
         f'<span style="color:{color};font-weight:bold">{pm["stars"]} {pm["label"]}</span><br>'
         f'<hr style="margin:4px 0">'
         f"<b>Type:</b> {atype}<br>"
-        f"<b>Stop duration:</b> {hours} h"
+        f"<b>Stopduur:</b> {hours} h"
         f"{role_html}"
-        f'<br><b>En route:</b> <span style="color:{color}">{route_desc}</span>'
+        f'<br><b>Onderweg:</b> <span style="color:{color}">{route_desc}</span>'
         f"{note_html}"
         f"</div>"
     )
@@ -147,7 +405,7 @@ def _final_stop_tooltip(stop: dict) -> str:
     return (
         f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">'
         f'<b style="color:{color};font-size:16px">🏙️ {stop["name"]}</b><br>'
-        f'<span style="color:#555">Final stop</span>'
+        f'<span style="color:#555">Eindbestemming</span>'
         f'<hr style="margin:4px 0">'
         f"<ul style='margin:4px 0 0 14px;padding:0'>{items}</ul>"
         f"{note_html}"
@@ -159,9 +417,10 @@ def build_map(data: dict) -> folium.Map:
     trip = data["trip"]
     bases = trip.get("lodging_locations", [])
     final = trip.get("final_stop")
-    final_name = final["name"] if final else "Final stop"
+    final_name = final["name"] if final else "Eindbestemming"
     country = trip.get("country", "")
     iso = COUNTRY_ISO.get(country, "")
+    display_country = COUNTRY_NL.get(country, country)
     flag_html = (
         f'<span class="fi fi-{iso}" style="border-radius:3px;margin-right:5px"></span>'
         if iso
@@ -199,7 +458,7 @@ def build_map(data: dict) -> folium.Map:
     if final:
         legend_rows += (
             f'<tr><td><span style="color:{FINAL_STOP_COLOR["hex"]};font-size:18px">■</span></td>'
-            f'<td style="padding-left:6px">{final_name} (final stop)</td></tr>'
+            f'<td style="padding-left:6px">{final_name} (eindbestemming)</td></tr>'
         )
     priority_rows = "".join(
         f'<tr><td>{v["stars"]}</td><td style="padding-left:6px">{v["label"]}</td></tr>'
@@ -224,31 +483,31 @@ def build_map(data: dict) -> folium.Map:
         background: white; padding: 12px 16px; border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
     ">
-        <b style="font-size:15px">{flag_html}{country}</b>
+        <b style="font-size:15px">{flag_html}{display_country}</b>
         <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Bases</b>
+        <b style="font-size:14px">Verblijfplaatsen</b>
         <table style="border-collapse:collapse;margin-top:4px">{legend_rows}</table>
         <hr style="margin:8px 0">
-        <b style="font-size:14px">Priority (marker size)</b>
+        <b style="font-size:14px">Prioriteit (markergrootte)</b>
         <table style="border-collapse:collapse;margin-top:4px">{priority_rows}</table>
         <hr style="margin:8px 0">
         <span style="font-size:12px;color:#666">
-            🏨 = lodging &nbsp;|&nbsp; ● = attraction &nbsp;|&nbsp; ◇ = en-route stop
+            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
         </span>
         <hr style="margin:8px 0">
         <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Back to country selection</a>
+           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
     </div>
     """
     fmap.get_root().header.add_child(folium.Element(FLAG_ICONS_CDN))
     fmap.get_root().html.add_child(folium.Element(legend_html))
 
     # ── feature groups (become toggleable layers) ─────────────────────────────
-    fg_lodging = folium.FeatureGroup(name="🏨 Lodging", show=True)
-    fg_attractions = folium.FeatureGroup(name="● Base attractions", show=True)
-    fg_transfer = folium.FeatureGroup(name="◇ En-route stops", show=True)
+    fg_lodging = folium.FeatureGroup(name="🏨 Verblijven", show=True)
+    fg_attractions = folium.FeatureGroup(name="● Bezienswaardigheden", show=True)
+    fg_transfer = folium.FeatureGroup(name="◇ Tussenstops", show=True)
     fg_final = folium.FeatureGroup(name=f"★ {final_name}", show=True)
-    fg_airport = folium.FeatureGroup(name="✈ Airport", show=True)
+    fg_airport = folium.FeatureGroup(name="✈ Luchthaven", show=True)
 
     # ── lodging + attractions ─────────────────────────────────────────────────
     for i, loc in enumerate(bases):
@@ -416,6 +675,7 @@ def build_selection_page(countries: list) -> str:
         iso = COUNTRY_ISO.get(country, "")
         rank = overview.get("rank", "")
         card_id = country.lower().replace(" ", "-").replace("(", "").replace(")", "")
+        display_country = COUNTRY_NL.get(country, country)
         lat, lon = c["center"]
         label = f"#{rank}" if rank else "?"
         flag_span = (
@@ -447,13 +707,13 @@ def build_selection_page(countries: list) -> str:
         family_range = (cost.get("family") or {}).get("eur_range", "")
         popup_html = (
             f'<div style="font-family:sans-serif;font-size:13px;min-width:180px;text-align:center">'
-            f"{flag_span}<b style='font-size:14px'>{country}</b><br>{rank_line}"
+            f"{flag_span}<b style='font-size:14px'>{display_country}</b><br>{rank_line}"
             f'<hr style="margin:5px 0">'
-            f'<span style="font-size:12px">📅 {duration} days &nbsp;·&nbsp; 🏨 {bases_count} bases</span><br>'
+            f'<span style="font-size:12px">📅 {duration} dagen &nbsp;·&nbsp; 🏨 {bases_count} verblijven</span><br>'
             f'<span style="font-size:12px">💑 {couple_range or "—"}</span><br>'
-            f'<span style="font-size:12px">👨‍👩‍👧‍👦 {family_range or "—"}</span>'
+            f'<span style="font-size:12px">👨\u200d👩\u200d👧\u200d👦 {family_range or "—"}</span>'
             f'<hr style="margin:5px 0">'
-            f'<a href="#{card_id}" style="color:#2c3e50;font-weight:bold;font-size:12px">Jump to details ↓</a>'
+            f'<a href="#{card_id}" style="color:#2c3e50;font-weight:bold;font-size:12px">Naar details ↓</a>'
             f"</div>"
         )
         markers_js += (
@@ -468,6 +728,7 @@ def build_selection_page(countries: list) -> str:
         overview = trip.get("overview", {})
         country = trip.get("country", "Unknown")
         iso = COUNTRY_ISO.get(country, "")
+        display_country = COUNTRY_NL.get(country, country)
         rank = overview.get("rank")
 
         duration = overview.get("duration_days") or trip.get("duration", {}).get(
@@ -494,18 +755,18 @@ def build_selection_page(countries: list) -> str:
             <div class="card-header">
                 {rank_badge}
                 <span class="fi fi-{iso} card-flag"></span>
-                <h2>{country}</h2>
+                <h2>{display_country}</h2>
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat-row"><span>📅 {duration} days</span><span>🏨 {bases_count} bases</span></div>
+                    <div class="stat-row"><span>📅 {duration} dagen</span><span>🏨 {bases_count} verblijven</span></div>
                     <div class="stat-row"><span>{transport}</span></div>
                     <div class="stat-row cost-{cost.get("relative_costs", "medium").replace("_", "-")}"><span>💑 {couple_range or "—"}</span><span>👨‍👩‍👧‍👦 {family_range or "—"}</span></div>
                 </div>
                 {"<p class='summary'>" + summary + "</p>" if summary else ""}
                 {"<p class='reason'>" + summary_reason + "</p>" if summary_reason else ""}
                 {"<ul class='highlights'>" + highlights_html + "</ul>" if highlights else ""}
-                <div class="cta">View map →</div>
+                <div class="cta">Bekijk kaart →</div>
             </div>
         </div>"""
 
@@ -514,7 +775,7 @@ def build_selection_page(countries: list) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Plans</title>
+    <title>Reisplannen</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
@@ -726,23 +987,23 @@ def build_selection_page(countries: list) -> str:
 </head>
 <body>
     <div class="page">
-        <h1>🗺️ Travel Plans</h1>
-        <p class="subtitle">Select a destination to explore the interactive map</p>
+        <h1>🗺️ Reisplannen</h1>
+        <p class="subtitle">Kies een bestemming om de interactieve kaart te verkennen</p>
         <div style="position:relative;margin-bottom:32px">
             <div id="world-map"></div>
             <div class="cost-legend">
-                <b style="font-size:12px">Trip cost</b><br>
-                <span style="color:#27ae60">●</span> Low
-                &nbsp;<span style="color:#e67e22">●</span> Medium
-                &nbsp;<span style="color:#e74c3c">●</span> High
-                &nbsp;<span style="color:#1a1a1a">●</span> Very high
+                <b style="font-size:12px">Reiskosten</b><br>
+                <span style="color:#27ae60">●</span> Laag
+                &nbsp;<span style="color:#e67e22">●</span> Gemiddeld
+                &nbsp;<span style="color:#e74c3c">●</span> Hoog
+                &nbsp;<span style="color:#1a1a1a">●</span> Zeer hoog
             </div>
         </div>
         <div class="sort-bar">
-            Sort by:
-            <button class="sort-btn active" data-sort="rank">⭐ Rank</button>
-            <button class="sort-btn" data-sort="cost">💰 Cost (low → high)</button>
-            <button class="sort-btn" data-sort="cost-rank">🏆 Best value</button>
+            Sorteren op:
+            <button class="sort-btn active" data-sort="rank">⭐ Rangschikking</button>
+            <button class="sort-btn" data-sort="cost">💰 Prijs (laag → hoog)</button>
+            <button class="sort-btn" data-sort="cost-rank">🏆 Beste prijs-kwaliteit</button>
         </div>
         <div class="cards" id="cards-grid">{cards_html}
         </div>

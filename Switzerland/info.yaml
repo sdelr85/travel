@@ -3,23 +3,23 @@ trip:
 
   overview:
     rank: 14
-    summary: "14-day family self-drive trip through the Bernese Oberland and Matterhorn regions."
+    summary: "14-daagse familie-autoreis door het Berner Oberland en de Matterhorn-streek."
     summary_reason: >
-      Switzerland combines some of Europe's most spectacular mountain scenery,
-      crystal-clear lakes, glaciers, waterfalls and highly accessible alpine hiking.
-      The combination of Lauterbrunnen Valley, Oeschinensee, Jungfrau region and
-      the Matterhorn creates one of the finest mountain holidays in the world.
+      Zwitserland combineert een van Europa's meest spectaculaire berglandschappen, kristalheldere meren,
+      gletsjers, watervallen en zeer toegankelijke alpenwandelingen. De combinatie van het Lauterbrunnen-dal,
+      het Oeschinenmeer, de Jungfrau-regio en het Matterhorn maakt het een van de mooiste bergreizen
+      ter wereld.
     transport: "🚗 Own car"
     duration_days: 14
     travel_style: "Family alpine vacation"
     highlights:
-      - "Lauterbrunnen Valley"
-      - "Oeschinensee"
+      - "Lauterbrunnen-dal"
+      - "Oeschinenmeer"
       - "Grindelwald First"
-      - "Jungfrau Region"
+      - "Jungfrau-regio"
       - "Matterhorn"
       - "Gornergrat"
-      - "Aletsch Glacier"
+      - "Aletsch Gletsjer"
     cost:
       couple:
         eur_range: "€4,000 - €7,000"

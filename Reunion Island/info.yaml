@@ -3,23 +3,23 @@ trip:
 
   overview:
     rank: 8
-    summary: "14-day family self-drive trip through the volcanic, mountainous and coastal highlights of Réunion Island."
+    summary: "14-daagse familie-autoreis langs de vulkanische, bergachtige en kustgebonden hoogtepunten van Réunion."
     summary_reason: >
-      A unique combination of active volcanoes, dramatic mountain cirques,
-      waterfalls, tropical forests, whale watching, snorkeling and excellent hiking.
-      One of the few destinations in the world where alpine-style mountain scenery,
-      volcanic landscapes and tropical ocean experiences coexist on a single island.
+      Een unieke combinatie van actieve vulkanen, dramatische bergcirques, watervallen, tropische bossen,
+      walvissafari, snorkelen en uitstekende wandelmogelijkheden. Een van de weinige bestemmingen ter
+      wereld waar alpenachtig berglandschap, vulkanische landschappen en tropische oceaanbeleving
+      samengaan op één enkel eiland.
     transport: "✈ Plane + 🚗 Rental car"
     duration_days: 14
     travel_style: "Fly-in family self-drive"
     highlights:
-      - "Piton de la Fournaise volcano"
+      - "Vulkaan Piton de la Fournaise"
       - "Cirque de Cilaos"
       - "Cirque de Salazie"
       - "Trou de Fer"
-      - "West coast lagoons and snorkeling"
-      - "Whale watching (seasonal)"
-      - "Lava coastline"
+      - "Lagunen en snorkelen aan de westkust"
+      - "Walvissafari (seizoensgebonden)"
+      - "Lavakustlijn"
     cost:
       couple:
         eur_range: "€5,000 - €8,000"

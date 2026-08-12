@@ -3,23 +3,24 @@ trip:
 
   overview:
     rank: 13
-    summary: "10-day family fly-in self-drive trip through the Faroe Islands, focused on dramatic landscapes, hikes, villages, sea cliffs, waterfalls and one or two optional island/boat activities."
+    summary: "10-daagse familie-autoreis door de Faeröer, gericht op dramatische landschappen, wandelingen, dorpjes, zeekliffen, watervallen en één of twee optionele eiland-/boottochten."
     summary_reason: >
-      The Faroe Islands feel like an island chain at the edge of the world — grass-roofed villages clinging to
-      clifftops, waterfalls tumbling directly into the sea, and roads that tunnel through mountains to reach
-      settlements most people have never heard of. Unlike Iceland, the landscape here is intimate and
-      mysterious rather than vast, with hiking, puffin colonies and sea cliffs that feel genuinely off the beaten track.
+      De Faeröer voelen aan als een eilandengroep aan het einde van de wereld — grasgedekte dorpjes die
+      zich vastklampen aan klifttoppen, watervallen die direct in zee storten en wegen die door bergen
+      tunnelen om nederzettingen te bereiken die de meeste mensen nooit hebben gehoord. Anders dan IJsland
+      is het landschap hier intiem en mysterieus in plaats van uitgestrekt, met wandelingen,
+      papegaaiduikerkolonies en zeekliffen die zich echt buiten de gebaande paden bevinden.
     transport: "✈ Plane + 🚗 Rental car"
     duration_days: 10
     duration_nights: 9
     travel_style: "Fly-in family self-drive"
     recommended_season: "June to August for longest daylight, better hiking access and best chance for Mykines/puffins, while keeping weather flexibility."
     highlights:
-      - "Vagar: Mulafossur, Lake Sorvagsvatn/Leitisvatn, Bosdalafossur and Drangarnir views"
-      - "Northern islands: Klaksvik, Kalsoy, Kallur Lighthouse, Vidareidi and Kunoy"
-      - "Eysturoy and Streymoy: Saksun, Tjornuvik, Gjogv, Funningur and Eidi"
-      - "Torshavn and nearby islands: Kirkjubour, Nolsoy or Sandoy"
-      - "Optional Mykines or Vestmanna sea cliffs depending on weather"
+      - "Vagar: Mulafossur, meer Sørvágsvatn/Leitisvatn, Bøsdalafossur en uitzichten over Drangarnir"
+      - "Noordelijke eilanden: Klaksvik, Kalsoy, Kallur Vuurtoren, Viðareidí en Kunoy"
+      - "Eysturoy en Streymoy: Saksun, Tjørnuvík, Gjógv, Funningur en Eiði"
+      - "Tórshavn en nabijgelegen eilanden: Kirkjubøur, Nólsøy of Sandoy"
+      - "Optioneel: Mykines of Vestmanna zeekliffen afhankelijk van het weer"
     target_group:
       adults: 2
       children: 3
