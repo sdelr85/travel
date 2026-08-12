@@ -11,7 +11,11 @@ trip:
       canyons, night skies and scenic road trips.
 
     summary_reason: >
-      A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some of the clearest night skies on Earth.
+      Namibia is unlike any other destination on this list — an ocean of red sand dunes at Sossusvlei, a
+      ghost town swallowed by the desert at Kolmanskop, vast salt pans at Etosha where elephants and lions
+      come to drink, and night skies so dark and clear that the Milky Way is visible to the naked eye.
+      It is the definitive African road trip for those who want dramatic scenery and raw wilderness
+      rather than a conventional safari.
 
     transport: "✈ Plane + 🚗 Rental car (4x4 recommended)"
 
@@ -39,7 +43,7 @@ trip:
         eur_range: "€6,000 - €10,000"
       family:
         eur_range: "€10,000 - €17,000"
-      relative_costs: "high"
+      relative_costs: "very_high"
       assumptions:
         - "Mid-range accommodations"
         - "Peak summer season"

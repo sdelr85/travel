@@ -4,7 +4,11 @@ trip:
     rank: 15
     summary: "14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh."
     summary_reason: >
-      A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.
+      Scotland offers something the other European destinations on this list do not — a haunted, atmospheric
+      quality that comes from ancient castles half-swallowed by mist, single-track roads threading between
+      lochs, and the wild remoteness of Skye and the North Coast 500. Reachable by overnight ferry from
+      Belgium, it combines the best Highland scenery with whisky country, island landscapes and
+      a sense of history that feels genuinely epic without ever leaving Western Europe.
     transport: "🚗 Own car + ⛴ Overnight ferry to Newcastle"
     duration_days: 14
     travel_style: "Family road trip via ferry"

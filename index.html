@@ -82,17 +82,26 @@
         .card-body { padding: 12px 14px 14px; }
         .stats {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+            flex-direction: column;
+            gap: 4px;
             margin-bottom: 10px;
         }
-        .stat {
+        .stat-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .stat-row span {
             background: #f0f2f5;
             border-radius: 20px;
             padding: 4px 10px;
             font-size: 0.82rem;
             color: #444;
         }
+        .cost-low span    { background: #d5f0e0; color: #1a6e3a; }
+        .cost-medium span { background: #fdebd0; color: #a04000; }
+        .cost-high span   { background: #fce8e8; color: #922b21; }
+        .cost-very-high span { background: #4a4a4a; color: #f0f0f0; }
         .summary {
             color: #555;
             font-size: 0.85rem;
@@ -124,6 +133,29 @@
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.85rem;
+        }
+        .sort-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            color: rgba(255,255,255,.8);
+            font-size: 0.9rem;
+        }
+        .sort-btn {
+            background: rgba(255,255,255,.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .sort-btn.active, .sort-btn:hover {
+            background: rgba(255,255,255,.9);
+            color: #1a2a3a;
+            border-color: transparent;
         }
         #world-map {
             width: 100%;
@@ -195,8 +227,14 @@
                 &nbsp;<span style="color:#1a1a1a">●</span> Very high
             </div>
         </div>
-        <div class="cards">
-        <div class="card" onclick="window.location='New Zealand/map.html'">
+        <div class="sort-bar">
+            Sort by:
+            <button class="sort-btn active" data-sort="rank">⭐ Rank</button>
+            <button class="sort-btn" data-sort="cost">💰 Cost (low → high)</button>
+            <button class="sort-btn" data-sort="cost-rank">🏆 Best value</button>
+        </div>
+        <div class="cards" id="cards-grid">
+        <div class="card" onclick="window.location='New Zealand/map.html'" data-rank="1" data-cost="4">
             <div class="card-header">
                 <div class="rank-badge">#1</div>
                 <span class="fi fi-nz card-flag"></span>
@@ -204,20 +242,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 24 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ domestic flight</span></div>
-                    <div class="stat"><span>🏨 8 bases</span></div>
-                    <div class="stat"><span>💑 €8,000 - €12,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €14,000 - €22,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 24 days</span><span>🏨 8 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car + ✈ domestic flight</span></div>
+                    <div class="stat-row cost-very-high"><span>💑 €8,000 - €12,000</span><span>👨‍👩‍👧‍👦 €14,000 - €22,000</span></div>
                 </div>
                 <p class='summary'>24-day family fly-in self-drive trip through both the North and South Island of New Zealand, focused on mountains, volcanoes, geothermal landscapes, fjords, wildlife, lakes, hiking and adventure.
 </p>
-                <p class='reason'>The most complete nature and adventure destination in the world, combining volcanoes,  fjords, glaciers, mountains, wildlife and world-class road trips in a single journey.</p>
+                <p class='reason'>New Zealand is the only place on Earth where a single road trip takes you from active geothermal fields and glowing caves to the most dramatic fjords in the southern hemisphere, past glaciers that reach almost to sea level, and through mountains that look like they were designed for a fantasy film. Unlike any other destination on this list, the sheer variety never stops — every two hours the landscape reinvents itself completely, and the combination of Milford Sound, the Southern Alps, Tongariro and Abel Tasman makes it the most complete nature journey in the world.</p>
                 <ul class='highlights'><li>Tongariro Alpine Crossing</li><li>Rotorua geothermal region</li><li>Hobbiton</li><li>Cathedral Cove</li><li>Mount Cook</li><li>Hooker Valley Track</li><li>Wanaka</li><li>Roys Peak</li><li>Milford Sound</li><li>Fiordland</li><li>Queenstown</li><li>Glenorchy</li><li>Kaikoura whales</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Patagonia/map.html'">
+        <div class="card" onclick="window.location='Patagonia/map.html'" data-rank="2" data-cost="4">
             <div class="card-header">
                 <div class="rank-badge">#2</div>
                 <span class="fi fi-ar card-flag"></span>
@@ -225,20 +261,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 17 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €6,000 - €10,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 17 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-very-high"><span>💑 €6,000 - €10,000</span><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
                 </div>
                 <p class='summary'>17-day family self-drive trip through the most spectacular regions of Southern Patagonia, combining Argentina and Chile. Focus on glaciers, iconic mountain landscapes, wildlife, hiking, scenic drives and national parks.
 </p>
-                <p class='reason'>Choose Patagonia for some of the most dramatic mountain and glacier landscapes on Earth,  centered around Fitz Roy, Torres del Paine and Perito Moreno.</p>
+                <p class='reason'>Patagonia is where the Andes collapse into jagged granite needles, ancient glaciers calve into milky-blue lakes, and the wind is so fierce it shapes the very land. Torres del Paine, Fitz Roy and Perito Moreno glacier are on a different visual scale from anything in Europe — monumental, elemental and entirely unforgettable. For a family that wants to experience genuine end-of-the-world grandeur, there is nowhere else quite like it.</p>
                 <ul class='highlights'><li>Perito Moreno Glacier</li><li>El Chalten</li><li>Fitz Roy</li><li>Laguna de los Tres</li><li>Laguna Torre</li><li>Torres del Paine</li><li>Mirador Las Torres</li><li>Grey Glacier</li><li>Salto Grande</li><li>Guanaco and condor wildlife</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Iceland/map.html'">
+        <div class="card" onclick="window.location='Iceland/map.html'" data-rank="3" data-cost="3">
             <div class="card-header">
                 <div class="rank-badge">#3</div>
                 <span class="fi fi-is card-flag"></span>
@@ -246,19 +280,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 13 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €5,000 - €8,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €8,000 - €13,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 13 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-high"><span>💑 €5,000 - €8,000</span><span>👨‍👩‍👧‍👦 €8,000 - €13,000</span></div>
                 </div>
                 <p class='summary'>13-day counter-clockwise self-drive ring road trip through Iceland's most iconic landscapes.</p>
-                <p class='reason'>A unique combination of volcanoes, glaciers, geothermal landscapes, hot springs and whale watching that feels unlike anywhere else on the planet.</p>
+                <p class='reason'>Iceland is the only destination on this list where the land itself still feels unfinished — active volcanoes reshaping the coastline, geysers erupting on schedule, glaciers you can walk on and northern lights overhead in winter. The Ring Road puts world-class waterfalls, black sand beaches, glacier lagoons and whale watching within reach of a single two-week loop, with no crowds on the roads and a raw, elemental atmosphere that no other European destination comes close to matching.</p>
                 <ul class='highlights'><li>Golden Circle (Thingvellir, Geysir, Gullfoss)</li><li>South Coast (waterfalls, black beaches, glaciers)</li><li>North Iceland (Myvatn, Dettifoss, Husavik)</li><li>Snaefellsnes Peninsula</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Norway/map.html'">
+        <div class="card" onclick="window.location='Norway/map.html'" data-rank="4" data-cost="1">
             <div class="card-header">
                 <div class="rank-badge">#4</div>
                 <span class="fi fi-no card-flag"></span>
@@ -266,19 +298,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 13 days</span></div>
-                    <div class="stat"><span>🚗 Own car</span></div>
-                    <div class="stat"><span>🏨 3 bases</span></div>
-                    <div class="stat"><span>💑 €3,000 - €6,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €5,000 - €8,000</span></div>
-                    <div class="stat"><span>🧭 Family road trip from Belgium</span></div>
+                    <div class="stat-row"><span>📅 13 days</span><span>🏨 3 bases</span></div>
+                    <div class="stat-row"><span>🚗 Own car</span></div>
+                    <div class="stat-row cost-low"><span>💑 €3,000 - €6,000</span><span>👨‍👩‍👧‍👦 €5,000 - €8,000</span></div>
                 </div>
                 <p class='summary'>13-day family self-drive trip from Belgium through Denmark, Sweden and Norway's southern and western fjords, without international ferries.</p>
-                <p class='reason'>A perfect family road trip destination offering fjords, mountain hikes, scenic roads and highly accessible nature.</p>
+                <p class='reason'>Norway's fjord country is one of the most spectacular places in Europe, and the fact that it is reachable by car from Belgium makes it especially appealing. Naeroyfjord, Geirangerfjord and the Loen Skylift offer world-class scenery at every turn, while the route through Denmark and Sweden turns the journey itself into part of the adventure. Unlike a flight destination, the whole family is immersed in the landscape from the moment you leave home.</p>
                 <ul class='highlights'><li>Copenhagen / Malmo / Gothenburg / Oslo access route without international ferries</li><li>Telemark and Hardangervidda as a logical first Norway base</li><li>Sognefjord, Naeroyfjord and Aurlandsfjord around Aurland / Flam</li><li>Nordfjord, Loen Skylift, glacier landscapes and Geirangerfjord from Loen / Olden / Stryn</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Canada/map.html'">
+        <div class="card" onclick="window.location='Canada/map.html'" data-rank="5" data-cost="3">
             <div class="card-header">
                 <div class="rank-badge">#5</div>
                 <span class="fi fi-ca card-flag"></span>
@@ -286,19 +316,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 15 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €6,000 - €9,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €10,000 - €16,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 15 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-high"><span>💑 €6,000 - €9,000</span><span>👨‍👩‍👧‍👦 €10,000 - €16,000</span></div>
                 </div>
                 <p class='summary'>15-day family fly-in self-drive trip through the Canadian Rockies, focused on mountains, turquoise lakes, wildlife, hiking, waterfalls and scenic drives.</p>
-                <p class='reason'>The ultimate mix of alpine scenery, turquoise lakes, wildlife encounters, hiking and one of the world's greatest self-drive routes.</p>
+                <p class='reason'>The Canadian Rockies deliver the most iconic combination of turquoise glacial lakes, soaring peaks, hanging glaciers and roadside wildlife on Earth. Banff, Jasper and the Icefields Parkway are simply world-class — the kind of scenery that stops you mid-drive. Unlike Norway or New Zealand, the sheer density of unmissable highlights packed into a single road trip makes it feel almost impossibly rewarding.</p>
                 <ul class='highlights'><li>Banff National Park</li><li>Lake Louise</li><li>Moraine Lake</li><li>Icefields Parkway</li><li>Jasper National Park</li><li>Yoho National Park</li><li>Kananaskis Country</li><li>Emerald Lake</li><li>Athabasca Glacier</li><li>Canadian wildlife</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Japan/map.html'">
+        <div class="card" onclick="window.location='Japan/map.html'" data-rank="6" data-cost="3">
             <div class="card-header">
                 <div class="rank-badge">#6</div>
                 <span class="fi fi-jp card-flag"></span>
@@ -306,11 +334,9 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 15 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚆 Train + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €5,000 - €8,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €8,000 - €14,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family nature exploration</span></div>
+                    <div class="stat-row"><span>📅 15 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚆 Train + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-high"><span>💑 €5,000 - €8,000</span><span>👨‍👩‍👧‍👦 €8,000 - €14,000</span></div>
                 </div>
                 <p class='summary'>15-day family self-drive and rail-assisted adventure through Japan's mountains, volcanoes, alpine valleys and iconic natural landscapes.</p>
                 <p class='reason'>A unique combination of volcanoes, alpine scenery, forests, mountain villages, hot springs and Japanese culture. Unlike Europe or North America, the same spectacular nature comes with a completely different atmosphere, food and way of life.</p>
@@ -318,7 +344,7 @@
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='South Africa/map.html'">
+        <div class="card" onclick="window.location='South Africa/map.html'" data-rank="7" data-cost="4">
             <div class="card-header">
                 <div class="rank-badge">#7</div>
                 <span class="fi fi-za card-flag"></span>
@@ -326,20 +352,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 19 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ Domestic flight</span></div>
-                    <div class="stat"><span>🏨 6 bases</span></div>
-                    <div class="stat"><span>💑 €6,000 - €10,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 19 days</span><span>🏨 6 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car + ✈ Domestic flight</span></div>
+                    <div class="stat-row cost-very-high"><span>💑 €6,000 - €10,000</span><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
                 </div>
                 <p class='summary'>19-day family fly-in self-drive trip through South Africa, combining Cape Town, mountains, coastline, wildlife, the Garden Route and safari.
 </p>
-                <p class='reason'>A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within a single trip.</p>
+                <p class='reason'>South Africa is the only destination on this list where you can drive the most scenic coastal road in Africa in the morning, walk among penguins at noon, hike through fynbos on the Cape Peninsula in the afternoon, and have wine in Stellenbosch in the evening. Add a Kruger safari and the Drakensberg mountains, and you have a trip that shifts through completely different worlds — a diversity of experiences no other single country on this list can offer.</p>
                 <ul class='highlights'><li>Table Mountain</li><li>Cape Peninsula</li><li>Boulders Penguins</li><li>Hermanus</li><li>Garden Route</li><li>Tsitsikamma</li><li>Addo Elephant Park</li><li>Kruger National Park</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Reunion Island/map.html'">
+        <div class="card" onclick="window.location='Reunion Island/map.html'" data-rank="8" data-cost="3">
             <div class="card-header">
                 <div class="rank-badge">#8</div>
                 <span class="fi fi-re card-flag"></span>
@@ -347,11 +371,9 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 14 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €5,000 - €8,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €8,000 - €13,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 14 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-high"><span>💑 €5,000 - €8,000</span><span>👨‍👩‍👧‍👦 €8,000 - €13,000</span></div>
                 </div>
                 <p class='summary'>14-day family self-drive trip through the volcanic, mountainous and coastal highlights of Réunion Island.</p>
                 <p class='reason'>A unique combination of active volcanoes, dramatic mountain cirques, waterfalls, tropical forests, whale watching, snorkeling and excellent hiking. One of the few destinations in the world where alpine-style mountain scenery, volcanic landscapes and tropical ocean experiences coexist on a single island.</p>
@@ -359,7 +381,7 @@
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Alaska/map.html'">
+        <div class="card" onclick="window.location='Alaska/map.html'" data-rank="9" data-cost="4">
             <div class="card-header">
                 <div class="rank-badge">#9</div>
                 <span class="fi fi-us card-flag"></span>
@@ -367,19 +389,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 16 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 5 bases</span></div>
-                    <div class="stat"><span>💑 €7,000 - €11,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €12,000 - €20,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 16 days</span><span>🏨 5 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-very-high"><span>💑 €7,000 - €11,000</span><span>👨‍👩‍👧‍👦 €12,000 - €20,000</span></div>
                 </div>
                 <p class='summary'>16-day family self-drive trip through Southcentral Alaska, focused on wildlife, glaciers, fjords, mountains and scenic wilderness.</p>
-                <p class='reason'>Alaska combines some of the world's largest mountains, glaciers, fjords and wildlife populations into a single road trip. It feels like a wilder and more remote version of the Canadian Rockies, with excellent opportunities to see bears, whales, moose and spectacular coastal scenery.</p>
+                <p class='reason'>Alaska is the last great American wilderness — a place where grizzly bears fish alongside the road, humpback whales breach in glacier-carved fjords, and Denali rises above everything on the continent. Unlike Canada or New Zealand, the scale here is overwhelming: Kenai Fjords, Exit Glacier and Denali National Park deliver a raw, untamed experience that no other self-drive destination can match.</p>
                 <ul class='highlights'><li>Kenai Fjords National Park</li><li>Denali National Park</li><li>Exit Glacier</li><li>Whale watching</li><li>Bear viewing</li><li>Matanuska Glacier</li><li>Talkeetna and Denali viewpoints</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Namibia/map.html'">
+        <div class="card" onclick="window.location='Namibia/map.html'" data-rank="10" data-cost="4">
             <div class="card-header">
                 <div class="rank-badge">#10</div>
                 <span class="fi fi-na card-flag"></span>
@@ -387,20 +407,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 18 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car (4x4 recommended)</span></div>
-                    <div class="stat"><span>🏨 6 bases</span></div>
-                    <div class="stat"><span>💑 €6,000 - €10,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 18 days</span><span>🏨 6 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car (4x4 recommended)</span></div>
+                    <div class="stat-row cost-very-high"><span>💑 €6,000 - €10,000</span><span>👨‍👩‍👧‍👦 €10,000 - €17,000</span></div>
                 </div>
                 <p class='summary'>18-day family self-drive trip through Namibia, focused on desert landscapes, wildlife, mountains, canyons, night skies and scenic road trips.
 </p>
-                <p class='reason'>A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some of the clearest night skies on Earth.</p>
+                <p class='reason'>Namibia is unlike any other destination on this list — an ocean of red sand dunes at Sossusvlei, a ghost town swallowed by the desert at Kolmanskop, vast salt pans at Etosha where elephants and lions come to drink, and night skies so dark and clear that the Milky Way is visible to the naked eye. It is the definitive African road trip for those who want dramatic scenery and raw wilderness rather than a conventional safari.</p>
                 <ul class='highlights'><li>Sossusvlei</li><li>Deadvlei</li><li>Sesriem Canyon</li><li>Swakopmund</li><li>Walvis Bay</li><li>Skeleton Coast</li><li>Spitzkoppe</li><li>Damaraland</li><li>Desert Elephants</li><li>Etosha National Park</li><li>Waterberg Plateau</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Costa Rica/map.html'">
+        <div class="card" onclick="window.location='Costa Rica/map.html'" data-rank="11" data-cost="3">
             <div class="card-header">
                 <div class="rank-badge">#11</div>
                 <span class="fi fi-cr card-flag"></span>
@@ -408,20 +426,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 15 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 5 bases</span></div>
-                    <div class="stat"><span>💑 €5,000 - €9,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €9,000 - €15,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 15 days</span><span>🏨 5 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-high"><span>💑 €5,000 - €9,000</span><span>👨‍👩‍👧‍👦 €9,000 - €15,000</span></div>
                 </div>
                 <p class='summary'>15-day family fly-in self-drive trip through Costa Rica, combining rainforest, volcanoes, wildlife, waterfalls, beaches, snorkeling and adventure activities.
 </p>
-                <p class='reason'>The perfect complement to the other destinations on the list, combining tropical rainforest, wildlife, volcanoes, sea turtles, snorkeling and adventure in a compact and family-friendly itinerary.</p>
+                <p class='reason'>Costa Rica is the only destination on this list where you can watch sea turtles nest on a beach, hike through cloud forest in the morning, spot sloths and toucans from the road, and stand at the crater rim of an active volcano in the same week. It is the most compact and family-friendly tropical adventure available — a country that has turned biodiversity and eco-tourism into an art form, with wildlife encounters that feel natural and unhurried rather than staged.</p>
                 <ul class='highlights'><li>Arenal Volcano</li><li>La Fortuna Waterfall</li><li>Hanging Bridges</li><li>Sloths and monkeys</li><li>Rio Celeste</li><li>Monteverde Cloud Forest</li><li>Ziplining</li><li>Tortuguero</li><li>Sea turtles</li><li>Manuel Antonio</li><li>Snorkeling</li><li>Pacific beaches</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Italy/map.html'">
+        <div class="card" onclick="window.location='Italy/map.html'" data-rank="12" data-cost="1">
             <div class="card-header">
                 <div class="rank-badge">#12</div>
                 <span class="fi fi-it card-flag"></span>
@@ -429,11 +445,9 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 14 days</span></div>
-                    <div class="stat"><span>🚗 Own car</span></div>
-                    <div class="stat"><span>🏨 2 bases</span></div>
-                    <div class="stat"><span>💑 €2,500 - €5,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €4,000 - €8,000</span></div>
-                    <div class="stat"><span>🧭 Family mountain road trip</span></div>
+                    <div class="stat-row"><span>📅 14 days</span><span>🏨 2 bases</span></div>
+                    <div class="stat-row"><span>🚗 Own car</span></div>
+                    <div class="stat-row cost-low"><span>💑 €2,500 - €5,000</span><span>👨‍👩‍👧‍👦 €4,000 - €8,000</span></div>
                 </div>
                 <p class='summary'>14-day family self-drive trip through the most spectacular regions of the Italian Dolomites.</p>
                 <p class='reason'>The Dolomites offer some of the most dramatic mountain scenery in Europe, combining vertical limestone peaks, alpine meadows, mountain lakes, panoramic cable cars and highly accessible family hiking. A perfect blend of scenery, outdoor activities, villages and Italian food.</p>
@@ -441,7 +455,7 @@
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Faroe Islands/map.html'">
+        <div class="card" onclick="window.location='Faroe Islands/map.html'" data-rank="13" data-cost="2">
             <div class="card-header">
                 <div class="rank-badge">#13</div>
                 <span class="fi fi-fo card-flag"></span>
@@ -449,19 +463,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 10 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 3 bases</span></div>
-                    <div class="stat"><span>💑 €4,000 - €7,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €7,000 - €11,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 10 days</span><span>🏨 3 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-medium"><span>💑 €4,000 - €7,000</span><span>👨‍👩‍👧‍👦 €7,000 - €11,000</span></div>
                 </div>
                 <p class='summary'>10-day family fly-in self-drive trip through the Faroe Islands, focused on dramatic landscapes, hikes, villages, sea cliffs, waterfalls and one or two optional island/boat activities.</p>
-                <p class='reason'>A compact but incredibly photogenic destination combining dramatic cliffs, waterfalls, ocean scenery and remote island adventure.</p>
+                <p class='reason'>The Faroe Islands feel like an island chain at the edge of the world — grass-roofed villages clinging to clifftops, waterfalls tumbling directly into the sea, and roads that tunnel through mountains to reach settlements most people have never heard of. Unlike Iceland, the landscape here is intimate and mysterious rather than vast, with hiking, puffin colonies and sea cliffs that feel genuinely off the beaten track.</p>
                 <ul class='highlights'><li>Vagar: Mulafossur, Lake Sorvagsvatn/Leitisvatn, Bosdalafossur and Drangarnir views</li><li>Northern islands: Klaksvik, Kalsoy, Kallur Lighthouse, Vidareidi and Kunoy</li><li>Eysturoy and Streymoy: Saksun, Tjornuvik, Gjogv, Funningur and Eidi</li><li>Torshavn and nearby islands: Kirkjubour, Nolsoy or Sandoy</li><li>Optional Mykines or Vestmanna sea cliffs depending on weather</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Switzerland/map.html'">
+        <div class="card" onclick="window.location='Switzerland/map.html'" data-rank="14" data-cost="2">
             <div class="card-header">
                 <div class="rank-badge">#14</div>
                 <span class="fi fi-ch card-flag"></span>
@@ -469,11 +481,9 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 14 days</span></div>
-                    <div class="stat"><span>🚗 Own car</span></div>
-                    <div class="stat"><span>🏨 2 bases</span></div>
-                    <div class="stat"><span>💑 €4,000 - €7,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €6,000 - €11,000</span></div>
-                    <div class="stat"><span>🧭 Family alpine vacation</span></div>
+                    <div class="stat-row"><span>📅 14 days</span><span>🏨 2 bases</span></div>
+                    <div class="stat-row"><span>🚗 Own car</span></div>
+                    <div class="stat-row cost-medium"><span>💑 €4,000 - €7,000</span><span>👨‍👩‍👧‍👦 €6,000 - €11,000</span></div>
                 </div>
                 <p class='summary'>14-day family self-drive trip through the Bernese Oberland and Matterhorn regions.</p>
                 <p class='reason'>Switzerland combines some of Europe's most spectacular mountain scenery, crystal-clear lakes, glaciers, waterfalls and highly accessible alpine hiking. The combination of Lauterbrunnen Valley, Oeschinensee, Jungfrau region and the Matterhorn creates one of the finest mountain holidays in the world.</p>
@@ -481,7 +491,7 @@
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Scotland/map.html'">
+        <div class="card" onclick="window.location='Scotland/map.html'" data-rank="15" data-cost="1">
             <div class="card-header">
                 <div class="rank-badge">#15</div>
                 <span class="fi fi-gb-sct card-flag"></span>
@@ -489,19 +499,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 14 days</span></div>
-                    <div class="stat"><span>🚗 Own car + ⛴ Overnight ferry to Newcastle</span></div>
-                    <div class="stat"><span>🏨 5 bases</span></div>
-                    <div class="stat"><span>💑 €3,000 - €6,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €5,000 - €9,000</span></div>
-                    <div class="stat"><span>🧭 Family road trip via ferry</span></div>
+                    <div class="stat-row"><span>📅 14 days</span><span>🏨 5 bases</span></div>
+                    <div class="stat-row"><span>🚗 Own car + ⛴ Overnight ferry to Newcastle</span></div>
+                    <div class="stat-row cost-low"><span>💑 €3,000 - €6,000</span><span>👨‍👩‍👧‍👦 €5,000 - €9,000</span></div>
                 </div>
                 <p class='summary'>14-day family self-drive trip from Belgium via overnight ferry to Newcastle, focused on the Highlands, Isle of Skye and Edinburgh.</p>
-                <p class='reason'>A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.</p>
+                <p class='reason'>Scotland offers something the other European destinations on this list do not — a haunted, atmospheric quality that comes from ancient castles half-swallowed by mist, single-track roads threading between lochs, and the wild remoteness of Skye and the North Coast 500. Reachable by overnight ferry from Belgium, it combines the best Highland scenery with whisky country, island landscapes and a sense of history that feels genuinely epic without ever leaving Western Europe.</p>
                 <ul class='highlights'><li>Glencoe and Glenfinnan Viaduct</li><li>Isle of Skye (Storr, Quiraing, Fairy Pools)</li><li>Eilean Donan Castle</li><li>Bealach na Ba and Torridon</li><li>Assynt (Stac Pollaidh, Achmelvich Beach)</li><li>Edinburgh</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Azores/map.html'">
+        <div class="card" onclick="window.location='Azores/map.html'" data-rank="16" data-cost="2">
             <div class="card-header">
                 <div class="rank-badge">#16</div>
                 <span class="fi fi-pt card-flag"></span>
@@ -509,19 +517,17 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 12 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car + ✈ Inter-island flight</span></div>
-                    <div class="stat"><span>🏨 2 bases</span></div>
-                    <div class="stat"><span>💑 €4,000 - €7,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €7,000 - €11,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 12 days</span><span>🏨 2 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car + ✈ Inter-island flight</span></div>
+                    <div class="stat-row cost-medium"><span>💑 €4,000 - €7,000</span><span>👨‍👩‍👧‍👦 €7,000 - €11,000</span></div>
                 </div>
                 <p class='summary'>12-day family fly-in self-drive trip through Sao Miguel and Pico, focused on volcanic landscapes, crater lakes, thermal pools, waterfalls, hiking, whale watching and coastal scenery.</p>
-                <p class='reason'>A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale watching and excellent hiking.</p>
+                <p class='reason'>The Azores feel like a place the rest of the world forgot — volcanic calderas filled with jade-green lakes, natural hot springs bubbling out of the ground, waterfalls dropping into the ocean, and one of the best whale-watching routes on Earth. Unlike Iceland or the Canaries, the islands feel genuinely wild and uncrowded, with a dramatic volcanic landscape that rewards hikers and nature lovers above all else.</p>
                 <ul class='highlights'><li>Sete Cidades</li><li>Lagoa do Fogo</li><li>Furnas geothermal area</li><li>Terra Nostra thermal baths</li><li>Whale watching</li><li>Mount Pico</li><li>Pico wine landscape</li><li>Natural lava pools</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Georgia/map.html'">
+        <div class="card" onclick="window.location='Georgia/map.html'" data-rank="17" data-cost="1">
             <div class="card-header">
                 <div class="rank-badge">#17</div>
                 <span class="fi fi-ge card-flag"></span>
@@ -529,20 +535,18 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 15 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 4 bases</span></div>
-                    <div class="stat"><span>💑 €3,000 - €5,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €5,000 - €8,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 15 days</span><span>🏨 4 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-low"><span>💑 €3,000 - €5,000</span><span>👨‍👩‍👧‍👦 €5,000 - €8,000</span></div>
                 </div>
                 <p class='summary'>15-day family fly-in self-drive trip through Georgia, combining the Caucasus Mountains, remote villages, scenic roads, wine regions and hiking landscapes.
 </p>
-                <p class='reason'>One of Europe's hidden gems, combining authentic culture, spectacular Caucasus mountains and exceptional value for adventurous travelers.</p>
+                <p class='reason'>Georgia is one of Europe's best-kept secrets — ancient cave cities, medieval tower villages in the Caucasus highlands, a wild mountain frontier that feels closer to Central Asia than Western Europe, and a food and wine culture that is entirely its own. At a fraction of the cost of comparable Alpine or Scandinavian destinations, it offers spectacular mountain scenery, genuine adventure and a level of cultural richness that few other trips on this list can match.</p>
                 <ul class='highlights'><li>Tbilisi</li><li>Military Highway</li><li>Kazbegi</li><li>Gergeti Trinity Church</li><li>Truso Valley</li><li>Kakheti Wine Region</li><li>Mestia</li><li>Ushguli</li><li>Svaneti</li><li>Caucasus Mountains</li></ul>
                 <div class="cta">View map →</div>
             </div>
         </div>
-        <div class="card" onclick="window.location='Montenegro/map.html'">
+        <div class="card" onclick="window.location='Montenegro/map.html'" data-rank="18" data-cost="1">
             <div class="card-header">
                 <div class="rank-badge">#18</div>
                 <span class="fi fi-me card-flag"></span>
@@ -550,14 +554,12 @@
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 11 days</span></div>
-                    <div class="stat"><span>✈ Plane + 🚗 Rental car</span></div>
-                    <div class="stat"><span>🏨 3 bases</span></div>
-                    <div class="stat"><span>💑 €2,500 - €5,000</span></div><div class="stat"><span>👨‍👩‍👧‍👦 €4,000 - €8,000</span></div>
-                    <div class="stat"><span>🧭 Fly-in family self-drive</span></div>
+                    <div class="stat-row"><span>📅 11 days</span><span>🏨 3 bases</span></div>
+                    <div class="stat-row"><span>✈ Plane + 🚗 Rental car</span></div>
+                    <div class="stat-row cost-low"><span>💑 €2,500 - €5,000</span><span>👨‍👩‍👧‍👦 €4,000 - €8,000</span></div>
                 </div>
                 <p class='summary'>11-day family self-drive trip through Montenegro, focused on dramatic mountains, the Bay of Kotor, Durmitor National Park, Tara Canyon, Lake Skadar, scenic roads, short hikes, boat trips and coastal towns.</p>
-                <p class='reason'>A compact destination offering fjords, mountains, lakes, canyons and historic towns with excellent value for money.</p>
+                <p class='reason'>Montenegro packs an extraordinary range of landscapes into a country barely the size of a province — the fjord-like Bay of Kotor framed by medieval fortifications, the raw peaks and glacial lakes of Durmitor, Europe's deepest canyon sliced by the Tara River, and the ancient stones of Kotor old town. It delivers a compressed Balkans adventure with southern European atmosphere and prices to match.</p>
                 <ul class='highlights'><li>Bay of Kotor</li><li>Kotor old town and city walls</li><li>Perast and Our Lady of the Rocks</li><li>Lovcen National Park</li><li>Durmitor National Park</li><li>Black Lake</li><li>Tara Canyon</li><li>Durmitor Ring</li><li>Piva Canyon</li><li>Lake Skadar</li><li>Rijeka Crnojevica and Pavlova Strana viewpoint</li><li>Sveti Stefan viewpoint</li></ul>
                 <div class="cta">View map →</div>
             </div>
@@ -571,29 +573,52 @@
             attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
         }).addTo(worldMap);
         var allMarkers = [];
-        allMarkers.push(L.marker([-41.9201,172.0716],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#1</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-nz\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>New Zealand</b><br><span style=\"opacity:.7;font-size:11px\">#1</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 24 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac8,000 - \u20ac12,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac14,000 - \u20ac22,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The most complete nature and adventure destination in the world, combining volcanoes,  fjords, glaciers, mountains, wildlife and world-class road trips in a single journey.</i><div style=\"margin-top:7px\"><a href=\"New Zealand/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([-50.6193,-72.6720],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#2</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ar\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Patagonia</b><br><span style=\"opacity:.7;font-size:11px\">#2</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 17 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Choose Patagonia for some of the most dramatic mountain and glacier landscapes on Earth,  centered around Fitz Roy, Torres del Paine and Perito Moreno.</i><div style=\"margin-top:7px\"><a href=\"Patagonia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([64.5725,-19.8065],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#3</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-is\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Iceland</b><br><span style=\"opacity:.7;font-size:11px\">#3</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 13 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac8,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac8,000 - \u20ac13,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A unique combination of volcanoes, glaciers, geothermal landscapes, hot springs and whale watching that feels unlike anywhere else on the planet.</i><div style=\"margin-top:7px\"><a href=\"Iceland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([60.8862,7.5420],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#4</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-no\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Norway</b><br><span style=\"opacity:.7;font-size:11px\">#4</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 13 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac6,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A perfect family road trip destination offering fjords, mountain hikes, scenic roads and highly accessible nature.</i><div style=\"margin-top:7px\"><a href=\"Norway/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([51.5630,-116.4481],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#5</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ca\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Canada</b><br><span style=\"opacity:.7;font-size:11px\">#5</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac9,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac16,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The ultimate mix of alpine scenery, turquoise lakes, wildlife encounters, hiking and one of the world's greatest self-drive routes.</i><div style=\"margin-top:7px\"><a href=\"Canada/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+        allMarkers.push(L.marker([-41.9201,172.0716],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#1</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-nz\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>New Zealand</b><br><span style=\"opacity:.7;font-size:11px\">#1</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 24 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac8,000 - \u20ac12,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac14,000 - \u20ac22,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">New Zealand is the only place on Earth where a single road trip takes you from active geothermal fields and glowing caves to the most dramatic fjords in the southern hemisphere, past glaciers that reach almost to sea level, and through mountains that look like they were designed for a fantasy film. Unlike any other destination on this list, the sheer variety never stops \u2014 every two hours the landscape reinvents itself completely, and the combination of Milford Sound, the Southern Alps, Tongariro and Abel Tasman makes it the most complete nature journey in the world.</i><div style=\"margin-top:7px\"><a href=\"New Zealand/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([-50.6193,-72.6720],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#2</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ar\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Patagonia</b><br><span style=\"opacity:.7;font-size:11px\">#2</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 17 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Patagonia is where the Andes collapse into jagged granite needles, ancient glaciers calve into milky-blue lakes, and the wind is so fierce it shapes the very land. Torres del Paine, Fitz Roy and Perito Moreno glacier are on a different visual scale from anything in Europe \u2014 monumental, elemental and entirely unforgettable. For a family that wants to experience genuine end-of-the-world grandeur, there is nowhere else quite like it.</i><div style=\"margin-top:7px\"><a href=\"Patagonia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([64.5725,-19.8065],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#3</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-is\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Iceland</b><br><span style=\"opacity:.7;font-size:11px\">#3</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 13 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac8,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac8,000 - \u20ac13,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Iceland is the only destination on this list where the land itself still feels unfinished \u2014 active volcanoes reshaping the coastline, geysers erupting on schedule, glaciers you can walk on and northern lights overhead in winter. The Ring Road puts world-class waterfalls, black sand beaches, glacier lagoons and whale watching within reach of a single two-week loop, with no crowds on the roads and a raw, elemental atmosphere that no other European destination comes close to matching.</i><div style=\"margin-top:7px\"><a href=\"Iceland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([60.8862,7.5420],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#4</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-no\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Norway</b><br><span style=\"opacity:.7;font-size:11px\">#4</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 13 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac6,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Norway's fjord country is one of the most spectacular places in Europe, and the fact that it is reachable by car from Belgium makes it especially appealing. Naeroyfjord, Geirangerfjord and the Loen Skylift offer world-class scenery at every turn, while the route through Denmark and Sweden turns the journey itself into part of the adventure. Unlike a flight destination, the whole family is immersed in the landscape from the moment you leave home.</i><div style=\"margin-top:7px\"><a href=\"Norway/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([51.5630,-116.4481],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#5</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ca\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Canada</b><br><span style=\"opacity:.7;font-size:11px\">#5</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac9,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac16,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The Canadian Rockies deliver the most iconic combination of turquoise glacial lakes, soaring peaks, hanging glaciers and roadside wildlife on Earth. Banff, Jasper and the Icefields Parkway are simply world-class \u2014 the kind of scenery that stops you mid-drive. Unlike Norway or New Zealand, the sheer density of unmissable highlights packed into a single road trip makes it feel almost impossibly rewarding.</i><div style=\"margin-top:7px\"><a href=\"Canada/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
 allMarkers.push(L.marker([35.9605,138.4851],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#6</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-jp\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Japan</b><br><span style=\"opacity:.7;font-size:11px\">#6</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac8,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac8,000 - \u20ac14,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A unique combination of volcanoes, alpine scenery, forests, mountain villages, hot springs and Japanese culture. Unlike Europe or North America, the same spectacular nature comes with a completely different atmosphere, food and way of life.</i><div style=\"margin-top:7px\"><a href=\"Japan/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([-32.4813,23.6560],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#7</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-za\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>South Africa</b><br><span style=\"opacity:.7;font-size:11px\">#7</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 19 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within a single trip.</i><div style=\"margin-top:7px\"><a href=\"South Africa/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([-32.4813,23.6560],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#7</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-za\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>South Africa</b><br><span style=\"opacity:.7;font-size:11px\">#7</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 19 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">South Africa is the only destination on this list where you can drive the most scenic coastal road in Africa in the morning, walk among penguins at noon, hike through fynbos on the Cape Peninsula in the afternoon, and have wine in Stellenbosch in the evening. Add a Kruger safari and the Drakensberg mountains, and you have a trip that shifts through completely different worlds \u2014 a diversity of experiences no other single country on this list can offer.</i><div style=\"margin-top:7px\"><a href=\"South Africa/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
 allMarkers.push(L.marker([-21.1160,55.4472],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#8</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-re\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Reunion Island</b><br><span style=\"opacity:.7;font-size:11px\">#8</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 14 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac8,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac8,000 - \u20ac13,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A unique combination of active volcanoes, dramatic mountain cirques, waterfalls, tropical forests, whale watching, snorkeling and excellent hiking. One of the few destinations in the world where alpine-style mountain scenery, volcanic landscapes and tropical ocean experiences coexist on a single island.</i><div style=\"margin-top:7px\"><a href=\"Reunion Island/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([61.7941,-149.4899],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#9</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-us\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Alaska</b><br><span style=\"opacity:.7;font-size:11px\">#9</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 16 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac7,000 - \u20ac11,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac12,000 - \u20ac20,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Alaska combines some of the world's largest mountains, glaciers, fjords and wildlife populations into a single road trip. It feels like a wilder and more remote version of the Canadian Rockies, with excellent opportunities to see bears, whales, moose and spectacular coastal scenery.</i><div style=\"margin-top:7px\"><a href=\"Alaska/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([-21.3761,15.3656],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#10</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-na\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Namibia</b><br><span style=\"opacity:.7;font-size:11px\">#10</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 18 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A spectacular road trip through deserts, wildlife reserves, huge open landscapes and some of the clearest night skies on Earth.</i><div style=\"margin-top:7px\"><a href=\"Namibia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([10.2919,-84.4264],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#11</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-cr\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Costa Rica</b><br><span style=\"opacity:.7;font-size:11px\">#11</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac9,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac9,000 - \u20ac15,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The perfect complement to the other destinations on the list, combining tropical rainforest, wildlife, volcanoes, sea turtles, snorkeling and adventure in a compact and family-friendly itinerary.</i><div style=\"margin-top:7px\"><a href=\"Costa Rica/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([61.7941,-149.4899],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#9</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-us\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Alaska</b><br><span style=\"opacity:.7;font-size:11px\">#9</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 16 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac7,000 - \u20ac11,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac12,000 - \u20ac20,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Alaska is the last great American wilderness \u2014 a place where grizzly bears fish alongside the road, humpback whales breach in glacier-carved fjords, and Denali rises above everything on the continent. Unlike Canada or New Zealand, the scale here is overwhelming: Kenai Fjords, Exit Glacier and Denali National Park deliver a raw, untamed experience that no other self-drive destination can match.</i><div style=\"margin-top:7px\"><a href=\"Alaska/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([-21.3761,15.3656],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#1a1a1a\">#10</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-na\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Namibia</b><br><span style=\"opacity:.7;font-size:11px\">#10</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 18 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac6,000 - \u20ac10,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac10,000 - \u20ac17,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Namibia is unlike any other destination on this list \u2014 an ocean of red sand dunes at Sossusvlei, a ghost town swallowed by the desert at Kolmanskop, vast salt pans at Etosha where elephants and lions come to drink, and night skies so dark and clear that the Milky Way is visible to the naked eye. It is the definitive African road trip for those who want dramatic scenery and raw wilderness rather than a conventional safari.</i><div style=\"margin-top:7px\"><a href=\"Namibia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([10.2919,-84.4264],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e74c3c\">#11</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-cr\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Costa Rica</b><br><span style=\"opacity:.7;font-size:11px\">#11</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac5,000 - \u20ac9,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac9,000 - \u20ac15,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Costa Rica is the only destination on this list where you can watch sea turtles nest on a beach, hike through cloud forest in the morning, spot sloths and toucans from the road, and stand at the crater rim of an active volcano in the same week. It is the most compact and family-friendly tropical adventure available \u2014 a country that has turned biodiversity and eco-tourism into an art form, with wildlife encounters that feel natural and unhurried rather than staged.</i><div style=\"margin-top:7px\"><a href=\"Costa Rica/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
 allMarkers.push(L.marker([46.5581,11.9037],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#12</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-it\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Italy (Dolomites)</b><br><span style=\"opacity:.7;font-size:11px\">#12</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 14 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac2,500 - \u20ac5,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac4,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The Dolomites offer some of the most dramatic mountain scenery in Europe, combining vertical limestone peaks, alpine meadows, mountain lakes, panoramic cable cars and highly accessible family hiking. A perfect blend of scenery, outdoor activities, villages and Italian food.</i><div style=\"margin-top:7px\"><a href=\"Italy/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([62.1021,-6.8953],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e67e22\">#13</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-fo\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Faroe Islands</b><br><span style=\"opacity:.7;font-size:11px\">#13</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 10 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac4,000 - \u20ac7,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac7,000 - \u20ac11,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A compact but incredibly photogenic destination combining dramatic cliffs, waterfalls, ocean scenery and remote island adventure.</i><div style=\"margin-top:7px\"><a href=\"Faroe Islands/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([62.1021,-6.8953],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e67e22\">#13</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-fo\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Faroe Islands</b><br><span style=\"opacity:.7;font-size:11px\">#13</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 10 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac4,000 - \u20ac7,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac7,000 - \u20ac11,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The Faroe Islands feel like an island chain at the edge of the world \u2014 grass-roofed villages clinging to clifftops, waterfalls tumbling directly into the sea, and roads that tunnel through mountains to reach settlements most people have never heard of. Unlike Iceland, the landscape here is intimate and mysterious rather than vast, with hiking, puffin colonies and sea cliffs that feel genuinely off the beaten track.</i><div style=\"margin-top:7px\"><a href=\"Faroe Islands/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
 allMarkers.push(L.marker([46.3068,7.8291],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e67e22\">#14</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ch\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Switzerland</b><br><span style=\"opacity:.7;font-size:11px\">#14</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 14 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac4,000 - \u20ac7,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac6,000 - \u20ac11,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Switzerland combines some of Europe's most spectacular mountain scenery, crystal-clear lakes, glaciers, waterfalls and highly accessible alpine hiking. The combination of Lauterbrunnen Valley, Oeschinensee, Jungfrau region and the Matterhorn creates one of the finest mountain holidays in the world.</i><div style=\"margin-top:7px\"><a href=\"Switzerland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([57.0997,-5.0911],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#15</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-gb-sct\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Scotland</b><br><span style=\"opacity:.7;font-size:11px\">#15</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 14 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac6,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac9,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A rugged blend of Highlands, islands, castles and coastal scenery with some of Europe's most atmospheric road trips.</i><div style=\"margin-top:7px\"><a href=\"Scotland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([38.1645,-26.9248],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e67e22\">#16</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-pt\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Azores</b><br><span style=\"opacity:.7;font-size:11px\">#16</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 12 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac4,000 - \u20ac7,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac7,000 - \u20ac11,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A relaxed volcanic island adventure with crater lakes, thermal pools, waterfalls, whale watching and excellent hiking.</i><div style=\"margin-top:7px\"><a href=\"Azores/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([42.3342,44.4177],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#17</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ge\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Georgia</b><br><span style=\"opacity:.7;font-size:11px\">#17</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac5,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">One of Europe's hidden gems, combining authentic culture, spectacular Caucasus mountains and exceptional value for adventurous travelers.</i><div style=\"margin-top:7px\"><a href=\"Georgia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
-allMarkers.push(L.marker([42.6082,18.9937],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#18</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-me\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Montenegro</b><br><span style=\"opacity:.7;font-size:11px\">#18</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 11 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac2,500 - \u20ac5,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac4,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">A compact destination offering fjords, mountains, lakes, canyons and historic towns with excellent value for money.</i><div style=\"margin-top:7px\"><a href=\"Montenegro/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([57.0997,-5.0911],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#15</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-gb-sct\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Scotland</b><br><span style=\"opacity:.7;font-size:11px\">#15</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 14 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac6,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac9,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Scotland offers something the other European destinations on this list do not \u2014 a haunted, atmospheric quality that comes from ancient castles half-swallowed by mist, single-track roads threading between lochs, and the wild remoteness of Skye and the North Coast 500. Reachable by overnight ferry from Belgium, it combines the best Highland scenery with whisky country, island landscapes and a sense of history that feels genuinely epic without ever leaving Western Europe.</i><div style=\"margin-top:7px\"><a href=\"Scotland/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([38.1645,-26.9248],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#e67e22\">#16</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-pt\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Azores</b><br><span style=\"opacity:.7;font-size:11px\">#16</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 12 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac4,000 - \u20ac7,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac7,000 - \u20ac11,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">The Azores feel like a place the rest of the world forgot \u2014 volcanic calderas filled with jade-green lakes, natural hot springs bubbling out of the ground, waterfalls dropping into the ocean, and one of the best whale-watching routes on Earth. Unlike Iceland or the Canaries, the islands feel genuinely wild and uncrowded, with a dramatic volcanic landscape that rewards hikers and nature lovers above all else.</i><div style=\"margin-top:7px\"><a href=\"Azores/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([42.3342,44.4177],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#17</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-ge\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Georgia</b><br><span style=\"opacity:.7;font-size:11px\">#17</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 15 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac3,000 - \u20ac5,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac5,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Georgia is one of Europe's best-kept secrets \u2014 ancient cave cities, medieval tower villages in the Caucasus highlands, a wild mountain frontier that feels closer to Central Asia than Western Europe, and a food and wine culture that is entirely its own. At a fraction of the cost of comparable Alpine or Scandinavian destinations, it offers spectacular mountain scenery, genuine adventure and a level of cultural richness that few other trips on this list can match.</i><div style=\"margin-top:7px\"><a href=\"Georgia/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
+allMarkers.push(L.marker([42.6082,18.9937],{icon:L.divIcon({className:'',html:"<div class=\"map-marker\" style=\"background:#27ae60\">#18</div>",iconSize:[28,28],iconAnchor:[14,14]})}).addTo(worldMap).bindPopup("<div style=\"font-family:sans-serif;font-size:13px;min-width:200px;text-align:center\"><span class=\"fi fi-me\" style=\"vertical-align:middle\"></span> <b style='font-size:14px'>Montenegro</b><br><span style=\"opacity:.7;font-size:11px\">#18</span><br><hr style=\"margin:5px 0\"><span style=\"font-size:12px\">\ud83d\udcc5 11 days</span><br><span style=\"font-size:12px\">\ud83d\udc91 \u20ac2,500 - \u20ac5,000</span><br><span style=\"font-size:12px\">\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 \u20ac4,000 - \u20ac8,000</span><br><hr style=\"margin:5px 0\"><i style=\"color:#555;font-size:11px;display:block;text-align:left\">Montenegro packs an extraordinary range of landscapes into a country barely the size of a province \u2014 the fjord-like Bay of Kotor framed by medieval fortifications, the raw peaks and glacial lakes of Durmitor, Europe's deepest canyon sliced by the Tara River, and the ancient stones of Kotor old town. It delivers a compressed Balkans adventure with southern European atmosphere and prices to match.</i><div style=\"margin-top:7px\"><a href=\"Montenegro/map.html\" style=\"color:#2c3e50;font-weight:bold\">View map \u2192</a></div></div>"));
 
         if (allMarkers.length) {
             var group = L.featureGroup(allMarkers);
             worldMap.fitBounds(group.getBounds().pad(0.15));
         }
+    </script>
+    <script>
+        var grid = document.getElementById('cards-grid');
+        var btns = document.querySelectorAll('.sort-btn');
+        function sortCards(key) {
+            var cards = Array.from(grid.querySelectorAll('.card'));
+            cards.sort(function(a, b) {
+                var ar = +a.dataset.rank, br = +b.dataset.rank;
+                var ac = +a.dataset.cost, bc = +b.dataset.cost;
+                if (key === 'rank') return ar - br;
+                if (key === 'cost') return ac - bc || ar - br;
+                if (key === 'cost-rank') return (ac * 5 + ar) - (bc * 5 + br);  // one cost tier ≈ 5 rank positions
+                return 0;
+            });
+            cards.forEach(function(card) { grid.appendChild(card); });
+        }
+        btns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                btns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                sortCards(btn.dataset.sort);
+            });
+        });
     </script>
 </body>
 </html>

@@ -10,7 +10,11 @@ trip:
       the Garden Route and safari.
 
     summary_reason: >
-      A unique mix of wildlife, mountains, coastline, wine regions and safari experiences within a single trip.
+      South Africa is the only destination on this list where you can drive the most scenic coastal road
+      in Africa in the morning, walk among penguins at noon, hike through fynbos on the Cape Peninsula
+      in the afternoon, and have wine in Stellenbosch in the evening. Add a Kruger safari and the
+      Drakensberg mountains, and you have a trip that shifts through completely different worlds —
+      a diversity of experiences no other single country on this list can offer.
 
     transport: "✈ Plane + 🚗 Rental car + ✈ Domestic flight"
 
@@ -34,7 +38,7 @@ trip:
         eur_range: "€6,000 - €10,000"
       family:
         eur_range: "€10,000 - €17,000"
-      relative_costs: "high"
+      relative_costs: "very_high"
       assumptions:
         - "Mid-range accommodations"
         - "Peak summer season"

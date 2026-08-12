@@ -485,7 +485,6 @@ def build_selection_page(countries: list) -> str:
             "days", "?"
         )
         transport = overview.get("transport", "—")
-        travel_style = overview.get("travel_style", "")
         bases_count = len(trip.get("lodging_locations", []))
         highlights = overview.get("highlights", [])
         summary = overview.get("summary", "")
@@ -494,21 +493,14 @@ def build_selection_page(countries: list) -> str:
         cost = overview.get("cost") or trip.get("cost", {})
         couple_range = (cost.get("couple") or {}).get("eur_range", "")
         family_range = (cost.get("family") or {}).get("eur_range", "")
-        cost_html = ""
-        if couple_range:
-            cost_html += f'<div class="stat"><span>💑 {couple_range}</span></div>'
-        if family_range:
-            cost_html += f'<div class="stat"><span>👨‍👩‍👧‍👦 {family_range}</span></div>'
-        style_html = (
-            f'<div class="stat"><span>🧭 {travel_style}</span></div>'
-            if travel_style
-            else ""
-        )
+        relative_cost_order = {"low": 1, "medium": 2, "high": 3, "very_high": 4}
+        cost_sort_val = relative_cost_order.get(cost.get("relative_costs", ""), 9)
         highlights_html = "".join(f"<li>{h}</li>" for h in highlights)
         rank_badge = f'<div class="rank-badge">#{rank}</div>' if rank else ""
+        rank_sort = rank if rank else 9999
 
         cards_html += f"""
-        <div class="card" onclick="window.location='{c["map_path"]}'">
+        <div class="card" onclick="window.location='{c["map_path"]}'" data-rank="{rank_sort}" data-cost="{cost_sort_val}">
             <div class="card-header">
                 {rank_badge}
                 <span class="fi fi-{iso} card-flag"></span>
@@ -516,11 +508,9 @@ def build_selection_page(countries: list) -> str:
             </div>
             <div class="card-body">
                 <div class="stats">
-                    <div class="stat"><span>📅 {duration} days</span></div>
-                    <div class="stat"><span>{transport}</span></div>
-                    <div class="stat"><span>🏨 {bases_count} bases</span></div>
-                    {cost_html}
-                    {style_html}
+                    <div class="stat-row"><span>📅 {duration} days</span><span>🏨 {bases_count} bases</span></div>
+                    <div class="stat-row"><span>{transport}</span></div>
+                    <div class="stat-row cost-{cost.get("relative_costs", "medium").replace("_", "-")}"><span>💑 {couple_range or "—"}</span><span>👨‍👩‍👧‍👦 {family_range or "—"}</span></div>
                 </div>
                 {"<p class='summary'>" + summary + "</p>" if summary else ""}
                 {"<p class='reason'>" + summary_reason + "</p>" if summary_reason else ""}
@@ -613,17 +603,26 @@ def build_selection_page(countries: list) -> str:
         .card-body {{ padding: 12px 14px 14px; }}
         .stats {{
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+            flex-direction: column;
+            gap: 4px;
             margin-bottom: 10px;
         }}
-        .stat {{
+        .stat-row {{
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+        .stat-row span {{
             background: #f0f2f5;
             border-radius: 20px;
             padding: 4px 10px;
             font-size: 0.82rem;
             color: #444;
         }}
+        .cost-low span    {{ background: #d5f0e0; color: #1a6e3a; }}
+        .cost-medium span {{ background: #fdebd0; color: #a04000; }}
+        .cost-high span   {{ background: #fce8e8; color: #922b21; }}
+        .cost-very-high span {{ background: #4a4a4a; color: #f0f0f0; }}
         .summary {{
             color: #555;
             font-size: 0.85rem;
@@ -655,6 +654,29 @@ def build_selection_page(countries: list) -> str:
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.85rem;
+        }}
+        .sort-bar {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            color: rgba(255,255,255,.8);
+            font-size: 0.9rem;
+        }}
+        .sort-btn {{
+            background: rgba(255,255,255,.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }}
+        .sort-btn.active, .sort-btn:hover {{
+            background: rgba(255,255,255,.9);
+            color: #1a2a3a;
+            border-color: transparent;
         }}
         #world-map {{
             width: 100%;
@@ -726,7 +748,13 @@ def build_selection_page(countries: list) -> str:
                 &nbsp;<span style="color:#1a1a1a">●</span> Very high
             </div>
         </div>
-        <div class="cards">{cards_html}
+        <div class="sort-bar">
+            Sort by:
+            <button class="sort-btn active" data-sort="rank">⭐ Rank</button>
+            <button class="sort-btn" data-sort="cost">💰 Cost (low → high)</button>
+            <button class="sort-btn" data-sort="cost-rank">🏆 Best value</button>
+        </div>
+        <div class="cards" id="cards-grid">{cards_html}
         </div>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -741,6 +769,29 @@ def build_selection_page(countries: list) -> str:
             var group = L.featureGroup(allMarkers);
             worldMap.fitBounds(group.getBounds().pad(0.15));
         }}
+    </script>
+    <script>
+        var grid = document.getElementById('cards-grid');
+        var btns = document.querySelectorAll('.sort-btn');
+        function sortCards(key) {{
+            var cards = Array.from(grid.querySelectorAll('.card'));
+            cards.sort(function(a, b) {{
+                var ar = +a.dataset.rank, br = +b.dataset.rank;
+                var ac = +a.dataset.cost, bc = +b.dataset.cost;
+                if (key === 'rank') return ar - br;
+                if (key === 'cost') return ac - bc || ar - br;
+                if (key === 'cost-rank') return (ac * 5 + ar) - (bc * 5 + br);  // one cost tier ≈ 5 rank positions
+                return 0;
+            }});
+            cards.forEach(function(card) {{ grid.appendChild(card); }});
+        }}
+        btns.forEach(function(btn) {{
+            btn.addEventListener('click', function() {{
+                btns.forEach(function(b) {{ b.classList.remove('active'); }});
+                btn.classList.add('active');
+                sortCards(btn.dataset.sort);
+            }});
+        }});
     </script>
 </body>
 </html>"""
