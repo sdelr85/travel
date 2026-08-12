@@ -415,7 +415,7 @@ def build_selection_page(countries: list) -> str:
         country = trip.get("country", "Unknown")
         iso = COUNTRY_ISO.get(country, "")
         rank = overview.get("rank", "")
-        reason = overview.get("summary_reason", "").strip()
+        card_id = country.lower().replace(" ", "-").replace("(", "").replace(")", "")
         lat, lon = c["center"]
         label = f"#{rank}" if rank else "?"
         flag_span = (
@@ -442,29 +442,18 @@ def build_selection_page(countries: list) -> str:
         duration = overview.get("duration_days") or trip.get("duration", {}).get(
             "days", ""
         )
-        duration_html = (
-            f'<span style="font-size:12px">📅 {duration} days</span><br>'
-            if duration
-            else ""
-        )
+        bases_count = len(trip.get("lodging_locations", []))
         couple_range = (cost.get("couple") or {}).get("eur_range", "")
         family_range = (cost.get("family") or {}).get("eur_range", "")
-        cost_lines = ""
-        if couple_range:
-            cost_lines += f'<span style="font-size:12px">💑 {couple_range}</span><br>'
-        if family_range:
-            cost_lines += (
-                f'<span style="font-size:12px">👨‍👩‍👧‍👦 {family_range}</span><br>'
-            )
         popup_html = (
-            f'<div style="font-family:sans-serif;font-size:13px;min-width:200px;text-align:center">'
+            f'<div style="font-family:sans-serif;font-size:13px;min-width:180px;text-align:center">'
             f"{flag_span}<b style='font-size:14px'>{country}</b><br>{rank_line}"
             f'<hr style="margin:5px 0">'
-            f"{duration_html}"
-            f"{cost_lines}"
+            f'<span style="font-size:12px">📅 {duration} days &nbsp;·&nbsp; 🏨 {bases_count} bases</span><br>'
+            f'<span style="font-size:12px">💑 {couple_range or "—"}</span><br>'
+            f'<span style="font-size:12px">👨‍👩‍👧‍👦 {family_range or "—"}</span>'
             f'<hr style="margin:5px 0">'
-            f'<i style="color:#555;font-size:11px;display:block;text-align:left">{reason}</i>'
-            f'<div style="margin-top:7px"><a href="{c["map_path"]}" style="color:#2c3e50;font-weight:bold">View map →</a></div>'
+            f'<a href="#{card_id}" style="color:#2c3e50;font-weight:bold;font-size:12px">Jump to details ↓</a>'
             f"</div>"
         )
         markers_js += (
@@ -498,9 +487,10 @@ def build_selection_page(countries: list) -> str:
         highlights_html = "".join(f"<li>{h}</li>" for h in highlights)
         rank_badge = f'<div class="rank-badge">#{rank}</div>' if rank else ""
         rank_sort = rank if rank else 9999
+        card_id = country.lower().replace(" ", "-").replace("(", "").replace(")", "")
 
         cards_html += f"""
-        <div class="card" onclick="window.location='{c["map_path"]}'" data-rank="{rank_sort}" data-cost="{cost_sort_val}">
+        <div class="card" id="{card_id}" onclick="window.location='{c["map_path"]}'" data-rank="{rank_sort}" data-cost="{cost_sort_val}">
             <div class="card-header">
                 {rank_badge}
                 <span class="fi fi-{iso} card-flag"></span>
