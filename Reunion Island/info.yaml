@@ -4,22 +4,19 @@ trip:
   overview:
     rank: 8
     summary: "14-daagse familie-autoreis langs de vulkanische, bergachtige en kustgebonden hoogtepunten van Réunion."
-    summary_reason: >
-      Een unieke combinatie van actieve vulkanen, dramatische bergcirques, watervallen, tropische bossen,
-      walvissafari, snorkelen en uitstekende wandelmogelijkheden. Een van de weinige bestemmingen ter
-      wereld waar alpenachtig berglandschap, vulkanische landschappen en tropische oceaanbeleving
-      samengaan op één enkel eiland.
-    transport: "✈ Plane + 🚗 Rental car"
+    summary_reason: >-
+      Een unieke combinatie van actieve vulkanen, dramatische bergcirques, watervallen, tropische bossen, walvissafari, snorkelen en uitstekende wandelmogelijkheden. Een van de weinige bestemmingen ter wereld waar alpenachtig berglandschap, vulkanische landschappen en tropische oceaanbeleving samengaan op één enkel eiland.
+    transport: "✈ Vliegtuig + 🚗 Huurauto"
     duration_days: 14
-    travel_style: "Fly-in family self-drive"
+    travel_style: "Fly-in familie-selfdrive"
     highlights:
-      - "Vulkaan Piton de la Fournaise"
-      - "Cirque de Cilaos"
-      - "Cirque de Salazie"
-      - "Trou de Fer"
-      - "Lagunen en snorkelen aan de westkust"
-      - "Walvissafari (seizoensgebonden)"
-      - "Lavakustlijn"
+    - Vulkaan Piton de la Fournaise
+    - Cirque de Cilaos
+    - Cirque de Salazie
+    - Trou de Fer
+    - Lagunen en snorkelen aan de westkust
+    - Walvissafari (optioneel)
+    - Lavakustlijn
     cost:
       couple:
         eur_range: "€5,000 - €8,000"
@@ -27,298 +24,292 @@ trip:
         eur_range: "€8,000 - €13,000"
       relative_costs: "high"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   duration:
     days: 14
     nights: 13
 
   lodging_locations:
 
-    - id: base_1
-      name: Saint-Gilles-les-Bains
-      region: West Coast Lagoons
-      stay_nights: 4
+  - id: base_1
+    name: Sint-Gilles-les-Bains
+    region: Lagunes aan de westkust
+    stay_nights: 4
+    coordinates:
+      lat: -21.0550
+      lon: 55.2270
+
+    planning_note: >-
+      Beste uitvalsbasis voor ontspanning, snorkelen, schildpadden spotten, stranden en geleidelijke aanpassing na de lange vlucht.
+
+    base_attractions:
+
+    - id: lagoon_hermitage
+      name: L'Hermitage-lagune
+      priority: must_do
+      type: snorkeling
+      visit_duration_hours: 4
+      drive_time_minutes: 10
       coordinates:
-        lat: -21.0550
+        lat: -21.0820
         lon: 55.2270
 
-      planning_note: >
-        Best base for relaxation, snorkeling, turtle spotting,
-        beaches and gradual adaptation after the long flight.
-
-      base_attractions:
-
-        - id: lagoon_hermitage
-          name: L'Hermitage Lagoon
-          priority: must_do
-          type: snorkeling
-          visit_duration_hours: 4
-          drive_time_minutes: 10
-          coordinates:
-            lat: -21.0820
-            lon: 55.2270
-
-        - id: whale_watching
-          name: Whale Watching Excursion
-          priority: must_do
-          type: paid_activity
-          visit_duration_hours: 4
-          drive_time_minutes: 10
-          coordinates:
-            lat: -21.0530
-            lon: 55.2260
-
-        - id: aquarium_reunion
-          name: Réunion Aquarium
-          priority: if_time
-          type: family_activity
-          visit_duration_hours: 2
-          drive_time_minutes: 10
-          coordinates:
-            lat: -21.0420
-            lon: 55.2190
-
-        - id: maido_viewpoint
-          name: Maido Viewpoint
-          priority: must_do
-          type: viewpoint
-          visit_duration_hours: 3
-          drive_time_minutes: 75
-          coordinates:
-            lat: -21.0770
-            lon: 55.3830
-
-        - id: paddle_lagoon
-          name: Paddle or Kayak in Lagoon
-          priority: optional_paid_activity
-          type: water_activity
-          visit_duration_hours: 2
-
-    - id: base_2
-      name: Cilaos
-      region: Cirque de Cilaos
-      stay_nights: 3
+    - id: whale_watching
+      name: Excursie om walvissen te spotten
+      priority: must_do
+      type: paid_activity
+      visit_duration_hours: 4
+      drive_time_minutes: 10
       coordinates:
-        lat: -21.1360
-        lon: 55.4710
+        lat: -21.0530
+        lon: 55.2260
 
-      planning_note: >
-        Mountain base in the heart of the island.
-        Spectacular scenery, short hikes and canyon landscapes.
-
-      base_attractions:
-
-        - id: roche_merveilleuse
-          name: Roche Merveilleuse
-          priority: must_do
-          type: viewpoint
-          visit_duration_hours: 2
-          drive_time_minutes: 15
-          coordinates:
-            lat: -21.1280
-            lon: 55.4720
-
-        - id: cilaos_village
-          name: Cilaos Village
-          priority: highly_recommended
-          type: mountain_village
-          visit_duration_hours: 2
-          drive_time_minutes: 5
-          coordinates:
-            lat: -21.1370
-            lon: 55.4720
-
-        - id: bras_rouge_hike
-          name: Bras Rouge Hike
-          priority: highly_recommended
-          type: hiking
-          visit_duration_hours: 4
-          drive_time_minutes: 15
-          coordinates:
-            lat: -21.1540
-            lon: 55.4550
-
-        - id: cilaos_thermal
-          name: Thermal Baths
-          priority: if_time
-          type: relaxation
-          visit_duration_hours: 2
-
-    - id: base_3
-      name: Bourg-Murat
-      region: Volcano Area
-      stay_nights: 3
+    - id: aquarium_reunion
+      name: Aquarium van Réunion
+      priority: if_time
+      type: family_activity
+      visit_duration_hours: 2
+      drive_time_minutes: 10
       coordinates:
-        lat: -21.2100
-        lon: 55.5730
+        lat: -21.0420
+        lon: 55.2190
 
-      planning_note: >
-        Dedicated volcano base.
-        This area deserves multiple days because weather conditions
-        can change rapidly.
+    - id: maido_viewpoint
+      name: Maido-uitkijkpunt
+      priority: must_do
+      type: viewpoint
+      visit_duration_hours: 3
+      drive_time_minutes: 75
+      coordinates:
+        lat: -21.0770
+        lon: 55.3830
 
-      base_attractions:
+    - id: paddle_lagoon
+      name: Peddelen of kajakken in de lagune
+      priority: optional_paid_activity
+      type: water_activity
+      visit_duration_hours: 2
 
-        - id: piton_fournaise
-          name: Piton de la Fournaise
-          priority: must_do
-          type: volcano
-          visit_duration_hours: 6
-          drive_time_minutes: 45
-          coordinates:
-            lat: -21.2440
-            lon: 55.7080
+  - id: base_2
+    name: Cilaos
+    region: Cirque de Cilaos
+    stay_nights: 3
+    coordinates:
+      lat: -21.1360
+      lon: 55.4710
 
-        - id: pas_de_bellecombe
-          name: Pas de Bellecombe
-          priority: must_do
-          type: viewpoint
-          visit_duration_hours: 2
-          drive_time_minutes: 40
-          coordinates:
-            lat: -21.2470
-            lon: 55.6970
+    planning_note: >-
+      Bergbasis in het hart van het eiland. Spectaculaire landschappen, korte wandelingen en canyonlandschappen.
 
-        - id: plaine_sables
-          name: Plaine des Sables
-          priority: must_do
-          type: volcanic_landscape
-          visit_duration_hours: 2
-          drive_time_minutes: 30
-          coordinates:
-            lat: -21.2250
-            lon: 55.6250
+    base_attractions:
 
-        - id: lava_flow_coast
-          name: Grand Brule Lava Coast
-          priority: highly_recommended
-          type: volcanic_coastline
-          visit_duration_hours: 4
-          drive_time_minutes: 75
-          coordinates:
-            lat: -21.3430
-            lon: 55.8220
+    - id: roche_merveilleuse
+      name: Roche Merveilleuse
+      priority: must_do
+      type: viewpoint
+      visit_duration_hours: 2
+      drive_time_minutes: 15
+      coordinates:
+        lat: -21.1280
+        lon: 55.4720
 
-        - id: cite_volcan
-          name: Cite du Volcan
-          priority: if_time
-          type: volcano_center
-          visit_duration_hours: 2
-          drive_time_minutes: 5
-          coordinates:
-            lat: -21.2310
-            lon: 55.5790
+    - id: cilaos_village
+      name: Het dorp Cilaos
+      priority: highly_recommended
+      type: mountain_village
+      visit_duration_hours: 2
+      drive_time_minutes: 5
+      coordinates:
+        lat: -21.1370
+        lon: 55.4720
 
-    - id: base_4
+    - id: bras_rouge_hike
+      name: Bras Rouge-wandeling
+      priority: highly_recommended
+      type: hiking
+      visit_duration_hours: 4
+      drive_time_minutes: 15
+      coordinates:
+        lat: -21.1540
+        lon: 55.4550
+
+    - id: cilaos_thermal
+      name: Thermale baden
+      priority: if_time
+      type: relaxation
+      visit_duration_hours: 2
+
+  - id: base_3
+    name: Bourg-Murat
+    region: Vulkaan gebied
+    stay_nights: 3
+    coordinates:
+      lat: -21.2100
+      lon: 55.5730
+
+    planning_note: >-
+      Speciale vulkaanbasis. Dit gebied verdient meerdere dagen omdat de weersomstandigheden snel kunnen veranderen.
+
+    base_attractions:
+
+    - id: piton_fournaise
+      name: Piton de la Fournaise
+      priority: must_do
+      type: volcano
+      visit_duration_hours: 6
+      drive_time_minutes: 45
+      coordinates:
+        lat: -21.2440
+        lon: 55.7080
+
+    - id: pas_de_bellecombe
+      name: Pas de Bellecombe
+      priority: must_do
+      type: viewpoint
+      visit_duration_hours: 2
+      drive_time_minutes: 40
+      coordinates:
+        lat: -21.2470
+        lon: 55.6970
+
+    - id: plaine_sables
+      name: Plaine des Sables
+      priority: must_do
+      type: volcanic_landscape
+      visit_duration_hours: 2
+      drive_time_minutes: 30
+      coordinates:
+        lat: -21.2250
+        lon: 55.6250
+
+    - id: lava_flow_coast
+      name: Grand Brule Lavakust
+      priority: highly_recommended
+      type: volcanic_coastline
+      visit_duration_hours: 4
+      drive_time_minutes: 75
+      coordinates:
+        lat: -21.3430
+        lon: 55.8220
+
+    - id: cite_volcan
+      name: Cité du Volcan
+      priority: if_time
+      type: volcano_center
+      visit_duration_hours: 2
+      drive_time_minutes: 5
+      coordinates:
+        lat: -21.2310
+        lon: 55.5790
+
+  - id: base_4
+    name: Hell-Bourg
+    region: Cirque de Salazie
+    stay_nights: 3
+    coordinates:
+      lat: -21.0630
+      lon: 55.5180
+
+    planning_note: >-
+      Het groenste en meest tropische deel van het eiland. Ideale eindbasis met watervallen, bossen en iconische uitzichtpunten.
+
+    base_attractions:
+
+    - id: hell_bourg_village
       name: Hell-Bourg
-      region: Cirque de Salazie
-      stay_nights: 3
+      priority: must_do
+      type: scenic_village
+      visit_duration_hours: 2
+      drive_time_minutes: 5
       coordinates:
-        lat: -21.0630
-        lon: 55.5180
+        lat: -21.0620
+        lon: 55.5160
 
-      planning_note: >
-        Greenest and most tropical part of the island.
-        Ideal final base with waterfalls, forests and iconic viewpoints.
+    - id: voile_mariee
+      name: Voile de la Mariee-watervallen
+      priority: highly_recommended
+      type: waterfall
+      visit_duration_hours: 1
+      drive_time_minutes: 20
+      coordinates:
+        lat: -21.0370
+        lon: 55.5320
 
-      base_attractions:
+    - id: trou_de_fer
+      name: Trou de Fer-uitkijkpunten
+      priority: must_do
+      type: canyon_waterfall
+      visit_duration_hours: 5
+      drive_time_minutes: 60
+      coordinates:
+        lat: -21.0370
+        lon: 55.6600
 
-        - id: hell_bourg_village
-          name: Hell-Bourg
-          priority: must_do
-          type: scenic_village
-          visit_duration_hours: 2
-          drive_time_minutes: 5
-          coordinates:
-            lat: -21.0620
-            lon: 55.5160
+    - id: bebour_forest
+      name: Bebour-bos
+      priority: highly_recommended
+      type: rainforest
+      visit_duration_hours: 4
+      drive_time_minutes: 45
+      coordinates:
+        lat: -21.1000
+        lon: 55.6500
 
-        - id: voile_mariee
-          name: Voile de la Mariee Waterfalls
-          priority: highly_recommended
-          type: waterfall
-          visit_duration_hours: 1
-          drive_time_minutes: 20
-          coordinates:
-            lat: -21.0370
-            lon: 55.5320
-
-        - id: trou_de_fer
-          name: Trou de Fer Viewpoints
-          priority: must_do
-          type: canyon_waterfall
-          visit_duration_hours: 5
-          drive_time_minutes: 60
-          coordinates:
-            lat: -21.0370
-            lon: 55.6600
-
-        - id: bebour_forest
-          name: Bebour Forest
-          priority: highly_recommended
-          type: rainforest
-          visit_duration_hours: 4
-          drive_time_minutes: 45
-          coordinates:
-            lat: -21.1000
-            lon: 55.6500
-
-        - id: anse_cascades
-          name: Anse des Cascades
-          priority: highly_recommended
-          type: coastal_waterfalls
-          visit_duration_hours: 2
-          drive_time_minutes: 75
-          coordinates:
-            lat: -21.1910
-            lon: 55.8380
+    - id: anse_cascades
+      name: Anse des Cascades
+      priority: highly_recommended
+      type: coastal_waterfalls
+      visit_duration_hours: 2
+      drive_time_minutes: 75
+      coordinates:
+        lat: -21.1910
+        lon: 55.8380
 
   transfer_routes:
 
-    - id: transfer_base_1_to_base_2
-      from: base_1
-      to: base_2
-      estimated_direct_drive_hours: 2
-      max_recommended_major_stops: 1
+  - id: transfer_base_1_to_base_2
+    from: base_1
+    to: base_2
+    estimated_direct_drive_hours: 2
+    max_recommended_major_stops: 1
 
-      en_route_candidates:
+    en_route_candidates:
 
-        - id: etang_sale
-          name: Etang-Sale Black Sand Beach
-          priority: highly_recommended
-          type: black_sand_beach
+    - id: etang_sale
+      name: Etang-Sale zwart zandstrand
+      priority: highly_recommended
+      type: black_sand_beach
 
-    - id: transfer_base_2_to_base_3
-      from: base_2
-      to: base_3
-      estimated_direct_drive_hours: 1.5
-      max_recommended_major_stops: 1
+  - id: transfer_base_2_to_base_3
+    from: base_2
+    to: base_3
+    estimated_direct_drive_hours: 1.5
+    max_recommended_major_stops: 1
 
-    - id: transfer_base_3_to_base_4
-      from: base_3
-      to: base_4
-      estimated_direct_drive_hours: 2
-      max_recommended_major_stops: 2
+  - id: transfer_base_3_to_base_4
+    from: base_3
+    to: base_4
+    estimated_direct_drive_hours: 2
+    max_recommended_major_stops: 2
 
-      en_route_candidates:
+    en_route_candidates:
 
-        - id: grand_etang
-          name: Grand Etang
-          priority: highly_recommended
-          type: crater_lake
-          coordinates:
-            lat: -21.0820
-            lon: 55.6680
+    - id: grand_etang
+      name: Grote Etang
+      priority: highly_recommended
+      type: crater_lake
+      coordinates:
+        lat: -21.0820
+        lon: 55.6680
 
   airport:
 
     id: reunion_airport
-    name: Roland Garros Airport
+    name: Luchthaven Roland Garros
     coordinates:
       lat: -20.8900
       lon: 55.5160
@@ -326,14 +317,9 @@ trip:
   paid_activity_preferences:
 
     intended_paid_activities:
-      - whale_watching
-
+    - whale_watching
     possible_second_paid_activity:
-      - canyoning
-      - helicopter_flight_trou_de_fer
-
-    planning_note: >
-      Whale watching is the primary planned paid activity.
-      If budget allows one additional splurge, a helicopter flight over
-      Mafate, Salazie and Trou de Fer is considered one of the most
-      spectacular experiences on the island.
+    - canyoning
+    - helicopter_flight_trou_de_fer
+    planning_note: >-
+      Walvissen spotten is de voornaamste geplande betaalde activiteit. Als het budget nog een extra uitgave toelaat, wordt een helikoptervlucht boven Mafate, Salazie en Trou de Fer beschouwd als een van de meest spectaculaire ervaringen op het eiland.

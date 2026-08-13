@@ -4,22 +4,19 @@ trip:
   overview:
     rank: 14
     summary: "14-daagse familie-autoreis door het Berner Oberland en de Matterhorn-streek."
-    summary_reason: >
-      Zwitserland combineert een van Europa's meest spectaculaire berglandschappen, kristalheldere meren,
-      gletsjers, watervallen en zeer toegankelijke alpenwandelingen. De combinatie van het Lauterbrunnen-dal,
-      het Oeschinenmeer, de Jungfrau-regio en het Matterhorn maakt het een van de mooiste bergreizen
-      ter wereld.
-    transport: "🚗 Own car"
+    summary_reason: >-
+      Zwitserland verplaatsing een van Europa's meest spectaculaire berglandschappen, kristalheldere meren, gletsjers, watervallen en zeer toegankelijke alpenwandelingen. De combinatie van het Lauterbrunnen-dal, het Oeschinenmeer, de Jungfrau-regio en de Matterhorn maakt het een van de mooiste bergreizen ter wereld.
+    transport: "🚗Eigen auto"
     duration_days: 14
-    travel_style: "Family alpine vacation"
+    travel_style: "Familie alpine vakantie"
     highlights:
-      - "Lauterbrunnen-dal"
-      - "Oeschinenmeer"
-      - "Grindelwald First"
-      - "Jungfrau-regio"
-      - "Matterhorn"
-      - "Gornergrat"
-      - "Aletsch Gletsjer"
+    - Lauterbrunnen-dal
+    - Oeschinenmeer
+    - Grindelwald eerst
+    - Jungfrau-regio
+    - Matterhorn
+    - Gornergrat
+    - Aletsch Gletsjer
     cost:
       couple:
         eur_range: "€4,000 - €7,000"
@@ -27,281 +24,274 @@ trip:
         eur_range: "€6,000 - €11,000"
       relative_costs: "medium"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   duration:
     days: 14
     nights: 13
 
   lodging_locations:
 
-    - id: base_1
+  - id: base_1
 
-      name: Lauterbrunnen / Wengen
-      region: Bernese Oberland
-      stay_nights: 7
+    name: Lauterbrunnen / Wengen
+    region: Berner Oberland
+    stay_nights: 7
 
+    coordinates:
+      lat: 46.5930
+      lon: 7.9090
+
+    planning_note: >-
+      Eersteklas Zwitserse bergbasis. Bestrijkt het grootste deel van het iconische landschap van het Berner Oberland.
+
+    base_attractions:
+
+    - id: lauterbrunnen_valley
+      name: Lauterbrunnenvallei
+      priority: must_do
+      type: valley
+      visit_duration_hours: 4
       coordinates:
         lat: 46.5930
         lon: 7.9090
 
-      planning_note: >
-        Premier Swiss mountain base.
-        Covers most of the iconic Bernese Oberland scenery.
+    - id: staubbach_falls
+      name: Staubbach-watervallen
+      priority: must_do
+      type: waterfall
+      visit_duration_hours: 1
+      coordinates:
+        lat: 46.5938
+        lon: 7.9083
 
-      base_attractions:
+    - id: trummelbach
+      name: Trümmelbach-watervallen
+      priority: highly_recommended
+      type: waterfall
+      visit_duration_hours: 2
+      coordinates:
+        lat: 46.5724
+        lon: 7.9117
 
-        - id: lauterbrunnen_valley
-          name: Lauterbrunnen Valley
-          priority: must_do
-          type: valley
-          visit_duration_hours: 4
-          coordinates:
-            lat: 46.5930
-            lon: 7.9090
+    - id: mannlichen
+      name: Mannlichen
+      priority: must_do
+      type: hiking
+      visit_duration_hours: 4
+      coordinates:
+        lat: 46.6180
+        lon: 7.9420
 
-        - id: staubbach_falls
-          name: Staubbach Falls
-          priority: must_do
-          type: waterfall
-          visit_duration_hours: 1
-          coordinates:
-            lat: 46.5938
-            lon: 7.9083
+    - id: kleine_scheidegg
+      name: Kleine Scheidegg
+      priority: must_do
+      type: mountain_scenery
+      visit_duration_hours: 4
+      coordinates:
+        lat: 46.5848
+        lon: 7.9619
 
-        - id: trummelbach
-          name: Trümmelbach Falls
-          priority: highly_recommended
-          type: waterfall
-          visit_duration_hours: 2
-          coordinates:
-            lat: 46.5724
-            lon: 7.9117
+    - id: grindelwald_first
+      name: Grindelwald eerst
+      priority: must_do
+      type: mountain_area
+      visit_duration_hours: 5
+      coordinates:
+        lat: 46.6585
+        lon: 8.0413
 
-        - id: mannlichen
-          name: Männlichen
-          priority: must_do
-          type: hiking
-          visit_duration_hours: 4
-          coordinates:
-            lat: 46.6180
-            lon: 7.9420
+    - id: bachalpsee
+      name: Bachalpsee
+      priority: must_do
+      type: alpine_lake
+      visit_duration_hours: 3
+      coordinates:
+        lat: 46.6720
+        lon: 8.0380
 
-        - id: kleine_scheidegg
-          name: Kleine Scheidegg
-          priority: must_do
-          type: mountain_scenery
-          visit_duration_hours: 4
-          coordinates:
-            lat: 46.5848
-            lon: 7.9619
+    - id: oeschinensee
+      name: Oeschinensee
+      priority: must_do
+      type: alpine_lake
+      visit_duration_hours: 6
+      drive_time_minutes: 60
+      coordinates:
+        lat: 46.4989
+        lon: 7.7267
 
-        - id: grindelwald_first
-          name: Grindelwald First
-          priority: must_do
-          type: mountain_area
-          visit_duration_hours: 5
-          coordinates:
-            lat: 46.6585
-            lon: 8.0413
+    - id: harder_kulm
+      name: Harder Kulm
+      priority: highly_recommended
+      type: viewpoint
+      visit_duration_hours: 2
+      coordinates:
+        lat: 46.6997
+        lon: 7.8550
 
-        - id: bachalpsee
-          name: Bachalpsee
-          priority: must_do
-          type: alpine_lake
-          visit_duration_hours: 3
-          coordinates:
-            lat: 46.6720
-            lon: 8.0380
+    - id: brienz
+      name: Het Brienzermeer
+      priority: highly_recommended
+      type: lake
+      visit_duration_hours: 3
+      coordinates:
+        lat: 46.7550
+        lon: 8.0340
 
-        - id: oeschinensee
-          name: Oeschinensee
-          priority: must_do
-          type: alpine_lake
-          visit_duration_hours: 6
-          drive_time_minutes: 60
-          coordinates:
-            lat: 46.4989
-            lon: 7.7267
+    - id: aareschlucht
+      name: Aare-kloof
+      priority: highly_recommended
+      type: canyon
+      visit_duration_hours: 2
+      coordinates:
+        lat: 46.7170
+        lon: 8.2090
 
-        - id: harder_kulm
-          name: Harder Kulm
-          priority: highly_recommended
-          type: viewpoint
-          visit_duration_hours: 2
-          coordinates:
-            lat: 46.6997
-            lon: 7.8550
+    - id: jungfraujoch
+      name: Jungfraujoch
+      priority: optional_paid_activity
+      type: mountain_railway
+      visit_duration_hours: 6
+      coordinates:
+        lat: 46.5480
+        lon: 7.9850
 
-        - id: brienz
-          name: Lake Brienz
-          priority: highly_recommended
-          type: lake
-          visit_duration_hours: 3
-          coordinates:
-            lat: 46.7550
-            lon: 8.0340
+    departure_day_candidates:
 
-        - id: aareschlucht
-          name: Aare Gorge
-          priority: highly_recommended
-          type: canyon
-          visit_duration_hours: 2
-          coordinates:
-            lat: 46.7170
-            lon: 8.2090
+      route_to: base_2
 
-        - id: jungfraujoch
-          name: Jungfraujoch
-          priority: optional_paid_activity
-          type: mountain_railway
-          visit_duration_hours: 6
-          coordinates:
-            lat: 46.5480
-            lon: 7.9850
+      candidates:
 
-      departure_day_candidates:
+      - id: lotschberg_route
+        name: Lötschberg-panoramaroute
+        priority: highly_recommended
 
-        route_to: base_2
+  - id: base_2
 
-        candidates:
+    name: Zermatt
+    region: Matterhorn-regio
+    stay_nights: 6
 
-          - id: lotschberg_route
-            name: Lötschberg Scenic Route
-            priority: highly_recommended
+    coordinates:
+      lat: 46.0207
+      lon: 7.7491
 
-    - id: base_2
+    planning_note: >-
+      Speciale Matterhorn-basis. Focus op iconische berglandschappen en gletsjerlandschappen.
 
-      name: Zermatt
-      region: Matterhorn Region
-      stay_nights: 6
+    base_attractions:
 
+    - id: matterhorn
+      name: Matterhorn-uitkijkpunten
+      priority: must_do
+      type: mountain
+      visit_duration_hours: 5
+      coordinates:
+        lat: 45.9763
+        lon: 7.6586
+
+    - id: gornergrat
+      name: Gornergrat
+      priority: must_do
+      type: mountain_railway
+      visit_duration_hours: 5
+      coordinates:
+        lat: 45.9838
+        lon: 7.7841
+
+    - id: riffelsee
+      name: Ruffelsee
+      priority: must_do
+      type: alpine_lake
+      visit_duration_hours: 3
+      coordinates:
+        lat: 45.9833
+        lon: 7.7485
+
+    - id: five_lakes_hike
+      name: Vijf Merenwandeling
+      priority: highly_recommended
+      type: hiking
+      visit_duration_hours: 5
+      coordinates:
+        lat: 46.0030
+        lon: 7.7820
+
+    - id: sunnegga
+      name: Sunnegga
+      priority: highly_recommended
+      type: viewpoint
+      visit_duration_hours: 3
+      coordinates:
+        lat: 46.0280
+        lon: 7.8000
+
+    - id: matterhorn_glacier_paradise
+      name: Matterhorn-gletsjerparadijs
+      priority: highly_recommended
+      type: glacier
+      visit_duration_hours: 5
+      coordinates:
+        lat: 45.9380
+        lon: 7.7200
+
+    - id: aletsch_glacier
+      name: Aletschgletsjer
+      priority: must_do
+      type: glacier
+      visit_duration_hours: 6
+      drive_time_minutes: 90
+      coordinates:
+        lat: 46.4380
+        lon: 8.0410
+
+    - id: zermatt_village
+      name: Het dorp Zermatt
+      priority: if_time
+      type: mountain_village
+      visit_duration_hours: 2
       coordinates:
         lat: 46.0207
         lon: 7.7491
 
-      planning_note: >
-        Dedicated Matterhorn base.
-        Focus on iconic mountain scenery and glacier landscapes.
-
-      base_attractions:
-
-        - id: matterhorn
-          name: Matterhorn Viewpoints
-          priority: must_do
-          type: mountain
-          visit_duration_hours: 5
-          coordinates:
-            lat: 45.9763
-            lon: 7.6586
-
-        - id: gornergrat
-          name: Gornergrat
-          priority: must_do
-          type: mountain_railway
-          visit_duration_hours: 5
-          coordinates:
-            lat: 45.9838
-            lon: 7.7841
-
-        - id: riffelsee
-          name: Riffelsee
-          priority: must_do
-          type: alpine_lake
-          visit_duration_hours: 3
-          coordinates:
-            lat: 45.9833
-            lon: 7.7485
-
-        - id: five_lakes_hike
-          name: Five Lakes Hike
-          priority: highly_recommended
-          type: hiking
-          visit_duration_hours: 5
-          coordinates:
-            lat: 46.0030
-            lon: 7.7820
-
-        - id: sunnegga
-          name: Sunnegga
-          priority: highly_recommended
-          type: viewpoint
-          visit_duration_hours: 3
-          coordinates:
-            lat: 46.0280
-            lon: 7.8000
-
-        - id: matterhorn_glacier_paradise
-          name: Matterhorn Glacier Paradise
-          priority: highly_recommended
-          type: glacier
-          visit_duration_hours: 5
-          coordinates:
-            lat: 45.9380
-            lon: 7.7200
-
-        - id: aletsch_glacier
-          name: Aletsch Glacier
-          priority: must_do
-          type: glacier
-          visit_duration_hours: 6
-          drive_time_minutes: 90
-          coordinates:
-            lat: 46.4380
-            lon: 8.0410
-
-        - id: zermatt_village
-          name: Zermatt Village
-          priority: if_time
-          type: mountain_village
-          visit_duration_hours: 2
-          coordinates:
-            lat: 46.0207
-            lon: 7.7491
-
   transfer_routes:
 
-    - id: transfer_base_1_to_base_2
+  - id: transfer_base_1_to_base_2
 
-      from: base_1
-      to: base_2
+    from: base_1
+    to: base_2
 
-      description: Bernese Oberland to Zermatt
-      estimated_direct_drive_hours: 3
+    description: Berner Oberland naar Zermatt
+    estimated_direct_drive_hours: 3
 
-      planning_note: >
-        Scenic transfer through the Swiss Alps.
-        Limit sightseeing to one or two meaningful stops.
+    planning_note: >-
+      Schilderachtige transfer door de Zwitserse Alpen. Beperk bezienswaardigheden tot een of twee zinvolle stops.
 
-      en_route_candidates:
+    en_route_candidates:
 
-        - attraction_ref: aletsch_glacier
+    - attraction_ref: aletsch_glacier
 
-        - id: brig
-          name: Brig
-          priority: if_time
-          type: town
-          coordinates:
-            lat: 46.3167
-            lon: 7.9833
+    - id: brig
+      name: Brig
+      priority: if_time
+      type: town
+      coordinates:
+        lat: 46.3167
+        lon: 7.9833
 
   paid_activity_preferences:
 
     intended_paid_activities:
-      - gornergrat
-      - grindelwald_first
-
+    - gornergrat
+    - grindelwald_first
     possible_second_paid_activity:
-      - jungfraujoch
-      - matterhorn_glacier_paradise
-
-    planning_note: >
-      Switzerland can become expensive quickly.
-      Prioritize viewpoint railways and cable cars over other paid activities.
+    - jungfraujoch
+    - matterhorn_glacier_paradise
+    planning_note: >-
+      Zwitserland kan snel duur worden. Geef prioriteit aan uitkijkspoorwegen en kabelbanen boven andere betaalde activiteiten.
 
   access:
 
@@ -311,6 +301,5 @@ trip:
       outbound: 1
       return: 1
 
-    planning_note: >
-      The drive from Belgium is straightforward.
-      Consider an overnight stop only if you prefer a very relaxed journey.
+    planning_note: >-
+      De rit vanuit België is eenvoudig. Overweeg alleen een overnachting als u de voorkeur geeft aan een zeer ontspannen reis.

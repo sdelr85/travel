@@ -4,22 +4,20 @@ trip:
   overview:
     rank: 12
     summary: "14-daagse familie-autoreis door de meest spectaculaire gebieden van de Italiaanse Dolomieten."
-    summary_reason: >
-      De Dolomieten bieden een van de meest dramatische berglandschappen van Europa, met verticale
-      kalksteenpieken, alpenweiden, bergmeren, panoramische kabelbanen en zeer toegankelijke
-      gezinswandelingen. Een perfecte combinatie van natuur, buitenactiviteiten, dorpjes en Italiaans eten.
-    transport: "🚗 Own car"
+    summary_reason: >-
+      De Dolomieten bieden een van de meest dramatische berglandschappen van Europa, met verticale kalksteenpieken, alpenweiden, bergmeren, panoramische kabelbanen en zeer toegankelijke gezinswandelingen. Een perfecte combinatie van natuur, buitenactiviteiten, dorpjes en Italiaans eten.
+    transport: "🚗Eigen auto"
     duration_days: 14
-    travel_style: "Family mountain road trip"
+    travel_style: "Familie bergreis"
     highlights:
-      - "Seceda Bergkam"
-      - "Tre Cime di Lavaredo"
-      - "Alpe di Siusi"
-      - "Lago di Braies"
-      - "Val di Funes"
-      - "Passo Giau"
-      - "Cadini di Misurina"
-      - "Cinque Torri"
+    - Seceda Bergkam
+    - Tre Cime di Lavaredo
+    - Alpe di Siusi
+    - Lago di Braies
+    - Val di Funes
+    - Passo Giau
+    - Cadini di Misurina
+    - Cinque Torri
     cost:
       couple:
         eur_range: "€2,500 - €5,000"
@@ -27,12 +25,11 @@ trip:
         eur_range: "€4,000 - €8,000"
       relative_costs: "low"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   duration:
     days: 14
     nights: 13
@@ -47,256 +44,249 @@ trip:
       max_recommended_single_drive_minutes: 90
 
     flexibility:
-      note: >
-        Cable car days and hiking days can easily be swapped based on weather.
-        Keep the most scenic viewpoints for clear-weather days.
+      note: >-
+        Kabelbaandagen en wandeldagen kunnen eenvoudig worden gewisseld op basis van het weer. Bewaar de meest schilderachtige uitzichtpunten voor dagen met helder weer.
 
   lodging_locations:
 
-    - id: base_1
-      name: Ortisei / Selva di Val Gardena
-      region: Western Dolomites
-      stay_nights: 7
+  - id: base_1
+    name: Ortisei / Selva di Val Gardena
+    region: Westelijke Dolomieten
+    stay_nights: 7
 
+    coordinates:
+      lat: 46.5756
+      lon: 11.6717
+
+    planning_note: >-
+      Beste centrale uitvalsbasis voor Seceda, Alpe di Siusi, Val di Funes en de Sella Group.
+
+    base_attractions:
+
+    - id: seceda
+      name: Seceda Ridgeline
+      priority: must_do
+      type: mountain_viewpoint
+      visit_duration_hours: 5
+      drive_time_minutes: 10
       coordinates:
-        lat: 46.5756
-        lon: 11.6717
+        lat: 46.6221
+        lon: 11.7283
 
-      planning_note: >
-        Best central base for Seceda, Alpe di Siusi,
-        Val di Funes and the Sella Group.
-
-      base_attractions:
-
-        - id: seceda
-          name: Seceda Ridgeline
-          priority: must_do
-          type: mountain_viewpoint
-          visit_duration_hours: 5
-          drive_time_minutes: 10
-          coordinates:
-            lat: 46.6221
-            lon: 11.7283
-
-        - id: alpe_di_siusi
-          name: Alpe di Siusi
-          priority: must_do
-          type: alpine_meadow
-          visit_duration_hours: 6
-          drive_time_minutes: 20
-          coordinates:
-            lat: 46.5550
-            lon: 11.6540
-
-        - id: val_di_funes
-          name: Val di Funes
-          priority: must_do
-          type: valley
-          visit_duration_hours: 4
-          drive_time_minutes: 45
-          coordinates:
-            lat: 46.6420
-            lon: 11.7280
-
-        - id: st_magdalena
-          name: St. Magdalena Viewpoint
-          priority: must_do
-          type: viewpoint
-          visit_duration_hours: 2
-          drive_time_minutes: 45
-          coordinates:
-            lat: 46.6408
-            lon: 11.7284
-
-        - id: sass_pordoi
-          name: Sass Pordoi
-          priority: must_do
-          type: cable_car_viewpoint
-          visit_duration_hours: 4
-          drive_time_minutes: 35
-          coordinates:
-            lat: 46.4890
-            lon: 11.8100
-
-        - id: passo_sella
-          name: Passo Sella
-          priority: highly_recommended
-          type: mountain_pass
-          visit_duration_hours: 2
-          drive_time_minutes: 30
-          coordinates:
-            lat: 46.5060
-            lon: 11.7610
-
-        - id: lago_carezza
-          name: Lago di Carezza
-          priority: highly_recommended
-          type: alpine_lake
-          visit_duration_hours: 2
-          drive_time_minutes: 50
-          coordinates:
-            lat: 46.4100
-            lon: 11.5770
-
-        - id: resciesa
-          name: Resciesa Plateau
-          priority: highly_recommended
-          type: hiking
-          visit_duration_hours: 4
-          drive_time_minutes: 10
-          coordinates:
-            lat: 46.5910
-            lon: 11.6880
-
-      departure_day_candidates:
-
-        route_to: base_2
-
-        candidates:
-
-          - attraction_ref: passo_giau
-
-          - id: passo_falzarego
-            name: Passo Falzarego
-            priority: highly_recommended
-
-    - id: base_2
-      name: Cortina d'Ampezzo
-      region: Eastern Dolomites
-      stay_nights: 6
-
+    - id: alpe_di_siusi
+      name: Alpe di Siusi
+      priority: must_do
+      type: alpine_meadow
+      visit_duration_hours: 6
+      drive_time_minutes: 20
       coordinates:
-        lat: 46.5405
-        lon: 12.1357
+        lat: 46.5550
+        lon: 11.6540
 
-      planning_note: >
-        Focus on Tre Cime, Lago di Braies,
-        Cadini di Misurina and the most famous eastern Dolomite landscapes.
+    - id: val_di_funes
+      name: Val di Funes
+      priority: must_do
+      type: valley
+      visit_duration_hours: 4
+      drive_time_minutes: 45
+      coordinates:
+        lat: 46.6420
+        lon: 11.7280
 
-      base_attractions:
+    - id: st_magdalena
+      name: St. Magdalena-uitkijkpunt
+      priority: must_do
+      type: viewpoint
+      visit_duration_hours: 2
+      drive_time_minutes: 45
+      coordinates:
+        lat: 46.6408
+        lon: 11.7284
 
-        - id: tre_cime
-          name: Tre Cime di Lavaredo
-          priority: must_do
-          type: iconic_hike
-          visit_duration_hours: 6
-          drive_time_minutes: 40
-          coordinates:
-            lat: 46.6186
-            lon: 12.3038
+    - id: sass_pordoi
+      name: Sas Pordoi
+      priority: must_do
+      type: cable_car_viewpoint
+      visit_duration_hours: 4
+      drive_time_minutes: 35
+      coordinates:
+        lat: 46.4890
+        lon: 11.8100
 
-        - id: cadini_di_misurina
-          name: Cadini di Misurina Viewpoint
-          priority: must_do
-          type: viewpoint_hike
-          visit_duration_hours: 3
-          drive_time_minutes: 40
-          coordinates:
-            lat: 46.6125
-            lon: 12.2970
+    - id: passo_sella
+      name: Passo Sella
+      priority: highly_recommended
+      type: mountain_pass
+      visit_duration_hours: 2
+      drive_time_minutes: 30
+      coordinates:
+        lat: 46.5060
+        lon: 11.7610
 
-        - id: lago_braies
-          name: Lago di Braies
-          priority: must_do
-          type: alpine_lake
-          visit_duration_hours: 3
-          drive_time_minutes: 45
-          coordinates:
-            lat: 46.6940
-            lon: 12.0840
+    - id: lago_carezza
+      name: Lago di Carezza
+      priority: highly_recommended
+      type: alpine_lake
+      visit_duration_hours: 2
+      drive_time_minutes: 50
+      coordinates:
+        lat: 46.4100
+        lon: 11.5770
 
-        - id: cinque_torri
-          name: Cinque Torri
-          priority: must_do
-          type: hiking
-          visit_duration_hours: 4
-          drive_time_minutes: 25
-          coordinates:
-            lat: 46.5180
-            lon: 12.0380
+    - id: resciesa
+      name: Resciesa-plateau
+      priority: highly_recommended
+      type: hiking
+      visit_duration_hours: 4
+      drive_time_minutes: 10
+      coordinates:
+        lat: 46.5910
+        lon: 11.6880
 
-        - id: passo_giau
-          name: Passo Giau
-          priority: must_do
-          type: scenic_pass
-          visit_duration_hours: 3
-          drive_time_minutes: 20
-          coordinates:
-            lat: 46.4820
-            lon: 12.0660
+    departure_day_candidates:
 
-        - id: lagazuoi
-          name: Lagazuoi
-          priority: highly_recommended
-          type: cable_car_hike
-          visit_duration_hours: 5
-          drive_time_minutes: 25
-          coordinates:
-            lat: 46.5520
-            lon: 12.0090
+      route_to: base_2
 
-        - id: lago_misurina
-          name: Lago di Misurina
-          priority: highly_recommended
-          type: lake
-          visit_duration_hours: 2
-          drive_time_minutes: 25
-          coordinates:
-            lat: 46.5864
-            lon: 12.2544
+      candidates:
 
-        - id: croda_da_lago
-          name: Croda da Lago
-          priority: if_time
-          type: hiking
-          visit_duration_hours: 5
-          drive_time_minutes: 25
-          coordinates:
-            lat: 46.4860
-            lon: 12.0830
+      - attraction_ref: passo_giau
+
+      - id: passo_falzarego
+        name: Passo Falzarego
+        priority: highly_recommended
+
+  - id: base_2
+    name: Cortina d'Ampezzo
+    region: Oostelijke Dolomieten
+    stay_nights: 6
+
+    coordinates:
+      lat: 46.5405
+      lon: 12.1357
+
+    planning_note: >-
+      Focus op Tre Cime, Lago di Braies, Cadini di Misurina en de beroemdste oostelijke Dolomietenlandschappen.
+
+    base_attractions:
+
+    - id: tre_cime
+      name: Tre Cime di Lavaredo
+      priority: must_do
+      type: iconic_hike
+      visit_duration_hours: 6
+      drive_time_minutes: 40
+      coordinates:
+        lat: 46.6186
+        lon: 12.3038
+
+    - id: cadini_di_misurina
+      name: Cadini di Misurina-uitkijkpunt
+      priority: must_do
+      type: viewpoint_hike
+      visit_duration_hours: 3
+      drive_time_minutes: 40
+      coordinates:
+        lat: 46.6125
+        lon: 12.2970
+
+    - id: lago_braies
+      name: Lago di Braies
+      priority: must_do
+      type: alpine_lake
+      visit_duration_hours: 3
+      drive_time_minutes: 45
+      coordinates:
+        lat: 46.6940
+        lon: 12.0840
+
+    - id: cinque_torri
+      name: Cinque Torri
+      priority: must_do
+      type: hiking
+      visit_duration_hours: 4
+      drive_time_minutes: 25
+      coordinates:
+        lat: 46.5180
+        lon: 12.0380
+
+    - id: passo_giau
+      name: Passo Giau
+      priority: must_do
+      type: scenic_pass
+      visit_duration_hours: 3
+      drive_time_minutes: 20
+      coordinates:
+        lat: 46.4820
+        lon: 12.0660
+
+    - id: lagazuoi
+      name: Lagazuoi
+      priority: highly_recommended
+      type: cable_car_hike
+      visit_duration_hours: 5
+      drive_time_minutes: 25
+      coordinates:
+        lat: 46.5520
+        lon: 12.0090
+
+    - id: lago_misurina
+      name: Lago di Misurina
+      priority: highly_recommended
+      type: lake
+      visit_duration_hours: 2
+      drive_time_minutes: 25
+      coordinates:
+        lat: 46.5864
+        lon: 12.2544
+
+    - id: croda_da_lago
+      name: Croda da Lago
+      priority: if_time
+      type: hiking
+      visit_duration_hours: 5
+      drive_time_minutes: 25
+      coordinates:
+        lat: 46.4860
+        lon: 12.0830
 
   transfer_routes:
 
-    - id: transfer_base_1_to_base_2
+  - id: transfer_base_1_to_base_2
 
-      from: base_1
-      to: base_2
+    from: base_1
+    to: base_2
 
-      description: Val Gardena to Cortina d'Ampezzo
+    description: Val Gardena tot Cortina d'Ampezzo
 
-      estimated_direct_drive_hours: 2
+    estimated_direct_drive_hours: 2
 
-      planning_note: >
-        One of the most scenic drives of the trip.
-        Do not overload this day.
+    planning_note: >-
+      Eén van de mooiste ritten van de reis. Overbelast deze dag niet.
 
-      max_recommended_major_stops: 2
+    max_recommended_major_stops: 2
 
-      en_route_candidates:
+    en_route_candidates:
 
-        - attraction_ref: passo_giau
+    - attraction_ref: passo_giau
 
-        - id: passo_falzarego
-          name: Passo Falzarego
-          priority: highly_recommended
-          type: scenic_pass
-          coordinates:
-            lat: 46.5190
-            lon: 12.0080
+    - id: passo_falzarego
+      name: Passo Falzarego
+      priority: highly_recommended
+      type: scenic_pass
+      coordinates:
+        lat: 46.5190
+        lon: 12.0080
 
   paid_activity_preferences:
 
     intended_paid_activities:
-      - seceda_cable_car
-      - sass_pordoi_cable_car
-
+    - seceda_cable_car
+    - sass_pordoi_cable_car
     possible_second_paid_activity:
-      - lagazuoi_cable_car
-      - tre_cime_toll_road
-
-    planning_note: >
-      The cable cars dramatically increase access to the most iconic scenery.
-      Prioritize these above other paid attractions.
+    - lagazuoi_cable_car
+    - tre_cime_toll_road
+    planning_note: >-
+      De kabelbanen vergroten de toegang tot de meest iconische landschappen dramatisch. Geef deze prioriteit boven andere betaalde attracties.
 
   access:
 
@@ -306,6 +296,5 @@ trip:
       outbound: 1
       return: 1
 
-    planning_note: >
-      Consider an overnight stop in southern Germany or Austria
-      if you prefer a more relaxed drive from Belgium.
+    planning_note: >-
+      Overweeg een overnachting in Zuid-Duitsland of Oostenrijk als u liever een meer ontspannen rit vanuit België maakt.

@@ -4,29 +4,24 @@ trip:
   overview:
     rank: 16
     summary: "12-daagse familie-autoreis door São Miguel en Pico, gericht op vulkanische landschappen, kratermeren, thermale bronnen, watervallen, wandelen, walvissafari en kustlandschap."
-    summary_reason: >
-      De Azoren voelen aan als een plek die de rest van de wereld vergeten is — vulkanische caldera's
-      gevuld met jadegroen water, natuurlijke hete bronnen die borrelen uit de grond, watervallen die
-      direct in de oceaan storten en een van de beste walvissafariroutes ter wereld. Anders dan IJsland
-      of de Canarische Eilanden voelen de eilanden echt wild en weinig bezocht, met een dramatisch
-      vulkanisch landschap dat wandelaars en natuurliefhebbers boven alles beloont.
-    transport: "✈ Plane + 🚗 Rental car + ✈ Inter-island flight"
+    summary_reason: >-
+      De Azoren voelen aan als een plek die de rest van de wereld vergeten is - vulkanische caldera's gevuld met jadegroen water, natuurlijke hete bronnen die borrelen uit de grond, watervallen sterven direct in de oceaanstorten en een van de beste walvissafariroutes ter wereld. Anders dan IJsland of de Canarische Eilanden voelt de eilanden echt wild en weinig bezocht, met een dramatisch vulkanisch landschap dat wandelaars en natuurliefhebbers boven alles beloont.
+    transport: "✈ Vliegtuig + 🚗 Huurauto + ✈ Vlucht tussen de eilanden"
 
     duration_days: 12
     duration_nights: 11
 
-    travel_style: "Fly-in family self-drive"
+    travel_style: "Fly-in familie-selfdrive"
 
     highlights:
-      - "Sete Cidades"
-      - "Lagoa do Fogo"
-      - "Geothermisch gebied Furnas"
-      - "Terra Nostra thermale baden"
-      - "Walvissafari"
-      - "Mount Pico"
-      - "Wijnlandschap van Pico"
-      - "Natuurlijke lavazwembaden"
-
+    - Sete Cidades
+    - Lagoa do Fogo
+    - Geothermisch gebied Furnas
+    - Terra Nostra thermale baden
+    - Walvissafari
+    - Monte Pico
+    - Wijnlandschap van Pico
+    - Natuurlijke lavazwembaden
     cost:
       couple:
         eur_range: "€4,000 - €7,000"
@@ -34,12 +29,11 @@ trip:
         eur_range: "€7,000 - €11,000"
       relative_costs: "medium"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   direction: sao_miguel_then_pico
 
   duration:
@@ -51,11 +45,11 @@ trip:
 
     recommended_base_split:
 
-      - base: base_1
-        nights: 6
+    - base: base_1
+      nights: 6
 
-      - base: base_2
-        nights: 5
+    - base: base_2
+      nights: 5
 
   transport_constraints:
 
@@ -71,10 +65,8 @@ trip:
   planning_principles:
 
     lodging_strategy:
-      note: >
-        Stay in one accommodation per island.
-        Sao Miguel and Pico offer enough variety that additional lodging locations
-        add complexity without substantial benefit.
+      note: >-
+        Verblijf in één accommodatie per eiland. Sao Miguel en Pico bieden voldoende variatie dat extra accommodatielocaties de complexiteit vergroten zonder substantiële voordelen.
 
     transfer_day:
       max_recommended_major_stops: 2
@@ -84,9 +76,8 @@ trip:
       max_recommended_single_drive_minutes: 60
 
     weather_flexibility:
-      note: >
-        Weather changes rapidly in the Azores.
-        Keep viewpoints and hikes flexible.
+      note: >-
+        Het weer verandert snel op de Azoren. Houd uitzichtpunten en wandelingen flexibel.
 
   priority_definitions:
 
@@ -104,241 +95,240 @@ trip:
 
   lodging_locations:
 
-    - id: base_1
+  - id: base_1
 
-      name: Furnas / Sao Miguel
+    name: Furnas / Sao Miguel
 
-      region: Sao Miguel
+    region: São Miguel
 
-      stay_nights: 6
+    stay_nights: 6
+
+    coordinates:
+      lat: 37.7930
+      lon: -25.3237
+
+    planning_note: >-
+      Uitstekende locatie nabij geothermische activiteit en toch gemakkelijke toegang tot het volledige eiland.
+
+    base_attractions:
+
+    - id: sete_cidades
+
+      name: Sete Cidades
+
+      priority: must_do
+
+      type: volcanic_caldera
+
+      visit_duration_hours: 4
+
+      coordinates:
+        lat: 37.8617
+        lon: -25.7285
+
+    - id: vista_do_rei
+
+      name: Uitzichtpunt Vista do Rei
+
+      priority: must_do
+
+      type: viewpoint
+
+      visit_duration_hours: 1
+
+      coordinates:
+        lat: 37.8392
+        lon: -25.7397
+
+    - id: lagoa_do_fogo
+
+      name: Lagoa do Fogo
+
+      priority: must_do
+
+      type: volcanic_lake
+
+      visit_duration_hours: 3
+
+      coordinates:
+        lat: 37.7693
+        lon: -25.4976
+
+    - id: furnas
+
+      name: Geothermisch gebied Furnas
+
+      priority: must_do
+
+      type: geothermal_area
+
+      visit_duration_hours: 4
 
       coordinates:
         lat: 37.7930
         lon: -25.3237
 
-      planning_note: >
-        Excellent location near geothermal activity while still allowing easy access
-        to the full island.
+    - id: terra_nostra
 
-      base_attractions:
+      name: Terra Nostra-park
 
-        - id: sete_cidades
+      priority: must_do
 
-          name: Sete Cidades
+      type: thermal_pool
 
-          priority: must_do
-
-          type: volcanic_caldera
-
-          visit_duration_hours: 4
-
-          coordinates:
-            lat: 37.8617
-            lon: -25.7285
-
-        - id: vista_do_rei
-
-          name: Vista do Rei Viewpoint
-
-          priority: must_do
-
-          type: viewpoint
-
-          visit_duration_hours: 1
-
-          coordinates:
-            lat: 37.8392
-            lon: -25.7397
-
-        - id: lagoa_do_fogo
-
-          name: Lagoa do Fogo
-
-          priority: must_do
-
-          type: volcanic_lake
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 37.7693
-            lon: -25.4976
-
-        - id: furnas
-
-          name: Furnas Geothermal Area
-
-          priority: must_do
-
-          type: geothermal_area
-
-          visit_duration_hours: 4
-
-          coordinates:
-            lat: 37.7930
-            lon: -25.3237
-
-        - id: terra_nostra
-
-          name: Terra Nostra Park
-
-          priority: must_do
-
-          type: thermal_pool
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 37.7937
-            lon: -25.3214
-
-        - id: poca_da_dona_beija
-
-          name: Poca da Dona Beija
-
-          priority: highly_recommended
-
-          type: thermal_pool
-
-          visit_duration_hours: 2
-
-          coordinates:
-            lat: 37.7919
-            lon: -25.3210
-
-        - id: saltoa_cabrito
-
-          name: Salto do Cabrito
-
-          priority: highly_recommended
-
-          type: waterfall_hike
-
-          visit_duration_hours: 2
-
-          coordinates:
-            lat: 37.8007
-            lon: -25.5402
-
-        - id: ribeira_dos_caldeiroes
-
-          name: Ribeira dos Caldeiroes
-
-          priority: highly_recommended
-
-          type: waterfall_park
-
-          visit_duration_hours: 2
-
-          coordinates:
-            lat: 37.8178
-            lon: -25.2501
-
-        - id: sanguinho_trail
-
-          name: Sanguinho Trail
-
-          priority: highly_recommended
-
-          type: hiking
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 37.7341
-            lon: -25.1862
-
-        - id: ponta_delgada
-
-          name: Ponta Delgada
-
-          priority: if_time
-
-          type: town
-
-          visit_duration_hours: 2
-
-          coordinates:
-            lat: 37.7412
-            lon: -25.6756
-
-        - id: whale_watching_sao_miguel
-
-          name: Whale Watching
-
-          priority: optional_paid_activity
-
-          type: boat_trip
-
-          visit_duration_hours: 4
-
-          coordinates:
-            lat: 37.7412
-            lon: -25.6756
-
-      departure_day_candidates:
-
-        route_to: base_2
-
-        candidates:
-
-          - attraction_ref: ponta_delgada
-
-    - id: base_2
-
-      name: Madalena / Pico
-
-      region: Pico
-
-      stay_nights: 5
+      visit_duration_hours: 3
 
       coordinates:
-        lat: 38.5360
-        lon: -28.5260
+        lat: 37.7937
+        lon: -25.3214
 
-      planning_note: >
-        Best location for Pico Mountain and the UNESCO vineyards.
+    - id: poca_da_dona_beija
 
-      base_attractions:
+      name: Poca da Dona Beija
 
-        - id: pico_mountain
+      priority: highly_recommended
 
-          name: Mount Pico
+      type: thermal_pool
 
-          priority: must_do
+      visit_duration_hours: 2
 
-          type: volcano_hike
+      coordinates:
+        lat: 37.7919
+        lon: -25.3210
 
-          visit_duration_hours: 7
+    - id: saltoa_cabrito
 
-          coordinates:
-            lat: 38.4699
-            lon: -28.4008
+      name: Salto do Cabrito
 
-        - id: pico_wine_landscape
+      priority: highly_recommended
 
-          name: Pico Wine Landscape
+      type: waterfall_hike
 
-          priority: must_do
+      visit_duration_hours: 2
 
-          type: unesco_landscape
+      coordinates:
+        lat: 37.8007
+        lon: -25.5402
 
-          visit_duration_hours: 2
+    - id: ribeira_dos_caldeiroes
 
-          coordinates:
-            lat: 38.5208
-            lon: -28.4835
+      name: Ribeira dos Caldeiroes
 
-        - id: lajes_do_pico
+      priority: highly_recommended
 
-          name: Lajes do Pico
+      type: waterfall_park
 
-          priority: highly_recommended
+      visit_duration_hours: 2
 
-          type: village
+      coordinates:
+        lat: 37.8178
+        lon: -25.2501
 
-          visit_duration_hours: 2
+    - id: sanguinho_trail
 
-          coordinates:
-            lat: 38.3962
-            lon: -28.2510
+      name: Sanguinho-pad
+
+      priority: highly_recommended
+
+      type: hiking
+
+      visit_duration_hours: 3
+
+      coordinates:
+        lat: 37.7341
+        lon: -25.1862
+
+    - id: ponta_delgada
+
+      name: Ponta Delgada
+
+      priority: if_time
+
+      type: town
+
+      visit_duration_hours: 2
+
+      coordinates:
+        lat: 37.7412
+        lon: -25.6756
+
+    - id: whale_watching_sao_miguel
+
+      name: Walvissen spotten
+
+      priority: optional_paid_activity
+
+      type: boat_trip
+
+      visit_duration_hours: 4
+
+      coordinates:
+        lat: 37.7412
+        lon: -25.6756
+
+    departure_day_candidates:
+
+      route_to: base_2
+
+      candidates:
+
+      - attraction_ref: ponta_delgada
+
+  - id: base_2
+
+    name: Madalena / Pico
+
+    region: Pico
+
+    stay_nights: 5
+
+    coordinates:
+      lat: 38.5360
+      lon: -28.5260
+
+    planning_note: >-
+      Beste locatie voor de Pico-berg en de UNESCO-wijngaarden.
+
+    base_attractions:
+
+    - id: pico_mountain
+
+      name: Monte Pico
+
+      priority: must_do
+
+      type: volcano_hike
+
+      visit_duration_hours: 7
+
+      coordinates:
+        lat: 38.4699
+        lon: -28.4008
+
+    - id: pico_wine_landscape
+
+      name: Pico-wijnlandschap
+
+      priority: must_do
+
+      type: unesco_landscape
+
+      visit_duration_hours: 2
+
+      coordinates:
+        lat: 38.5208
+        lon: -28.4835
+
+    - id: lajes_do_pico
+
+      name: Lajes do Pico
+
+      priority: highly_recommended
+
+      type: village
+
+      visit_duration_hours: 2
+
+      coordinates:
+        lat: 38.3962
+        lon: -28.2510

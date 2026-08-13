@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_8e5db74d69405ec8e5f6e397bc4d6d88 {
+                #map_51e446d6d2212e6be87717e8a0b4ab76 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,7 @@
         <b style="font-size:15px"><span class="fi fi-jp" style="border-radius:3px;margin-right:5px"></span>Japan</b>
         <hr style="margin:6px 0 4px">
         <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Hakone</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Matsumoto</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Toyama</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Tokyo</td></tr></table>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Hakone</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Matsumoto</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Toyama</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Tokio</td></tr></table>
         <hr style="margin:8px 0">
         <b style="font-size:14px">Prioriteit (markergrootte)</b>
         <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
@@ -90,14 +90,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_8e5db74d69405ec8e5f6e397bc4d6d88" ></div>
+            <div class="folium-map" id="map_51e446d6d2212e6be87717e8a0b4ab76" ></div>
         
 </body>
 <script>
     
     
-            var map_8e5db74d69405ec8e5f6e397bc4d6d88 = L.map(
-                "map_8e5db74d69405ec8e5f6e397bc4d6d88",
+            var map_51e446d6d2212e6be87717e8a0b4ab76 = L.map(
+                "map_51e446d6d2212e6be87717e8a0b4ab76",
                 {
                     center: [35.96055, 138.48505],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +114,7 @@
 
         
     
-            var tile_layer_036c91fc0ead2d7805a004c264fa413b = L.tileLayer(
+            var tile_layer_aecfe5fffc22cc7ba4be8bfc632d7cbf = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -131,30 +131,30 @@
             );
         
     
-            tile_layer_036c91fc0ead2d7805a004c264fa413b.addTo(map_8e5db74d69405ec8e5f6e397bc4d6d88);
+            tile_layer_aecfe5fffc22cc7ba4be8bfc632d7cbf.addTo(map_51e446d6d2212e6be87717e8a0b4ab76);
         
     
-            map_8e5db74d69405ec8e5f6e397bc4d6d88.fitBounds(
+            map_51e446d6d2212e6be87717e8a0b4ab76.fitBounds(
                 [[35.2324, 139.1069], [36.2381, 137.972], [36.6953, 137.2113], [35.6764, 139.65]],
                 {}
             );
         
     
-            var feature_group_22d60aaca27530f5aadfe2cedac2848e = L.featureGroup(
+            var feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_954594d39d8b912bb31fa6209dec0c15 = L.marker(
+            var marker_83a559ad681280683ac12671540a2528 = L.marker(
                 [35.2324, 139.1069],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_22d60aaca27530f5aadfe2cedac2848e);
+            ).addTo(feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e);
         
     
-            var icon_c43f5b8cf2ef2cc1c06845345ae9e27c = L.AwesomeMarkers.icon(
+            var icon_e6d6bb8a13a02a4d5eb784939adf165d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,10 +165,9 @@
             );
         
     
-            marker_954594d39d8b912bb31fa6209dec0c15.bindTooltip(
+            marker_83a559ad681280683ac12671540a2528.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Hakone</b><br><span style="color:#555">Mount Fuji and volcanic region</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Ideal introduction to Japan. Focus on volcanoes, Mount Fuji views, lakes, ropeways and hot springs.
-</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Hakone</b><br><span style="color:#555">Mount Fuji en vulkanisch gebied</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Ideale kennismaking met Japan. Focus op vulkanen, uitzicht op de berg Fuji, meren, kabelbanen en warmwaterbronnen.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -176,18 +175,18 @@
             );
         
     
-                marker_954594d39d8b912bb31fa6209dec0c15.setIcon(icon_c43f5b8cf2ef2cc1c06845345ae9e27c);
+                marker_83a559ad681280683ac12671540a2528.setIcon(icon_e6d6bb8a13a02a4d5eb784939adf165d);
             
     
-            var marker_71892c96dc0aae3701b17e4275b0d5b4 = L.marker(
+            var marker_47af38e89716c862a9e9172d13cf575c = L.marker(
                 [36.2381, 137.972],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_22d60aaca27530f5aadfe2cedac2848e);
+            ).addTo(feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e);
         
     
-            var icon_7c3153d5a0f416d6d8c8ffe7dfb043aa = L.AwesomeMarkers.icon(
+            var icon_a540dea1891ed8209a3d87c94aa67a3a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -198,10 +197,9 @@
             );
         
     
-            marker_71892c96dc0aae3701b17e4275b0d5b4.bindTooltip(
+            marker_47af38e89716c862a9e9172d13cf575c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Matsumoto</b><br><span style="color:#555">Japanese Alps</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Main mountain base. Some of the finest hiking and alpine scenery in Japan.
-</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Matsumoto</b><br><span style="color:#555">Japanse Alpen</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Belangrijkste bergbasis. Enkele van de mooiste wandel- en berglandschappen in Japan.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -209,18 +207,18 @@
             );
         
     
-                marker_71892c96dc0aae3701b17e4275b0d5b4.setIcon(icon_7c3153d5a0f416d6d8c8ffe7dfb043aa);
+                marker_47af38e89716c862a9e9172d13cf575c.setIcon(icon_a540dea1891ed8209a3d87c94aa67a3a);
             
     
-            var marker_0a8bf976fc827e04b864789c8d9f9f92 = L.marker(
+            var marker_8c80eca44e12022ae3705f1c264609d0 = L.marker(
                 [36.6953, 137.2113],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_22d60aaca27530f5aadfe2cedac2848e);
+            ).addTo(feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e);
         
     
-            var icon_5ff89e85b2a517a6b769ac6fbde728fb = L.AwesomeMarkers.icon(
+            var icon_a0057f675c9c0dadfa35c6bcd48fad23 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -231,10 +229,9 @@
             );
         
     
-            marker_0a8bf976fc827e04b864789c8d9f9f92.bindTooltip(
+            marker_8c80eca44e12022ae3705f1c264609d0.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Toyama</b><br><span style="color:#555">Tateyama Alpine Route</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Base for Japan's most spectacular mountain crossing.
-</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Toyama</b><br><span style="color:#555">Tateyama-alpenroute</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Basis voor de meest spectaculaire bergoversteek van Japan.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -242,18 +239,18 @@
             );
         
     
-                marker_0a8bf976fc827e04b864789c8d9f9f92.setIcon(icon_5ff89e85b2a517a6b769ac6fbde728fb);
+                marker_8c80eca44e12022ae3705f1c264609d0.setIcon(icon_a0057f675c9c0dadfa35c6bcd48fad23);
             
     
-            var marker_e25f8d0f40d5afb677ee0a91dfd5904a = L.marker(
+            var marker_32a0b2de5356ecd15b17c62f798fcf05 = L.marker(
                 [35.6764, 139.65],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_22d60aaca27530f5aadfe2cedac2848e);
+            ).addTo(feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e);
         
     
-            var icon_3125ce028522a2909524474280ad0e85 = L.AwesomeMarkers.icon(
+            var icon_17de342d58128dfdd7ed19d04180ee6e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -264,10 +261,9 @@
             );
         
     
-            marker_e25f8d0f40d5afb677ee0a91dfd5904a.bindTooltip(
+            marker_32a0b2de5356ecd15b17c62f798fcf05.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#8e44ad;font-size:16px">🏨 Tokyo</b><br><span style="color:#555">Arrival and departure</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Keep the city component short. Use mainly as arrival and departure point.
-</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Tokio</b><br><span style="color:#555">Aankomst en vertrek</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Houd het stadsdeel kort. Gebruik voornamelijk als aankomst- en vertrekpunt.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -275,27 +271,27 @@
             );
         
     
-                marker_e25f8d0f40d5afb677ee0a91dfd5904a.setIcon(icon_3125ce028522a2909524474280ad0e85);
+                marker_32a0b2de5356ecd15b17c62f798fcf05.setIcon(icon_17de342d58128dfdd7ed19d04180ee6e);
             
     
-            feature_group_22d60aaca27530f5aadfe2cedac2848e.addTo(map_8e5db74d69405ec8e5f6e397bc4d6d88);
+            feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e.addTo(map_51e446d6d2212e6be87717e8a0b4ab76);
         
     
-            var feature_group_208fe5ccae8fbf6c27bc2f6276380e98 = L.featureGroup(
+            var feature_group_ceb1433d491c14f0890d5e8ce0b265e3 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_314a9440162a910edbca7055609de056 = L.circleMarker(
+            var circle_marker_5afd7a2bd53fd80b2683d2f6080ac4b1 = L.circleMarker(
                 [35.3606, 138.7274],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_314a9440162a910edbca7055609de056.bindTooltip(
+            circle_marker_5afd7a2bd53fd80b2683d2f6080ac4b1.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mount Fuji Viewpoints (Fuji Five Lakes)</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaanscenerie<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mount Fuji-uitkijkpunten (Fuji Five Lakes)</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaanscenerie<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -303,15 +299,15 @@
             );
         
     
-            var circle_marker_30e01cf89fc5b27e046767c10f4d7b60 = L.circleMarker(
+            var circle_marker_2a6b922db94d9a81527e0a1f623127a9 = L.circleMarker(
                 [35.517, 138.7518],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_30e01cf89fc5b27e046767c10f4d7b60.bindTooltip(
+            circle_marker_2a6b922db94d9a81527e0a1f623127a9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Kawaguchi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtig meer<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het Kawaguchimeer</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtig meer<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -319,15 +315,15 @@
             );
         
     
-            var circle_marker_b58b79c2b08bb48b509f4ffe749d3f06 = L.circleMarker(
+            var circle_marker_beaccc304407f1dd38146ec67b8f5100 = L.circleMarker(
                 [35.2453, 139.0191],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_b58b79c2b08bb48b509f4ffe749d3f06.bindTooltip(
+            circle_marker_beaccc304407f1dd38146ec67b8f5100.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hakone Ropeway</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige kabelbaan<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hakone-kabelbaan</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige kabelbaan<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -335,15 +331,15 @@
             );
         
     
-            var circle_marker_c9021b1dfa8ccc13ca9083c7fa099529 = L.circleMarker(
+            var circle_marker_512112734b902a559abe6427b640910f = L.circleMarker(
                 [35.2455, 139.0215],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_c9021b1dfa8ccc13ca9083c7fa099529.bindTooltip(
+            circle_marker_512112734b902a559abe6427b640910f.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Owakudani Volcanic Valley</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanisch gebied<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Owakudani vulkanische vallei</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanisch gebied<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -351,15 +347,15 @@
             );
         
     
-            var circle_marker_7c52658cc10505af5ebf992ff31a1f8c = L.circleMarker(
+            var circle_marker_84928f787d12eff7f89f75a5ed3c07b9 = L.circleMarker(
                 [35.2045, 139.0261],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_7c52658cc10505af5ebf992ff31a1f8c.bindTooltip(
+            circle_marker_84928f787d12eff7f89f75a5ed3c07b9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Lake Ashi</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> meer<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het Ashi-meer</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> meer<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Hakone</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -367,15 +363,15 @@
             );
         
     
-            var circle_marker_f1b521d17d39f8bd2ebf8f3f80f02651 = L.circleMarker(
+            var circle_marker_58e83197c338c7230faa395f67e0db0f = L.circleMarker(
                 [36.2486, 137.6361],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_f1b521d17d39f8bd2ebf8f3f80f02651.bindTooltip(
+            circle_marker_58e83197c338c7230faa395f67e0db0f.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kamikochi Valley</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenvallei<br><b>Duur:</b> 8 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kamikochi-vallei</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenvallei<br><b>Duur:</b> 8 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -383,15 +379,15 @@
             );
         
     
-            var circle_marker_2b6c994cca9d459c070a5df192e2cc4c = L.circleMarker(
+            var circle_marker_ec2dd683cd3c970be57f78b4d1971eca = L.circleMarker(
                 [36.2505, 137.6418],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_2b6c994cca9d459c070a5df192e2cc4c.bindTooltip(
+            circle_marker_ec2dd683cd3c970be57f78b4d1971eca.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Taisho Pond</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige wandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Taisho-vijver</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige wandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -399,15 +395,15 @@
             );
         
     
-            var circle_marker_4c15a885eb4d55dca8d705eee73927b3 = L.circleMarker(
+            var circle_marker_19e5d07cb87fa7d6e8cbd87725417a14 = L.circleMarker(
                 [36.238, 137.9685],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_4c15a885eb4d55dca8d705eee73927b3.bindTooltip(
+            circle_marker_19e5d07cb87fa7d6e8cbd87725417a14.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Matsumoto Castle</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> cultureel monument<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het kasteel van Matsumoto</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> cultureel monument<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -415,15 +411,15 @@
             );
         
     
-            var circle_marker_6d9e28f277fd07a552ce237c7f6297d4 = L.circleMarker(
+            var circle_marker_5d82b955ed42f948476376d63fe1e48b = L.circleMarker(
                 [36.1066, 137.5487],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_6d9e28f277fd07a552ce237c7f6297d4.bindTooltip(
+            circle_marker_5d82b955ed42f948476376d63fe1e48b.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Norikura Highlands</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> berggebied<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Norikura-hooglanden</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> berggebied<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -431,15 +427,15 @@
             );
         
     
-            var circle_marker_13ad29f32940b6a508be8d75f2eb2c7c = L.circleMarker(
+            var circle_marker_bf4a2820b58307aa48d00d78df768b11 = L.circleMarker(
                 [36.2262, 138.1086],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_13ad29f32940b6a508be8d75f2eb2c7c.bindTooltip(
+            circle_marker_bf4a2820b58307aa48d00d78df768b11.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Utsukushigahara Highlands</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> plateauwandeling<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Utsukushigahara-hooglanden</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> plateauwandeling<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Matsumoto</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -447,15 +443,15 @@
             );
         
     
-            var circle_marker_b9343d5e4c9d7f4b7a8da838e3010e76 = L.circleMarker(
+            var circle_marker_df39909e2f571e2c9a93550f36ee3297 = L.circleMarker(
                 [36.5763, 137.6047],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_b9343d5e4c9d7f4b7a8da838e3010e76.bindTooltip(
+            circle_marker_df39909e2f571e2c9a93550f36ee3297.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tateyama Alpine Route</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenroute<br><b>Duur:</b> 10 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tateyama-alpenroute</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenroute<br><b>Duur:</b> 10 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -463,15 +459,15 @@
             );
         
     
-            var circle_marker_23911d9899b20d9ed78785c72414033e = L.circleMarker(
+            var circle_marker_b4b003d0a47ddcc27405b3a8336d9e5a = L.circleMarker(
                 [36.5775, 137.5968],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_23911d9899b20d9ed78785c72414033e.bindTooltip(
+            circle_marker_b4b003d0a47ddcc27405b3a8336d9e5a.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Murodo Plateau</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpine wandeling<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Murodo-plateau</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpine wandeling<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -479,15 +475,15 @@
             );
         
     
-            var circle_marker_aa1c4f5bbb28973ed829a33552e903be = L.circleMarker(
+            var circle_marker_b5c055adada4589d856284a3f9dda59d = L.circleMarker(
                 [36.5738, 137.5973],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_aa1c4f5bbb28973ed829a33552e903be.bindTooltip(
+            circle_marker_b5c055adada4589d856284a3f9dda59d.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mikurigaike Pond</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mikurigaike-vijver</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -495,15 +491,15 @@
             );
         
     
-            var circle_marker_7ff8f6d1a5e6a0db2e94c2853db07e6e = L.circleMarker(
+            var circle_marker_713f66e76b2547256c8f3c24d7d23305 = L.circleMarker(
                 [36.5612, 137.663],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_208fe5ccae8fbf6c27bc2f6276380e98);
+            ).addTo(feature_group_ceb1433d491c14f0890d5e8ce0b265e3);
         
     
-            circle_marker_7ff8f6d1a5e6a0db2e94c2853db07e6e.bindTooltip(
+            circle_marker_713f66e76b2547256c8f3c24d7d23305.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kurobe Dam</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> ingenieursbouwwerk<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kurobe-dam</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> ingenieursbouwwerk<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Toyama</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -511,37 +507,37 @@
             );
         
     
-            feature_group_208fe5ccae8fbf6c27bc2f6276380e98.addTo(map_8e5db74d69405ec8e5f6e397bc4d6d88);
+            feature_group_ceb1433d491c14f0890d5e8ce0b265e3.addTo(map_51e446d6d2212e6be87717e8a0b4ab76);
         
     
-            var feature_group_57e0226b171753793a3d9b99dd69a21b = L.featureGroup(
+            var feature_group_1e28a767db1024110a8981b52ef93fb5 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_57e0226b171753793a3d9b99dd69a21b.addTo(map_8e5db74d69405ec8e5f6e397bc4d6d88);
+            feature_group_1e28a767db1024110a8981b52ef93fb5.addTo(map_51e446d6d2212e6be87717e8a0b4ab76);
         
     
-            var layer_control_c3d74824feac511a20de1369f7d9faf9_layers = {
+            var layer_control_bb6a68d7ba517e54b24040ddb2b869a3_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_036c91fc0ead2d7805a004c264fa413b,
+                    "cartodbpositron" : tile_layer_aecfe5fffc22cc7ba4be8bfc632d7cbf,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_22d60aaca27530f5aadfe2cedac2848e,
-                    "\u25cf Bezienswaardigheden" : feature_group_208fe5ccae8fbf6c27bc2f6276380e98,
-                    "\u25c7 Tussenstops" : feature_group_57e0226b171753793a3d9b99dd69a21b,
+                    "\ud83c\udfe8 Verblijven" : feature_group_0612ccb55cb69d8bbc256e9a9fa92e2e,
+                    "\u25cf Bezienswaardigheden" : feature_group_ceb1433d491c14f0890d5e8ce0b265e3,
+                    "\u25c7 Tussenstops" : feature_group_1e28a767db1024110a8981b52ef93fb5,
                 },
             };
-            let layer_control_c3d74824feac511a20de1369f7d9faf9 = L.control.layers(
-                layer_control_c3d74824feac511a20de1369f7d9faf9_layers.base_layers,
-                layer_control_c3d74824feac511a20de1369f7d9faf9_layers.overlays,
+            let layer_control_bb6a68d7ba517e54b24040ddb2b869a3 = L.control.layers(
+                layer_control_bb6a68d7ba517e54b24040ddb2b869a3_layers.base_layers,
+                layer_control_bb6a68d7ba517e54b24040ddb2b869a3_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_8e5db74d69405ec8e5f6e397bc4d6d88);
+            ).addTo(map_51e446d6d2212e6be87717e8a0b4ab76);
 
         
 </script>

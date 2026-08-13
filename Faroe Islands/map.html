@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_fa4b418a00462658c79f6a4b4556242f {
+                #map_188bd6ca3a2dcbdb6a0010ba91651875 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -76,7 +76,7 @@
         <b style="font-size:15px"><span class="fi fi-fo" style="border-radius:3px;margin-right:5px"></span>Faeröer</b>
         <hr style="margin:6px 0 4px">
         <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Vagar / Sorvagur / Gasadalur</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Klaksvik / Northern Islands</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Torshavn / Central Streymoy</td></tr></table>
+        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Vágar/Sorvagur/Gasadalur</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Klaksvik / Noordelijke eilanden</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Tórshavn / Centraal Streymoy</td></tr></table>
         <hr style="margin:8px 0">
         <b style="font-size:14px">Prioriteit (markergrootte)</b>
         <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
@@ -90,14 +90,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_fa4b418a00462658c79f6a4b4556242f" ></div>
+            <div class="folium-map" id="map_188bd6ca3a2dcbdb6a0010ba91651875" ></div>
         
 </body>
 <script>
     
     
-            var map_fa4b418a00462658c79f6a4b4556242f = L.map(
-                "map_fa4b418a00462658c79f6a4b4556242f",
+            var map_188bd6ca3a2dcbdb6a0010ba91651875 = L.map(
+                "map_188bd6ca3a2dcbdb6a0010ba91651875",
                 {
                     center: [62.102066666666666, -6.895333333333333],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +114,7 @@
 
         
     
-            var tile_layer_84d8f64357ebdd934e32549b34df102f = L.tileLayer(
+            var tile_layer_39ef4b7d1c80ec538883234408e8f609 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -131,30 +131,30 @@
             );
         
     
-            tile_layer_84d8f64357ebdd934e32549b34df102f.addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            tile_layer_39ef4b7d1c80ec538883234408e8f609.addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
         
     
-            map_fa4b418a00462658c79f6a4b4556242f.fitBounds(
+            map_188bd6ca3a2dcbdb6a0010ba91651875.fitBounds(
                 [[62.0717, -7.307], [62.2266, -6.589], [62.0079, -6.79]],
                 {}
             );
         
     
-            var feature_group_5be94424513a8dd4dbeb045ef561237f = L.featureGroup(
+            var feature_group_2164a3c8c5fe0309fbaf7311098d9282 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_07087dc77041696a2b644a7bf5d1e634 = L.marker(
+            var marker_de653d36557c9722abd8bb6e3da90b07 = L.marker(
                 [62.0717, -7.307],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5be94424513a8dd4dbeb045ef561237f);
+            ).addTo(feature_group_2164a3c8c5fe0309fbaf7311098d9282);
         
     
-            var icon_632d538c4ee8a8a1a6bd0fbcdb01f4f6 = L.AwesomeMarkers.icon(
+            var icon_6923709287b2ee8cb2235a2a57e84197 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,9 +165,9 @@
             );
         
     
-            marker_07087dc77041696a2b644a7bf5d1e634.bindTooltip(
+            marker_de653d36557c9722abd8bb6e3da90b07.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#e74c3c;font-size:16px">🏨 Vagar / Sorvagur / Gasadalur</b><br><span style="color:#555">Vagar and western Faroe Islands</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Best first base after arrival. Use this base for Mulafossur, Sorvagsvatn/Leitisvatn, Bosdalafossur and optional Mykines or Drangarnir.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Vágar/Sorvagur/Gasadalur</b><br><span style="color:#555">Vagar en westelijke Faeröer</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Beste eerste honk na aankomst. Gebruik deze basis voor Mulafossur, Sorvagsvatn/Leitisvatn, Bosdalafossur en optioneel Mykines of Drangarnir.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -175,18 +175,18 @@
             );
         
     
-                marker_07087dc77041696a2b644a7bf5d1e634.setIcon(icon_632d538c4ee8a8a1a6bd0fbcdb01f4f6);
+                marker_de653d36557c9722abd8bb6e3da90b07.setIcon(icon_6923709287b2ee8cb2235a2a57e84197);
             
     
-            var marker_c4af68d8e204805aeeefa3b44ca8a213 = L.marker(
+            var marker_da9c9b85dd9762730ba36d70cb5473bb = L.marker(
                 [62.2266, -6.589],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5be94424513a8dd4dbeb045ef561237f);
+            ).addTo(feature_group_2164a3c8c5fe0309fbaf7311098d9282);
         
     
-            var icon_f7e2480fab9990fac9e252581ce9e0dd = L.AwesomeMarkers.icon(
+            var icon_7e69371f3d94b9462cee0a918c0cc31d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -197,9 +197,9 @@
             );
         
     
-            marker_c4af68d8e204805aeeefa3b44ca8a213.bindTooltip(
+            marker_da9c9b85dd9762730ba36d70cb5473bb.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#2980b9;font-size:16px">🏨 Klaksvik / Northern Islands</b><br><span style="color:#555">Bordoy, Kalsoy, Kunoy and Vidoy</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Use this base for Kalsoy and Kallur Lighthouse, Vidareidi, Kunoy and dramatic northern island drives.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Klaksvik / Noordelijke eilanden</b><br><span style="color:#555">Bordoy, Kalsoy, Kunoy en Vidoy</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Gebruik deze basis voor Kalsoy en Kallur Lighthouse, Vidareidi, Kunoy en dramatische tochten naar het noordelijke eiland.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -207,18 +207,18 @@
             );
         
     
-                marker_c4af68d8e204805aeeefa3b44ca8a213.setIcon(icon_f7e2480fab9990fac9e252581ce9e0dd);
+                marker_da9c9b85dd9762730ba36d70cb5473bb.setIcon(icon_7e69371f3d94b9462cee0a918c0cc31d);
             
     
-            var marker_5dc5cdae63081a60f0de37ac3a2f4dc9 = L.marker(
+            var marker_adba43173509a4a8050aaf50f5a8c12d = L.marker(
                 [62.0079, -6.79],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5be94424513a8dd4dbeb045ef561237f);
+            ).addTo(feature_group_2164a3c8c5fe0309fbaf7311098d9282);
         
     
-            var icon_c79aaf3d11ddeeae5f69cb96d858121b = L.AwesomeMarkers.icon(
+            var icon_a80dc76032b2042ad39a204189ee9202 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -229,9 +229,9 @@
             );
         
     
-            marker_5dc5cdae63081a60f0de37ac3a2f4dc9.bindTooltip(
+            marker_adba43173509a4a8050aaf50f5a8c12d.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="color:#27ae60;font-size:16px">🏨 Torshavn / Central Streymoy</b><br><span style="color:#555">Streymoy, Eysturoy and southern islands</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Use this base for Torshavn, Kirkjubour, Saksun, Tjornuvik, Gjogv/Eysturoy if not already visited, and optional Nolsoy or Sandoy.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Tórshavn / Centraal Streymoy</b><br><span style="color:#555">Streymoy, Eysturoy en zuidelijke eilanden</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Gebruik deze basis voor Torshavn, Kirkjubour, Saksun, Tjornuvik, Gjogv/Eysturoy als je deze nog niet bezocht hebt, en optioneel Nolsoy of Sandoy.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -239,27 +239,27 @@
             );
         
     
-                marker_5dc5cdae63081a60f0de37ac3a2f4dc9.setIcon(icon_c79aaf3d11ddeeae5f69cb96d858121b);
+                marker_adba43173509a4a8050aaf50f5a8c12d.setIcon(icon_a80dc76032b2042ad39a204189ee9202);
             
     
-            feature_group_5be94424513a8dd4dbeb045ef561237f.addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            feature_group_2164a3c8c5fe0309fbaf7311098d9282.addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
         
     
-            var feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b = L.featureGroup(
+            var feature_group_a6517fade070801b50314b6a249d53b7 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_78e7853c20e8a30ec750e6ad5933794a = L.circleMarker(
+            var circle_marker_4419db6c7234a195895f5539e859a11e = L.circleMarker(
                 [62.1049, -7.4347],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_78e7853c20e8a30ec750e6ad5933794a.bindTooltip(
+            circle_marker_4419db6c7234a195895f5539e859a11e.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mulafossur Waterfall and Gasadalur</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval dorp uitkijkpunt<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Iconic waterfall dropping toward the sea. Easy and high-impact first or last evening stop on Vagar.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mulafossur-waterval en Gasadalur</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval dorp uitkijkpunt<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Iconische waterval die naar de zee valt. Gemakkelijke en indrukwekkende eerste of laatste avondstop op Vagar.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -267,15 +267,15 @@
             );
         
     
-            var circle_marker_f60157781742f05acf52f495ac6d0959 = L.circleMarker(
+            var circle_marker_1d1a505978d9e52f493498bc27ad1b06 = L.circleMarker(
                 [62.042, -7.199],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_f60157781742f05acf52f495ac6d0959.bindTooltip(
+            circle_marker_1d1a505978d9e52f493498bc27ad1b06.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sorvagsvatn / Leitisvatn Lake Viewpoint</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Famous optical illusion lake-above-the-ocean viewpoint. Combine with Bosdalafossur if weather is clear.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Uitkijkpunt Sorvagsvatn / Leitisvatn-meer</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Beroemd uitzichtpunt op het meer boven de oceaan met optische illusie. Bij helder weer combineren met Bosdalafossur.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -283,15 +283,15 @@
             );
         
     
-            var circle_marker_0fb22246eeafdc1a14e26640e5f0ec75 = L.circleMarker(
+            var circle_marker_e265047517dd94926c1beb5ea0e12a6d = L.circleMarker(
                 [62.0128, -7.2175],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_0fb22246eeafdc1a14e26640e5f0ec75.bindTooltip(
+            circle_marker_e265047517dd94926c1beb5ea0e12a6d.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bosdalafossur Waterfall</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalwandeling<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Best combined with the Sorvagsvatn/Leitisvatn hike.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bosdalafossur-waterval</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalwandeling<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Het beste te combineren met de Sorvagsvatn/Leitisvatn-wandeling.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -299,15 +299,15 @@
             );
         
     
-            var circle_marker_e59f772d89002544215205f46a83c142 = L.circleMarker(
+            var circle_marker_378277251143457b57d609019e9a430c = L.circleMarker(
                 [62.0906, -7.3686],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_e59f772d89002544215205f46a83c142.bindTooltip(
+            circle_marker_378277251143457b57d609019e9a430c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Bour Village and Tindholmur Views</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Small village with excellent views toward Tindholmur and Drangarnir.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Uitzicht op Bour Village en Tindholmur</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Klein dorp met prachtig uitzicht richting Tindholmur en Drangarnir.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -315,15 +315,15 @@
             );
         
     
-            var circle_marker_837b0a12b103d108d055914019d193b3 = L.circleMarker(
+            var circle_marker_3822a8f7397e88e81b64a8430ca37a85 = L.circleMarker(
                 [62.077, -7.418],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_837b0a12b103d108d055914019d193b3.bindTooltip(
+            circle_marker_3822a8f7397e88e81b64a8430ca37a85.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Drangarnir and Tindholmur View / Tour</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> begeleide wandeling of boottocht<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Spectacular but usually requires a guided hike or boat tour. Consider only if weather and budget allow.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Drangarnir en Tindholmur bekijken / rondleiding</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> begeleide wandeling of boottocht<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Spectaculair, maar vereist meestal een begeleide wandeling of boottocht. Alleen overwegen als het weer en het budget het toelaten.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -331,15 +331,15 @@
             );
         
     
-            var circle_marker_80e1e0988eaa967b2d6c23a32dc0daec = L.circleMarker(
+            var circle_marker_79370e80933076ed09713fce16a111ef = L.circleMarker(
                 [62.1025, -7.645],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_80e1e0988eaa967b2d6c23a32dc0daec.bindTooltip(
+            circle_marker_79370e80933076ed09713fce16a111ef.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mykines Day Trip</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> veerboot wandeling papegaaiduikers<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vagar / Sorvagur / Gasadalur</span><br><i style="color:#666;font-size:13px">Very attractive in puffin season, but ferry and access are weather-dependent. Keep a backup plan on Vagar.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mykines-dagtocht</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> veerboot wandeling papegaaiduikers<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Vágar/Sorvagur/Gasadalur</span><br><i style="color:#666;font-size:13px">Zeer aantrekkelijk in het papegaaiduikerseizoen, maar de veerboot en de toegang zijn weersafhankelijk. Houd een back-upplan bij op Vagar.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -347,15 +347,15 @@
             );
         
     
-            var circle_marker_93a653693b32a6220a14bfc25840b310 = L.circleMarker(
+            var circle_marker_d134467066e09b67abb9c87c5f633244 = L.circleMarker(
                 [62.373, -6.789],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_93a653693b32a6220a14bfc25840b310.bindTooltip(
+            circle_marker_d134467066e09b67abb9c87c5f633244.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kallur Lighthouse Hike</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> veerboot wandeling uitkijkpunt<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">One of the top Faroe views. Requires ferry to Kalsoy and suitable weather. Do not schedule as the only possible highlight of the base.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kallur-vuurtorenwandeling</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> veerboot wandeling uitkijkpunt<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Een van de beste uitzichten op de Faeröer. Vereist veerboot naar Kalsoy en geschikt weer. Plan niet als het enige mogelijke hoogtepunt van de basis.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -363,15 +363,15 @@
             );
         
     
-            var circle_marker_1809cc362fb37e1a948ec608a1bdbb9c = L.circleMarker(
+            var circle_marker_7a630a4183f14e7ee9c961c81e52c9ef = L.circleMarker(
                 [62.334, -6.767],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_1809cc362fb37e1a948ec608a1bdbb9c.bindTooltip(
+            circle_marker_7a630a4183f14e7ee9c961c81e52c9ef.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Mikladalur and Seal Woman Statue</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kustdorp<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Good add-on to Kalsoy day.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Standbeeld van Mikladalur en zeehondenvrouw</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kustdorp<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Goede aanvulling op Kalsoy-dag.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -379,15 +379,15 @@
             );
         
     
-            var circle_marker_996522bc26cbaae0dc40c79e0e86e70e = L.circleMarker(
+            var circle_marker_718a8b2466ed8578c3baa5860fb6ad9c = L.circleMarker(
                 [62.3605, -6.531],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_996522bc26cbaae0dc40c79e0e86e70e.bindTooltip(
+            circle_marker_718a8b2466ed8578c3baa5860fb6ad9c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vidareidi</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp berg uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Beautiful northern village surrounded by high mountains and sea views.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Vidareidi</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp berg uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Prachtig noordelijk dorp omgeven door hoge bergen en uitzicht op zee.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -395,15 +395,15 @@
             );
         
     
-            var circle_marker_409b82ef68abf19c4da4552cd2b15f39 = L.circleMarker(
+            var circle_marker_d674d4b073fb27a2480a703caa0c6420 = L.circleMarker(
                 [62.303, -6.647],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_409b82ef68abf19c4da4552cd2b15f39.bindTooltip(
+            circle_marker_d674d4b073fb27a2480a703caa0c6420.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kunoy Village and Kunoy Park</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp korte wandeling<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Quiet and scenic short visit from Klaksvik.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kunoy-dorp en Kunoy-park</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp korte wandeling<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Rustig en schilderachtig kort bezoek vanuit Klaksvik.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -411,15 +411,15 @@
             );
         
     
-            var circle_marker_5a3d3048887afd255f15a33faa3b6d78 = L.circleMarker(
+            var circle_marker_60d7881357541fd8fa7ad54d3d01b32f = L.circleMarker(
                 [62.245, -6.602],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_5a3d3048887afd255f15a33faa3b6d78.bindTooltip(
+            circle_marker_60d7881357541fd8fa7ad54d3d01b32f.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Klakkur Hike above Klaksvik</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> korte wandeling uitkijkpunt<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Excellent local hike with views over Klaksvik and surrounding islands. Good backup if Kalsoy ferry is not suitable.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Klakkur Wandeling boven Klaksvik</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> korte wandeling uitkijkpunt<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Uitstekende lokale wandeling met uitzicht over Klaksvik en omliggende eilanden. Goede back-up als de veerboot van Kalsoy niet geschikt is.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -427,15 +427,15 @@
             );
         
     
-            var circle_marker_dd473afabc4f411b6a0bc38645fa7396 = L.circleMarker(
+            var circle_marker_0e422033ddc519800bcfb34760f9175b = L.circleMarker(
                 [62.296, -6.515],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_dd473afabc4f411b6a0bc38645fa7396.bindTooltip(
+            circle_marker_0e422033ddc519800bcfb34760f9175b.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Hvannasund</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> dorpsrit<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Northern Islands</span><br><i style="color:#666;font-size:13px">Short northern-islands scenic drive option.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hvannasund</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> dorpsrit<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden</span><br><i style="color:#666;font-size:13px">Korte schilderachtige rit naar de noordelijke eilanden.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -443,15 +443,15 @@
             );
         
     
-            var circle_marker_cedc9824d2079ccaf94c2191d9567ece = L.circleMarker(
+            var circle_marker_7b919ada05a2e008188316b0cbb93fa5 = L.circleMarker(
                 [62.0097, -6.7716],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_cedc9824d2079ccaf94c2191d9567ece.bindTooltip(
+            circle_marker_7b919ada05a2e008188316b0cbb93fa5.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Torshavn Old Town and Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling cultuur<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Good low-effort activity and useful for bad weather or arrival/departure timing.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">De oude binnenstad van Torshavn en Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling cultuur<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Goede activiteit met weinig inspanning en nuttig bij slecht weer of aankomst-/vertrektijden.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -459,15 +459,15 @@
             );
         
     
-            var circle_marker_11caa69ed880d9de9f83f37450717c70 = L.circleMarker(
+            var circle_marker_f690e8a0ae91c1751cd11a22885563be = L.circleMarker(
                 [61.9561, -6.7925],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_11caa69ed880d9de9f83f37450717c70.bindTooltip(
+            circle_marker_f690e8a0ae91c1751cd11a22885563be.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Kirkjubour</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> historisch dorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Historic village near Torshavn with cathedral ruins and old farm buildings.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kirkjubour</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> historisch dorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Historisch dorp in de buurt van Torshavn met kathedraalruïnes en oude boerderijgebouwen.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -475,15 +475,15 @@
             );
         
     
-            var circle_marker_ef17393e053eaac6283f8a39d4a3238d = L.circleMarker(
+            var circle_marker_177cd77388df841f8a15dd47046c1e6a = L.circleMarker(
                 [62.248, -7.176],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_ef17393e053eaac6283f8a39d4a3238d.bindTooltip(
+            circle_marker_177cd77388df841f8a15dd47046c1e6a.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Saksun</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp laguunlandschap<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 55 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">One of the most beautiful village settings in the islands. Best with atmospheric weather but avoid unsafe tides near the lagoon.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Saksun</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp laguunlandschap<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 55 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Een van de mooiste dorpsomgevingen van de eilanden. Het beste bij mooi weer, maar vermijd onveilige getijden in de buurt van de lagune.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -491,15 +491,15 @@
             );
         
     
-            var circle_marker_9531230284f9986b9a709491a6a7bf41 = L.circleMarker(
+            var circle_marker_c36b9e9c99cd94314e3e419e4abed260 = L.circleMarker(
                 [62.289, -7.147],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_9531230284f9986b9a709491a6a7bf41.bindTooltip(
+            circle_marker_c36b9e9c99cd94314e3e419e4abed260.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Tjornuvik</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp strand uitkijkpunt<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Beautiful valley village with beach and views toward Risin og Kellingin.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tjornuvik</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp strand uitkijkpunt<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Prachtig valleidorp met strand en uitzicht richting Risin og Kellingin.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -507,15 +507,15 @@
             );
         
     
-            var circle_marker_d9a566fc7ddac70f33d40e98569bb9ff = L.circleMarker(
+            var circle_marker_f864467e38f75ced3f268d6ede7bd84c = L.circleMarker(
                 [62.324, -6.94],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_d9a566fc7ddac70f33d40e98569bb9ff.bindTooltip(
+            circle_marker_f864467e38f75ced3f268d6ede7bd84c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Gjogv</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp kloofwandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Classic village with natural gorge harbour and short walks.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Gjogv</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp kloofwandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Klassiek dorp met natuurlijke kloofhaven en korte wandelingen.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -523,15 +523,15 @@
             );
         
     
-            var circle_marker_0fcce6552fab2b42ea8af6d64fe906b3 = L.circleMarker(
+            var circle_marker_480be43042bc19d361d84943fb2be8b9 = L.circleMarker(
                 [62.287, -6.965],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_0fcce6552fab2b42ea8af6d64fe906b3.bindTooltip(
+            circle_marker_480be43042bc19d361d84943fb2be8b9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Funningur</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp fjorduitzicht<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 55 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Good scenic pair with Gjogv and Eidi.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Funningur</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp fjorduitzicht<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 55 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Goed schilderachtig paar met Gjogv en Eidi.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -539,15 +539,15 @@
             );
         
     
-            var circle_marker_240622babcbfb596dfe76248c8f15f36 = L.circleMarker(
+            var circle_marker_7f6030575a037cad3c95e1630bb85ba8 = L.circleMarker(
                 [62.299, -7.092],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_240622babcbfb596dfe76248c8f15f36.bindTooltip(
+            circle_marker_7f6030575a037cad3c95e1630bb85ba8.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Eidi and Risin og Kellingin Viewpoint</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> zeestapel uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 50 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Easy viewpoint toward the famous sea stacks.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Eidi en Risin og Kellingin-uitkijkpunt</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> zeestapel uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 50 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Gemakkelijk uitkijkpunt richting de beroemde zeestapels.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -555,15 +555,15 @@
             );
         
     
-            var circle_marker_30ea124ca59209650efc5d6a72c7d914 = L.circleMarker(
+            var circle_marker_a2a7a10c9b7cc33a57602e2637d67509 = L.circleMarker(
                 [62.155, -7.166],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_30ea124ca59209650efc5d6a72c7d914.bindTooltip(
+            circle_marker_a2a7a10c9b7cc33a57602e2637d67509.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Vestmanna Sea Cliffs Boat Trip</b><br><span style="color:#27ae60;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht zeekliffen<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Classic boat trip, highly weather-dependent. Good optional paid activity if you do not choose Mykines or Drangarnir.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Boottocht naar de Vestmanna-zeekliffen</b><br><span style="color:#27ae60;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht zeekliffen<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Klassieke boottocht, sterk weersafhankelijk. Goede optionele betaalde activiteit als je niet voor Mykines of Drangarnir kiest.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -571,15 +571,15 @@
             );
         
     
-            var circle_marker_440743437ea246b29850ccd96d23e89d = L.circleMarker(
+            var circle_marker_43e95cfc33e369127d432ac546b003bd = L.circleMarker(
                 [62.009, -6.666],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_440743437ea246b29850ccd96d23e89d.bindTooltip(
+            circle_marker_43e95cfc33e369127d432ac546b003bd.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Nolsoy Day Trip</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> korte eiland veerboot wandeling<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Short ferry from Torshavn, useful as a lighter island day.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Nolsoy-dagtocht</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> korte eiland veerboot wandeling<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Korte veerboot vanuit Torshavn, handig als lichtere eilanddag.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -587,15 +587,15 @@
             );
         
     
-            var circle_marker_7a937caa97055e040c7df8c3d7d5b595 = L.circleMarker(
+            var circle_marker_428df416f612615ceac1d9295abd2b0d = L.circleMarker(
                 [61.842, -6.829],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b);
+            ).addTo(feature_group_a6517fade070801b50314b6a249d53b7);
         
     
-            circle_marker_7a937caa97055e040c7df8c3d7d5b595.bindTooltip(
+            circle_marker_428df416f612615ceac1d9295abd2b0d.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">Sandoy Day Trip</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> eilandrit dorpen en stranden<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Torshavn / Central Streymoy</span><br><i style="color:#666;font-size:13px">Now more accessible via subsea tunnel. Good if weather in the north is poor or you want a calmer island day.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sandoy-dagtocht</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> eilandrit dorpen en stranden<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Tórshavn / Centraal Streymoy</span><br><i style="color:#666;font-size:13px">Nu beter toegankelijk via onderzeese tunnel. Goed als het weer in het noorden slecht is of als je een rustigere eilanddag wilt.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -603,24 +603,24 @@
             );
         
     
-            feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b.addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            feature_group_a6517fade070801b50314b6a249d53b7.addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
         
     
-            var feature_group_ccf679cb118d22e9c465a487c2fd9c62 = L.featureGroup(
+            var feature_group_9a25a7abf1f83ad0f69357433ab306f1 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3965e6a5fbb94bf10ff27f6f28482540 = L.circleMarker(
+            var circle_marker_4f08c59fdf6f2400781c2e296005b15c = L.circleMarker(
                 [62.1049, -7.4347],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_3965e6a5fbb94bf10ff27f6f28482540.bindTooltip(
+            circle_marker_4f08c59fdf6f2400781c2e296005b15c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Mulafossur Waterfall and Gasadalur</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval dorp uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e67e22">Arrival at Vagar Airport and short transfer to Sorvagur/Gasadalur area</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Mulafossur-waterval en Gasadalur</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval dorp uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e67e22">Aankomst op de luchthaven van Vagar en korte transfer naar het gebied Sorvagur/Gasadalur</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -628,15 +628,15 @@
             );
         
     
-            var circle_marker_a3be4c7bb5de2523c4041af5635958bd = L.circleMarker(
+            var circle_marker_e0e505523d5523a3ee1e24be7529ef57 = L.circleMarker(
                 [62.0906, -7.3686],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_a3be4c7bb5de2523c4041af5635958bd.bindTooltip(
+            circle_marker_e0e505523d5523a3ee1e24be7529ef57.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Bour Village and Tindholmur Views</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e67e22">Arrival at Vagar Airport and short transfer to Sorvagur/Gasadalur area</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Uitzicht op Bour Village en Tindholmur</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e67e22">Aankomst op de luchthaven van Vagar en korte transfer naar het gebied Sorvagur/Gasadalur</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -644,15 +644,15 @@
             );
         
     
-            var circle_marker_62b4f29c335d6f704fdfbf1cf16b4023 = L.circleMarker(
+            var circle_marker_1946974070ff647e70085f5d596776d4 = L.circleMarker(
                 [62.248, -7.176],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_62b4f29c335d6f704fdfbf1cf16b4023.bindTooltip(
+            circle_marker_1946974070ff647e70085f5d596776d4.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Saksun</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp laguunlandschap<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Saksun</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp laguunlandschap<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar naar Klaksvik / Noordelijke eilanden via de Streymoy- en Eysturoy-tunnels</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -660,15 +660,15 @@
             );
         
     
-            var circle_marker_3d2d4c905a367dc53879649a989a3799 = L.circleMarker(
+            var circle_marker_4de8dd8b0f7b37d25b41941f8b141753 = L.circleMarker(
                 [62.289, -7.147],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_3d2d4c905a367dc53879649a989a3799.bindTooltip(
+            circle_marker_4de8dd8b0f7b37d25b41941f8b141753.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Tjornuvik</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp strand uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Tjornuvik</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp strand uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar naar Klaksvik / Noordelijke eilanden via de Streymoy- en Eysturoy-tunnels</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -676,15 +676,15 @@
             );
         
     
-            var circle_marker_848710372f7321aea1b9bfd62264659a = L.circleMarker(
+            var circle_marker_3c016c64b0114bfb1420d96f1700750d = L.circleMarker(
                 [62.13, -6.8],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_848710372f7321aea1b9bfd62264659a.bindTooltip(
+            circle_marker_3c016c64b0114bfb1420d96f1700750d.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eysturoyartunnilin Undersea Roundabout</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> tunnelroute<br><b>Stopduur:</b> 0 h<br><b>Rol:</b> Route Segment<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels</span><br><i style="color:#666;font-size:13px">Not a sightseeing stop, but a memorable route feature if the chosen route uses the tunnel.</i></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Onderzeese rotonde Eysturoyartunnilin</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> tunnelroute<br><b>Stopduur:</b> 0 h<br><b>Rol:</b> routegedeelte<br><b>Onderweg:</b> <span style="color:#e74c3c">Vagar naar Klaksvik / Noordelijke eilanden via de Streymoy- en Eysturoy-tunnels</span><br><i style="color:#666;font-size:13px">Geen sightseeingstop, maar een gedenkwaardig routekenmerk als de gekozen route gebruik maakt van de tunnel.</i></div>
                  </div>`,
                 {
   "sticky": true,
@@ -692,15 +692,15 @@
             );
         
     
-            var circle_marker_13c72a3a8edef2f6ccb9aa314fcb5a3a = L.circleMarker(
+            var circle_marker_cd0a3b2b8ac34e0045ccc173d9ab8a87 = L.circleMarker(
                 [62.324, -6.94],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_13c72a3a8edef2f6ccb9aa314fcb5a3a.bindTooltip(
+            circle_marker_cd0a3b2b8ac34e0045ccc173d9ab8a87.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gjogv</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp kloofwandeling<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Gjogv</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp kloofwandeling<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden tot Torshavn / Centraal Streymoy</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -708,15 +708,15 @@
             );
         
     
-            var circle_marker_c404bec753b5a3a4b0cef4fd39990353 = L.circleMarker(
+            var circle_marker_357fc43be25328b7860ce53a591cce5c = L.circleMarker(
                 [62.287, -6.965],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_c404bec753b5a3a4b0cef4fd39990353.bindTooltip(
+            circle_marker_357fc43be25328b7860ce53a591cce5c.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Funningur</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp fjorduitzicht<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Add On<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Funningur</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp fjorduitzicht<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Add On<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden tot Torshavn / Centraal Streymoy</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -724,15 +724,15 @@
             );
         
     
-            var circle_marker_608c9702c910f893ee1afbb43281dfc4 = L.circleMarker(
+            var circle_marker_1d14297d5dd7bcb086c732dc3233c0a9 = L.circleMarker(
                 [62.299, -7.092],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_608c9702c910f893ee1afbb43281dfc4.bindTooltip(
+            circle_marker_1d14297d5dd7bcb086c732dc3233c0a9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Eidi and Risin og Kellingin Viewpoint</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> zeestapel uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Northern Islands to Torshavn / Central Streymoy</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Eidi en Risin og Kellingin-uitkijkpunt</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> zeestapel uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Candidate<br><b>Onderweg:</b> <span style="color:#2980b9">Klaksvik / Noordelijke eilanden tot Torshavn / Centraal Streymoy</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -740,15 +740,15 @@
             );
         
     
-            var circle_marker_69ca563ded7235918dd642406549fd03 = L.circleMarker(
+            var circle_marker_5dd7c9c6591ae5ef8d4cd413c0596697 = L.circleMarker(
                 [62.1049, -7.4347],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_69ca563ded7235918dd642406549fd03.bindTooltip(
+            circle_marker_5dd7c9c6591ae5ef8d4cd413c0596697.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Gasadalur / Mulafossur if missed earlier</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> alternatief uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Backup Only<br><b>Onderweg:</b> <span style="color:#27ae60">Torshavn / Central Streymoy to Vagar Airport</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Gasadalur / Mulafossur indien eerder gemist</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> alternatief uitkijkpunt<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Backup Only<br><b>Onderweg:</b> <span style="color:#27ae60">Torshavn / Centraal Streymoy naar de luchthaven Vagar</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -756,15 +756,15 @@
             );
         
     
-            var circle_marker_0097be98f72018d35e3af30f4ec1cf4d = L.circleMarker(
+            var circle_marker_a4119d4fd5b9ab30bf2e95a0c5c3a2f9 = L.circleMarker(
                 [62.0097, -6.7716],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_ccf679cb118d22e9c465a487c2fd9c62);
+            ).addTo(feature_group_9a25a7abf1f83ad0f69357433ab306f1);
         
     
-            circle_marker_0097be98f72018d35e3af30f4ec1cf4d.bindTooltip(
+            circle_marker_a4119d4fd5b9ab30bf2e95a0c5c3a2f9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;min-width:220px"><b style="font-size:15px">🔷 Torshavn Old Town and Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling cultuur<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Backup Only<br><b>Onderweg:</b> <span style="color:#27ae60">Torshavn / Central Streymoy to Vagar Airport</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 De oude binnenstad van Torshavn en Tinganes</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling cultuur<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Backup Only<br><b>Onderweg:</b> <span style="color:#27ae60">Torshavn / Centraal Streymoy naar de luchthaven Vagar</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -772,23 +772,23 @@
             );
         
     
-            feature_group_ccf679cb118d22e9c465a487c2fd9c62.addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            feature_group_9a25a7abf1f83ad0f69357433ab306f1.addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
         
     
-            var feature_group_5c8b638556e0f3d6c07f9c2d1c1a2cb1 = L.featureGroup(
+            var feature_group_069687ebfed31f50ee3fc1e92ac136ab = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_6d6faced1249985402bdb53af62406df = L.marker(
+            var marker_b0c6785564c9d53fe0fe4ad5d1fcad77 = L.marker(
                 [62.0636, -7.2772],
                 {
 }
-            ).addTo(feature_group_5c8b638556e0f3d6c07f9c2d1c1a2cb1);
+            ).addTo(feature_group_069687ebfed31f50ee3fc1e92ac136ab);
         
     
-            var icon_aca74911655ca4d3642f5c0363287556 = L.AwesomeMarkers.icon(
+            var icon_95af4d7fb9ac6ab20fd4193f9eb71513 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -799,9 +799,9 @@
             );
         
     
-            marker_6d6faced1249985402bdb53af62406df.bindTooltip(
+            marker_b0c6785564c9d53fe0fe4ad5d1fcad77.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif"><b>✈️ Vagar Airport</b></div>
+                     <div style="font-family:sans-serif"><b>✈️ Luchthaven Vagar</b></div>
                  </div>`,
                 {
   "sticky": true,
@@ -809,32 +809,32 @@
             );
         
     
-                marker_6d6faced1249985402bdb53af62406df.setIcon(icon_aca74911655ca4d3642f5c0363287556);
+                marker_b0c6785564c9d53fe0fe4ad5d1fcad77.setIcon(icon_95af4d7fb9ac6ab20fd4193f9eb71513);
             
     
-            feature_group_5c8b638556e0f3d6c07f9c2d1c1a2cb1.addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            feature_group_069687ebfed31f50ee3fc1e92ac136ab.addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
         
     
-            var layer_control_0d5a7b3903b3d633b0f9f13e0f91e654_layers = {
+            var layer_control_022f3d5b3f0173861bf21e40751ebc26_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_84d8f64357ebdd934e32549b34df102f,
+                    "cartodbpositron" : tile_layer_39ef4b7d1c80ec538883234408e8f609,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_5be94424513a8dd4dbeb045ef561237f,
-                    "\u25cf Bezienswaardigheden" : feature_group_9bcf5598afcfd802bc17e0ca1ff28f6b,
-                    "\u25c7 Tussenstops" : feature_group_ccf679cb118d22e9c465a487c2fd9c62,
-                    "\u2708 Luchthaven" : feature_group_5c8b638556e0f3d6c07f9c2d1c1a2cb1,
+                    "\ud83c\udfe8 Verblijven" : feature_group_2164a3c8c5fe0309fbaf7311098d9282,
+                    "\u25cf Bezienswaardigheden" : feature_group_a6517fade070801b50314b6a249d53b7,
+                    "\u25c7 Tussenstops" : feature_group_9a25a7abf1f83ad0f69357433ab306f1,
+                    "\u2708 Luchthaven" : feature_group_069687ebfed31f50ee3fc1e92ac136ab,
                 },
             };
-            let layer_control_0d5a7b3903b3d633b0f9f13e0f91e654 = L.control.layers(
-                layer_control_0d5a7b3903b3d633b0f9f13e0f91e654_layers.base_layers,
-                layer_control_0d5a7b3903b3d633b0f9f13e0f91e654_layers.overlays,
+            let layer_control_022f3d5b3f0173861bf21e40751ebc26 = L.control.layers(
+                layer_control_022f3d5b3f0173861bf21e40751ebc26_layers.base_layers,
+                layer_control_022f3d5b3f0173861bf21e40751ebc26_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_fa4b418a00462658c79f6a4b4556242f);
+            ).addTo(map_188bd6ca3a2dcbdb6a0010ba91651875);
 
         
 </script>

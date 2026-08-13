@@ -325,13 +325,31 @@ def _type_label(t: str) -> str:
     return TYPE_NL.get(t, t.replace("_", " ").title()) if t else "—"
 
 
+TRANSFER_ROLE_NL = {
+    "route_segment": "routegedeelte",
+    "scenic_detour": "schilderachtige omweg",
+    "overnight_stop": "overnachtingsstop",
+}
+
+
+def _transfer_role_label(role: str) -> str:
+    return TRANSFER_ROLE_NL.get(role, role.replace("_", " ").title()) if role else ""
+
+
+TOOLTIP_STYLE = (
+    "font-family:sans-serif;font-size:14px;"
+    "width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);"
+    "min-width:0;white-space:normal;overflow-wrap:anywhere;"
+)
+
+
 def _lodging_tooltip(loc: dict, color: str) -> str:
     nights = loc.get("stay_nights", "?")
     region = loc.get("region", "")
     note = loc.get("planning_note", "")
     note_html = f'<br><i style="color:#666;font-size:14px">{note}</i>' if note else ""
     return (
-        f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">'
+        f'<div style="{TOOLTIP_STYLE}">'
         f'<b style="color:{color};font-size:16px">🏨 {loc["name"]}</b><br>'
         f'<span style="color:#555">{region}</span><br>'
         f'<hr style="margin:4px 0">'
@@ -351,10 +369,10 @@ def _attraction_tooltip(attr: dict, base_name: str, color: str) -> str:
     note = strategy.get("notes", "")
     evening = strategy.get("good_for_evening_visit")
     lines = [
-        f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">',
+        f'<div style="{TOOLTIP_STYLE}">',
         f'<b style="font-size:15px">{attr["name"]}</b><br>',
         f'<span style="color:{color};font-weight:bold">{pm["stars"]} {pm["label"]}</span><br>',
-        f'<hr style="margin:4px 0">',
+        '<hr style="margin:4px 0">',
         f"<b>Type:</b> {atype}<br>",
         f"<b>Duur:</b> {hours} h",
     ]
@@ -375,12 +393,12 @@ def _transfer_stop_tooltip(stop: dict, route_desc: str, color: str) -> str:
     pm = _priority(stop.get("priority", ""))
     hours = stop.get("stop_duration_hours", "?")
     atype = _type_label(stop.get("type", ""))
-    role = stop.get("transfer_role", "").replace("_", " ").title()
+    role = _transfer_role_label(stop.get("transfer_role", ""))
     note = stop.get("planning_note", "")
     role_html = f"<br><b>Rol:</b> {role}" if role else ""
     note_html = f'<br><i style="color:#666;font-size:13px">{note}</i>' if note else ""
     return (
-        f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">'
+        f'<div style="{TOOLTIP_STYLE}">'
         f'<b style="font-size:15px">🔷 {stop["name"]}</b><br>'
         f'<span style="color:{color};font-weight:bold">{pm["stars"]} {pm["label"]}</span><br>'
         f'<hr style="margin:4px 0">'
@@ -403,7 +421,7 @@ def _final_stop_tooltip(stop: dict) -> str:
     note = stop.get("planning_note", "")
     note_html = f'<br><i style="color:#666;font-size:13px">{note}</i>' if note else ""
     return (
-        f'<div style="font-family:sans-serif;font-size:14px;min-width:220px">'
+        f'<div style="{TOOLTIP_STYLE}">'
         f'<b style="color:{color};font-size:16px">🏙️ {stop["name"]}</b><br>'
         f'<span style="color:#555">Eindbestemming</span>'
         f'<hr style="margin:4px 0">'

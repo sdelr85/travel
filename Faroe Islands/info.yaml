@@ -3,24 +3,20 @@ trip:
 
   overview:
     rank: 13
-    summary: "10-daagse familie-autoreis door de Faeröer, gericht op dramatische landschappen, wandelingen, dorpjes, zeekliffen, watervallen en één of twee optionele eiland-/boottochten."
-    summary_reason: >
-      De Faeröer voelen aan als een eilandengroep aan het einde van de wereld — grasgedekte dorpjes die
-      zich vastklampen aan klifttoppen, watervallen die direct in zee storten en wegen die door bergen
-      tunnelen om nederzettingen te bereiken die de meeste mensen nooit hebben gehoord. Anders dan IJsland
-      is het landschap hier intiem en mysterieus in plaats van uitgestrekt, met wandelingen,
-      papegaaiduikerkolonies en zeekliffen die zich echt buiten de gebaande paden bevinden.
-    transport: "✈ Plane + 🚗 Rental car"
+    summary: "10-daagse familie-autoreis door de Faeröer, gericht op dramatische landschappen, wandelingen, dorpjes, zeekliffen, watervallen en één van twee bevestigde eiland-/boottochten."
+    summary_reason: >-
+      De Faeröer voelt aan als een eilandengroep aan het einde van de wereld — grasgedekte dorpjes die zich vastklampen aan klifttoppen, watervallen die direct in zee storten en wegen die door bergen tunnelen om omgevingen te bereiken die de meeste mensen nooit hebben gehoord. Anders dan IJsland is het landschap hier intiem en mysterieus in plaats van uitgestrekt, met wandelingen, papegaaiduikerkolonies en zeekliffen die zich echt buiten de gebaande paden bevinden.
+    transport: "✈ Vliegtuig + 🚗 Huurauto"
     duration_days: 10
     duration_nights: 9
-    travel_style: "Fly-in family self-drive"
+    travel_style: "Fly-in familie-selfdrive"
     recommended_season: "June to August for longest daylight, better hiking access and best chance for Mykines/puffins, while keeping weather flexibility."
     highlights:
-      - "Vagar: Mulafossur, meer Sørvágsvatn/Leitisvatn, Bøsdalafossur en uitzichten over Drangarnir"
-      - "Noordelijke eilanden: Klaksvik, Kalsoy, Kallur Vuurtoren, Viðareidí en Kunoy"
-      - "Eysturoy en Streymoy: Saksun, Tjørnuvík, Gjógv, Funningur en Eiði"
-      - "Tórshavn en nabijgelegen eilanden: Kirkjubøur, Nólsøy of Sandoy"
-      - "Optioneel: Mykines of Vestmanna zeekliffen afhankelijk van het weer"
+    - 'Vagar: Mulafossur, meer Sørvágsvatn/Leitisvatn, Bøsdalafossur en uitzichten over Drangarnir'
+    - 'Noordelijke eilanden: Klaksvik, Kalsoy, Kallur Vuurtoren, Viðareidí en Kunoy'
+    - 'Eysturoy en Streymoy: Saksun, Tjørnuvík, Gjógv, Funningur en Eiði'
+    - 'Tórshavn en eilanden: Kirkjubøur, Nólsøy of Sandoy'
+    - 'Optioneel: Mykines of Vestmanna zeekliffen afhankelijk van het weer'
     target_group:
       adults: 2
       children: 3
@@ -29,578 +25,577 @@ trip:
   travel_style: family_self_drive
 
   cost:
-      couple:
-        eur_range: "€4,000 - €7,000"
-      family:
-        eur_range: "€7,000 - €11,000"
-      relative_costs: "medium"
-      assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+    couple:
+      eur_range: "€4,000 - €7,000"
+    family:
+      eur_range: "€7,000 - €11,000"
+    relative_costs: "medium"
+    assumptions:
+    - Middenklasse accommodaties
+    - Hoogseizoen zomer
+    - Vluchten/autohuur inbegrepen (indien relevant)
+    - Normaal restaurantgebruik
+    - Beperkte betaalde excursies (1-2 per basis)
   duration:
     days: 10
     nights: 9
     base_locations: 3
     recommended_base_split:
-      - base: base_1
-        nights: 3
-      - base: base_2
-        nights: 3
-      - base: base_3
-        nights: 3
+    - base: base_1
+      nights: 3
+    - base: base_2
+      nights: 3
+    - base: base_3
+      nights: 3
     alternative_base_split_if_8_nights:
-      - base: base_1
-        nights: 2
-      - base: base_2
-        nights: 3
-      - base: base_3
-        nights: 3
-    note: "The Faroe Islands are compact but weather-sensitive. Three bases of three nights gives enough flexibility without too much packing and unpacking."
+    - base: base_1
+      nights: 2
+    - base: base_2
+      nights: 3
+    - base: base_3
+      nights: 3
+    note: "De Faeröer zijn compact maar weergevoelig. Drie bases van drie nachten geven voldoende flexibiliteit zonder al te veel in- en uitpakken."
 
   access_plan:
     from: Belgium
     by: plane
     airport:
       id: vagar_airport
-      name: Vagar Airport
+      name: Luchthaven Vagar
       coordinates:
         lat: 62.0636
         lon: -7.2772
-      planning_note: "The only airport in the Faroe Islands is on Vagar. From here it is easy to start with Vagar attractions before moving east."
+      planning_note: "De enige luchthaven op de Faeröer ligt op Vagar. Vanaf hier is het gemakkelijk om te beginnen met de bezienswaardigheden van Vagar voordat u naar het oosten gaat."
     rental_car:
       recommended: true
-      planning_note: "A rental car is strongly recommended for a family trip because rural buses are less flexible and weather often forces day-by-day changes."
+      planning_note: "Voor een gezinsuitstapje wordt een huurauto ten zeerste aanbevolen, omdat de landelijke bussen minder flexibel zijn en het weer vaak van dag tot dag verandert."
 
   transport_constraints:
     subsea_tunnels:
       allowed: true
-      planning_note: "Several main islands are connected by tolled subsea tunnels. Rental companies often settle tunnel tolls, but this should be checked when booking."
+      planning_note: "Verschillende hoofdeilanden zijn met elkaar verbonden door onderzeese tunnels waarvoor tol wordt geheven. Verhuurbedrijven betalen vaak tunneltol, maar dit moet bij het boeken worden gecontroleerd."
     local_ferries:
       allowed: optional
-      planning_note: "Some islands still need ferries, especially Kalsoy and Mykines. Ferries are weather-dependent and should not be planned as the only highlight of the trip."
+      planning_note: "Op sommige eilanden zijn nog steeds veerboten nodig, vooral Kalsoy en Mykines. Veerboten zijn weersafhankelijk en mogen niet als het enige hoogtepunt van de reis worden gepland."
     helicopter:
       allowed: optional
-      planning_note: "The helicopter network can be scenic but seats are limited and it should be treated as a bonus rather than the backbone of the itinerary."
+      planning_note: "Het helikopternetwerk kan mooi zijn, maar het aantal zitplaatsen is beperkt en moet worden behandeld als een bonus en niet als de ruggengraat van de reisroute."
     weather_flexibility:
       required: true
-      planning_note: "Wind, fog and rain can change plans quickly. Keep backup activities close to each base."
+      planning_note: "Wind, mist en regen kunnen plannen snel veranderen. Houd back-upactiviteiten dicht bij elke basis."
 
   planning_principles:
     lodging_strategy:
-      note: "Use 3 bases: Vagar for arrival and western sights, Klaksvik/Northern Islands for Kalsoy and the north, and Torshavn or central Streymoy for Streymoy/Eysturoy/Sandoy and departure flexibility."
+      note: "Gebruik 3 bases: Vagar voor aankomst en westelijke bezienswaardigheden, Klaksvik/Noordelijke Eilanden voor Kalsoy en het noorden, en Torshavn of centraal Streymoy voor Streymoy/Eysturoy/Sandoy en vertrekflexibiliteit."
     transfer_day:
       max_recommended_major_stops: 2
       max_recommended_sightseeing_hours: 3
-      note: "Distances are shorter than Iceland or Norway, but weather, single-lane roads, tunnels and photo stops mean transfer days should still be kept light."
+      note: "De afstanden zijn korter dan in IJsland of Noorwegen, maar het weer, enkelbaanswegen, tunnels en fotostops zorgen ervoor dat de transferdagen nog steeds licht moeten worden gehouden."
     base_day:
       max_recommended_single_drive_minutes: 75
-      note: "Most sightseeing should be done as short day trips from the base. Several days should keep morning/afternoon alternatives because of weather."
+      note: "De meeste bezienswaardigheden moeten worden gedaan als korte dagtochten vanaf de basis. Vanwege het weer moeten meerdere dagen ochtend-/middagalternatieven worden aangehouden."
     paid_activities:
-      note: "Main paid activity candidates are Mykines, Vestmanna sea cliffs, a Drangarnir/Tindholmur tour or a guided hike. Pick one or two maximum."
+      note: "De belangrijkste betaalde activiteitskandidaten zijn Mykines, de zeekliffen van Vestmanna, een Drangarnir/Tindholmur-tour of een begeleide wandeling. Kies er maximaal één of twee."
 
   priority_definitions:
     must_do:
       score: 4
-      description: "Absolute highlight. Try to include unless weather, ferry cancellation or safety conditions make it unrealistic."
+      description: "Absoluut hoogtepunt. Probeer dit op te nemen, tenzij het weer, de annulering van de veerboot of de veiligheidsomstandigheden dit onrealistisch maken."
     highly_recommended:
       score: 3
-      description: "Strongly recommended if weather is good and the day schedule allows it."
+      description: "Sterk aanbevolen als het weer goed is en het dagschema het toelaat."
     if_time:
       score: 2
-      description: "Good addition, but not essential."
+      description: "Goede aanvulling, maar niet essentieel."
     optional_paid_activity:
       score: 1
-      description: "Worth considering, but should be selected deliberately because of budget, weather dependency and booking constraints."
+      description: "Het overwegen waard, maar moet bewust worden geselecteerd vanwege budget, weersafhankelijkheid en boekingsbeperkingen."
 
   lodging_locations:
 
-    - id: base_1
-      name: Vagar / Sorvagur / Gasadalur
-      region: Vagar and western Faroe Islands
-      stay_nights: 3
+  - id: base_1
+    name: Vágar/Sorvagur/Gasadalur
+    region: Vagar en westelijke Faeröer
+    stay_nights: 3
+    coordinates:
+      lat: 62.0717
+      lon: -7.3070
+    lodging_preference_note: "Sorvagur is practical for the airport, Mykines boat and western Vagar sights. Gasadalur is very scenic but more remote."
+    planning_note: "Beste eerste honk na aankomst. Gebruik deze basis voor Mulafossur, Sorvagsvatn/Leitisvatn, Bosdalafossur en optioneel Mykines of Drangarnir."
+
+    base_attractions:
+    - id: mulafossur_waterfall
+      name: Mulafossur-waterval en Gasadalur
+      priority: must_do
+      type: waterfall_village_viewpoint
+      visit_duration_hours: 1.5
+      drive_time_minutes: 20
       coordinates:
-        lat: 62.0717
-        lon: -7.3070
-      lodging_preference_note: "Sorvagur is practical for the airport, Mykines boat and western Vagar sights. Gasadalur is very scenic but more remote."
-      planning_note: "Best first base after arrival. Use this base for Mulafossur, Sorvagsvatn/Leitisvatn, Bosdalafossur and optional Mykines or Drangarnir."
+        lat: 62.1049
+        lon: -7.4347
+      visit_strategy:
+        primary_base: base_1
+        good_for_evening_visit: true
+        notes: "Iconische waterval die naar de zee valt. Gemakkelijke en indrukwekkende eerste of laatste avondstop op Vagar."
 
-      base_attractions:
-        - id: mulafossur_waterfall
-          name: Mulafossur Waterfall and Gasadalur
-          priority: must_do
-          type: waterfall_village_viewpoint
-          visit_duration_hours: 1.5
-          drive_time_minutes: 20
-          coordinates:
-            lat: 62.1049
-            lon: -7.4347
-          visit_strategy:
-            primary_base: base_1
-            good_for_evening_visit: true
-            notes: "Iconic waterfall dropping toward the sea. Easy and high-impact first or last evening stop on Vagar."
-
-        - id: sorvagsvatn_leitisvatn
-          name: Sorvagsvatn / Leitisvatn Lake Viewpoint
-          priority: must_do
-          type: hike_viewpoint
-          visit_duration_hours: 3
-          drive_time_minutes: 15
-          coordinates:
-            lat: 62.0420
-            lon: -7.1990
-          difficulty: easy_to_moderate
-          visit_strategy:
-            primary_base: base_1
-            notes: "Famous optical illusion lake-above-the-ocean viewpoint. Combine with Bosdalafossur if weather is clear."
-
-        - id: bosdalafossur
-          name: Bosdalafossur Waterfall
-          priority: highly_recommended
-          type: waterfall_hike
-          visit_duration_hours: 1
-          drive_time_minutes: 15
-          coordinates:
-            lat: 62.0128
-            lon: -7.2175
-          visit_strategy:
-            primary_base: base_1
-            notes: "Best combined with the Sorvagsvatn/Leitisvatn hike."
-
-        - id: bour_village
-          name: Bour Village and Tindholmur Views
-          priority: highly_recommended
-          type: village_viewpoint
-          visit_duration_hours: 1
-          drive_time_minutes: 10
-          coordinates:
-            lat: 62.0906
-            lon: -7.3686
-          visit_strategy:
-            primary_base: base_1
-            notes: "Small village with excellent views toward Tindholmur and Drangarnir."
-
-        - id: drangarnir_tindholmur
-          name: Drangarnir and Tindholmur View / Tour
-          priority: optional_paid_activity
-          type: guided_hike_or_boat_tour
-          visit_duration_hours: 4
-          drive_time_minutes: 10
-          coordinates:
-            lat: 62.0770
-            lon: -7.4180
-          visit_strategy:
-            primary_base: base_1
-            notes: "Spectacular but usually requires a guided hike or boat tour. Consider only if weather and budget allow."
-
-        - id: mykines_day_trip
-          name: Mykines Day Trip
-          priority: optional_paid_activity
-          type: island_ferry_hike_puffins
-          visit_duration_hours: 6
-          drive_time_minutes: 5
-          coordinates:
-            lat: 62.1025
-            lon: -7.6450
-          visit_strategy:
-            primary_base: base_1
-            notes: "Very attractive in puffin season, but ferry and access are weather-dependent. Keep a backup plan on Vagar."
-
-      arrival_day_candidates:
-        route_from: vagar_airport
-        note: "Keep arrival day simple. Mulafossur or Bour are ideal first-day stops if the flight arrives early enough."
-        candidates:
-          - attraction_ref: mulafossur_waterfall
-          - attraction_ref: bour_village
-
-      departure_day_candidates:
-        route_to: base_2
-        note: "Transfer to the northern islands is not long, but use it for one central Streymoy or Eysturoy stop if weather is good."
-        candidates:
-          - external_stop_ref: vestmanna_sea_cliffs
-          - external_stop_ref: saksun
-
-    - id: base_2
-      name: Klaksvik / Northern Islands
-      region: Bordoy, Kalsoy, Kunoy and Vidoy
-      stay_nights: 3
+    - id: sorvagsvatn_leitisvatn
+      name: Uitkijkpunt Sorvagsvatn / Leitisvatn-meer
+      priority: must_do
+      type: hike_viewpoint
+      visit_duration_hours: 3
+      drive_time_minutes: 15
       coordinates:
-        lat: 62.2266
-        lon: -6.5890
-      lodging_preference_note: "Klaksvik is the practical base because it has services and the ferry to Kalsoy. Rural stays in the northern islands are scenic but less flexible."
-      planning_note: "Use this base for Kalsoy and Kallur Lighthouse, Vidareidi, Kunoy and dramatic northern island drives."
+        lat: 62.0420
+        lon: -7.1990
+      difficulty: easy_to_moderate
+      visit_strategy:
+        primary_base: base_1
+        notes: "Beroemd uitzichtpunt op het meer boven de oceaan met optische illusie. Bij helder weer combineren met Bosdalafossur."
 
-      base_attractions:
-        - id: kallur_lighthouse
-          name: Kallur Lighthouse Hike
-          priority: must_do
-          type: ferry_hike_viewpoint
-          visit_duration_hours: 5
-          drive_time_minutes: 15
-          coordinates:
-            lat: 62.3730
-            lon: -6.7890
-          difficulty: moderate
-          visit_strategy:
-            primary_base: base_2
-            notes: "One of the top Faroe views. Requires ferry to Kalsoy and suitable weather. Do not schedule as the only possible highlight of the base."
-
-        - id: mikladalur_seal_woman
-          name: Mikladalur and Seal Woman Statue
-          priority: highly_recommended
-          type: village_coast
-          visit_duration_hours: 1.5
-          drive_time_minutes: 20
-          coordinates:
-            lat: 62.3340
-            lon: -6.7670
-          visit_strategy:
-            primary_base: base_2
-            notes: "Good add-on to Kalsoy day."
-
-        - id: vidareidi
-          name: Vidareidi
-          priority: must_do
-          type: village_mountain_viewpoint
-          visit_duration_hours: 2
-          drive_time_minutes: 30
-          coordinates:
-            lat: 62.3605
-            lon: -6.5310
-          visit_strategy:
-            primary_base: base_2
-            notes: "Beautiful northern village surrounded by high mountains and sea views."
-
-        - id: kunoy
-          name: Kunoy Village and Kunoy Park
-          priority: highly_recommended
-          type: village_short_walk
-          visit_duration_hours: 1.5
-          drive_time_minutes: 20
-          coordinates:
-            lat: 62.3030
-            lon: -6.6470
-          visit_strategy:
-            primary_base: base_2
-            notes: "Quiet and scenic short visit from Klaksvik."
-
-        - id: klakkur_hike
-          name: Klakkur Hike above Klaksvik
-          priority: highly_recommended
-          type: short_hike_viewpoint
-          visit_duration_hours: 2.5
-          drive_time_minutes: 10
-          coordinates:
-            lat: 62.2450
-            lon: -6.6020
-          difficulty: easy_to_moderate
-          visit_strategy:
-            primary_base: base_2
-            notes: "Excellent local hike with views over Klaksvik and surrounding islands. Good backup if Kalsoy ferry is not suitable."
-
-        - id: hvannasund
-          name: Hvannasund
-          priority: if_time
-          type: village_drive
-          visit_duration_hours: 1
-          drive_time_minutes: 25
-          coordinates:
-            lat: 62.2960
-            lon: -6.5150
-          visit_strategy:
-            primary_base: base_2
-            notes: "Short northern-islands scenic drive option."
-
-      arrival_day_candidates:
-        route_from: base_1
-        note: "If transferring from Vagar, you can add Saksun, Tjornuvik or Eysturoy if weather is good, but keep Kalsoy for a dedicated day."
-        candidates:
-          - external_stop_ref: saksun
-          - external_stop_ref: tjornuvik
-          - external_stop_ref: eysturoyartunnilin
-
-      departure_day_candidates:
-        route_to: base_3
-        note: "Use departure day for Gjogv, Funningur or Eidi on the way to Torshavn/Streymoy."
-        candidates:
-          - external_stop_ref: gjogv
-          - external_stop_ref: funningur
-          - external_stop_ref: eidi
-
-    - id: base_3
-      name: Torshavn / Central Streymoy
-      region: Streymoy, Eysturoy and southern islands
-      stay_nights: 3
+    - id: bosdalafossur
+      name: Bosdalafossur-waterval
+      priority: highly_recommended
+      type: waterfall_hike
+      visit_duration_hours: 1
+      drive_time_minutes: 15
       coordinates:
-        lat: 62.0079
-        lon: -6.7900
-      lodging_preference_note: "Torshavn gives the most flexibility, restaurants and backup options in bad weather. A rural Streymoy stay is more scenic but less practical."
-      planning_note: "Use this base for Torshavn, Kirkjubour, Saksun, Tjornuvik, Gjogv/Eysturoy if not already visited, and optional Nolsoy or Sandoy."
+        lat: 62.0128
+        lon: -7.2175
+      visit_strategy:
+        primary_base: base_1
+        notes: "Het beste te combineren met de Sorvagsvatn/Leitisvatn-wandeling."
 
-      base_attractions:
-        - id: torshavn_old_town_tinganes
-          name: Torshavn Old Town and Tinganes
-          priority: highly_recommended
-          type: town_walk_culture
-          visit_duration_hours: 2
-          drive_time_minutes: 0
-          coordinates:
-            lat: 62.0097
-            lon: -6.7716
-          visit_strategy:
-            primary_base: base_3
-            notes: "Good low-effort activity and useful for bad weather or arrival/departure timing."
+    - id: bour_village
+      name: Uitzicht op Bour Village en Tindholmur
+      priority: highly_recommended
+      type: village_viewpoint
+      visit_duration_hours: 1
+      drive_time_minutes: 10
+      coordinates:
+        lat: 62.0906
+        lon: -7.3686
+      visit_strategy:
+        primary_base: base_1
+        notes: "Klein dorp met prachtig uitzicht richting Tindholmur en Drangarnir."
 
-        - id: kirkjubour
-          name: Kirkjubour
-          priority: highly_recommended
-          type: historic_village
-          visit_duration_hours: 2
-          drive_time_minutes: 20
-          coordinates:
-            lat: 61.9561
-            lon: -6.7925
-          visit_strategy:
-            primary_base: base_3
-            notes: "Historic village near Torshavn with cathedral ruins and old farm buildings."
+    - id: drangarnir_tindholmur
+      name: Drangarnir en Tindholmur bekijken / rondleiding
+      priority: optional_paid_activity
+      type: guided_hike_or_boat_tour
+      visit_duration_hours: 4
+      drive_time_minutes: 10
+      coordinates:
+        lat: 62.0770
+        lon: -7.4180
+      visit_strategy:
+        primary_base: base_1
+        notes: "Spectaculair, maar vereist meestal een begeleide wandeling of boottocht. Alleen overwegen als het weer en het budget het toelaten."
 
-        - id: saksun
-          name: Saksun
-          priority: must_do
-          type: village_lagoon_landscape
-          visit_duration_hours: 2
-          drive_time_minutes: 55
-          coordinates:
-            lat: 62.2480
-            lon: -7.1760
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_1_to_base_2
-            notes: "One of the most beautiful village settings in the islands. Best with atmospheric weather but avoid unsafe tides near the lagoon."
+    - id: mykines_day_trip
+      name: Mykines-dagtocht
+      priority: optional_paid_activity
+      type: island_ferry_hike_puffins
+      visit_duration_hours: 6
+      drive_time_minutes: 5
+      coordinates:
+        lat: 62.1025
+        lon: -7.6450
+      visit_strategy:
+        primary_base: base_1
+        notes: "Zeer aantrekkelijk in het papegaaiduikerseizoen, maar de veerboot en de toegang zijn weersafhankelijk. Houd een back-upplan bij op Vagar."
 
-        - id: tjornuvik
-          name: Tjornuvik
-          priority: highly_recommended
-          type: village_beach_viewpoint
-          visit_duration_hours: 1.5
-          drive_time_minutes: 60
-          coordinates:
-            lat: 62.2890
-            lon: -7.1470
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_1_to_base_2
-            notes: "Beautiful valley village with beach and views toward Risin og Kellingin."
+    arrival_day_candidates:
+      route_from: vagar_airport
+      note: "Houd de aankomstdag eenvoudig. Mulafossur of Bour zijn ideale stops op de eerste dag als de vlucht vroeg genoeg arriveert."
+      candidates:
+      - attraction_ref: mulafossur_waterfall
+      - attraction_ref: bour_village
 
-        - id: gjogv
-          name: Gjogv
-          priority: must_do
-          type: village_gorge_walk
-          visit_duration_hours: 2
-          drive_time_minutes: 60
-          coordinates:
-            lat: 62.3240
-            lon: -6.9400
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_2_to_base_3
-            notes: "Classic village with natural gorge harbour and short walks."
+    departure_day_candidates:
+      route_to: base_2
+      note: "De transfer naar de noordelijke eilanden duurt niet lang, maar gebruik deze voor één centrale Streymoy- of Eysturoy-stop als het weer goed is."
+      candidates:
+      - external_stop_ref: vestmanna_sea_cliffs
+      - external_stop_ref: saksun
 
-        - id: funningur
-          name: Funningur
-          priority: highly_recommended
-          type: village_fjord_view
-          visit_duration_hours: 1
-          drive_time_minutes: 55
-          coordinates:
-            lat: 62.2870
-            lon: -6.9650
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_2_to_base_3
-            notes: "Good scenic pair with Gjogv and Eidi."
+  - id: base_2
+    name: Klaksvik / Noordelijke eilanden
+    region: Bordoy, Kalsoy, Kunoy en Vidoy
+    stay_nights: 3
+    coordinates:
+      lat: 62.2266
+      lon: -6.5890
+    lodging_preference_note: "Klaksvik is the practical base because it has services and the ferry to Kalsoy. Rural stays in the northern islands are scenic but less flexible."
+    planning_note: "Gebruik deze basis voor Kalsoy en Kallur Lighthouse, Vidareidi, Kunoy en dramatische tochten naar het noordelijke eiland."
 
-        - id: eidi_and_risin_kellingin
-          name: Eidi and Risin og Kellingin Viewpoint
-          priority: highly_recommended
-          type: sea_stack_viewpoint
-          visit_duration_hours: 1
-          drive_time_minutes: 50
-          coordinates:
-            lat: 62.2990
-            lon: -7.0920
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_2_to_base_3
-            notes: "Easy viewpoint toward the famous sea stacks."
+    base_attractions:
+    - id: kallur_lighthouse
+      name: Kallur-vuurtorenwandeling
+      priority: must_do
+      type: ferry_hike_viewpoint
+      visit_duration_hours: 5
+      drive_time_minutes: 15
+      coordinates:
+        lat: 62.3730
+        lon: -6.7890
+      difficulty: moderate
+      visit_strategy:
+        primary_base: base_2
+        notes: "Een van de beste uitzichten op de Faeröer. Vereist veerboot naar Kalsoy en geschikt weer. Plan niet als het enige mogelijke hoogtepunt van de basis."
 
-        - id: vestmanna_sea_cliffs
-          name: Vestmanna Sea Cliffs Boat Trip
-          priority: optional_paid_activity
-          type: boat_trip_sea_cliffs
-          visit_duration_hours: 2.5
-          drive_time_minutes: 40
-          coordinates:
-            lat: 62.1550
-            lon: -7.1660
-          visit_strategy:
-            primary_base: base_3
-            secondary_opportunity:
-              - transfer_base_1_to_base_2
-            notes: "Classic boat trip, highly weather-dependent. Good optional paid activity if you do not choose Mykines or Drangarnir."
+    - id: mikladalur_seal_woman
+      name: Standbeeld van Mikladalur en zeehondenvrouw
+      priority: highly_recommended
+      type: village_coast
+      visit_duration_hours: 1.5
+      drive_time_minutes: 20
+      coordinates:
+        lat: 62.3340
+        lon: -6.7670
+      visit_strategy:
+        primary_base: base_2
+        notes: "Goede aanvulling op Kalsoy-dag."
 
-        - id: nolsoy_day_trip
-          name: Nolsoy Day Trip
-          priority: if_time
-          type: short_island_ferry_walk
-          visit_duration_hours: 4
-          drive_time_minutes: 0
-          coordinates:
-            lat: 62.0090
-            lon: -6.6660
-          visit_strategy:
-            primary_base: base_3
-            notes: "Short ferry from Torshavn, useful as a lighter island day."
+    - id: vidareidi
+      name: Vidareidi
+      priority: must_do
+      type: village_mountain_viewpoint
+      visit_duration_hours: 2
+      drive_time_minutes: 30
+      coordinates:
+        lat: 62.3605
+        lon: -6.5310
+      visit_strategy:
+        primary_base: base_2
+        notes: "Prachtig noordelijk dorp omgeven door hoge bergen en uitzicht op zee."
 
-        - id: sandoy_day_trip
-          name: Sandoy Day Trip
-          priority: if_time
-          type: island_drive_villages_beaches
-          visit_duration_hours: 5
-          drive_time_minutes: 40
-          coordinates:
-            lat: 61.8420
-            lon: -6.8290
-          visit_strategy:
-            primary_base: base_3
-            notes: "Now more accessible via subsea tunnel. Good if weather in the north is poor or you want a calmer island day."
+    - id: kunoy
+      name: Kunoy-dorp en Kunoy-park
+      priority: highly_recommended
+      type: village_short_walk
+      visit_duration_hours: 1.5
+      drive_time_minutes: 20
+      coordinates:
+        lat: 62.3030
+        lon: -6.6470
+      visit_strategy:
+        primary_base: base_2
+        notes: "Rustig en schilderachtig kort bezoek vanuit Klaksvik."
 
-      departure_day_candidates:
-        route_to: vagar_airport
-        note: "On departure day, keep enough time for tunnel driving and airport logistics. If the flight is late, revisit Vagar or Torshavn rather than planning a ferry."
-        candidates:
-          - attraction_ref: torshavn_old_town_tinganes
-          - external_stop_ref: gasadalur_if_missed
+    - id: klakkur_hike
+      name: Klakkur Wandeling boven Klaksvik
+      priority: highly_recommended
+      type: short_hike_viewpoint
+      visit_duration_hours: 2.5
+      drive_time_minutes: 10
+      coordinates:
+        lat: 62.2450
+        lon: -6.6020
+      difficulty: easy_to_moderate
+      visit_strategy:
+        primary_base: base_2
+        notes: "Uitstekende lokale wandeling met uitzicht over Klaksvik en omliggende eilanden. Goede back-up als de veerboot van Kalsoy niet geschikt is."
+
+    - id: hvannasund
+      name: Hvannasund
+      priority: if_time
+      type: village_drive
+      visit_duration_hours: 1
+      drive_time_minutes: 25
+      coordinates:
+        lat: 62.2960
+        lon: -6.5150
+      visit_strategy:
+        primary_base: base_2
+        notes: "Korte schilderachtige rit naar de noordelijke eilanden."
+
+    arrival_day_candidates:
+      route_from: base_1
+      note: "Als u vanuit Vagar overstapt, kunt u Saksun, Tjornuvik of Eysturoy toevoegen als het weer goed is, maar bewaar Kalsoy voor een speciale dag."
+      candidates:
+      - external_stop_ref: saksun
+      - external_stop_ref: tjornuvik
+      - external_stop_ref: eysturoyartunnilin
+
+    departure_day_candidates:
+      route_to: base_3
+      note: "Gebruik de vertrekdag voor Gjogv, Funningur of Eidi op weg naar Torshavn/Strymoy."
+      candidates:
+      - external_stop_ref: gjogv
+      - external_stop_ref: funningur
+      - external_stop_ref: eidi
+
+  - id: base_3
+    name: Tórshavn / Centraal Streymoy
+    region: Streymoy, Eysturoy en zuidelijke eilanden
+    stay_nights: 3
+    coordinates:
+      lat: 62.0079
+      lon: -6.7900
+    lodging_preference_note: "Torshavn gives the most flexibility, restaurants and backup options in bad weather. A rural Streymoy stay is more scenic but less practical."
+    planning_note: "Gebruik deze basis voor Torshavn, Kirkjubour, Saksun, Tjornuvik, Gjogv/Eysturoy als je deze nog niet bezocht hebt, en optioneel Nolsoy of Sandoy."
+
+    base_attractions:
+    - id: torshavn_old_town_tinganes
+      name: De oude binnenstad van Torshavn en Tinganes
+      priority: highly_recommended
+      type: town_walk_culture
+      visit_duration_hours: 2
+      drive_time_minutes: 0
+      coordinates:
+        lat: 62.0097
+        lon: -6.7716
+      visit_strategy:
+        primary_base: base_3
+        notes: "Goede activiteit met weinig inspanning en nuttig bij slecht weer of aankomst-/vertrektijden."
+
+    - id: kirkjubour
+      name: Kirkjubour
+      priority: highly_recommended
+      type: historic_village
+      visit_duration_hours: 2
+      drive_time_minutes: 20
+      coordinates:
+        lat: 61.9561
+        lon: -6.7925
+      visit_strategy:
+        primary_base: base_3
+        notes: "Historisch dorp in de buurt van Torshavn met kathedraalruïnes en oude boerderijgebouwen."
+
+    - id: saksun
+      name: Saksun
+      priority: must_do
+      type: village_lagoon_landscape
+      visit_duration_hours: 2
+      drive_time_minutes: 55
+      coordinates:
+        lat: 62.2480
+        lon: -7.1760
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_1_to_base_2
+        notes: "Een van de mooiste dorpsomgevingen van de eilanden. Het beste bij mooi weer, maar vermijd onveilige getijden in de buurt van de lagune."
+
+    - id: tjornuvik
+      name: Tjornuvik
+      priority: highly_recommended
+      type: village_beach_viewpoint
+      visit_duration_hours: 1.5
+      drive_time_minutes: 60
+      coordinates:
+        lat: 62.2890
+        lon: -7.1470
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_1_to_base_2
+        notes: "Prachtig valleidorp met strand en uitzicht richting Risin og Kellingin."
+
+    - id: gjogv
+      name: Gjogv
+      priority: must_do
+      type: village_gorge_walk
+      visit_duration_hours: 2
+      drive_time_minutes: 60
+      coordinates:
+        lat: 62.3240
+        lon: -6.9400
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_2_to_base_3
+        notes: "Klassiek dorp met natuurlijke kloofhaven en korte wandelingen."
+
+    - id: funningur
+      name: Funningur
+      priority: highly_recommended
+      type: village_fjord_view
+      visit_duration_hours: 1
+      drive_time_minutes: 55
+      coordinates:
+        lat: 62.2870
+        lon: -6.9650
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_2_to_base_3
+        notes: "Goed schilderachtig paar met Gjogv en Eidi."
+
+    - id: eidi_and_risin_kellingin
+      name: Eidi en Risin og Kellingin-uitkijkpunt
+      priority: highly_recommended
+      type: sea_stack_viewpoint
+      visit_duration_hours: 1
+      drive_time_minutes: 50
+      coordinates:
+        lat: 62.2990
+        lon: -7.0920
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_2_to_base_3
+        notes: "Gemakkelijk uitkijkpunt richting de beroemde zeestapels."
+
+    - id: vestmanna_sea_cliffs
+      name: Boottocht naar de Vestmanna-zeekliffen
+      priority: optional_paid_activity
+      type: boat_trip_sea_cliffs
+      visit_duration_hours: 2.5
+      drive_time_minutes: 40
+      coordinates:
+        lat: 62.1550
+        lon: -7.1660
+      visit_strategy:
+        primary_base: base_3
+        secondary_opportunity:
+        - transfer_base_1_to_base_2
+        notes: "Klassieke boottocht, sterk weersafhankelijk. Goede optionele betaalde activiteit als je niet voor Mykines of Drangarnir kiest."
+
+    - id: nolsoy_day_trip
+      name: Nolsoy-dagtocht
+      priority: if_time
+      type: short_island_ferry_walk
+      visit_duration_hours: 4
+      drive_time_minutes: 0
+      coordinates:
+        lat: 62.0090
+        lon: -6.6660
+      visit_strategy:
+        primary_base: base_3
+        notes: "Korte veerboot vanuit Torshavn, handig als lichtere eilanddag."
+
+    - id: sandoy_day_trip
+      name: Sandoy-dagtocht
+      priority: if_time
+      type: island_drive_villages_beaches
+      visit_duration_hours: 5
+      drive_time_minutes: 40
+      coordinates:
+        lat: 61.8420
+        lon: -6.8290
+      visit_strategy:
+        primary_base: base_3
+        notes: "Nu beter toegankelijk via onderzeese tunnel. Goed als het weer in het noorden slecht is of als je een rustigere eilanddag wilt."
+
+    departure_day_candidates:
+      route_to: vagar_airport
+      note: "Houd op de dag van vertrek voldoende tijd over voor tunnelrijden en luchthavenlogistiek. Als de vlucht te laat is, bezoek dan Vagar of Torshavn opnieuw in plaats van een veerboot te plannen."
+      candidates:
+      - attraction_ref: torshavn_old_town_tinganes
+      - external_stop_ref: gasadalur_if_missed
 
   transfer_routes:
 
-    - id: transfer_vagar_airport_to_base_1
-      from: vagar_airport
-      to: base_1
-      description: Arrival at Vagar Airport and short transfer to Sorvagur/Gasadalur area
-      estimated_direct_drive_hours: 0.25
-      planning_note: "Very short transfer. Good for a gentle arrival day with Mulafossur or Bour if weather allows."
-      max_recommended_major_stops: 1
-      en_route_candidates:
-        - attraction_ref: mulafossur_waterfall
-          priority: must_do
-          type: waterfall_village_viewpoint
-          stop_duration_hours: 1.5
-          transfer_role: candidate
-        - attraction_ref: bour_village
-          priority: highly_recommended
-          type: village_viewpoint
-          stop_duration_hours: 1
-          transfer_role: candidate
+  - id: transfer_vagar_airport_to_base_1
+    from: vagar_airport
+    to: base_1
+    description: Aankomst op de luchthaven van Vagar en korte transfer naar het gebied Sorvagur/Gasadalur
+    estimated_direct_drive_hours: 0.25
+    planning_note: "Zeer korte overdracht. Goed voor een rustige aankomstdag met Mulafossur of Bour als het weer het toelaat."
+    max_recommended_major_stops: 1
+    en_route_candidates:
+    - attraction_ref: mulafossur_waterfall
+      priority: must_do
+      type: waterfall_village_viewpoint
+      stop_duration_hours: 1.5
+      transfer_role: candidate
+    - attraction_ref: bour_village
+      priority: highly_recommended
+      type: village_viewpoint
+      stop_duration_hours: 1
+      transfer_role: candidate
 
-    - id: transfer_base_1_to_base_2
-      from: base_1
-      to: base_2
-      description: Vagar to Klaksvik / Northern Islands via Streymoy and Eysturoy tunnels
-      estimated_direct_drive_hours: 1.5
-      planning_note: "Short enough to include one or two central/northern stops, but do not use the Kalsoy ferry on the same transfer day unless everything is very smooth."
-      max_recommended_major_stops: 2
-      en_route_candidates:
-        - attraction_ref: saksun
-          priority: must_do
-          type: village_lagoon_landscape
-          stop_duration_hours: 2
-          transfer_role: candidate
-        - attraction_ref: tjornuvik
-          priority: highly_recommended
-          type: village_beach_viewpoint
-          stop_duration_hours: 1.5
-          transfer_role: candidate
-        - id: eysturoyartunnilin
-          name: Eysturoyartunnilin Undersea Roundabout
-          priority: if_time
-          type: tunnel_route_feature
-          stop_duration_hours: 0
-          coordinates:
-            lat: 62.1300
-            lon: -6.8000
-          transfer_role: route_segment
-          planning_note: "Not a sightseeing stop, but a memorable route feature if the chosen route uses the tunnel."
+  - id: transfer_base_1_to_base_2
+    from: base_1
+    to: base_2
+    description: Vagar naar Klaksvik / Noordelijke eilanden via de Streymoy- en Eysturoy-tunnels
+    estimated_direct_drive_hours: 1.5
+    planning_note: "Kort genoeg om een ​​of twee centrale/noordelijke haltes op te nemen, maar gebruik de Kalsoy-veerboot niet op dezelfde transferdag, tenzij alles heel soepel verloopt."
+    max_recommended_major_stops: 2
+    en_route_candidates:
+    - attraction_ref: saksun
+      priority: must_do
+      type: village_lagoon_landscape
+      stop_duration_hours: 2
+      transfer_role: candidate
+    - attraction_ref: tjornuvik
+      priority: highly_recommended
+      type: village_beach_viewpoint
+      stop_duration_hours: 1.5
+      transfer_role: candidate
+    - id: eysturoyartunnilin
+      name: Onderzeese rotonde Eysturoyartunnilin
+      priority: if_time
+      type: tunnel_route_feature
+      stop_duration_hours: 0
+      coordinates:
+        lat: 62.1300
+        lon: -6.8000
+      transfer_role: route_segment
+      planning_note: "Geen sightseeingstop, maar een gedenkwaardig routekenmerk als de gekozen route gebruik maakt van de tunnel."
 
-    - id: transfer_base_2_to_base_3
-      from: base_2
-      to: base_3
-      description: Klaksvik / Northern Islands to Torshavn / Central Streymoy
-      estimated_direct_drive_hours: 1.25
-      planning_note: "Good transfer for Eysturoy villages such as Gjogv, Funningur and Eidi."
-      max_recommended_major_stops: 2
-      en_route_candidates:
-        - attraction_ref: gjogv
-          priority: must_do
-          type: village_gorge_walk
-          stop_duration_hours: 2
-          transfer_role: candidate
-        - attraction_ref: funningur
-          priority: highly_recommended
-          type: village_fjord_view
-          stop_duration_hours: 1
-          transfer_role: add_on
-        - attraction_ref: eidi_and_risin_kellingin
-          priority: highly_recommended
-          type: sea_stack_viewpoint
-          stop_duration_hours: 1
-          transfer_role: candidate
+  - id: transfer_base_2_to_base_3
+    from: base_2
+    to: base_3
+    description: Klaksvik / Noordelijke eilanden tot Torshavn / Centraal Streymoy
+    estimated_direct_drive_hours: 1.25
+    planning_note: "Goede transfer naar Eysturoy-dorpen zoals Gjogv, Funningur en Eidi."
+    max_recommended_major_stops: 2
+    en_route_candidates:
+    - attraction_ref: gjogv
+      priority: must_do
+      type: village_gorge_walk
+      stop_duration_hours: 2
+      transfer_role: candidate
+    - attraction_ref: funningur
+      priority: highly_recommended
+      type: village_fjord_view
+      stop_duration_hours: 1
+      transfer_role: add_on
+    - attraction_ref: eidi_and_risin_kellingin
+      priority: highly_recommended
+      type: sea_stack_viewpoint
+      stop_duration_hours: 1
+      transfer_role: candidate
 
-    - id: transfer_base_3_to_vagar_airport
-      from: base_3
-      to: vagar_airport
-      description: Torshavn / Central Streymoy to Vagar Airport
-      estimated_direct_drive_hours: 0.75
-      planning_note: "Keep this flexible. Do not plan weather-dependent ferries or long hikes before a flight."
-      max_recommended_major_stops: 1
-      en_route_candidates:
-        - id: gasadalur_if_missed
-          name: Gasadalur / Mulafossur if missed earlier
-          priority: highly_recommended
-          type: backup_viewpoint
-          stop_duration_hours: 1.5
-          coordinates:
-            lat: 62.1049
-            lon: -7.4347
-          transfer_role: backup_only
-        - attraction_ref: torshavn_old_town_tinganes
-          priority: highly_recommended
-          type: town_walk_culture
-          stop_duration_hours: 1.5
-          transfer_role: backup_only
+  - id: transfer_base_3_to_vagar_airport
+    from: base_3
+    to: vagar_airport
+    description: Torshavn / Centraal Streymoy naar de luchthaven Vagar
+    estimated_direct_drive_hours: 0.75
+    planning_note: "Houd dit flexibel. Plan geen weersafhankelijke veerboten of lange wandelingen vóór een vlucht."
+    max_recommended_major_stops: 1
+    en_route_candidates:
+    - id: gasadalur_if_missed
+      name: Gasadalur / Mulafossur indien eerder gemist
+      priority: highly_recommended
+      type: backup_viewpoint
+      stop_duration_hours: 1.5
+      coordinates:
+        lat: 62.1049
+        lon: -7.4347
+      transfer_role: backup_only
+    - attraction_ref: torshavn_old_town_tinganes
+      priority: highly_recommended
+      type: town_walk_culture
+      stop_duration_hours: 1.5
+      transfer_role: backup_only
 
   airport:
     id: vagar_airport
-    name: Vagar Airport
+    name: Luchthaven Vagar
     coordinates:
       lat: 62.0636
       lon: -7.2772
 
   paid_activity_preferences:
     intended_paid_activities:
-      - mykines_day_trip
+    - mykines_day_trip
     possible_second_paid_activity:
-      - vestmanna_sea_cliffs
-      - drangarnir_tindholmur
-    planning_note: "Choose Mykines only if puffins, ferry logistics and weather make sense. If Mykines is not possible, Vestmanna sea cliffs or Drangarnir/Tindholmur are strong alternatives."
+    - vestmanna_sea_cliffs
+    - drangarnir_tindholmur
+    planning_note: "Kies Mykines alleen als papegaaiduikers, veerbootlogistiek en het weer zinvol zijn. Als Mykines niet mogelijk is, zijn de zeekliffen van Vestmanna of Drangarnir/Tindholmur sterke alternatieven."
 
   excluded_or_future_trip_options:
     suduroy:

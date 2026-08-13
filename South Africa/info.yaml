@@ -4,35 +4,28 @@ trip:
   overview:
     rank: 7
 
-    summary: >
-      19-daagse familie-autoreis door Zuid-Afrika,
-      met een combinatie van Kaapstad, bergen, kustlijn, wildlife,
-      de Garden Route en safari.
+    summary: >-
+      19-daagse familie-autoreis door Zuid-Afrika, met een combinatie van Kaapstad, bergen, kustlijn, wildlife, de Garden Route en safari.
 
-    summary_reason: >
-      Zuid-Afrika is de enige bestemming op deze lijst waar je 's ochtends over de mooiste kustweg van
-      Afrika kunt rijden, 's middags tussen pinguïns kunt wandelen, door fynbos op het Kaapse Schiereiland
-      kunt trekken en 's avonds wijn kunt drinken in Stellenbosch. Voeg een Kruger-safari en de
-      Drakensbergen toe, en je hebt een reis die door volkomen verschillende werelden gaat — een
-      diversiteit aan ervaringen die geen enkel ander land op deze lijst kan bieden.
+    summary_reason: >-
+      Zuid-Afrika is de enige bestemming op deze lijst waar je 's ochtends over de mooiste kustweg van Afrika kunt rijden, 's middags tussen pinguïns kunt wandelen, door fynbos op het Kaapse Schiereiland kunt trekken en 's avonds wijn kunt drinken in Stellenbosch. Voeg een Kruger-safari en de Drakensbergen toe, en je hebt een reis die door totaal verschillende werelden gaat — een diversiteit aan ervaringen die geen enkel ander land op deze lijst kan bieden.
 
-    transport: "✈ Plane + 🚗 Rental car + ✈ Domestic flight"
+    transport: "✈ Vliegtuig + 🚗 Huurauto + ✈ Binnenlandse vlucht"
 
     duration_days: 19
     duration_nights: 18
 
-    travel_style: Fly-in family self-drive
+    travel_style: Fly-in familie-selfdrive
 
     highlights:
-      - Tafelberg
-      - Kaaps Schiereiland
-      - Pinguïns bij Boulders Beach
-      - Hermanus
-      - Garden Route
-      - Tsitsikamma
-      - Addo Olifantenpark
-      - Nationaal Park Kruger
-
+    - Tafelberg
+    - Kaaps Schiereiland
+    - Pinguïns bij Boulders Beach
+    - Hermanus
+    - Tuinroute
+    - Tsitsikamma
+    - Addo Olifantenpark
+    - Nationaal Park Kruger
     cost:
       couple:
         eur_range: "€6,000 - €10,000"
@@ -40,12 +33,11 @@ trip:
         eur_range: "€10,000 - €17,000"
       relative_costs: "very_high"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   direction: cape_town_to_kruger
 
   duration:
@@ -57,270 +49,267 @@ trip:
 
     recommended_base_split:
 
-      - base: cape_town
-        nights: 5
+    - base: cape_town
+      nights: 5
 
-      - base: hermanus
-        nights: 2
+    - base: hermanus
+      nights: 2
 
-      - base: knysna
-        nights: 4
+    - base: knysna
+      nights: 4
 
-      - base: tsitsikamma
-        nights: 2
+    - base: tsitsikamma
+      nights: 2
 
-      - base: addo
-        nights: 2
+    - base: addo
+      nights: 2
 
-      - base: kruger
-        nights: 3
+    - base: kruger
+      nights: 3
 
   lodging_locations:
 
-    - id: cape_town
+  - id: cape_town
 
-      name: Cape Town
+    name: Kaapstad
 
-      stay_nights: 5
+    stay_nights: 5
 
+    coordinates:
+      lat: -33.9249
+      lon: 18.4241
+
+    base_attractions:
+
+    - id: table_mountain
+      name: Tafelberg
+      priority: must_do
+      type: hiking_viewpoint
+      visit_duration_hours: 4
       coordinates:
-        lat: -33.9249
-        lon: 18.4241
+        lat: -33.9628
+        lon: 18.4098
 
-      base_attractions:
+    - id: lions_head
+      name: Leeuwenkop
+      priority: highly_recommended
+      type: hike
+      visit_duration_hours: 3
+      coordinates:
+        lat: -33.9349
+        lon: 18.3946
 
-        - id: table_mountain
-          name: Table Mountain
-          priority: must_do
-          type: hiking_viewpoint
-          visit_duration_hours: 4
-          coordinates:
-            lat: -33.9628
-            lon: 18.4098
+    - id: cape_of_good_hope
+      name: Kaap de Goede Hoop
+      priority: must_do
+      type: coastal_landscape
+      visit_duration_hours: 4
+      coordinates:
+        lat: -34.3568
+        lon: 18.4740
 
-        - id: lions_head
-          name: Lions Head
-          priority: highly_recommended
-          type: hike
-          visit_duration_hours: 3
-          coordinates:
-            lat: -33.9349
-            lon: 18.3946
+    - id: boulders_beach
+      name: Boulders Beach-pinguïns
+      priority: must_do
+      type: wildlife
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.1961
+        lon: 18.4510
 
-        - id: cape_of_good_hope
-          name: Cape of Good Hope
-          priority: must_do
-          type: coastal_landscape
-          visit_duration_hours: 4
-          coordinates:
-            lat: -34.3568
-            lon: 18.4740
+    - id: chapmans_peak
+      name: Chapmans Peak Drive
+      priority: highly_recommended
+      type: scenic_drive
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.0719
+        lon: 18.3530
 
-        - id: boulders_beach
-          name: Boulders Beach Penguins
-          priority: must_do
-          type: wildlife
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.1961
-            lon: 18.4510
+    - id: camps_bay
+      name: Campsbaai
+      priority: if_time
+      type: beach
+      visit_duration_hours: 2
+      coordinates:
+        lat: -33.9500
+        lon: 18.3770
 
-        - id: chapmans_peak
-          name: Chapmans Peak Drive
-          priority: highly_recommended
-          type: scenic_drive
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.0719
-            lon: 18.3530
+  - id: hermanus
 
-        - id: camps_bay
-          name: Camps Bay
-          priority: if_time
-          type: beach
-          visit_duration_hours: 2
-          coordinates:
-            lat: -33.9500
-            lon: 18.3770
+    name: Hermanus
 
-    - id: hermanus
+    stay_nights: 2
 
-      name: Hermanus
+    coordinates:
+      lat: -34.4187
+      lon: 19.2345
 
-      stay_nights: 2
+    base_attractions:
 
+    - id: cliff_path
+      name: Hermanus Cliff-pad
+      priority: must_do
+      type: coastal_walk
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.4180
+        lon: 19.2430
+
+    - id: whale_watching
+      name: Walvissen spotten
+      priority: optional_paid_activity
+      type: boat_trip
+      visit_duration_hours: 3
       coordinates:
         lat: -34.4187
         lon: 19.2345
 
-      base_attractions:
+  - id: knysna
 
-        - id: cliff_path
-          name: Hermanus Cliff Path
-          priority: must_do
-          type: coastal_walk
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.4180
-            lon: 19.2430
+    name: Knysna / Plettenbergbaai
 
-        - id: whale_watching
-          name: Whale Watching
-          priority: optional_paid_activity
-          type: boat_trip
-          visit_duration_hours: 3
-          coordinates:
-            lat: -34.4187
-            lon: 19.2345
+    stay_nights: 4
 
-    - id: knysna
+    coordinates:
+      lat: -34.0363
+      lon: 23.0471
 
-      name: Knysna / Plettenberg Bay
+    base_attractions:
 
-      stay_nights: 4
-
+    - id: knysna_heads
+      name: Knysna-hoofden
+      priority: must_do
+      type: viewpoint
+      visit_duration_hours: 2
       coordinates:
-        lat: -34.0363
-        lon: 23.0471
+        lat: -34.0550
+        lon: 23.0560
 
-      base_attractions:
-
-        - id: knysna_heads
-          name: Knysna Heads
-          priority: must_do
-          type: viewpoint
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.0550
-            lon: 23.0560
-
-        - id: robberg
-          name: Robberg Peninsula
-          priority: must_do
-          type: hiking
-          visit_duration_hours: 3
-          coordinates:
-            lat: -34.1015
-            lon: 23.3630
-
-        - id: plett_beaches
-          name: Plettenberg Bay Beaches
-          priority: highly_recommended
-          type: beach
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.0500
-            lon: 23.3710
-
-    - id: tsitsikamma
-
-      name: Tsitsikamma
-
-      stay_nights: 2
-
+    - id: robberg
+      name: Schiereiland Robbberg
+      priority: must_do
+      type: hiking
+      visit_duration_hours: 3
       coordinates:
-        lat: -34.0300
-        lon: 23.8860
+        lat: -34.1015
+        lon: 23.3630
 
-      base_attractions:
+    - id: plett_beaches
+      name: Stranden van Plettenbergbaai
+      priority: highly_recommended
+      type: beach
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.0500
+        lon: 23.3710
 
-        - id: suspension_bridge
-          name: Storms River Suspension Bridge
-          priority: must_do
-          type: coastal_walk
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.0280
-            lon: 23.8930
+  - id: tsitsikamma
 
-        - id: waterfall_hike
-          name: Waterfall Trail
-          priority: highly_recommended
-          type: hiking
-          visit_duration_hours: 2
-          coordinates:
-            lat: -34.0230
-            lon: 23.8890
+    name: Tsitsikamma
 
-        - id: kayaking
-          name: Storms River Kayaking
-          priority: optional_paid_activity
-          type: adventure
-          visit_duration_hours: 3
-          coordinates:
-            lat: -34.0240
-            lon: 23.8920
+    stay_nights: 2
 
-    - id: addo
+    coordinates:
+      lat: -34.0300
+      lon: 23.8860
 
-      name: Addo Elephant Park
+    base_attractions:
 
-      stay_nights: 2
+    - id: suspension_bridge
+      name: Storms River-hangbrug
+      priority: must_do
+      type: coastal_walk
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.0280
+        lon: 23.8930
 
+    - id: waterfall_hike
+      name: Watervalpad
+      priority: highly_recommended
+      type: hiking
+      visit_duration_hours: 2
+      coordinates:
+        lat: -34.0230
+        lon: 23.8890
+
+    - id: kayaking
+      name: Storms rivierkajakken
+      priority: optional_paid_activity
+      type: adventure
+      visit_duration_hours: 3
+      coordinates:
+        lat: -34.0240
+        lon: 23.8920
+
+  - id: addo
+
+    name: Addo Olifantenpark
+
+    stay_nights: 2
+
+    coordinates:
+      lat: -33.4830
+      lon: 25.7480
+
+    base_attractions:
+
+    - id: addo_game_drive
+      name: Addo Gamedrive
+      priority: must_do
+      type: safari
+      visit_duration_hours: 6
       coordinates:
         lat: -33.4830
         lon: 25.7480
 
-      base_attractions:
+  - id: kruger
 
-        - id: addo_game_drive
-          name: Addo Game Drive
-          priority: must_do
-          type: safari
-          visit_duration_hours: 6
-          coordinates:
-            lat: -33.4830
-            lon: 25.7480
+    name: Kruger Nationaal Park
 
-    - id: kruger
+    stay_nights: 3
 
-      name: Kruger National Park
+    coordinates:
+      lat: -24.9950
+      lon: 31.5960
 
-      stay_nights: 3
+    base_attractions:
 
+    - id: kruger_safari
+      name: Kruger Safari
+      priority: must_do
+      type: safari
+      visit_duration_hours: 8
       coordinates:
         lat: -24.9950
         lon: 31.5960
 
-      base_attractions:
+    - id: sunrise_game_drive
+      name: Zonsopgangsafari
+      priority: highly_recommended
+      type: safari
+      visit_duration_hours: 4
+      coordinates:
+        lat: -24.9950
+        lon: 31.5960
 
-        - id: kruger_safari
-          name: Kruger Safari
-          priority: must_do
-          type: safari
-          visit_duration_hours: 8
-          coordinates:
-            lat: -24.9950
-            lon: 31.5960
-
-        - id: sunrise_game_drive
-          name: Sunrise Safari
-          priority: highly_recommended
-          type: safari
-          visit_duration_hours: 4
-          coordinates:
-            lat: -24.9950
-            lon: 31.5960
-
-        - id: sunset_game_drive
-          name: Sunset Safari
-          priority: highly_recommended
-          type: safari
-          visit_duration_hours: 4
-          coordinates:
-            lat: -24.9950
-            lon: 31.5960
+    - id: sunset_game_drive
+      name: Zonsondergangsafari
+      priority: highly_recommended
+      type: safari
+      visit_duration_hours: 4
+      coordinates:
+        lat: -24.9950
+        lon: 31.5960
 
   paid_activity_preferences:
 
     intended_paid_activities:
-      - kruger_safari
-
+    - kruger_safari
     possible_second_paid_activity:
-      - whale_watching
-
+    - whale_watching
     possible_third_paid_activity:
-      - storms_river_kayaking
-
-    planning_note: >
-      The safari experience is the one activity that should not be skipped.
+    - storms_river_kayaking
+    planning_note: >-
+      De safari-ervaring is de enige activiteit die niet mag worden overgeslagen.

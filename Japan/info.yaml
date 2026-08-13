@@ -3,21 +3,19 @@ trip:
 
   overview:
     rank: 6
-    summary: "15-daagse familie-reis door de bergen, vulkanen, alpiene valleien en iconische landschappen van Japan, met eigen auto en trein."
-    summary_reason: >
-      Een unieke combinatie van vulkanen, alpenscenerie, bossen, bergdorpen, hete bronnen en Japanse
-      cultuur. Anders dan in Europa of Noord-Amerika gaat hetzelfde spectaculaire natuurlandschap gepaard
-      met een volkomen andere sfeer, keuken en manier van leven.
-    transport: "✈ Plane + 🚆 Train + 🚗 Rental car"
+    summary: "15-daagse familiereis door de bergen, vulkanen, alpiene valleien en iconische landschappen van Japan, met eigen auto en trein."
+    summary_reason: >-
+      Een unieke combinatie van vulkanen, alpenscenerie, bossen, bergdorpen, hete bronnen en Japanse cultuur. Anders dan in Europa van Noord-Amerika gaat hetzelfde spectaculaire natuurlandschap gepaard met een volkomen andere sfeer, keuken en manier van leven.
+    transport: "✈ Vliegtuig + 🚆 Trein + 🚗 Huurauto"
     duration_days: 15
-    travel_style: "Fly-in family nature exploration"
+    travel_style: "Fly-in natuurverkenning met het hele gezin"
     highlights:
-      - "Mount Fuji-gebied"
-      - "Japanse Alpen en Kamikochi"
-      - "Tateyama Alpenroute"
-      - "Vulkanisch gebied Hakone"
-      - "Matsumoto en berggebied Nagano"
-      - "Traditionele bergdorpen"
+    - Mount Fuji-gebied
+    - Japanse Alpen en Kamikochi
+    - Tateyama Alpenroute
+    - Vulkanisch gebied Hakone
+    - Matsumoto en berggebied Nagano
+    - Traditionele bergdorpen
     cost:
       couple:
         eur_range: "€5,000 - €8,000"
@@ -25,249 +23,245 @@ trip:
         eur_range: "€8,000 - €14,000"
       relative_costs: "high"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   duration:
     days: 15
     nights: 14
 
   lodging_locations:
 
-    - id: base_1
-      name: Hakone
-      region: Mount Fuji and volcanic region
-      stay_nights: 4
+  - id: base_1
+    name: Hakone
+    region: Mount Fuji en vulkanisch gebied
+    stay_nights: 4
+    coordinates:
+      lat: 35.2324
+      lon: 139.1069
+
+    planning_note: >-
+      Ideale kennismaking met Japan. Focus op vulkanen, uitzicht op de berg Fuji, meren, kabelbanen en warmwaterbronnen.
+
+    base_attractions:
+
+    - id: mt_fuji_viewpoints
+      name: Mount Fuji-uitkijkpunten (Fuji Five Lakes)
+      priority: must_do
+      type: volcano_scenery
+      visit_duration_hours: 6
+      drive_time_minutes: 60
       coordinates:
-        lat: 35.2324
-        lon: 139.1069
+        lat: 35.3606
+        lon: 138.7274
 
-      planning_note: >
-        Ideal introduction to Japan. Focus on volcanoes, Mount Fuji views,
-        lakes, ropeways and hot springs.
-
-      base_attractions:
-
-        - id: mt_fuji_viewpoints
-          name: Mount Fuji Viewpoints (Fuji Five Lakes)
-          priority: must_do
-          type: volcano_scenery
-          visit_duration_hours: 6
-          drive_time_minutes: 60
-          coordinates:
-            lat: 35.3606
-            lon: 138.7274
-
-        - id: lake_kawaguchi
-          name: Lake Kawaguchi
-          priority: must_do
-          type: scenic_lake
-          visit_duration_hours: 4
-          drive_time_minutes: 60
-          coordinates:
-            lat: 35.5170
-            lon: 138.7518
-
-        - id: hakone_ropeway
-          name: Hakone Ropeway
-          priority: highly_recommended
-          type: scenic_cable_car
-          visit_duration_hours: 2
-          drive_time_minutes: 15
-          coordinates:
-            lat: 35.2453
-            lon: 139.0191
-
-        - id: owakudani
-          name: Owakudani Volcanic Valley
-          priority: must_do
-          type: volcanic_area
-          visit_duration_hours: 2
-          drive_time_minutes: 20
-          coordinates:
-            lat: 35.2455
-            lon: 139.0215
-
-        - id: lake_ashi
-          name: Lake Ashi
-          priority: highly_recommended
-          type: lake
-          visit_duration_hours: 3
-          drive_time_minutes: 15
-          coordinates:
-            lat: 35.2045
-            lon: 139.0261
-
-        - id: onsen_experience
-          name: Traditional Onsen Experience
-          priority: highly_recommended
-          type: hot_spring
-          visit_duration_hours: 2
-
-    - id: base_2
-      name: Matsumoto
-      region: Japanese Alps
-      stay_nights: 4
+    - id: lake_kawaguchi
+      name: Het Kawaguchimeer
+      priority: must_do
+      type: scenic_lake
+      visit_duration_hours: 4
+      drive_time_minutes: 60
       coordinates:
-        lat: 36.2381
-        lon: 137.9720
+        lat: 35.5170
+        lon: 138.7518
 
-      planning_note: >
-        Main mountain base. Some of the finest hiking and alpine scenery in Japan.
-
-      base_attractions:
-
-        - id: kamikochi
-          name: Kamikochi Valley
-          priority: must_do
-          type: alpine_valley
-          visit_duration_hours: 8
-          drive_time_minutes: 75
-          coordinates:
-            lat: 36.2486
-            lon: 137.6361
-
-        - id: taisho_pond
-          name: Taisho Pond
-          priority: highly_recommended
-          type: scenic_walk
-          visit_duration_hours: 2
-          drive_time_minutes: 75
-          coordinates:
-            lat: 36.2505
-            lon: 137.6418
-
-        - id: matsumoto_castle
-          name: Matsumoto Castle
-          priority: if_time
-          type: cultural_landmark
-          visit_duration_hours: 2
-          drive_time_minutes: 10
-          coordinates:
-            lat: 36.2380
-            lon: 137.9685
-
-        - id: norikura_highlands
-          name: Norikura Highlands
-          priority: highly_recommended
-          type: mountain_area
-          visit_duration_hours: 6
-          drive_time_minutes: 60
-          coordinates:
-            lat: 36.1066
-            lon: 137.5487
-
-        - id: utsukushigahara
-          name: Utsukushigahara Highlands
-          priority: if_time
-          type: plateau_hiking
-          visit_duration_hours: 5
-          drive_time_minutes: 45
-          coordinates:
-            lat: 36.2262
-            lon: 138.1086
-
-    - id: base_3
-      name: Toyama
-      region: Tateyama Alpine Route
-      stay_nights: 3
+    - id: hakone_ropeway
+      name: Hakone-kabelbaan
+      priority: highly_recommended
+      type: scenic_cable_car
+      visit_duration_hours: 2
+      drive_time_minutes: 15
       coordinates:
-        lat: 36.6953
-        lon: 137.2113
+        lat: 35.2453
+        lon: 139.0191
 
-      planning_note: >
-        Base for Japan's most spectacular mountain crossing.
-
-      base_attractions:
-
-        - id: tateyama_route
-          name: Tateyama Alpine Route
-          priority: must_do
-          type: alpine_route
-          visit_duration_hours: 10
-          drive_time_minutes: 30
-          coordinates:
-            lat: 36.5763
-            lon: 137.6047
-
-        - id: murodo
-          name: Murodo Plateau
-          priority: must_do
-          type: alpine_hiking
-          visit_duration_hours: 4
-          drive_time_minutes: 30
-          coordinates:
-            lat: 36.5775
-            lon: 137.5968
-
-        - id: mikurigaike
-          name: Mikurigaike Pond
-          priority: highly_recommended
-          type: alpine_lake
-          visit_duration_hours: 2
-          drive_time_minutes: 30
-          coordinates:
-            lat: 36.5738
-            lon: 137.5973
-
-        - id: kurobe_dam
-          name: Kurobe Dam
-          priority: highly_recommended
-          type: engineering_landmark
-          visit_duration_hours: 2
-          coordinates:
-            lat: 36.5612
-            lon: 137.6630
-
-    - id: base_4
-      name: Tokyo
-      region: Arrival and departure
-      stay_nights: 3
+    - id: owakudani
+      name: Owakudani vulkanische vallei
+      priority: must_do
+      type: volcanic_area
+      visit_duration_hours: 2
+      drive_time_minutes: 20
       coordinates:
-        lat: 35.6764
-        lon: 139.6500
+        lat: 35.2455
+        lon: 139.0215
 
-      planning_note: >
-        Keep the city component short. Use mainly as arrival and departure point.
+    - id: lake_ashi
+      name: Het Ashi-meer
+      priority: highly_recommended
+      type: lake
+      visit_duration_hours: 3
+      drive_time_minutes: 15
+      coordinates:
+        lat: 35.2045
+        lon: 139.0261
 
-      base_attractions:
+    - id: onsen_experience
+      name: Traditionele Onsen-ervaring
+      priority: highly_recommended
+      type: hot_spring
+      visit_duration_hours: 2
 
-        - id: shibuya
-          name: Shibuya District
-          priority: highly_recommended
-          type: city_experience
-          visit_duration_hours: 3
+  - id: base_2
+    name: Matsumoto
+    region: Japanse Alpen
+    stay_nights: 4
+    coordinates:
+      lat: 36.2381
+      lon: 137.9720
 
-        - id: teamlab_planets
-          name: TeamLab Planets
-          priority: highly_recommended
-          type: immersive_experience
-          visit_duration_hours: 3
+    planning_note: >-
+      Belangrijkste bergbasis. Enkele van de mooiste wandel- en berglandschappen in Japan.
 
-        - id: ueno_park
-          name: Ueno Park
-          priority: if_time
-          type: urban_park
-          visit_duration_hours: 2
+    base_attractions:
 
-        - id: tokyo_skytree
-          name: Tokyo Skytree
-          priority: if_time
-          type: viewpoint
-          visit_duration_hours: 2
+    - id: kamikochi
+      name: Kamikochi-vallei
+      priority: must_do
+      type: alpine_valley
+      visit_duration_hours: 8
+      drive_time_minutes: 75
+      coordinates:
+        lat: 36.2486
+        lon: 137.6361
+
+    - id: taisho_pond
+      name: Taisho-vijver
+      priority: highly_recommended
+      type: scenic_walk
+      visit_duration_hours: 2
+      drive_time_minutes: 75
+      coordinates:
+        lat: 36.2505
+        lon: 137.6418
+
+    - id: matsumoto_castle
+      name: Het kasteel van Matsumoto
+      priority: if_time
+      type: cultural_landmark
+      visit_duration_hours: 2
+      drive_time_minutes: 10
+      coordinates:
+        lat: 36.2380
+        lon: 137.9685
+
+    - id: norikura_highlands
+      name: Norikura-hooglanden
+      priority: highly_recommended
+      type: mountain_area
+      visit_duration_hours: 6
+      drive_time_minutes: 60
+      coordinates:
+        lat: 36.1066
+        lon: 137.5487
+
+    - id: utsukushigahara
+      name: Utsukushigahara-hooglanden
+      priority: if_time
+      type: plateau_hiking
+      visit_duration_hours: 5
+      drive_time_minutes: 45
+      coordinates:
+        lat: 36.2262
+        lon: 138.1086
+
+  - id: base_3
+    name: Toyama
+    region: Tateyama-alpenroute
+    stay_nights: 3
+    coordinates:
+      lat: 36.6953
+      lon: 137.2113
+
+    planning_note: >-
+      Basis voor de meest spectaculaire bergoversteek van Japan.
+
+    base_attractions:
+
+    - id: tateyama_route
+      name: Tateyama-alpenroute
+      priority: must_do
+      type: alpine_route
+      visit_duration_hours: 10
+      drive_time_minutes: 30
+      coordinates:
+        lat: 36.5763
+        lon: 137.6047
+
+    - id: murodo
+      name: Murodo-plateau
+      priority: must_do
+      type: alpine_hiking
+      visit_duration_hours: 4
+      drive_time_minutes: 30
+      coordinates:
+        lat: 36.5775
+        lon: 137.5968
+
+    - id: mikurigaike
+      name: Mikurigaike-vijver
+      priority: highly_recommended
+      type: alpine_lake
+      visit_duration_hours: 2
+      drive_time_minutes: 30
+      coordinates:
+        lat: 36.5738
+        lon: 137.5973
+
+    - id: kurobe_dam
+      name: Kurobe-dam
+      priority: highly_recommended
+      type: engineering_landmark
+      visit_duration_hours: 2
+      coordinates:
+        lat: 36.5612
+        lon: 137.6630
+
+  - id: base_4
+    name: Tokio
+    region: Aankomst en vertrek
+    stay_nights: 3
+    coordinates:
+      lat: 35.6764
+      lon: 139.6500
+
+    planning_note: >-
+      Houd het stadsdeel kort. Gebruik voornamelijk als aankomst- en vertrekpunt.
+
+    base_attractions:
+
+    - id: shibuya
+      name: Shibuya-district
+      priority: highly_recommended
+      type: city_experience
+      visit_duration_hours: 3
+
+    - id: teamlab_planets
+      name: TeamLab-planeten
+      priority: highly_recommended
+      type: immersive_experience
+      visit_duration_hours: 3
+
+    - id: ueno_park
+      name: Ueno-park
+      priority: if_time
+      type: urban_park
+      visit_duration_hours: 2
+
+    - id: tokyo_skytree
+      name: Tokio Skytree
+      priority: if_time
+      type: viewpoint
+      visit_duration_hours: 2
 
   paid_activity_preferences:
 
     intended_paid_activities:
-      - hakone_ropeway
-      - tateyama_route
-
+    - hakone_ropeway
+    - tateyama_route
     possible_second_paid_activity:
-      - private_onsen
-      - teamlab_planets
-
-    planning_note: >
-      Focus spending on mountain experiences and transport rather than on urban attractions.
+    - private_onsen
+    - teamlab_planets
+    planning_note: >-
+      Concentreer uw uitgaven op bergervaringen en transport in plaats van op stedelijke attracties.

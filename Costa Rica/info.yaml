@@ -5,39 +5,32 @@ trip:
   overview:
     rank: 11
 
-    summary: >
-      15-daagse familie-autoreis door Costa Rica,
-      met een combinatie van regenwoud, vulkanen, wildlife, watervallen,
-      stranden, snorkelen en avontuurlijke activiteiten.
+    summary: >-
+      15-daagse familie-autoreis door Costa Rica, met een combinatie van gebroken, vulkanen, wildlife, watervallen, stranden, snorkelen en avontuurlijke activiteiten.
 
-    summary_reason: >
-      Costa Rica is de enige bestemming op deze lijst waar je in één week zeeschildpadden kunt zien nesten
-      op een strand, 's ochtends door wolkenbos kunt wandelen, luiaards en toekans langs de weg kunt spotten
-      en op de rand van een actieve vulkaankrater kunt staan. Het is het meest compacte en gezinsvriendelijke
-      tropische avontuur dat er is — een land dat biodiversiteit en ecotoerisme tot een kunstvorm heeft verheven,
-      met wildlifemomenten die natuurlijk en ontspannen aanvoelen in plaats van geënsceneerd.
+    summary_reason: >-
+      Costa Rica is de enige bestemming op deze lijst waar je in één week zeeschildpadden nesten op een strand kunt zien, 's ochtends door wolkenbos kunt wandelen, luiaards en toekans langs de weg kunt spotten en op de rand van een actieve vulkaankrater kunt staan. Het is het meest compacte en gezinsvriendelijke tropische avontuur dat er is — een land dat biodiversiteit en ecotoerisme tot een kunstvorm heeft verheven, met wildlifemomenten die natuurlijke en ontspannen chaos op de plaats van geensceneerd.
 
-    transport: "✈ Plane + 🚗 Rental car"
+    transport: "✈ Vliegtuig + 🚗 Huurauto"
 
     duration_days: 15
     duration_nights: 14
 
-    travel_style: Fly-in family self-drive
+    travel_style: Fly-in familie-selfdrive
 
     highlights:
-      - Arenal Vulkaan
-      - La Fortuna Waterval
-      - Hangbruggen
-      - Luiaards en apen
-      - Rio Celeste
-      - Monteverde Wolkenbos
-      - Ziplinen
-      - Tortuguero
-      - Zeeschildpadden
-      - Manuel Antonio
-      - Snorkelen
-      - Stille Oceaan stranden
-
+    - Arenal Vulkaan
+    - La Fortuna Waterval
+    - Hangbruggen
+    - Luiaards en apen
+    - Rio Celeste
+    - Monteverde Wolkenbos
+    - Ziplinen
+    - Tortuguero
+    - Zeeschildpadden
+    - Manuel Antonio
+    - Snorkelen
+    - Stille Oceaan stranden
     cost:
       couple:
         eur_range: "€5,000 - €9,000"
@@ -45,12 +38,11 @@ trip:
         eur_range: "€9,000 - €15,000"
       relative_costs: "high"
       assumptions:
-        - "Mid-range accommodations"
-        - "Peak summer season"
-        - "Flights/Car rental included (if relevant)"
-        - "Normal restaurant usage"
-        - "Limited paid excursions (1-2 per base)"
-
+      - Middenklasse accommodaties
+      - Hoogseizoen zomer
+      - Vluchten/autohuur inbegrepen (indien relevant)
+      - Normaal restaurantgebruik
+      - Beperkte betaalde excursies (1-2 per basis)
   direction: central_volcanoes_to_pacific
 
   duration:
@@ -62,20 +54,20 @@ trip:
 
     recommended_base_split:
 
-      - base: base_1
-        nights: 3
+    - base: base_1
+      nights: 3
 
-      - base: base_2
-        nights: 3
+    - base: base_2
+      nights: 3
 
-      - base: base_3
-        nights: 2
+    - base: base_3
+      nights: 2
 
-      - base: base_4
-        nights: 3
+    - base: base_4
+      nights: 3
 
-      - base: base_5
-        nights: 3
+    - base: base_5
+      nights: 3
 
   transport_constraints:
 
@@ -83,21 +75,18 @@ trip:
       strongly_recommended: true
 
     road_conditions:
-      note: >
-        Roads are generally good but mountain roads can be slow.
-        Distances are short but travel times are often longer than expected.
+      note: >-
+        De wegen zijn over het algemeen goed, maar bergwegen kunnen langzaam zijn. De afstanden zijn kort, maar de reistijden zijn vaak langer dan verwacht.
 
     wildlife:
-      note: >
-        Wildlife sightings are a core part of the experience.
-        Bring binoculars whenever possible.
+      note: >-
+        Waarnemingen van dieren in het wild vormen een kernonderdeel van de ervaring. Neem waar mogelijk een verrekijker mee.
 
   planning_principles:
 
     lodging_strategy:
-      note: >
-        Use a limited number of bases and avoid moving every day.
-        Costa Rica works best when combining rainforest, volcanoes and coast.
+      note: >-
+        Gebruik een beperkt aantal bases en vermijd elke dag bewegen. Costa Rica werkt het beste als het regenwoud, vulkanen en kust combineert.
 
     transfer_day:
       max_recommended_major_stops: 2
@@ -123,7 +112,7 @@ trip:
 
     id: san_jose_airport
 
-    name: Juan Santamaria International Airport
+    name: Internationale luchthaven Juan Santamaria
 
     coordinates:
       lat: 9.9981
@@ -131,458 +120,452 @@ trip:
 
   lodging_locations:
 
-    - id: base_1
+  - id: base_1
 
-      name: La Fortuna / Arenal
+    name: La Fortuna/Arenal
 
-      region: Northern Highlands
+    region: Noordelijke Hooglanden
 
-      stay_nights: 3
+    stay_nights: 3
+
+    coordinates:
+      lat: 10.4717
+      lon: -84.6450
+
+    planning_note: >-
+      Beste vulkaan- en avonturenbasis in Costa Rica.
+
+    base_attractions:
+
+    - id: arenal_volcano
+
+      name: Arenal-vulkaan
+
+      priority: must_do
+
+      type: volcano
+
+      visit_duration_hours: 3
 
       coordinates:
-        lat: 10.4717
+        lat: 10.4636
+        lon: -84.7039
+
+    - id: la_fortuna_waterfall
+
+      name: La Fortuna-waterval
+
+      priority: must_do
+
+      type: waterfall
+
+      visit_duration_hours: 2
+
+      coordinates:
+        lat: 10.4710
         lon: -84.6450
 
-      planning_note: >
-        Best volcano and adventure base in Costa Rica.
+    - id: mistico_hanging_bridges
 
-      base_attractions:
+      name: Mistico Hangbruggen
 
-        - id: arenal_volcano
+      priority: must_do
 
-          name: Arenal Volcano
+      type: rainforest_walk
 
-          priority: must_do
+      visit_duration_hours: 3
 
-          type: volcano
+      coordinates:
+        lat: 10.5002
+        lon: -84.7550
 
-          visit_duration_hours: 3
+    - id: arenal_hot_springs
 
-          coordinates:
-            lat: 10.4636
-            lon: -84.7039
+      name: Arenal-warmwaterbronnen
 
-        - id: la_fortuna_waterfall
+      priority: highly_recommended
 
-          name: La Fortuna Waterfall
+      type: thermal_pool
 
-          priority: must_do
+      visit_duration_hours: 3
 
-          type: waterfall
+      coordinates:
+        lat: 10.4970
+        lon: -84.6980
 
-          visit_duration_hours: 2
+    - id: sloth_trail
 
-          coordinates:
-            lat: 10.4710
-            lon: -84.6450
+      name: Luiaardpad
 
-        - id: mistico_hanging_bridges
+      priority: highly_recommended
 
-          name: Mistico Hanging Bridges
+      type: wildlife
 
-          priority: must_do
+      visit_duration_hours: 2
 
-          type: rainforest_walk
+      coordinates:
+        lat: 10.4730
+        lon: -84.6420
 
-          visit_duration_hours: 3
+    - id: zipline_arenal
 
-          coordinates:
-            lat: 10.5002
-            lon: -84.7550
+      name: Arenal-zipline
 
-        - id: arenal_hot_springs
+      priority: optional_paid_activity
 
-          name: Arenal Hot Springs
+      type: adventure
 
-          priority: highly_recommended
+      visit_duration_hours: 3
 
-          type: thermal_pool
+      coordinates:
+        lat: 10.5350
+        lon: -84.6950
 
-          visit_duration_hours: 3
+  - id: base_2
 
-          coordinates:
-            lat: 10.4970
-            lon: -84.6980
+    name: Monteverde
 
-        - id: sloth_trail
+    region: Nevelwoud
 
-          name: Sloth Trail
+    stay_nights: 3
 
-          priority: highly_recommended
+    coordinates:
+      lat: 10.3000
+      lon: -84.8160
 
-          type: wildlife
+    planning_note: >-
+      Uniek nevelwoud-ecosysteem en een van de beste natuurgebieden van Costa Rica.
 
-          visit_duration_hours: 2
+    base_attractions:
 
-          coordinates:
-            lat: 10.4730
-            lon: -84.6420
+    - id: monteverde_cloud_forest
 
-        - id: zipline_arenal
+      name: Monteverdenevelwoud
 
-          name: Arenal Zipline
+      priority: must_do
 
-          priority: optional_paid_activity
+      type: cloud_forest
 
-          type: adventure
+      visit_duration_hours: 4
 
-          visit_duration_hours: 3
+      coordinates:
+        lat: 10.3050
+        lon: -84.8000
 
-          coordinates:
-            lat: 10.5350
-            lon: -84.6950
+    - id: santa_elena_cloud_forest
 
-    - id: base_2
+      name: Santa Elena-reservaat
 
-      name: Monteverde
+      priority: highly_recommended
 
-      region: Cloud Forest
+      type: cloud_forest
 
-      stay_nights: 3
+      visit_duration_hours: 3
+
+      coordinates:
+        lat: 10.3230
+        lon: -84.8060
+
+    - id: hanging_bridges_monteverde
+
+      name: Hangbruggen van Monteverde
+
+      priority: highly_recommended
+
+      type: rainforest_walk
+
+      visit_duration_hours: 3
+
+      coordinates:
+        lat: 10.3180
+        lon: -84.8220
+
+    - id: hummingbird_gallery
+
+      name: Kolibrietuin
+
+      priority: highly_recommended
+
+      type: wildlife
+
+      visit_duration_hours: 1
+
+      coordinates:
+        lat: 10.3070
+        lon: -84.7950
+
+    - id: zipline_monteverde
+
+      name: Monteverde Canopy-tour
+
+      priority: optional_paid_activity
+
+      type: adventure
+
+      visit_duration_hours: 3
 
       coordinates:
         lat: 10.3000
-        lon: -84.8160
+        lon: -84.8200
 
-      planning_note: >
-        Unique cloud forest ecosystem and one of Costa Rica's best wildlife regions.
+  - id: base_3
 
-      base_attractions:
+    name: Tenorio/Rio Celeste
 
-        - id: monteverde_cloud_forest
+    region: Noord-Costa Rica
 
-          name: Monteverde Cloud Forest
+    stay_nights: 2
 
-          priority: must_do
+    coordinates:
+      lat: 10.7350
+      lon: -85.0140
 
-          type: cloud_forest
+    base_attractions:
 
-          visit_duration_hours: 4
+    - id: rio_celeste
 
-          coordinates:
-            lat: 10.3050
-            lon: -84.8000
+      name: Rio Celeste
 
-        - id: santa_elena_cloud_forest
+      priority: must_do
 
-          name: Santa Elena Reserve
+      type: waterfall_hike
 
-          priority: highly_recommended
-
-          type: cloud_forest
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 10.3230
-            lon: -84.8060
-
-        - id: hanging_bridges_monteverde
-
-          name: Monteverde Hanging Bridges
-
-          priority: highly_recommended
-
-          type: rainforest_walk
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 10.3180
-            lon: -84.8220
-
-        - id: hummingbird_gallery
-
-          name: Hummingbird Garden
-
-          priority: highly_recommended
-
-          type: wildlife
-
-          visit_duration_hours: 1
-
-          coordinates:
-            lat: 10.3070
-            lon: -84.7950
-
-        - id: zipline_monteverde
-
-          name: Monteverde Canopy Tour
-
-          priority: optional_paid_activity
-
-          type: adventure
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 10.3000
-            lon: -84.8200
-
-    - id: base_3
-
-      name: Tenorio / Rio Celeste
-
-      region: Northern Costa Rica
-
-      stay_nights: 2
+      visit_duration_hours: 4
 
       coordinates:
-        lat: 10.7350
-        lon: -85.0140
+        lat: 10.7060
+        lon: -84.9910
 
-      base_attractions:
+    - id: tenorio_national_park
 
-        - id: rio_celeste
+      name: Tenorio Nationaal Park
 
-          name: Rio Celeste
+      priority: highly_recommended
 
-          priority: must_do
+      type: rainforest_hike
 
-          type: waterfall_hike
+      visit_duration_hours: 4
 
-          visit_duration_hours: 4
+      coordinates:
+        lat: 10.7420
+        lon: -84.9940
 
-          coordinates:
-            lat: 10.7060
-            lon: -84.9910
+  - id: base_4
 
-        - id: tenorio_national_park
+    name: Tortuguero
 
-          name: Tenorio National Park
+    region: Caribische kust
 
-          priority: highly_recommended
+    stay_nights: 3
 
-          type: rainforest_hike
+    coordinates:
+      lat: 10.5410
+      lon: -83.5020
 
-          visit_duration_hours: 4
+    planning_note: >-
+      Beste natuurregio en een van de beste bestemmingen voor zeeschildpadden.
 
-          coordinates:
-            lat: 10.7420
-            lon: -84.9940
+    base_attractions:
 
-    - id: base_4
+    - id: tortuguero_canals
 
-      name: Tortuguero
+      name: Tortuguero-kanalen
 
-      region: Caribbean Coast
+      priority: must_do
 
-      stay_nights: 3
+      type: wildlife_boat_trip
+
+      visit_duration_hours: 4
 
       coordinates:
         lat: 10.5410
         lon: -83.5020
 
-      planning_note: >
-        Best wildlife region and one of the top sea turtle destinations.
+    - id: sea_turtles
 
-      base_attractions:
+      name: Zeeschildpadden kijken
 
-        - id: tortuguero_canals
+      priority: must_do
 
-          name: Tortuguero Canals
+      type: wildlife
 
-          priority: must_do
-
-          type: wildlife_boat_trip
-
-          visit_duration_hours: 4
-
-          coordinates:
-            lat: 10.5410
-            lon: -83.5020
-
-        - id: sea_turtles
-
-          name: Sea Turtle Watching
-
-          priority: must_do
-
-          type: wildlife
-
-          visit_duration_hours: 3
-
-          coordinates:
-            lat: 10.5400
-            lon: -83.5040
-
-        - id: tortuguero_village
-
-          name: Tortuguero Village
-
-          priority: if_time
-
-          type: village
-
-          visit_duration_hours: 2
-
-          coordinates:
-            lat: 10.5430
-            lon: -83.5030
-
-    - id: base_5
-
-      name: Manuel Antonio
-
-      region: Pacific Coast
-
-      stay_nights: 3
+      visit_duration_hours: 3
 
       coordinates:
-        lat: 9.4120
-        lon: -84.1550
+        lat: 10.5400
+        lon: -83.5040
 
-      planning_note: >
-        Combines rainforest, wildlife, beaches and snorkeling.
+    - id: tortuguero_village
 
-      base_attractions:
+      name: Tortuguero-dorp
 
-        - id: manuel_antonio_np
+      priority: if_time
 
-          name: Manuel Antonio National Park
+      type: village
 
-          priority: must_do
+      visit_duration_hours: 2
 
-          type: rainforest_beach
+      coordinates:
+        lat: 10.5430
+        lon: -83.5030
 
-          visit_duration_hours: 5
+  - id: base_5
 
-          coordinates:
-            lat: 9.3920
-            lon: -84.1540
+    name: Manuel Antonio
 
-        - id: manuel_antonio_beach
+    region: Pacifische kust
 
-          name: Manuel Antonio Beach
+    stay_nights: 3
 
-          priority: must_do
+    coordinates:
+      lat: 9.4120
+      lon: -84.1550
 
-          type: beach
+    planning_note: >-
+      Combineert regenwoud, dieren in het wild, stranden en snorkelen.
 
-          visit_duration_hours: 3
+    base_attractions:
 
-          coordinates:
-            lat: 9.3880
-            lon: -84.1680
+    - id: manuel_antonio_np
 
-        - id: monkey_viewing
+      name: Manuel Antonio Nationaal Park
 
-          name: Monkey Viewing Areas
+      priority: must_do
 
-          priority: highly_recommended
+      type: rainforest_beach
 
-          type: wildlife
+      visit_duration_hours: 5
 
-          visit_duration_hours: 2
+      coordinates:
+        lat: 9.3920
+        lon: -84.1540
 
-          coordinates:
-            lat: 9.3950
-            lon: -84.1600
+    - id: manuel_antonio_beach
 
-        - id: snorkeling_tour
+      name: Manuel Antonio-strand
 
-          name: Snorkeling Tour
+      priority: must_do
 
-          priority: highly_recommended
+      type: beach
 
-          type: snorkeling
+      visit_duration_hours: 3
 
-          visit_duration_hours: 4
+      coordinates:
+        lat: 9.3880
+        lon: -84.1680
 
-          coordinates:
-            lat: 9.3900
-            lon: -84.1700
+    - id: monkey_viewing
 
-        - id: turtle_snorkeling
+      name: Apenkijkgebieden
 
-          name: Sea Turtle Snorkeling
+      priority: highly_recommended
 
-          priority: highly_recommended
+      type: wildlife
 
-          type: snorkeling_wildlife
+      visit_duration_hours: 2
 
-          visit_duration_hours: 4
+      coordinates:
+        lat: 9.3950
+        lon: -84.1600
 
-          coordinates:
-            lat: 9.3900
-            lon: -84.1700
+    - id: snorkeling_tour
+
+      name: Snorkeltocht
+
+      priority: highly_recommended
+
+      type: snorkeling
+
+      visit_duration_hours: 4
+
+      coordinates:
+        lat: 9.3900
+        lon: -84.1700
+
+    - id: turtle_snorkeling
+
+      name: Snorkelen met zeeschildpadden
+
+      priority: highly_recommended
+
+      type: snorkeling_wildlife
+
+      visit_duration_hours: 4
+
+      coordinates:
+        lat: 9.3900
+        lon: -84.1700
 
   transfer_routes:
 
-    - id: transfer_airport_to_base_1
+  - id: transfer_airport_to_base_1
 
-      from: san_jose_airport
-      to: base_1
+    from: san_jose_airport
+    to: base_1
 
-      description: San Jose to Arenal
+    description: San Jose naar Arenal
 
-      estimated_direct_drive_hours: 3
+    estimated_direct_drive_hours: 3
 
-    - id: transfer_base_1_to_base_2
+  - id: transfer_base_1_to_base_2
 
-      from: base_1
-      to: base_2
+    from: base_1
+    to: base_2
 
-      description: Arenal to Monteverde
+    description: Arenal naar Monteverde
 
-      estimated_direct_drive_hours: 3
+    estimated_direct_drive_hours: 3
 
-    - id: transfer_base_2_to_base_3
+  - id: transfer_base_2_to_base_3
 
-      from: base_2
-      to: base_3
+    from: base_2
+    to: base_3
 
-      description: Monteverde to Rio Celeste
+    description: Monteverde naar Rio Celeste
 
-      estimated_direct_drive_hours: 3
+    estimated_direct_drive_hours: 3
 
-    - id: transfer_base_3_to_base_4
+  - id: transfer_base_3_to_base_4
 
-      from: base_3
-      to: base_4
+    from: base_3
+    to: base_4
 
-      description: Rio Celeste to Tortuguero
+    description: Rio Celeste naar Tortuguero
 
-      estimated_direct_drive_hours: 5
+    estimated_direct_drive_hours: 5
 
-    - id: transfer_base_4_to_base_5
+  - id: transfer_base_4_to_base_5
 
-      from: base_4
-      to: base_5
+    from: base_4
+    to: base_5
 
-      description: Tortuguero to Manuel Antonio
+    description: Tortuguero aan Manuel Antonio
 
-      estimated_direct_drive_hours: 5
+    estimated_direct_drive_hours: 5
 
   paid_activity_preferences:
 
     intended_paid_activities:
-      - turtle_snorkeling
-
+    - turtle_snorkeling
     possible_second_paid_activity:
-      - zipline_arenal
-
+    - zipline_arenal
     possible_third_paid_activity:
-      - zipline_monteverde
-
-    planning_note: >
-      For families, sea turtle snorkeling and wildlife-focused activities
-      are more unique than adrenaline activities.
+    - zipline_monteverde
+    planning_note: >-
+      Voor gezinnen zijn snorkelen met zeeschildpadden en op dieren gerichte activiteiten unieker dan adrenaline-activiteiten.
 
   wildlife_expectations:
 
     commonly_seen:
-      - sloth
-      - monkey
-      - toucan
-      - iguana
-      - sea_turtle
-
+    - sloth
+    - monkey
+    - toucan
+    - iguana
+    - sea_turtle
     possible:
-      - crocodile
-      - dolphin
-      - whale
-
+    - crocodile
+    - dolphin
+    - whale
     safety_note: >
       Wildlife encounters are usually safe when observing from a distance.
       Do not feed wildlife.
@@ -599,5 +582,5 @@ trip:
         Excellent volcanic region but lower priority for a first family trip.
 
     caribbean_south:
-      reason: >
+      reason: >-
         Better combined with a longer wildlife-focused itinerary.
