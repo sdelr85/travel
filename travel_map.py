@@ -30,6 +30,7 @@ COUNTRY_ISO = {
     "Alaska": "us",
     "Reunion Island": "re",
     "Japan": "jp",
+    "Indonesia": "id",
 }
 
 FLAG_ICONS_CDN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">'
