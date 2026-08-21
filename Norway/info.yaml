@@ -2,17 +2,22 @@ trip:
   country: Norway
   overview:
     rank: 4
-    summary: "13-daagse familie-autoreis vanuit België door Denemarken, Zweden en de zuidelijke en structurele fjorden van Noorwegen, zonder internationale veerverbindingen."
+    summary: >
+      13-daagse familie-autoreis vanuit België via Hirtshals naar Noorwegen,
+      met drie bases in Telemark, Sognefjord en Nordfjord en retour via de
+      ferry Bergen-Hirtshals.
     summary_reason: >-
-      Het fjordenland van Noorwegen is een van de meest spectaculaire plekken van Europa, en het feit dat het vanuit België per auto bereikbaar is, maakt het extra aantrekkelijk. Nærøyfjord, Geirangerfjord en de Loen Skylift bieden bij elke bocht wereldklasse scenerie, terwijl de route door Denemarken en Zweden de reis zelf tot een onderdeel van het avontuur maakt. Anders dan een vliegbestemming is het hele gezin ondergedompeld in het landschap vanaf het moment dat je thuis vertrekt.
+      Het fjordenland van Noorwegen is een van de meest spectaculaire plekken van Europa, en het feit dat het vanuit België per auto bereikbaar is, maakt het extra aantrekkelijk. Nærøyfjord, Geirangerfjord en de Loen Skylift bieden bij elke bocht wereldklasse scenerie. De ferryverbindingen via Hirtshals maken de reis comfortabeler en beperken het aantal lange transitdagen, terwijl het hele gezin vanaf vertrek volledig ondergedompeld wordt in Scandinavische landschappen.
     transport: "🚗Eigen auto"
-    duration_days: 13
+    duration_days: 14
     travel_style: "Familie roadtrip vanuit België"
     highlights:
-    - Kopenhagen / Malmö / Göteborg / Oslo rijroute zonder internationale veerverbindingen
-    - Telemark en Hardangervidda als logische eerste basis in Noorwegen
-    - Sognefjord, Nærøyfjord en Aurlandsfjord rond Aurland / Flåm
-    - Nordfjord, Loen Skylift, gletsjerlandschappen en Geirangerfjord vanuit Loen / Olden / Stryn
+      - Ferry Hirtshals-Kristiansand
+      - Telemark en Hardangervidda
+      - Sognefjord, Nærøyfjord en Aurlandsfjord
+      - Nordfjord, Loen Skylift en Geirangerfjord
+      - Bergen als afsluiter van de reis
+      - Ferry Bergen-Hirtshals
     cost:
       couple:
         eur_range: "€3,000 - €6,000"
@@ -25,7 +30,7 @@ trip:
       - Vluchten/autohuur inbegrepen (indien relevant)
       - Normaal restaurantgebruik
       - Beperkte betaalde excursies (1-2 per basis)
-  direction: belgium_denmark_sweden_oslo_western_fjords
+  direction: belgium_hirtshals_telemark_aurland_loen_bergen
   travel_style: family_self_drive
 
   target_group:
@@ -33,91 +38,124 @@ trip:
     children: 3
 
   transport_constraints:
-    international_ferries_to_norway: false
-    international_ferries_back_to_belgium: false
-    route_to_norway: "Belgium -> Germany -> Denmark -> Oresund Bridge -> Sweden -> Oslo -> Norway bases"
+
+    international_ferries_to_norway: true
+
+    ferry_to_norway:
+      route: Hirtshals-Kristiansand
+
+    international_ferries_back_to_belgium: true
+
+    ferry_back:
+      route: Bergen-Hirtshals
+
+    route_to_norway: >
+      Belgium -> Germany -> Denmark -> Hirtshals ->
+      Kristiansand -> Telemark
+
+    route_back_to_belgium: >
+      Loen -> Bergen -> Hirtshals -> Germany -> Belgium
+
     norwegian_local_car_ferries:
       allowed: true
-      description: "Er mag gebruik worden gemaakt van korte Noorse wegveerboten als deze deel uitmaken van lokale routes of activiteiten, maar de reis mag niet afhankelijk zijn van veerboten om Noorwegen binnen te komen of te verlaten."
+
     tourist_boats_or_fjord_cruises:
       allowed: optional
-      description: "Fjordcruises, veerboten of kajaks kunnen worden geselecteerd als optionele betaalde activiteiten, maar de hoofdreisroute moet mogelijk blijven met de auto."
 
   duration:
     norway_base_nights: 12
     norway_base_days: 13
-    base_locations: 3
-    nights_per_base: 4
-    international_access_days:
-      outbound_to_norway: 2
-      return_to_belgium: 2
-      note: "Bij de twaalf basisnachten in Noorwegen wordt ervan uitgegaan dat de lange toegangs- en retourritten afzonderlijk worden afgehandeld, met ten minste één stop in Denemarken of Zweden."
 
+    base_locations: 3
+
+    nights_per_base: 4
+
+    international_access_days:
+      outbound_to_norway: 1
+      return_to_belgium: 1
+
+      note: >
+        Overnachting in Hirtshals voor vertrek.
+        Aankomst in Noorwegen dezelfde dag als de ferry.
+        Na de ferry Bergen-Hirtshals volgt nog één lange rijdag
+        terug naar België.
+  
   access_plan:
+
     from: Belgium
     by: own_car
 
-    outbound_denmark_stop:
-      recommended_options:
-      - id: copenhagen_stop
-        name: Kopenhagen
-        country: Denmark
-        priority: preferred
-        coordinates:
-          lat: 55.6761
-          lon: 12.5683
-        planning_note: "Voorkeursstop bij het vermijden van veerboten, omdat de route natuurlijk verder gaat via de Sontbrug naar Zweden. Beter als gezinsstedentrip dan Odense."
+    outbound:
 
-      - id: odense_stop
-        name: Odense
-        country: Denmark
-        priority: practical_alternative
-        coordinates:
-          lat: 55.4038
-          lon: 10.4024
-        planning_note: "Praktische overnachtingsplaats als de eerste rijdag vanuit België al lang duurt, maar minder logisch dan Kopenhagen voor een veerbootvrij vervolg via Zweden."
+      day_1:
+        route:
+          - Belgium
+          - Germany
+          - Hirtshals
 
-      - id: malmo_stop
-        name: Malmö
-        country: Sweden
-        priority: practical_alternative
-        coordinates:
-          lat: 55.6050
-          lon: 13.0038
-        planning_note: "Handig als je bij de eerste toegangsfase de Sontbrug wilt oversteken en net binnen Zweden wilt slapen."
+        overnight: Hirtshals
 
-      - id: gothenburg_stop
-        name: Göteborg
-        country: Sweden
-        priority: if_time
-        coordinates:
-          lat: 57.7089
-          lon: 11.9746
-        planning_note: "Mogelijke stop tussen Kopenhagen/Malmö en Oslo, maar de heenroute kan er voor zorgen dat de heenroute meer aanvoelt als een doorvoerroute dan als een tussenstop in Denemarken."
+        planning_note: >
+          Lange verplaatsingsdag. Overnacht dicht bij de ferryterminal
+          zodat de ferry de volgende ochtend zonder stress gehaald wordt.
 
-    preferred_norway_entry:
-      id: sweden_oslo_route
-      route:
-      - Copenhagen
-      - Oresund Bridge
-      - Malmo
-      - Gothenburg
-      - Oslo
-      planning_note: "Aanbevolen toegangsroute bij het vermijden van alle internationale veerboten. Oslo wordt een natuurlijke toegangspoort tot Noorwegen en Telemark."
+      day_2:
+        route:
+          - Hirtshals
+          - Kristiansand
+          - Telemark
 
+        ferry:
+          route: Hirtshals-Kristiansand
+
+        planning_note: >
+          Na aankomst in Kristiansand rechtstreeks richting Telemark.
+          Eventueel een korte stop onderweg.
+
+    return:
+
+      day_13:
+        route:
+          - Hirtshals
+          - Germany
+          - Belgium
+
+        planning_note: >
+          Vroege aankomst in Hirtshals na de nachtferry vanuit Bergen.
+          Vervolgens volledige rit naar België.
+
+  final_stop:
+    id: bergen_ferry
+    name: Bergen
+
+    coordinates:
+      lat: 60.3913
+      lon: 5.3221
+
+    planning_note: >
+      Laatste stop van de rondreis voor inscheping op de ferry naar
+      Hirtshals.
+
+    attractions:
+      - id: bryggen
+        name: Bryggen
+        priority: must_do
+
+      - id: floyen
+        name: Fløyen
+        priority: must_do
+
+      - id: fish_market
+        name: Fish Market
+        priority: highly_recommended
+  
   planning_principles:
     lodging_strategy:
-      note: "Gebruik 3 bases van 4 nachten. Omdat de route Noorwegen binnenkomt vanuit Oslo in plaats van Kristiansand of Stavanger, wordt de eerste basis gewijzigd van Stavanger/Jorpeland naar Telemark/Rjukan/Gausta."
-    transfer_day:
-      max_recommended_major_stops: 2
-      max_recommended_sightseeing_hours: 3
-      note: "Transferdagen in Noorwegen zijn traag vanwege bergen, fjorden, tunnels, schilderachtige wegen en frequente uitzichtpunten. Houd transferdagen realistisch."
-    base_day:
-      max_recommended_single_drive_minutes: 120
-      note: "De meeste belangrijke bezienswaardigheden moeten worden behandeld als dagtochten vanaf een basis, en niet als transferdagen."
-    paid_activities:
-      note: "Mogelijke betaalde activiteiten zijn inbegrepen, maar de route kan ook grotendeels worden afgelegd met gratis wandelingen, uitkijkpunten, stadjes en natuurlijke bezienswaardigheden."
-
+      note: >
+        Gebruik drie bases van vier nachten.
+        Telemark blijft bewust behouden als eerste basis omdat dit een
+        mooie landschappelijke opbouw creëert:
+        Telemark -> Sognefjord -> Nordfjord/Geiranger.
   priority_definitions:
     must_do:
       score: 4
@@ -142,8 +180,11 @@ trip:
       lat: 59.8789
       lon: 8.5941
     lodging_preference_note: "Rjukan is practical for Gaustatoppen, Vemork and Telemark sights. Gaustablikk/Gausta is more scenic and mountain-oriented."
-    planning_note: "Deze vervangt de basis Stavanger/Jorpeland omdat de reis via Zweden en Oslo met de auto Noorwegen binnenkomt. Het vermijdt een grote omweg naar Stavanger en biedt toch een dramatisch berglandschap en gezinsvriendelijke activiteiten."
-
+    planning_note: >
+      Telemark blijft bewust behouden als eerste basis ondanks de ferryverbinding
+      via Kristiansand. De regio vormt een mooie overgang van Zuid-Noorwegen naar
+      de fjordenregio's en biedt een combinatie van bergen, cultuur en relatief
+      rustige natuurgebieden.
     base_attractions:
     - id: gaustatoppen
       name: Gaustatoppen
@@ -223,7 +264,7 @@ trip:
       visit_strategy:
         primary_base: base_1
         secondary_opportunity:
-        - transfer_base_1_to_base_2
+        - transfer_kristiansand_to_base_1
         notes: "Goed voor mooie autoritten en kortere wandelingen. Het weer kan snel veranderen."
 
     - id: telemark_canal
@@ -251,15 +292,21 @@ trip:
       visit_strategy:
         primary_base: base_1
         secondary_opportunity:
-        - transfer_oslo_to_base_1
-        notes: "Een van de meest indrukwekkende staafkerken van Noorwegen. Goede stop tussen Oslo en Rjukan als de timing het toelaat."
+        - transfer_kristiansand_to_base_1
+        notes: "Een van de meest indrukwekkende staafkerken van Noorwegen. Goede stop tussen Kristiansand en Rjukan als de timing het toelaat."
 
     arrival_day_candidates:
-      route_from: oslo_or_sweden
-      note: "Na de lange toegangsroute via Denemarken/Zweden/Oslo deze dag gematigd houden. Oslo en Heddal zijn kandidaten, afhankelijk van de timing."
+
+      route_from: kristiansand
+
+      note: >
+        Na aankomst met de ferry rustig richting Telemark rijden.
+        Heddal is een goede eerste kennismaking met Noorwegen indien
+        de timing het toelaat.
+
       candidates:
-      - external_stop_ref: oslo
-      - attraction_ref: heddal_stave_church
+        - external_stop_ref: kristiansand
+        - attraction_ref: heddal_stave_church
 
     departure_day_candidates:
       route_to: base_2
@@ -570,116 +617,45 @@ trip:
       - external_stop_ref: gaularfjellet_viewpoint
 
     departure_day_candidates:
-      route_to: belgium_via_oslo_sweden_denmark
-      note: "Terugreis gaat volledig met de auto via Oslo, Zweden, Denemarken en Duitsland. Hiervoor zijn waarschijnlijk minstens twee lange rijdagen nodig na het verlaten van de laatste basis in Noorwegen."
+
+      route_to: bergen_ferry
+
+      note: >
+        Laatste dag in Noorwegen.
+        Richt je op een comfortabele rit naar Bergen zodat er voldoende
+        tijd is om Bryggen en de haven te bezoeken vóór inscheping op
+        de avondferry.
+
       candidates:
-      - external_stop_ref: lillehammer
-      - external_stop_ref: oslo
-      - external_stop_ref: gothenburg
-      - external_stop_ref: copenhagen
+        - external_stop_ref: vik
+        - external_stop_ref: hopperstad_stave_church
+        - external_stop_ref: voss
+        - external_stop_ref: bergen
 
   transfer_routes:
 
-  - id: transfer_belgium_to_copenhagen_or_malmo
-    from: Belgium
-    to: copenhagen_or_malmo_stop
-    description: Overnachting van België naar Denemarken of Zuid-Zweden
-    planning_note: "Dit is vooral een lange rijdag. Kopenhagen is de meest aantrekkelijke stop als je een echte stedentrip wilt; Malmö is praktisch als je de Sontbrug wilt oversteken voordat je stopt."
-    en_route_candidates:
-    - id: hamburg
-      name: Hamburg
-      priority: if_time
-      type: city_or_meal_stop
-      stop_duration_hours: 2
-      coordinates:
-        lat: 53.5511
-        lon: 9.9937
-      transfer_role: short_stop
-
-    - id: odense
-      name: Odense
-      priority: if_time
-      type: practical_overnight_stop
-      stop_duration_hours: 12
-      coordinates:
-        lat: 55.4038
-        lon: 10.4024
-      transfer_role: overnight_alternative
-      planning_note: "Praktisch als België naar Kopenhagen te lang lijkt, maar strategisch minder nuttig voor een veerbootvrije route."
-
-    - id: copenhagen
-      name: Kopenhagen
-      priority: highly_recommended
-      type: city_overnight_stop
-      stop_duration_hours: 12
-      coordinates:
-        lat: 55.6761
-        lon: 12.5683
-      transfer_role: preferred_overnight
-      planning_note: "Beste halte in Denemarken voor deze veerbootvrije route."
-
-    - id: malmo
-      name: Malmö
-      priority: if_time
-      type: city_overnight_stop
-      stop_duration_hours: 12
-      coordinates:
-        lat: 55.6050
-        lon: 13.0038
-      transfer_role: overnight_alternative
-      planning_note: "Goed als je in Zweden wilt slapen nadat je de Sontbrug bent overgestoken."
-
-  - id: transfer_copenhagen_or_malmo_to_base_1
-    from: copenhagen_or_malmo_stop
+  - id: transfer_kristiansand_to_base_1
+    from: kristiansand_ferry
     to: base_1
-    description: Denemarken/Zweden naar Telemark via West-Zweden en Oslo
-    estimated_direct_drive_hours: 9.0
-    planning_note: "Dit is een lange maar veerbootvrije dag. Overweeg indien nodig om te splitsen met een tussenstop in de buurt van Göteborg of Oslo. Als je het op één dag doet, zorg er dan voor dat je de bezienswaardigheden minimaal houdt."
+    description: Kristiansand naar Telemark / Rjukan
+    estimated_direct_drive_hours: 3.25
+    planning_note: "Na de ferry is dit vooral een aankomsttransfer. Kies maximaal één echte stop, tenzij de overtocht vroeg aankomt."
     max_recommended_major_stops: 1
     en_route_candidates:
-    - id: oresund_bridge
-      name: Sontbrug
-      priority: must_do
-      type: bridge_crossing
-      stop_duration_hours: 0
-      coordinates:
-        lat: 55.5760
-        lon: 12.8540
-      transfer_role: route_segment
-      planning_note: "Belangrijke veerbootvrije verbinding van Denemarken naar Zweden."
-
-    - id: gothenburg
-      name: Göteborg
+    - id: kristiansand
+      name: Kristiansand
       priority: if_time
       type: city_or_meal_stop
-      stop_duration_hours: 2
+      stop_duration_hours: 1
       coordinates:
-        lat: 57.7089
-        lon: 11.9746
-      transfer_role: short_stop_or_overnight
-      planning_note: "Handig als u de toegang tussen Denemarken en Noorwegen over een langere periode spreidt."
+        lat: 58.1467
+        lon: 7.9956
+      transfer_role: arrival_point
 
-    - id: oslo
-      name: Oslo
+    - attraction_ref: heddal_stave_church
       priority: highly_recommended
-      type: city_stop
-      stop_duration_hours: 4
-      coordinates:
-        lat: 59.9139
-        lon: 10.7522
-      transfer_role: candidate_or_overnight
-      planning_note: "Natuurlijke toegangspoort tot Noorwegen op een veerbootvrije route. Als je echte Oslo-tijd wilt, voeg dan een overnachting toe of behandel deze als onderdeel van de toegangsfase."
-
-    - id: heddal_stave_church
-      name: Staafkerk van Heddal
-      priority: highly_recommended
-      type: cultural_site
       stop_duration_hours: 1.5
-      coordinates:
-        lat: 59.5797
-        lon: 9.1762
       transfer_role: candidate
-      planning_note: "Goede stop tussen Oslo en Rjukan als de timing het toelaat."
 
   - id: transfer_base_1_to_base_2
     from: base_1
@@ -778,66 +754,86 @@ trip:
         lon: 6.4470
       transfer_role: scenic_detour
 
-  - id: transfer_base_3_to_belgium_via_oslo_sweden_denmark
+  - id: transfer_base_3_to_bergen
+
     from: base_3
-    to: Belgium
-    description: Volledig autogebonden retour van Loen/Stryn naar België via Oslo, Zweden, Denemarken en Duitsland
-    planning_note: "Deze retour dient te worden behandeld als een aparte 2- of 3-daagse toegangsroute. Plan het niet als één normale vakantiedag."
-    route_options:
-    - id: return_2_day_fast
-      name: Snel terug met één overnachting in Zweden of Denemarken
-      priority: if_time
-      notes: "Mogelijk, maar lang en vermoeiend. Alleen beter als iedereen lange rijdagen tolereert."
-    - id: return_3_day_comfortable
-      name: Comfortabele terugkeer met stoppatroon Oslo/Göteborg/Kopenhagen
-      priority: highly_recommended
-      notes: "Meer ontspannen en beter voor een gezin, vooral na 12 nachten in Noorwegen."
+    to: bergen_ferry
+
+    description: Loen / Stryn naar Bergen
+
+    estimated_direct_drive_hours: 5.5
+
+    planning_note: >
+      Schilderachtige afsluitende rit van de fjordenregio naar Bergen.
+      Bergen vormt de laatste sightseeingstop van de reis voor het
+      inschepen op de avondferry.
+
+    max_recommended_major_stops: 2
+
     en_route_candidates:
-    - id: lillehammer
-      name: Lillehammer
-      priority: if_time
-      type: town_stop
-      stop_duration_hours: 2
-      coordinates:
-        lat: 61.1153
-        lon: 10.4662
-      transfer_role: short_stop
 
-    - id: oslo
-      name: Oslo
-      priority: highly_recommended
-      type: city_stop_or_overnight
-      stop_duration_hours: 4
-      coordinates:
-        lat: 59.9139
-        lon: 10.7522
-      transfer_role: candidate_or_overnight
+      - id: vik
+        name: Vik
+        priority: if_time
+        type: fjord_village
+        stop_duration_hours: 1
+        coordinates:
+          lat: 61.0876
+          lon: 6.5794
+        transfer_role: scenic_detour
 
-    - id: gothenburg
-      name: Göteborg
-      priority: if_time
-      type: city_stop_or_overnight
-      stop_duration_hours: 4
-      coordinates:
-        lat: 57.7089
-        lon: 11.9746
-      transfer_role: candidate_or_overnight
+      - id: hopperstad_stave_church
+        name: Hopperstad Stavkirke
+        priority: highly_recommended
+        type: cultural_site
+        stop_duration_hours: 1
+        coordinates:
+          lat: 61.0777
+          lon: 6.5859
+        transfer_role: candidate
 
-    - id: copenhagen
-      name: Kopenhagen
-      priority: highly_recommended
-      type: city_stop_or_overnight
-      stop_duration_hours: 4
-      coordinates:
-        lat: 55.6761
-        lon: 12.5683
-      transfer_role: candidate_or_overnight
+      - id: voss
+        name: Voss
+        priority: highly_recommended
+        type: town_stop
+        stop_duration_hours: 1
+        coordinates:
+          lat: 60.6286
+          lon: 6.4147
+        transfer_role: short_stop
 
-  replaced_route_option:
+      - id: tvindefossen
+        name: Tvindefossen
+        priority: highly_recommended
+        type: waterfall
+        stop_duration_hours: 0.5
+        coordinates:
+          lat: 60.7260
+          lon: 6.4910
+        transfer_role: candidate
+
+  - id: transfer_bergen_to_belgium
+
+    from: bergen_ferry
+    to: Belgium
+
+    transport:
+      type: ferry
+      route: Bergen-Hirtshals
+
+    planning_note: >
+      Nachtoversteek Bergen-Hirtshals gevolgd door de rit naar België.
+      Hiermee vermijd je de lange terugweg via Oslo en Zweden.
+
+    replaced_route_option:
     previous_base_1:
       id: old_base_1_stavanger_jorpeland_tau
       name: Stavanger/Jorpeland/Tau
-      reason_removed: "Less logical when avoiding ferries to and from Norway. Entering via Sweden and Oslo makes Stavanger a large southwest detour before heading back north/east toward Aurland and Loen."
+      reason_removed: >
+        Telemark werd verkozen boven Stavanger/Jørpeland om een
+        meer noordelijke en gevarieerde route door Zuid-Noorwegen
+        op te bouwen met focus op bergen, Hardangervidda en de
+        overgang naar de fjordenregio.
       still_possible_if:
       - "Preikestolen is a top personal priority."
       - "You are willing to accept significantly more driving."

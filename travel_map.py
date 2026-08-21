@@ -327,8 +327,13 @@ def _type_label(t: str) -> str:
 
 
 TRANSFER_ROLE_NL = {
+    "arrival_point": "aankomstpunt",
+    "candidate": "mogelijke stop",
     "route_segment": "routegedeelte",
+    "route_choice": "routekeuze",
     "scenic_detour": "schilderachtige omweg",
+    "scenic_route": "schilderachtige route",
+    "short_stop": "korte stop",
     "overnight_stop": "overnachtingsstop",
 }
 
@@ -446,24 +451,51 @@ def build_map(data: dict) -> folium.Map:
         else ""
     )
 
-    # compute center from lodging locations and let fit_bounds set the zoom
+    # compute center from all visible trip points and let fit_bounds set the zoom
     base_coords = [
         [loc["coordinates"]["lat"], loc["coordinates"]["lon"]]
         for loc in bases
         if "coordinates" in loc
     ]
+    visible_coords = list(base_coords)
+    for loc in bases:
+        visible_coords.extend(
+            [attr["coordinates"]["lat"], attr["coordinates"]["lon"]]
+            for attr in loc.get("base_attractions", [])
+            if "coordinates" in attr
+        )
+    for transfer in trip.get("transfer_routes", []):
+        visible_coords.extend(
+            [candidate["coordinates"]["lat"], candidate["coordinates"]["lon"]]
+            for candidate in transfer.get("en_route_candidates", [])
+            if "coordinates" in candidate
+        )
+    if final and "coordinates" in final:
+        visible_coords.append(
+            [final["coordinates"]["lat"], final["coordinates"]["lon"]]
+        )
+        visible_coords.extend(
+            [attr["coordinates"]["lat"], attr["coordinates"]["lon"]]
+            for attr in final.get("attractions", [])
+            if isinstance(attr, dict) and "coordinates" in attr
+        )
+    airport = trip.get("airport")
+    if airport and "coordinates" in airport:
+        visible_coords.append(
+            [airport["coordinates"]["lat"], airport["coordinates"]["lon"]]
+        )
     center = (
         [
-            statistics.mean(c[0] for c in base_coords),
-            statistics.mean(c[1] for c in base_coords),
+            statistics.mean(c[0] for c in visible_coords),
+            statistics.mean(c[1] for c in visible_coords),
         ]
-        if base_coords
+        if visible_coords
         else [0.0, 0.0]
     )
 
     fmap = folium.Map(location=center, zoom_start=6, tiles="CartoDB positron")
-    if len(base_coords) >= 2:
-        fmap.fit_bounds(base_coords)
+    if len(visible_coords) >= 2:
+        fmap.fit_bounds(visible_coords)
 
     # ── legend ────────────────────────────────────────────────────────────────
     bases = trip.get("lodging_locations", [])
@@ -648,7 +680,6 @@ def build_map(data: dict) -> folium.Map:
             ).add_to(fg_final)
 
     # ── airport ───────────────────────────────────────────────────────────────
-    airport = trip.get("airport")
     if airport and "coordinates" in airport:
         ac = airport["coordinates"]
         folium.Marker(
