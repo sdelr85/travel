@@ -1,4 +1,8 @@
-"""Interactive travel maps: country selection screen + per-country Folium maps."""
+"""Interactive travel maps using key-free OpenStreetMap tiles.
+
+Run this script to regenerate index.html and each country's map.html.
+An internet connection is required to display the basemap.
+"""
 
 import pathlib
 import statistics
@@ -9,6 +13,12 @@ import yaml
 # ── paths ─────────────────────────────────────────────────────────────────────
 HERE = pathlib.Path(__file__).parent
 OUTPUT_SELECTION = HERE / "index.html"
+
+BASEMAP_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+BASEMAP_ATTRIBUTION = (
+    '&copy; <a href="https://www.openstreetmap.org/copyright">'
+    "OpenStreetMap</a> contributors"
+)
 
 # ISO 3166-1 alpha-2 codes used with the flag-icons CSS library
 COUNTRY_ISO = {
@@ -493,7 +503,18 @@ def build_map(data: dict) -> folium.Map:
         else [0.0, 0.0]
     )
 
-    fmap = folium.Map(location=center, zoom_start=6, tiles="CartoDB positron")
+    fmap = folium.Map(
+        location=center,
+        zoom_start=6,
+        tiles=None,
+        max_zoom=19,
+    )
+    folium.TileLayer(
+        tiles=BASEMAP_TILES,
+        name="OpenStreetMap",
+        attr=BASEMAP_ATTRIBUTION,
+        max_zoom=19,
+    ).add_to(fmap)
     if len(visible_coords) >= 2:
         fmap.fit_bounds(visible_coords)
 
@@ -1061,8 +1082,9 @@ def build_selection_page(countries: list) -> str:
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         var worldMap = L.map('world-map', {{scrollWheelZoom: false}});
-        L.tileLayer('https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager/{{z}}/{{x}}/{{y}}{{r}}.png', {{
-            attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+        L.tileLayer('{BASEMAP_TILES}', {{
+            attribution: '{BASEMAP_ATTRIBUTION}',
+            maxZoom: 19
         }}).addTo(worldMap);
         var allMarkers = [];
         {markers_js}
