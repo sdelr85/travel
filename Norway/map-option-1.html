@@ -108,6 +108,11 @@
             max-height: 180px; overflow-y: auto; padding-left: 22px;
         }
         .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+        .route-planner-control .route-planner-toggle {
+            display: flex; align-items: center; gap: 6px;
+            margin-top: 8px; cursor: pointer;
+        }
+        .route-planner-toggle input { margin: 0; }
     </style>
     <script>
     window.addEventListener("load", function () {
@@ -129,11 +134,13 @@
                 '<label for="route-planner-start">Kies een bestemming als startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
-                'Kies een startpunt en klik daarna op de kaart voor het tweede punt.</div>' +
+                'Vink Routeplanner inschakelen aan om een bestemming op de kaart te kiezen.</div>' +
                 '<div class="route-planner-summary" id="route-planner-summary"></div>' +
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
                 '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<label class="route-planner-toggle" for="route-planner-enabled">' +
+                '<input type="checkbox" id="route-planner-enabled">Routeplanner inschakelen</label>' +
                 '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
             L.DomEvent.disableClickPropagation(container);
             L.DomEvent.disableScrollPropagation(container);
@@ -147,6 +154,8 @@
         const summary = panel.querySelector("#route-planner-summary");
         const directions = panel.querySelector("#route-planner-directions");
         const directionsList = directions.querySelector("ol");
+        const routeToggle = panel.querySelector("#route-planner-enabled");
+        let routePlannerEnabled = false;
 
         routeLocations.forEach(function (location, index) {
             const startOption = document.createElement("option");
@@ -182,7 +191,9 @@
             summary.textContent = "";
             directions.hidden = true;
             directionsList.replaceChildren();
-            setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
+            setStatus(routePlannerEnabled
+                ? "Kies een startpunt en klik daarna op de kaart voor het tweede punt."
+                : "Vink Routeplanner inschakelen aan om een bestemming op de kaart te kiezen.");
             if (initialBounds.isValid()) map.fitBounds(initialBounds);
         }
 
@@ -291,15 +302,24 @@
         }
 
         function chooseDestination(latlng) {
+            if (!routePlannerEnabled) return;
             destination = L.latLng(latlng.lat, latlng.lng);
             destinationName = "Kaartpunt";
             calculateRoute();
         }
 
         startSelect.addEventListener("change", function () {
-            if (destination) calculateRoute();
+            if (routePlannerEnabled && destination) calculateRoute();
         });
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        routeToggle.addEventListener("change", function () {
+            routePlannerEnabled = routeToggle.checked;
+            if (!routePlannerEnabled) {
+                clearRoute();
+                return;
+            }
+            setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
+        });
         map.on("click", function (event) {
             chooseDestination(event.latlng);
         });
@@ -307,6 +327,7 @@
         function enableMarkerDestinations(layer) {
             if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
                 layer.on("click", function (event) {
+                    if (!routePlannerEnabled) return;
                     if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
                     chooseDestination(event.latlng);
                 });

@@ -193,6 +193,18 @@ class RoutePlannerTests(unittest.TestCase):
         self.assertIn(travel_map.OSRM_ROUTING_URL, rendered_map)
         self.assertIn('step.mode === "ferry"', rendered_map)
         self.assertIn("Routebeschrijving", rendered_map)
+        self.assertIn('id="route-planner-enabled"', rendered_map)
+        self.assertIn(
+            '<input type="checkbox" id="route-planner-enabled">',
+            rendered_map,
+        )
+        self.assertIn("let routePlannerEnabled = false;", rendered_map)
+        self.assertIn('routeToggle.addEventListener("change"', rendered_map)
+        self.assertIn("if (routePlannerEnabled && destination)", rendered_map)
+        self.assertGreaterEqual(
+            rendered_map.count("if (!routePlannerEnabled) return;"),
+            2,
+        )
         self.assertIn("Land:", rendered_map)
         self.assertIn("Verblijfplaatsen", rendered_map)
         self.assertLess(rendered_map.index("Geilo"), rendered_map.index("Kalvåtn"))

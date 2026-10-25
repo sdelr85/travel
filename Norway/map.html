@@ -108,13 +108,19 @@
             max-height: 180px; overflow-y: auto; padding-left: 22px;
         }
         .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+        .route-planner-control .route-planner-toggle {
+            display: flex; align-items: center; gap: 6px;
+            margin-top: 8px; cursor: pointer;
+        }
+        .route-planner-toggle input { margin: 0; }
     </style>
     <script>
     window.addEventListener("load", function () {
         const map = map_5d5a1a0715748714d42756583d6c4101;
-        const routeStarts = [{"name": "Geilo / Uvdal / Hardangervidda-Oost", "lat": 60.5333, "lon": 8.2}, {"name": "Aurland / Flåm / Voss", "lat": 60.908, "lon": 7.187}, {"name": "Loen / Olden / Stryn", "lat": 61.8716, "lon": 6.845}];
+        const routeLocations = [{"name": "Geilo / Uvdal / Hardangervidda-Oost", "lat": 60.5333, "lon": 8.2}, {"name": "Aurland / Flåm / Voss", "lat": 60.908, "lon": 7.187}, {"name": "Loen / Olden / Stryn", "lat": 61.8716, "lon": 6.845}, {"name": "Bergen", "lat": 60.3913, "lon": 5.3221}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
+        let destinationName = "";
         let activeRequest = null;
         const initialBounds = map.getBounds();
         const routeLineLayer = L.layerGroup().addTo(map);
@@ -125,14 +131,16 @@
             const container = L.DomUtil.create("div", "route-planner-control");
             container.innerHTML =
                 '<div class="route-planner-title">🧭 Routeplanner</div>' +
-                '<label for="route-planner-start">Startverblijf</label>' +
+                '<label for="route-planner-start">Kies een bestemming als startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
-                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                'Vink Routeplanner inschakelen aan om een bestemming op de kaart te kiezen.</div>' +
                 '<div class="route-planner-summary" id="route-planner-summary"></div>' +
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
                 '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<label class="route-planner-toggle" for="route-planner-enabled">' +
+                '<input type="checkbox" id="route-planner-enabled">Routeplanner inschakelen</label>' +
                 '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
             L.DomEvent.disableClickPropagation(container);
             L.DomEvent.disableScrollPropagation(container);
@@ -146,12 +154,14 @@
         const summary = panel.querySelector("#route-planner-summary");
         const directions = panel.querySelector("#route-planner-directions");
         const directionsList = directions.querySelector("ol");
+        const routeToggle = panel.querySelector("#route-planner-enabled");
+        let routePlannerEnabled = false;
 
-        routeStarts.forEach(function (start, index) {
-            const option = document.createElement("option");
-            option.value = String(index);
-            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
-            startSelect.appendChild(option);
+        routeLocations.forEach(function (location, index) {
+            const startOption = document.createElement("option");
+            startOption.value = String(index);
+            startOption.textContent = location.name;
+            startSelect.appendChild(startOption);
         });
 
         function setStatus(message, isError) {
@@ -175,12 +185,15 @@
             if (activeRequest) activeRequest.abort();
             activeRequest = null;
             destination = null;
+            destinationName = "";
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
             directions.hidden = true;
             directionsList.replaceChildren();
-            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            setStatus(routePlannerEnabled
+                ? "Kies een startpunt en klik daarna op de kaart voor het tweede punt."
+                : "Vink Routeplanner inschakelen aan om een bestemming op de kaart te kiezen.");
             if (initialBounds.isValid()) map.fitBounds(initialBounds);
         }
 
@@ -218,7 +231,8 @@
             if (activeRequest) activeRequest.abort();
             const controller = new AbortController();
             activeRequest = controller;
-            const start = routeStarts[Number(startSelect.value)];
+            const start = routeLocations[Number(startSelect.value)];
+            if (!start) return;
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
@@ -231,7 +245,7 @@
             L.circleMarker(destination, {
                 radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
                 fillOpacity: 1, bubblingMouseEvents: false
-            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            }).bindTooltip("Bestemming: " + destinationName).addTo(routePointsLayer);
             setStatus("Route wordt berekend…");
 
             const coordinates = start.lon + "," + start.lat + ";" +
@@ -288,14 +302,24 @@
         }
 
         function chooseDestination(latlng) {
+            if (!routePlannerEnabled) return;
             destination = L.latLng(latlng.lat, latlng.lng);
+            destinationName = "Kaartpunt";
             calculateRoute();
         }
 
         startSelect.addEventListener("change", function () {
-            if (destination) calculateRoute();
+            if (routePlannerEnabled && destination) calculateRoute();
         });
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        routeToggle.addEventListener("change", function () {
+            routePlannerEnabled = routeToggle.checked;
+            if (!routePlannerEnabled) {
+                clearRoute();
+                return;
+            }
+            setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
+        });
         map.on("click", function (event) {
             chooseDestination(event.latlng);
         });
@@ -303,6 +327,7 @@
         function enableMarkerDestinations(layer) {
             if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
                 layer.on("click", function (event) {
+                    if (!routePlannerEnabled) return;
                     if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
                     chooseDestination(event.latlng);
                 });
