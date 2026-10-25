@@ -4,15 +4,13 @@ trip:
     rank: 4
     summary: >
       15-daagse familie-autoreis vanuit België via Hirtshals naar Noorwegen,
-      met overnachting in Hirtshals, drie uitvalsbases in Geilo, Haugen/Kalvåtn 
+      met overnachting in Hirtshals, drie uitvalsbases in Geilo, Hornindal/Haugen 
       en Sykkylven/Stranda, 1 overnachting in Bergen (Fridalen) en retour via de
       ferry Bergen-Hirtshals.
     summary_reason: >-
       Een geoptimaliseerde en betaalbare familie-roadtrip gericht op ruige natuur, 
       avontuur, iconische wandelingen en gezellige Noorse dorpen. Door strategische 
-      accommodatiekeuzes (Geilo, Haugen/Kalvåtn en Sykkylven/Stranda) blijven de 
-      dagelijkse rijtijden naar topattracties zoals de Hardangervidda, Lovatnet, 
-      Briksdalsbreen, Geirangerfjord en Trollstigen zeer beperkt (meest < 45 min). 
+      accommodatiekeuzes blijven de dagelijkse rijtijden naar topattracties zeer beperkt. 
       De internationale overtochten via Hirtshals en Bergen zorgen voor een 
       ontspannen logistieke opbouw.
     transport: "🚗 Eigen elektrische auto (EV)"
@@ -21,23 +19,24 @@ trip:
     highlights:
       - Overnachting Hirtshals vooraf voor een stressvrije overtocht
       - Houten voetgangersbruggetjes, vlonderpaden en Vøringsfossen op de Hardangervidda
-      - Turqouise gletsjermeren Lovatnet & Briksdalsbreen gletsjer
+      - Turquoise gletsjermeren Lovatnet & Briksdalsbreen gletsjer
       - Loen Skylift & de ruige Atlantische kust bij Hoddevik / Vestkapp
+      - Hjørundfjord & Norangsdalen vanuit Stranda-regio
       - Geirangerfjord autoveerboot & Trollstigen bergpas
       - Afsluiter in Bergen (Fridalen) met tram (Bybanen), Bryggen en Fløibanen
       - Fjord Line cruiseferry Bergen-Hirtshals
     cost:
       couple:
-        eur_range: "€2,500 - €4,500"
+        eur_range: "€3,500 - €4,500"
       family:
-        eur_range: "€3,000 - €4,500"
+        eur_range: "€4,000 - €5,000"
       relative_costs: "low_to_moderate"
       assumptions:
-      - Goedgekeurde hytter/appartementen (totaal €2.457 voor 14 nachten)
-      - Fjord Line overtochten & lokale autoveerboten (€490 - €640)
+      - Goedgekeurde hytter/appartementen (totaal €2.500 voor 14 nachten)
+      - Fjord Line overtochten & lokale autoveerboten (€1.500)
       - Laden via snelladers (Eviny, Circle K) met EV-voordelen
       - Zelf koken in hytter gemengd met lokale horeca
-  direction: belgium_hirtshals_geilo_haugen_stranda_bergen
+  direction: belgium_hirtshals_geilo_hornindal_stranda_bergen
   travel_style: family_self_drive_ev
 
   target_group:
@@ -94,7 +93,7 @@ trip:
     nights_per_base:
       transit_hirtshals: 1
       base_1_geilo: 3
-      base_2_haugen_kalvatn: 5
+      base_2_hornindal_haugen: 5
       base_3_sykkylven_stranda: 4
       city_bergen: 1
 
@@ -192,7 +191,7 @@ trip:
       note: >
         3-5-4 nachten opbouw voor maximaal rustige dagtrips (< 45 min rijden).
         Totaal budget accommodaties: € 2.457.
-        Geilo (3N - €434), Haugen/Kalvåtn (5N - €1.019), 
+        Geilo (3N - €434), Hornindal/Haugen (5N - €1.019), 
         Sykkylven/Stranda (4N - €777), Bergen (1N - €129), Hirtshals (1N - €98).
 
   priority_definitions:
@@ -276,29 +275,17 @@ trip:
         primary_base: base_1
         notes: "Avontuurlijk bergpark met elanden, wolven, lynxen en poolvossen. Erg leuk voor de kinderen."
 
-    arrival_day_candidates:
-      route_from: kristiansand
-      note: "Schilderachtige rit via het Setesdal (Rv9) met stops bij bergrivieren en houten dorpen."
-
-    departure_day_candidates:
-      route_to: base_2
-      note: "Oversteek van de Hardangervidda richting Sognefjord via Lærdal, Aurland en Stegastein."
-      candidates:
-      - attraction_ref: voringsfossen
-      - external_stop_ref: stegastein_viewpoint
-      - external_stop_ref: laerdalsoyri
-
   - id: base_2
-    name: Haugen / Kalvåtn / Nordfjordeid
-    region: Nordfjord, gletsjers en Atlantische kust
+    name: Hornindal / Haugen / Kalvåtn
+    region: Nordfjord, gletsjers en Atlantische kust (vlakbij Hornindal Skisenter)
     stay_nights: 5
     cost_eur: 1019
     coordinates:
-      lat: 61.9600
-      lon: 6.1200
-    lodging_preference_note: "Hytte langs de Fv60 / E39 tussen Haugen en Kalvåtn."
+      lat: 61.9480
+      lon: 6.5250
+    lodging_preference_note: "Hytte nabij Hornindal / Haugen en de E39/Fv60."
     planning_note: >
-      Budgetvriendelijke en strategische basis in het hart van de Nordfjord. 
+      Budgetvriendelijke en strategische basis in het hart van de Nordfjord, vlak bij Hornindal. 
       Slechts 35-45 minuten van Lovatnet, Loen Skylift en Briksdalsbreen.
 
     base_attractions:
@@ -307,7 +294,7 @@ trip:
       priority: must_do
       type: lake_glacier_hike
       visit_duration_hours: 5
-      drive_time_minutes: 45
+      drive_time_minutes: 40
       coordinates:
         lat: 61.8150
         lon: 6.8900
@@ -320,7 +307,7 @@ trip:
       priority: must_do
       type: glacier_hike
       visit_duration_hours: 3.5
-      drive_time_minutes: 50
+      drive_time_minutes: 45
       coordinates:
         lat: 61.6646
         lon: 6.8749
@@ -334,7 +321,7 @@ trip:
       priority: must_do
       type: cable_car_mountain_hike
       visit_duration_hours: 4
-      drive_time_minutes: 40
+      drive_time_minutes: 35
       coordinates:
         lat: 61.8708
         lon: 6.8444
@@ -355,32 +342,9 @@ trip:
         primary_base: base_2
         notes: "Ruige Atlantische kust, wandelen over het iconische surfstrand van Hoddevik tussen steile kliffen."
 
-    - id: hjorundfjord_norangsdalen
-      name: Hjørundfjord & Norangsdalen Vallei
-      priority: highly_recommended
-      type: scenic_valley_hike
-      visit_duration_hours: 4
-      drive_time_minutes: 40
-      coordinates:
-        lat: 62.2200
-        lon: 6.5800
-      visit_strategy:
-        primary_base: base_2
-        notes: "Wandelen door een van de smalste en mooiste valleien van Noorwegen met gezonken ruïnes."
-
-    arrival_day_candidates:
-      route_from: base_1
-      note: "Rit via Sognefjord, Stegastein uitkijkpunt en historisch Lærdalsøyri."
-
-    departure_day_candidates:
-      route_to: base_3
-      note: "Zeer korte verhuisdag van slechts 1 uur! Tijd voor uitstappen onderweg."
-      candidates:
-      - external_stop_ref: hornindalsvatnet
-
   - id: base_3
     name: Sykkylven / Stranda
-    region: Sunnmøre-alpen en Geirangerfjord
+    region: Sunnmøre-alpen, Hjørundfjord en Geirangerfjord
     stay_nights: 4
     cost_eur: 777
     coordinates:
@@ -388,10 +352,23 @@ trip:
       lon: 6.7200
     lodging_preference_note: "Hytte tussen Sykkylven en Stranda."
     planning_note: >
-      Ideale basis midden in de Sunnmøre-alpen voor de Geirangerfjord, Trollstigen 
-      en Valldal. Ålesund is geschrapt voor meer rust en lokale bergwandelingen.
+      Ideale basis midden in de Sunnmøre-alpen voor de Geirangerfjord, Trollstigen, 
+      Valldal én de nabijgelegen Hjørundfjord en Norangsdalen-vallei.
 
     base_attractions:
+    - id: hjorundfjord_norangsdalen
+      name: Hjørundfjord & Norangsdalen Vallei
+      priority: must_do
+      type: scenic_valley_hike
+      visit_duration_hours: 4
+      drive_time_minutes: 30
+      coordinates:
+        lat: 62.2200
+        lon: 6.5800
+      visit_strategy:
+        primary_base: base_3
+        notes: "Wandelen door een van de smalste en mooiste valleien van Noorwegen met gezonken ruïnes, direct nabij Stranda."
+
     - id: geirangerfjord_cruise
       name: Autoveerboot Hellesylt - Geiranger
       priority: must_do
@@ -416,7 +393,7 @@ trip:
         lon: 7.6700
       visit_strategy:
         primary_base: base_3
-        notes: "Wandelen over zwevende roosters boven de kolkende kloof van Gudbrandsjuvet, de beroemde aardbeien van Valldal en de 11 haarspeldbochten van Trollstigen."
+        notes: "Wandelen over zwevende roosters boven de kolkende kloof van Gudbrandsjuvet, de aardbeien van Valldal en de 11 haarspeldbochten van Trollstigen."
 
     - id: strandafjellet_gondel
       name: Strandafjellet Gondel
@@ -431,14 +408,6 @@ trip:
         primary_base: base_3
         notes: "Panoramische wandeling op de top met fenomenaal uitzicht over de Storfjord."
 
-    arrival_day_candidates:
-      route_from: base_2
-      note: "Korte verhuisrit van 1 uur. Voldoende tijd voor een bergwandeling bij Strandafjellet."
-
-    departure_day_candidates:
-      route_to: bergen_fridalen
-      note: "Rit via de E39 naar Bergen met 2 korte ontspannen fjordoversteken."
-
   transfer_routes:
   - id: transfer_kristiansand_to_base_1
     from: kristiansand_ferry
@@ -446,24 +415,52 @@ trip:
     description: Kristiansand naar Geilo via Setesdal (Rv9)
     estimated_direct_drive_hours: 4.5
     planning_note: "Mooie binnenlandse route langs meren en bergrivieren."
+    en_route_stops:
+      - name: Bygland (Setesdal)
+        type: scenic_coffee_stop
+        duration_minutes: 45
+        notes: "Gezellig houten dorpje aan het meer om even de benen te strekken."
 
   - id: transfer_base_1_to_base_2
     from: base_1
     to: base_2
-    description: Geilo naar Haugen/Kalvåtn via Stegastein & Sognefjord
+    description: Geilo naar Hornindal/Haugen via Stegastein & Sognefjord
     estimated_direct_drive_hours: 4.75
-    planning_note: "Prachtige rit met stop bij Stegastein uitkijkpunt en korte veerboot Fodnes-Mannheller."
+    planning_note: "Prachtige rit met verplichte tussenstops en korte veerboot Fodnes-Mannheller."
+    en_route_stops:
+      - name: Vøringsfossen Waterval & Trappenbrug
+        type: major_sightseeing_stop
+        duration_minutes: 90
+        notes: "Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof."
+      - name: Stegastein Uitkijkpunt
+        type: major_viewpoint_stop
+        duration_minutes: 45
+        notes: "Uitzichtplatform hangend boven de Aurlandsfjord."
+      - name: Lærdalsøyri
+        type: historic_village_lunch_stop
+        duration_minutes: 60
+        notes: "Wandelen tussen de historische houten huisjes voor de lunch."
 
   - id: transfer_base_2_to_base_3
     from: base_2
     to: base_3
-    description: Haugen/Kalvåtn naar Sykkylven/Stranda
+    description: Hornindal/Haugen naar Sykkylven/Stranda
     estimated_direct_drive_hours: 1.15
     planning_note: "Zeer korte en ontspannen verhuisrit. Volledige dag beschikbaar voor activiteiten."
+    en_route_stops:
+      - name: Hornindalsvatnet
+        type: scenic_lake_stop
+        duration_minutes: 30
+        notes: "Korte stop bij het diepste meer van Europa."
 
   - id: transfer_base_3_to_bergen
     from: base_3
     to: bergen_fridalen
-    description: Sykkylven/Stranda naar Bergen (Fridalen)
+    description: Sykkylven/Stranda naar Bergen (Fridalen) via E39
     estimated_direct_drive_hours: 5.5
     planning_note: "Comfortabele rit via de E39 met twee korte fjordoversteken richting het appartement in Fridalen."
+    en_route_stops:
+      - name: Tvindefossen Waterval
+        type: roadside_waterfall_stop
+        duration_minutes: 30
+        notes: "Ideale benen-strek stop langs de route met een mooie waterval."
