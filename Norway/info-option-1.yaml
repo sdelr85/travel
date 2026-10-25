@@ -186,6 +186,13 @@ trip:
         type: viewpoint_hike
         notes: "Bos- en trollenwandelingen op de top van Mount Fløyen bij zonsondergang."
 
+  route_planner_locations:
+    - id: hirtshals_ferry
+      name: Hirtshals
+      coordinates:
+        lat: 57.5884
+        lon: 9.9700
+
   planning_principles:
     lodging_strategy:
       note: >
@@ -488,6 +495,9 @@ trip:
         type: scenic_coffee_stop
         duration_minutes: 45
         notes: "Gezellig houten dorpje aan het meer om even de benen te strekken."
+        coordinates:
+          lat: 58.8280
+          lon: 7.7960
 
   - id: transfer_base_1_to_base_2
     from: base_1
@@ -500,14 +510,23 @@ trip:
         type: major_sightseeing_stop
         duration_minutes: 90
         notes: "Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof."
+        coordinates:
+          lat: 60.4266
+          lon: 7.2519
       - name: Stegastein Uitkijkpunt
         type: major_viewpoint_stop
         duration_minutes: 45
         notes: "Uitzichtplatform hangend boven de Aurlandsfjord."
+        coordinates:
+          lat: 60.9085
+          lon: 7.2137
       - name: Lærdalsøyri
         type: historic_village_lunch_stop
         duration_minutes: 60
         notes: "Wandelen tussen de historische houten huisjes voor de lunch."
+        coordinates:
+          lat: 61.0990
+          lon: 7.4820
 
   - id: transfer_base_2_to_base_3
     from: base_2
@@ -520,6 +539,9 @@ trip:
         type: scenic_lake_stop
         duration_minutes: 30
         notes: "Korte stop bij het diepste meer van Europa."
+        coordinates:
+          lat: 61.9730
+          lon: 6.5090
 
   - id: transfer_base_3_to_bergen
     from: base_3
@@ -532,3 +554,6 @@ trip:
         type: roadside_waterfall_stop
         duration_minutes: 30
         notes: "Ideale benen-strek stop langs de route met een mooie waterval."
+        coordinates:
+          lat: 60.7260
+          lon: 6.4910

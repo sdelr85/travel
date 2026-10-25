@@ -112,9 +112,11 @@
     <script>
     window.addEventListener("load", function () {
         const map = map_c8f491f5ab27fee50aa070e265dd3869;
-        const routeStarts = [{"name": "Geilo / Hardangervidda", "lat": 60.5333, "lon": 8.2}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.31, "lon": 6.72}];
+        const routeLocations = [{"name": "Geilo / Hardangervidda", "lat": 60.5333, "lon": 8.2}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.31, "lon": 6.72}, {"name": "Bergen (Fridalen)", "lat": 60.3695, "lon": 5.3582}, {"name": "Hirtshals", "lat": 57.5884, "lon": 9.97}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
+        let mapDestination = null;
+        let destinationName = "";
         let activeRequest = null;
         const initialBounds = map.getBounds();
         const routeLineLayer = L.layerGroup().addTo(map);
@@ -125,10 +127,12 @@
             const container = L.DomUtil.create("div", "route-planner-control");
             container.innerHTML =
                 '<div class="route-planner-title">🧭 Routeplanner</div>' +
-                '<label for="route-planner-start">Startverblijf</label>' +
+                '<label for="route-planner-start">Startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
+                '<label for="route-planner-end" style="margin-top:8px">Bestemming</label>' +
+                '<select id="route-planner-end"><option value="">Kies een bestemming</option></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
-                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                'Kies een startpunt en bestemming, of klik op de kaart.</div>' +
                 '<div class="route-planner-summary" id="route-planner-summary"></div>' +
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
@@ -142,16 +146,22 @@
 
         const panel = document.querySelector(".route-planner-control");
         const startSelect = panel.querySelector("#route-planner-start");
+        const endSelect = panel.querySelector("#route-planner-end");
         const status = panel.querySelector("#route-planner-status");
         const summary = panel.querySelector("#route-planner-summary");
         const directions = panel.querySelector("#route-planner-directions");
         const directionsList = directions.querySelector("ol");
 
-        routeStarts.forEach(function (start, index) {
-            const option = document.createElement("option");
-            option.value = String(index);
-            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
-            startSelect.appendChild(option);
+        routeLocations.forEach(function (location, index) {
+            const startOption = document.createElement("option");
+            startOption.value = String(index);
+            startOption.textContent = location.name;
+            startSelect.appendChild(startOption);
+
+            const endOption = document.createElement("option");
+            endOption.value = String(index);
+            endOption.textContent = location.name;
+            endSelect.appendChild(endOption);
         });
 
         function setStatus(message, isError) {
@@ -175,12 +185,17 @@
             if (activeRequest) activeRequest.abort();
             activeRequest = null;
             destination = null;
+            mapDestination = null;
+            destinationName = "";
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
             directions.hidden = true;
             directionsList.replaceChildren();
-            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            endSelect.value = "";
+            const mapOption = endSelect.querySelector('option[value="map"]');
+            if (mapOption) mapOption.remove();
+            setStatus("Kies een startpunt en bestemming, of klik op de kaart.");
             if (initialBounds.isValid()) map.fitBounds(initialBounds);
         }
 
@@ -218,7 +233,8 @@
             if (activeRequest) activeRequest.abort();
             const controller = new AbortController();
             activeRequest = controller;
-            const start = routeStarts[Number(startSelect.value)];
+            const start = routeLocations[Number(startSelect.value)];
+            if (!start) return;
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
@@ -231,7 +247,7 @@
             L.circleMarker(destination, {
                 radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
                 fillOpacity: 1, bubblingMouseEvents: false
-            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            }).bindTooltip("Bestemming: " + destinationName).addTo(routePointsLayer);
             setStatus("Route wordt berekend…");
 
             const coordinates = start.lon + "," + start.lat + ";" +
@@ -288,12 +304,39 @@
         }
 
         function chooseDestination(latlng) {
-            destination = L.latLng(latlng.lat, latlng.lng);
+            mapDestination = L.latLng(latlng.lat, latlng.lng);
+            let mapOption = endSelect.querySelector('option[value="map"]');
+            if (!mapOption) {
+                mapOption = document.createElement("option");
+                mapOption.value = "map";
+                endSelect.appendChild(mapOption);
+            }
+            mapOption.textContent = "Kaartpunt (" +
+                latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4) + ")";
+            endSelect.value = "map";
+            destination = mapDestination;
+            destinationName = "Kaartpunt";
             calculateRoute();
         }
 
         startSelect.addEventListener("change", function () {
             if (destination) calculateRoute();
+        });
+        endSelect.addEventListener("change", function () {
+            if (!endSelect.value) {
+                clearRoute();
+                return;
+            }
+            if (endSelect.value === "map") {
+                destination = mapDestination;
+                destinationName = "Kaartpunt";
+            } else {
+                const selected = routeLocations[Number(endSelect.value)];
+                if (!selected) return;
+                destination = L.latLng(selected.lat, selected.lon);
+                destinationName = selected.name;
+            }
+            calculateRoute();
         });
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
         map.on("click", function (event) {
@@ -764,6 +807,104 @@
             feature_group_09c87947cd10b8c173b5e6fda4e5cffa.addTo(map_c8f491f5ab27fee50aa070e265dd3869);
         
     
+
+var norway_option1_transfer_marker_0 = L.circleMarker(
+                [58.828, 7.796],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_0.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Bygland (Setesdal)</b><br><span style="color:#e67e22;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Coffee Stop<br><b>Stopduur:</b> 0.75 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e67e22">Kristiansand naar Geilo via Setesdal (Rv9)</span><br><i style="color:#666;font-size:13px">Gezellig houten dorpje aan het meer om even de benen te strekken.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            var norway_option1_transfer_marker_1 = L.circleMarker(
+                [60.4266, 7.2519],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_1.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Vøringsfossen Waterval & Trappenbrug</b><br><span style="color:#e74c3c;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Major Sightseeing Stop<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Stegastein & Sognefjord</span><br><i style="color:#666;font-size:13px">Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            var norway_option1_transfer_marker_2 = L.circleMarker(
+                [60.9085, 7.2137],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_2.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Stegastein Uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Major Viewpoint Stop<br><b>Stopduur:</b> 0.75 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Stegastein & Sognefjord</span><br><i style="color:#666;font-size:13px">Uitzichtplatform hangend boven de Aurlandsfjord.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            var norway_option1_transfer_marker_3 = L.circleMarker(
+                [61.099, 7.482],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_3.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Lærdalsøyri</b><br><span style="color:#e74c3c;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Village Lunch Stop<br><b>Stopduur:</b> 1.0 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Stegastein & Sognefjord</span><br><i style="color:#666;font-size:13px">Wandelen tussen de historische houten huisjes voor de lunch.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            var norway_option1_transfer_marker_4 = L.circleMarker(
+                [61.973, 6.509],
+                {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_4.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Hornindalsvatnet</b><br><span style="color:#2980b9;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Lake Stop<br><b>Stopduur:</b> 0.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#2980b9">Hornindal/Haugen naar Sykkylven/Stranda</span><br><i style="color:#666;font-size:13px">Korte stop bij het diepste meer van Europa.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            var norway_option1_transfer_marker_5 = L.circleMarker(
+                [60.726, 6.491],
+                {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2.5}
+            ).addTo(feature_group_09c87947cd10b8c173b5e6fda4e5cffa);
+
+
+            norway_option1_transfer_marker_5.bindTooltip(
+                `<div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Tvindefossen Waterval</b><br><span style="color:#27ae60;font-weight:bold">☆☆☆☆ Geen beoordeling</span><br><hr style="margin:4px 0"><b>Type:</b> Roadside Waterfall Stop<br><b>Stopduur:</b> 0.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#27ae60">Sykkylven/Stranda naar Bergen (Fridalen) via E39</span><br><i style="color:#666;font-size:13px">Ideale benen-strek stop langs de route met een mooie waterval.</i></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+
+
+            feature_group_09c87947cd10b8c173b5e6fda4e5cffa.addTo(map_c9352e9ac057f5c6df9297343c952ef9);
             var feature_group_74930d358a60d72384f39e6dbb475386 = L.featureGroup(
                 {
 }

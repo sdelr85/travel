@@ -1,6 +1,7 @@
 import unittest
 
 import folium
+import yaml
 
 import travel_map
 
@@ -131,6 +132,32 @@ class TransferStopTests(unittest.TestCase):
         self.assertIn("0.75 h", rendered_map)
         self.assertIn("Uitzicht over de fjord.", rendered_map)
 
+    def test_norway_option_one_yaml_renders_all_transfer_stops(self):
+        option_path = travel_map.HERE / "Norway" / "info-option-1.yaml"
+        with option_path.open(encoding="utf-8") as file:
+            data = yaml.safe_load(file)
+        transfers = data["trip"]["transfer_routes"]
+        stops = [
+            stop
+            for transfer in transfers
+            for stop in transfer.get("en_route_stops", [])
+        ]
+        fmap = travel_map.build_map(data)
+        transfer_layer = next(
+            child
+            for child in fmap._children.values()
+            if isinstance(child, folium.FeatureGroup)
+            and child.layer_name == "◇ Tussenstops"
+        )
+        markers = [
+            child
+            for child in transfer_layer._children.values()
+            if isinstance(child, folium.CircleMarker)
+        ]
+
+        self.assertTrue(all("coordinates" in stop for stop in stops))
+        self.assertEqual(len(markers), len(stops))
+
 
 class RoutePlannerTests(unittest.TestCase):
     def test_map_includes_route_planner_for_lodging_locations(self):
@@ -156,7 +183,9 @@ class RoutePlannerTests(unittest.TestCase):
         rendered_map = fmap.get_root().render()
 
         self.assertIn("Routeplanner", rendered_map)
-        self.assertIn("Verblijf \" + (index + 1) + \": \" + start.name", rendered_map)
+        self.assertIn("route-planner-start", rendered_map)
+        self.assertIn("route-planner-end", rendered_map)
+        self.assertIn("routeLocations.forEach", rendered_map)
         self.assertIn('"name": "Geilo"', rendered_map)
         self.assertIn(travel_map.OSRM_ROUTING_URL, rendered_map)
         self.assertIn('step.mode === "ferry"', rendered_map)
@@ -166,6 +195,17 @@ class RoutePlannerTests(unittest.TestCase):
         self.assertLess(rendered_map.index("Geilo"), rendered_map.index("Kalvåtn"))
         self.assertNotIn("Prioriteit (markergrootte)", rendered_map)
         self.assertNotIn("Terug naar landenselectie", rendered_map)
+
+    def test_norway_option_one_includes_bergen_and_hirtshals_as_route_points(self):
+        option_path = travel_map.HERE / "Norway" / "info-option-1.yaml"
+        with option_path.open(encoding="utf-8") as file:
+            data = yaml.safe_load(file)
+        rendered_map = travel_map.build_map(data).get_root().render()
+
+        self.assertIn('"name": "Bergen (Fridalen)"', rendered_map)
+        self.assertIn('"name": "Hirtshals"', rendered_map)
+        self.assertIn("Startpunt", rendered_map)
+        self.assertIn("Bestemming", rendered_map)
 
 
 if __name__ == "__main__":
