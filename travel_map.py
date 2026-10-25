@@ -6,6 +6,8 @@ An internet connection is required to display the basemap.
 
 import pathlib
 import statistics
+from html import escape
+from urllib.parse import urlsplit
 
 import folium
 import yaml
@@ -358,6 +360,42 @@ TOOLTIP_STYLE = (
     "width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);"
     "min-width:0;white-space:normal;overflow-wrap:anywhere;"
 )
+
+
+def _accommodation_popup_html(location: dict):
+    url = location.get("accommodation_url")
+    if not url:
+        return None
+    if not isinstance(url, str):
+        raise ValueError(
+            f"accommodation_url for {location.get('name', 'location')} must be a URL string"
+        )
+
+    parsed_url = urlsplit(url)
+    if parsed_url.scheme.lower() not in {"http", "https"} or not parsed_url.netloc:
+        raise ValueError(
+            f"accommodation_url for {location.get('name', 'location')} "
+            "must be an absolute HTTP(S) URL"
+        )
+
+    label = location.get("accommodation_label", "Bekijk accommodatie")
+    if not isinstance(label, str):
+        raise ValueError(
+            f"accommodation_label for {location.get('name', 'location')} must be text"
+        )
+    popup_html = (
+        f'<div style="{TOOLTIP_STYLE}">'
+        f'<b>{escape(str(location.get("name", "Accommodatie")))}</b><br>'
+        f'<a href="{escape(url, quote=True)}" target="_blank" '
+        f'rel="noopener noreferrer">{escape(label)}</a>'
+        "</div>"
+    )
+    return popup_html
+
+
+def _accommodation_popup(location: dict):
+    popup_html = _accommodation_popup_html(location)
+    return folium.Popup(popup_html, max_width=360) if popup_html else None
 
 
 def _lodging_tooltip(loc: dict, color: str) -> str:
@@ -853,7 +891,10 @@ def build_map(data: dict) -> folium.Map:
     fg_lodging = folium.FeatureGroup(name="🏨 Verblijven", show=True)
     fg_attractions = folium.FeatureGroup(name="● Bezienswaardigheden", show=True)
     fg_transfer = folium.FeatureGroup(name="◇ Tussenstops", show=True)
-    fg_final = folium.FeatureGroup(name=f"★ {final_name}", show=True)
+    final_has_accommodation = bool(final and final.get("accommodation_url"))
+    final_marker_icon = "home" if final_has_accommodation else "star"
+    final_layer_icon = "🏠" if final_has_accommodation else "★"
+    fg_final = folium.FeatureGroup(name=f"{final_layer_icon} {final_name}", show=True)
     fg_route_points = folium.FeatureGroup(name="⚓ Start- en eindpunten", show=True)
     fg_airport = folium.FeatureGroup(name="✈ Luchthaven", show=True)
 
@@ -868,6 +909,7 @@ def build_map(data: dict) -> folium.Map:
                 _lodging_tooltip(loc, color["hex"]),
                 sticky=True,
             ),
+            popup=_accommodation_popup(loc),
             icon=folium.Icon(color=color["folium"], icon="home", prefix="fa"),
             z_index_offset=1000,
         ).add_to(fg_lodging)
@@ -957,9 +999,10 @@ def build_map(data: dict) -> folium.Map:
             ),
             icon=folium.Icon(
                 color=FINAL_STOP_COLOR["folium"],
-                icon="star",
+                icon=final_marker_icon,
                 prefix="fa",
             ),
+            popup=_accommodation_popup(final),
             z_index_offset=2000,
         ).add_to(fg_final)
         for attr in final.get("attractions", []):
@@ -992,7 +1035,12 @@ def build_map(data: dict) -> folium.Map:
                 "</div>",
                 sticky=True,
             ),
-            icon=folium.Icon(color="blue", icon="ship", prefix="fa"),
+            popup=_accommodation_popup(location),
+            icon=folium.Icon(
+                color="blue",
+                icon="home" if location.get("accommodation_url") else "ship",
+                prefix="fa",
+            ),
             z_index_offset=2000,
         ).add_to(fg_route_points)
 

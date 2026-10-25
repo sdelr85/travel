@@ -18,8 +18,9 @@ trip:
     highlights:
       - Overnachting Hirtshals vooraf voor een stressvrije overtocht
       - Houten voetgangersbruggetjes, vlonderpaden en Vøringsfossen op de Hardangervidda
+      - Aurlandsfjord, Nærøyfjord & Sognefjord op de verhuisdag naar Hornindal
       - Turquoise gletsjermeren Lovatnet & Briksdalsbreen gletsjer
-      - Loen Skylift & Rakssetra grasdak-hytter wandeling
+      - Nordfjord verkennen, Loen Skylift & Rakssetra grasdak-hytter wandeling
       - Geirangerfjord autoveerboot (vanuit Hornindal)
       - Hjørundfjord, Norangsdalen & Sunnmøre-alpen vanuit Stranda
       - Trollstigen bergpas & Gudbrandsjuvet
@@ -164,6 +165,8 @@ trip:
     coordinates:
       lat: 60.3695
       lon: 5.3582
+    accommodation_url: "https://www.booking.com/hotel/no/central-4-room-apartment.html?aid=304142&label=mkt123sc-7e7e6517-c8ab-4727-94dc-f8edfe60f181&sid=dc8c3bbaa57eab8bbe48d6bf11d235c5&all_sr_blocks=1579669301_429064520_6_0_0&checkin=2027-08-06&checkout=2027-08-07&dest_id=-252873&dest_type=city&dist=0&group_adults=5&group_children=0&hapos=1&highlighted_blocks=1579669301_429064520_6_0_0&hpos=1&matching_block_id=1579669301_429064520_6_0_0&no_rooms=1&req_adults=5&req_children=0&room1=A%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1579669301_429064520_6_0_0__135000&srepoch=1792922328&srpvid=b11146288984009d&type=total&ucfs=1&)"
+    accommodation_label: "Booking.com: Central 4 room, Bergen"
 
     planning_note: >
       Strategisch appartement in de groene woonwijk Fridalen, vlak bij de 
@@ -192,6 +195,8 @@ trip:
       coordinates:
         lat: 57.5884
         lon: 9.9700
+      accommodation_url: "https://www.airbnb.be/rooms/18759880?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997950286&source_impression_id=p3_1792922228_P3TnUlGMLzVAtF0q&previous_page_section_name=1000"
+      accommodation_label: "Airbnb: Højgaards bijgebouw"
 
   planning_principles:
     lodging_strategy:
@@ -222,6 +227,8 @@ trip:
     coordinates:
       lat: 60.5333
       lon: 8.2000
+    accommodation_url: "https://www.airbnb.be/rooms/1575326504878023726?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006994583275&check_in=2027-07-25&check_out=2027-07-28&source_impression_id=p3_1792922228_P3o6WqpYbwy_wWkw&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Soltun Geilo"
     lodging_preference_note: "Hytte / chalet in Geilo."
     planning_note: >
       Eerste basis op de hoogvlakte. Focus op avontuurlijke wandelingen met 
@@ -317,6 +324,8 @@ trip:
     coordinates:
       lat: 61.9480
       lon: 6.5250
+    accommodation_url: "https://www.airbnb.be/rooms/933445901700871988?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006983865889&check_in=2027-07-28&check_out=2027-08-02&source_impression_id=p3_1792922228_P3BIEr_QDbjiwNCe&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Nieuw huisje, fantastische locatie"
     lodging_preference_note: "Hytte nabij Hornindal / Haugen en de E39/Fv60."
     planning_note: >
       Budgetvriendelijke en strategische basis in het hart van de Nordfjord, vlak bij Hornindal. 
@@ -376,6 +385,20 @@ trip:
         primary_base: base_2
         notes: "Steile kabelbaan omhoog naar 1.011m voor panoramische bergwandelingen op het plateau."
 
+    - id: nordfjord_kust_en_panorama
+      name: Nordfjord Panoramaroute & Fjordverkenning
+      priority: highly_recommended
+      type: scenic_fjord_exploration
+      visit_duration_hours: 4
+      drive_time_minutes: 20
+      coordinates:
+        lat: 61.9167
+        lon: 6.0833
+      difficulty: easy
+      visit_strategy:
+        primary_base: base_2
+        notes: "Schilderachtige rit of wandeling langs de oevers van de Nordfjord, inclusief gezellige stop in Stryn of Utvik."
+
     - id: rakssetra_hike
       name: Rakssetra Grasdak-Hytter Wandeling
       priority: highly_recommended
@@ -411,6 +434,8 @@ trip:
     coordinates:
       lat: 62.3100
       lon: 6.7200
+    accommodation_url: "https://www.airbnb.be/rooms/1690369542702713045?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997429322&check_in=2027-08-02&check_out=2027-08-06&source_impression_id=p3_1792922228_P3BxNO7vH9tpjZwy&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Welkom bij Solglytt!"
     lodging_preference_note: "Hytte tussen Sykkylven en Stranda."
     planning_note: >
       Ideale basis midden in de Sunnmøre-alpen voor Trollstigen, Valldal, 
@@ -492,6 +517,7 @@ trip:
     planning_note: "Mooie binnenlandse route langs meren en bergrivieren."
     en_route_stops:
       - name: Bygland (Setesdal)
+        priority: highly_recommended
         type: scenic_coffee_stop
         duration_minutes: 45
         notes: "Gezellig houten dorpje aan het meer om even de benen te strekken."
@@ -502,31 +528,52 @@ trip:
   - id: transfer_base_1_to_base_2
     from: base_1
     to: base_2
-    description: Geilo naar Hornindal/Haugen via Stegastein & Sognefjord
-    estimated_direct_drive_hours: 4.75
-    planning_note: "Prachtige rit met verplichte tussenstops en korte veerboot Fodnes-Mannheller."
+    description: Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord
+    estimated_direct_drive_hours: 5.25
+    planning_note: >
+      Een van de meest spectaculaire autoroutes van Noorwegen. Je rijdt via de Hardangervidda,
+      de Aurlandsfjord, langs de Nærøyfjord-regio en steekt de Sognefjord over per autoveerboot.
     en_route_stops:
       - name: Vøringsfossen Waterval & Trappenbrug
+        priority: must_do
         type: major_sightseeing_stop
         duration_minutes: 90
-        notes: "Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof."
+        notes: "Direct in de ochtend meepikken op de Hardangervidda voor de spectaculaire loopbrug en canyon."
         coordinates:
           lat: 60.4266
           lon: 7.2519
-      - name: Stegastein Uitkijkpunt
+      - name: Stegastein Uitkijkpunt (Aurlandsfjord)
+        priority: must_do
         type: major_viewpoint_stop
         duration_minutes: 45
-        notes: "Uitzichtplatform hangend boven de Aurlandsfjord."
+        notes: "Zwevend houten uitzichtplatform met adembenemend panorama over de Aurlandsfjord."
         coordinates:
           lat: 60.9085
           lon: 7.2137
-      - name: Lærdalsøyri
-        type: historic_village_lunch_stop
+      - name: Flåm & Nærøyfjord Panorama (Gudvangen)
+        priority: highly_recommended
+        type: scenic_fjord_stop
         duration_minutes: 60
-        notes: "Wandelen tussen de historische houten huisjes voor de lunch."
+        notes: "Korte stop in het fjordenvallei-hart bij Flåm of Gudvangen (Nærøyfjord, UNESCO Werelderfgoed)."
+        coordinates:
+          lat: 60.8630
+          lon: 7.1130
+      - name: Lærdalsøyri Historisch Dorp
+        priority: if_time
+        type: historic_village_lunch_stop
+        duration_minutes: 45
+        notes: "Sfeervolle lunchstop tussen de beschermde 18e-eeuwse houten huisjes."
         coordinates:
           lat: 61.0990
           lon: 7.4820
+      - name: Sognefjord Fjordoversteek (Fodnes - Mannheller)
+        priority: must_do
+        type: car_ferry_crossing
+        duration_minutes: 20
+        notes: "Korte en ontspannen autoveerboot-oversteek over de langste fjord van Noorwegen."
+        coordinates:
+          lat: 61.1480
+          lon: 7.3820
 
   - id: transfer_base_2_to_base_3
     from: base_2
@@ -536,9 +583,10 @@ trip:
     planning_note: "Zeer korte en ontspannen verhuisrit. Volledige dag beschikbaar voor activiteiten."
     en_route_stops:
       - name: Hornindalsvatnet
+        priority: highly_recommended
         type: scenic_lake_stop
         duration_minutes: 30
-        notes: "Korte stop bij het diepste meer van Europa."
+        notes: "Korte stop bij het diepste meer van Europa (514m diep)."
         coordinates:
           lat: 61.9730
           lon: 6.5090
@@ -551,9 +599,10 @@ trip:
     planning_note: "Comfortabele rit via de E39 met twee korte fjordoversteken richting het appartement in Fridalen."
     en_route_stops:
       - name: Tvindefossen Waterval
+        priority: highly_recommended
         type: roadside_waterfall_stop
         duration_minutes: 30
-        notes: "Ideale benen-strek stop langs de route met een mooie waterval."
+        notes: "Ideale benen-strek stop langs de route met een mooie, brede waterval."
         coordinates:
           lat: 60.7260
           lon: 6.4910

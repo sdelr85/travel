@@ -1,4 +1,5 @@
 import unittest
+from html import escape
 
 import folium
 import yaml
@@ -219,7 +220,7 @@ class RoutePlannerTests(unittest.TestCase):
             child
             for child in fmap._children.values()
             if isinstance(child, folium.FeatureGroup)
-            and child.layer_name == "★ Bergen (Fridalen)"
+            and child.layer_name == "🏠 Bergen (Fridalen)"
         )
         final_markers = [
             child
@@ -233,14 +234,54 @@ class RoutePlannerTests(unittest.TestCase):
         self.assertIn("Eindbestemming · ook startpunt routeplanner", rendered_map)
         self.assertEqual(len(route_point_markers), 1)
         self.assertEqual(route_point_markers[0].location, [57.5884, 9.97])
+        self.assertEqual(route_point_markers[0].icon.options["icon"], "home")
         self.assertEqual(len(final_markers), 1)
         self.assertEqual(final_markers[0].location, [60.3695, 5.3582])
+        self.assertEqual(final_markers[0].icon.options["icon"], "home")
         self.assertLessEqual(bounds[0][0], 57.5884)
         self.assertGreaterEqual(bounds[1][0], 57.5884)
         self.assertLessEqual(bounds[0][1], 9.97)
         self.assertGreaterEqual(bounds[1][1], 9.97)
         self.assertIn("Start- en eindpunt voor de routeplanner", rendered_map)
         self.assertNotIn("route-planner-end", rendered_map)
+
+    def test_norway_option_one_accommodation_urls_are_clickable(self):
+        option_path = travel_map.HERE / "Norway" / "info-option-1.yaml"
+        with option_path.open(encoding="utf-8") as file:
+            data = yaml.safe_load(file)
+        trip = data["trip"]
+        locations = [
+            *trip["lodging_locations"],
+            trip["final_stop"],
+            *trip["route_planner_locations"],
+        ]
+        urls = [location["accommodation_url"] for location in locations]
+        rendered_map = travel_map.build_map(data).get_root().render()
+
+        for url in urls:
+            self.assertIn(escape(url, quote=True), rendered_map)
+        self.assertEqual(
+            rendered_map.count('target="_blank" rel="noopener noreferrer"'),
+            len(urls),
+        )
+        self.assertIn("Airbnb: Soltun Geilo", rendered_map)
+        self.assertIn("Booking.com: Central 4 room, Bergen", rendered_map)
+
+    def test_accommodation_url_must_use_http_or_https(self):
+        with self.assertRaisesRegex(ValueError, "absolute HTTP\\(S\\) URL"):
+            travel_map.build_map(
+                {
+                    "trip": {
+                        "lodging_locations": [
+                            {
+                                "name": "Unsafe listing",
+                                "coordinates": {"lat": 60, "lon": 5},
+                                "accommodation_url": "javascript:alert(1)",
+                            }
+                        ]
+                    }
+                }
+            )
 
 
 if __name__ == "__main__":
