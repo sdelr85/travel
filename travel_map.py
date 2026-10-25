@@ -814,12 +814,27 @@ def build_selection_page(countries: list) -> str:
         cost = overview.get("cost") or trip.get("cost", {})
         couple_range = (cost.get("couple") or {}).get("eur_range", "")
         family_range = (cost.get("family") or {}).get("eur_range", "")
-        relative_cost_order = {"low": 1, "medium": 2, "high": 3, "very_high": 4}
+        relative_cost_order = {
+            "low": 1,
+            "low_to_moderate": 1.5,
+            "medium": 2,
+            "high": 3,
+            "very_high": 4,
+        }
         cost_sort_val = relative_cost_order.get(cost.get("relative_costs", ""), 9)
         highlights_html = "".join(f"<li>{h}</li>" for h in highlights)
         rank_badge = f'<div class="rank-badge">#{rank}</div>' if rank else ""
         rank_sort = rank if rank else 9999
         card_id = country.lower().replace(" ", "-").replace("(", "").replace(")", "")
+        map_options = c.get("map_options", [])
+        if map_options:
+            map_actions_html = '<div class="map-options">' + "".join(
+                f'<a class="cta" href="{option["map_path"]}" '
+                f'onclick="event.stopPropagation()">{option["label"]} →</a>'
+                for option in map_options
+            ) + "</div>"
+        else:
+            map_actions_html = '<div class="cta">Bekijk kaart →</div>'
 
         cards_html += f"""
         <div class="card" id="{card_id}" onclick="window.location='{c["map_path"]}'" data-rank="{rank_sort}" data-cost="{cost_sort_val}">
@@ -837,7 +852,7 @@ def build_selection_page(countries: list) -> str:
                 {"<p class='summary'>" + summary + "</p>" if summary else ""}
                 {"<p class='reason'>" + summary_reason + "</p>" if summary_reason else ""}
                 {"<ul class='highlights'>" + highlights_html + "</ul>" if highlights else ""}
-                <div class="cta">Bekijk kaart →</div>
+                {map_actions_html}
             </div>
         </div>"""
 
@@ -942,6 +957,7 @@ def build_selection_page(countries: list) -> str:
             color: #444;
         }}
         .cost-low span    {{ background: #d5f0e0; color: #1a6e3a; }}
+        .cost-low-to-moderate span {{ background: #e5f2da; color: #4d7127; }}
         .cost-medium span {{ background: #fdebd0; color: #a04000; }}
         .cost-high span   {{ background: #fce8e8; color: #922b21; }}
         .cost-very-high span {{ background: #4a4a4a; color: #f0f0f0; }}
@@ -977,6 +993,12 @@ def build_selection_page(countries: list) -> str:
             font-weight: 600;
             font-size: 0.85rem;
         }}
+        .map-options {{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }}
+        .map-options .cta {{ text-decoration: none; }}
         .sort-bar {{
             display: flex;
             align-items: center;
@@ -1140,10 +1162,37 @@ def main() -> None:
         fmap.save(str(map_file))
         print(f"Map saved → {map_file}")
 
+        card_data = data
+        map_path = f"{country_dir.name}/map.html"
+        map_options = []
+        option_1_file = country_dir / "info-option-1.yaml"
+        if option_1_file.exists():
+            with option_1_file.open(encoding="utf-8") as f:
+                option_1_data = yaml.safe_load(f)
+            if option_1_data is None:
+                raise ValueError(f"{option_1_file} is empty")
+
+            option_1_map_path = f"{country_dir.name}/map-option-1.html"
+            build_map(option_1_data).save(str(country_dir / "map-option-1.html"))
+            print(f"Map saved → {country_dir / 'map-option-1.html'}")
+
+            card_data = option_1_data
+            map_path = option_1_map_path
+            map_options = [
+                {
+                    "label": "Bekijk kaart (optie 1)",
+                    "map_path": option_1_map_path,
+                },
+                {
+                    "label": "Bekijk kaart (optie 2)",
+                    "map_path": f"{country_dir.name}/map.html",
+                },
+            ]
+
         # compute center from lodging locations for the world map marker
         base_coords = [
             [loc["coordinates"]["lat"], loc["coordinates"]["lon"]]
-            for loc in data["trip"].get("lodging_locations", [])
+            for loc in card_data["trip"].get("lodging_locations", [])
             if "coordinates" in loc
         ]
         center = (
@@ -1157,9 +1206,10 @@ def main() -> None:
 
         countries.append(
             {
-                "data": data,
-                "map_path": f"{country_dir.name}/map.html",
+                "data": card_data,
+                "map_path": map_path,
                 "center": center,
+                "map_options": map_options,
             }
         )
 
