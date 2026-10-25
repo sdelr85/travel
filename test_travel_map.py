@@ -184,8 +184,10 @@ class RoutePlannerTests(unittest.TestCase):
 
         self.assertIn("Routeplanner", rendered_map)
         self.assertIn("route-planner-start", rendered_map)
-        self.assertIn("route-planner-end", rendered_map)
         self.assertIn("routeLocations.forEach", rendered_map)
+        self.assertIn("Kies een bestemming als startpunt", rendered_map)
+        self.assertIn("map.on(\"click\"", rendered_map)
+        self.assertNotIn("route-planner-end", rendered_map)
         self.assertIn('"name": "Geilo"', rendered_map)
         self.assertIn(travel_map.OSRM_ROUTING_URL, rendered_map)
         self.assertIn('step.mode === "ferry"', rendered_map)
@@ -200,12 +202,45 @@ class RoutePlannerTests(unittest.TestCase):
         option_path = travel_map.HERE / "Norway" / "info-option-1.yaml"
         with option_path.open(encoding="utf-8") as file:
             data = yaml.safe_load(file)
-        rendered_map = travel_map.build_map(data).get_root().render()
+        fmap = travel_map.build_map(data)
+        rendered_map = fmap.get_root().render()
+        route_points_layer = next(
+            child
+            for child in fmap._children.values()
+            if isinstance(child, folium.FeatureGroup)
+            and child.layer_name == "⚓ Start- en eindpunten"
+        )
+        route_point_markers = [
+            child
+            for child in route_points_layer._children.values()
+            if isinstance(child, folium.Marker)
+        ]
+        final_layer = next(
+            child
+            for child in fmap._children.values()
+            if isinstance(child, folium.FeatureGroup)
+            and child.layer_name == "★ Bergen (Fridalen)"
+        )
+        final_markers = [
+            child
+            for child in final_layer._children.values()
+            if isinstance(child, folium.Marker)
+        ]
+        bounds = fmap.get_bounds()
 
         self.assertIn('"name": "Bergen (Fridalen)"', rendered_map)
         self.assertIn('"name": "Hirtshals"', rendered_map)
-        self.assertIn("Startpunt", rendered_map)
-        self.assertIn("Bestemming", rendered_map)
+        self.assertIn("Eindbestemming · ook startpunt routeplanner", rendered_map)
+        self.assertEqual(len(route_point_markers), 1)
+        self.assertEqual(route_point_markers[0].location, [57.5884, 9.97])
+        self.assertEqual(len(final_markers), 1)
+        self.assertEqual(final_markers[0].location, [60.3695, 5.3582])
+        self.assertLessEqual(bounds[0][0], 57.5884)
+        self.assertGreaterEqual(bounds[1][0], 57.5884)
+        self.assertLessEqual(bounds[0][1], 9.97)
+        self.assertGreaterEqual(bounds[1][1], 9.97)
+        self.assertIn("Start- en eindpunt voor de routeplanner", rendered_map)
+        self.assertNotIn("route-planner-end", rendered_map)
 
 
 if __name__ == "__main__":

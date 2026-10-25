@@ -80,7 +80,22 @@
         <div class="travel-legend-subtitle">Verblijfplaatsen</div>
         <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Geilo / Hardangervidda</li><li><span style="color:#2980b9;font-size:13px">●</span> Hornindal / Haugen / Kalvåtn</li><li><span style="color:#27ae60;font-size:13px">●</span> Sykkylven / Stranda</li></ol>
     </div>
-    <!-- travel-route-planner:start -->
+    <script>
+    window.addEventListener("load", function () {
+        const hirtshalsRoutePoint = L.marker([57.5884, 9.97], {
+            title: "Hirtshals",
+            alt: "Hirtshals",
+            zIndexOffset: 2000
+        }).addTo(map_c8f491f5ab27fee50aa070e265dd3869);
+        hirtshalsRoutePoint.bindTooltip(
+            '<div style="font-family:sans-serif;font-size:14px"><b>⚓ Hirtshals</b><br>Start- en eindpunt voor de routeplanner</div>',
+            { sticky: true }
+        );
+        const initialBounds = map_c8f491f5ab27fee50aa070e265dd3869.getBounds().extend([57.5884, 9.97]);
+        map_c8f491f5ab27fee50aa070e265dd3869.fitBounds(initialBounds, { padding: [24, 24] });
+    });
+</script>
+<!-- travel-route-planner:start -->
     <style>
         .route-planner-control {
             width: min(300px, calc(100vw - 60px));
@@ -115,7 +130,6 @@
         const routeLocations = [{"name": "Geilo / Hardangervidda", "lat": 60.5333, "lon": 8.2}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.31, "lon": 6.72}, {"name": "Bergen (Fridalen)", "lat": 60.3695, "lon": 5.3582}, {"name": "Hirtshals", "lat": 57.5884, "lon": 9.97}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
-        let mapDestination = null;
         let destinationName = "";
         let activeRequest = null;
         const initialBounds = map.getBounds();
@@ -127,12 +141,10 @@
             const container = L.DomUtil.create("div", "route-planner-control");
             container.innerHTML =
                 '<div class="route-planner-title">🧭 Routeplanner</div>' +
-                '<label for="route-planner-start">Startpunt</label>' +
+                '<label for="route-planner-start">Kies een bestemming als startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
-                '<label for="route-planner-end" style="margin-top:8px">Bestemming</label>' +
-                '<select id="route-planner-end"><option value="">Kies een bestemming</option></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
-                'Kies een startpunt en bestemming, of klik op de kaart.</div>' +
+                'Kies een startpunt en klik daarna op de kaart voor het tweede punt.</div>' +
                 '<div class="route-planner-summary" id="route-planner-summary"></div>' +
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
@@ -146,7 +158,6 @@
 
         const panel = document.querySelector(".route-planner-control");
         const startSelect = panel.querySelector("#route-planner-start");
-        const endSelect = panel.querySelector("#route-planner-end");
         const status = panel.querySelector("#route-planner-status");
         const summary = panel.querySelector("#route-planner-summary");
         const directions = panel.querySelector("#route-planner-directions");
@@ -157,11 +168,6 @@
             startOption.value = String(index);
             startOption.textContent = location.name;
             startSelect.appendChild(startOption);
-
-            const endOption = document.createElement("option");
-            endOption.value = String(index);
-            endOption.textContent = location.name;
-            endSelect.appendChild(endOption);
         });
 
         function setStatus(message, isError) {
@@ -185,17 +191,13 @@
             if (activeRequest) activeRequest.abort();
             activeRequest = null;
             destination = null;
-            mapDestination = null;
             destinationName = "";
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
             directions.hidden = true;
             directionsList.replaceChildren();
-            endSelect.value = "";
-            const mapOption = endSelect.querySelector('option[value="map"]');
-            if (mapOption) mapOption.remove();
-            setStatus("Kies een startpunt en bestemming, of klik op de kaart.");
+            setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
             if (initialBounds.isValid()) map.fitBounds(initialBounds);
         }
 
@@ -304,39 +306,13 @@
         }
 
         function chooseDestination(latlng) {
-            mapDestination = L.latLng(latlng.lat, latlng.lng);
-            let mapOption = endSelect.querySelector('option[value="map"]');
-            if (!mapOption) {
-                mapOption = document.createElement("option");
-                mapOption.value = "map";
-                endSelect.appendChild(mapOption);
-            }
-            mapOption.textContent = "Kaartpunt (" +
-                latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4) + ")";
-            endSelect.value = "map";
-            destination = mapDestination;
+            destination = L.latLng(latlng.lat, latlng.lng);
             destinationName = "Kaartpunt";
             calculateRoute();
         }
 
         startSelect.addEventListener("change", function () {
             if (destination) calculateRoute();
-        });
-        endSelect.addEventListener("change", function () {
-            if (!endSelect.value) {
-                clearRoute();
-                return;
-            }
-            if (endSelect.value === "map") {
-                destination = mapDestination;
-                destinationName = "Kaartpunt";
-            } else {
-                const selected = routeLocations[Number(endSelect.value)];
-                if (!selected) return;
-                destination = L.latLng(selected.lat, selected.lon);
-                destinationName = selected.name;
-            }
-            calculateRoute();
         });
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
         map.on("click", function (event) {
@@ -932,7 +908,7 @@ var norway_option1_transfer_marker_0 = L.circleMarker(
     
             marker_664260231a7f875460f9c97ca76d43d5.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e67e22;font-size:16px">🏙️ Bergen (Fridalen)</b><br><span style="color:#555">Eindbestemming</span><hr style="margin:4px 0"><ul style='margin:4px 0 0 14px;padding:0'><li>Bryggen Hanzewijk</li><li>Fløibanen Kabelbaan & Mount Fløyen</li></ul><br><i style="color:#666;font-size:13px">Strategisch appartement in de groene woonwijk Fridalen, vlak bij de  tramhalte (Bybanen). Vermijdt duur stadsparkeren en drukte. 15 min van ferry.
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e67e22;font-size:16px">🏙️ Bergen (Fridalen)</b><br><span style="color:#555">Eindbestemming · ook startpunt routeplanner</span><hr style="margin:4px 0"><ul style='margin:4px 0 0 14px;padding:0'><li>Bryggen Hanzewijk</li><li>Fløibanen Kabelbaan & Mount Fløyen</li></ul><br><i style="color:#666;font-size:13px">Strategisch appartement in de groene woonwijk Fridalen, vlak bij de  tramhalte (Bybanen). Vermijdt duur stadsparkeren en drukte. 15 min van ferry.
 </i></div>
                  </div>`,
                 {

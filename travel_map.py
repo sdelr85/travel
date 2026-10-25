@@ -488,7 +488,6 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         const routeLocations = __LOCATIONS__;
         const routingUrl = __ROUTING_URL__;
         let destination = null;
-        let mapDestination = null;
         let destinationName = "";
         let activeRequest = null;
         const initialBounds = map.getBounds();
@@ -500,12 +499,10 @@ def _route_planner_html(map_name: str, locations: list) -> str:
             const container = L.DomUtil.create("div", "route-planner-control");
             container.innerHTML =
                 '<div class="route-planner-title">🧭 Routeplanner</div>' +
-                '<label for="route-planner-start">Startpunt</label>' +
+                '<label for="route-planner-start">Kies een bestemming als startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
-                '<label for="route-planner-end" style="margin-top:8px">Bestemming</label>' +
-                '<select id="route-planner-end"><option value="">Kies een bestemming</option></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
-                'Kies een startpunt en bestemming, of klik op de kaart.</div>' +
+                'Kies een startpunt en klik daarna op de kaart voor het tweede punt.</div>' +
                 '<div class="route-planner-summary" id="route-planner-summary"></div>' +
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
@@ -519,7 +516,6 @@ def _route_planner_html(map_name: str, locations: list) -> str:
 
         const panel = document.querySelector(".route-planner-control");
         const startSelect = panel.querySelector("#route-planner-start");
-        const endSelect = panel.querySelector("#route-planner-end");
         const status = panel.querySelector("#route-planner-status");
         const summary = panel.querySelector("#route-planner-summary");
         const directions = panel.querySelector("#route-planner-directions");
@@ -530,11 +526,6 @@ def _route_planner_html(map_name: str, locations: list) -> str:
             startOption.value = String(index);
             startOption.textContent = location.name;
             startSelect.appendChild(startOption);
-
-            const endOption = document.createElement("option");
-            endOption.value = String(index);
-            endOption.textContent = location.name;
-            endSelect.appendChild(endOption);
         });
 
         function setStatus(message, isError) {
@@ -558,17 +549,13 @@ def _route_planner_html(map_name: str, locations: list) -> str:
             if (activeRequest) activeRequest.abort();
             activeRequest = null;
             destination = null;
-            mapDestination = null;
             destinationName = "";
             routeLineLayer.clearLayers();
             routePointsLayer.clearLayers();
             summary.textContent = "";
             directions.hidden = true;
             directionsList.replaceChildren();
-            endSelect.value = "";
-            const mapOption = endSelect.querySelector('option[value="map"]');
-            if (mapOption) mapOption.remove();
-            setStatus("Kies een startpunt en bestemming, of klik op de kaart.");
+            setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
             if (initialBounds.isValid()) map.fitBounds(initialBounds);
         }
 
@@ -677,39 +664,13 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         }
 
         function chooseDestination(latlng) {
-            mapDestination = L.latLng(latlng.lat, latlng.lng);
-            let mapOption = endSelect.querySelector('option[value="map"]');
-            if (!mapOption) {
-                mapOption = document.createElement("option");
-                mapOption.value = "map";
-                endSelect.appendChild(mapOption);
-            }
-            mapOption.textContent = "Kaartpunt (" +
-                latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4) + ")";
-            endSelect.value = "map";
-            destination = mapDestination;
+            destination = L.latLng(latlng.lat, latlng.lng);
             destinationName = "Kaartpunt";
             calculateRoute();
         }
 
         startSelect.addEventListener("change", function () {
             if (destination) calculateRoute();
-        });
-        endSelect.addEventListener("change", function () {
-            if (!endSelect.value) {
-                clearRoute();
-                return;
-            }
-            if (endSelect.value === "map") {
-                destination = mapDestination;
-                destinationName = "Kaartpunt";
-            } else {
-                const selected = routeLocations[Number(endSelect.value)];
-                if (!selected) return;
-                destination = L.latLng(selected.lat, selected.lon);
-                destinationName = selected.name;
-            }
-            calculateRoute();
         });
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
         map.on("click", function (event) {
@@ -794,7 +755,7 @@ def _final_stop_tooltip(stop: dict) -> str:
     return (
         f'<div style="{TOOLTIP_STYLE}">'
         f'<b style="color:{color};font-size:16px">🏙️ {stop["name"]}</b><br>'
-        f'<span style="color:#555">Eindbestemming</span>'
+        f'<span style="color:#555">Eindbestemming · ook startpunt routeplanner</span>'
         f'<hr style="margin:4px 0">'
         f"<ul style='margin:4px 0 0 14px;padding:0'>{items}</ul>"
         f"{note_html}"
@@ -835,6 +796,15 @@ def build_map(data: dict) -> folium.Map:
             for candidate in _transfer_candidates(transfer)
             if "coordinates" in candidate
         )
+    route_planner_locations = [
+        location
+        for location in trip.get("route_planner_locations", [])
+        if "coordinates" in location
+    ]
+    visible_coords.extend(
+        [location["coordinates"]["lat"], location["coordinates"]["lon"]]
+        for location in route_planner_locations
+    )
     if final and "coordinates" in final:
         visible_coords.append(
             [final["coordinates"]["lat"], final["coordinates"]["lon"]]
@@ -884,6 +854,7 @@ def build_map(data: dict) -> folium.Map:
     fg_attractions = folium.FeatureGroup(name="● Bezienswaardigheden", show=True)
     fg_transfer = folium.FeatureGroup(name="◇ Tussenstops", show=True)
     fg_final = folium.FeatureGroup(name=f"★ {final_name}", show=True)
+    fg_route_points = folium.FeatureGroup(name="⚓ Start- en eindpunten", show=True)
     fg_airport = folium.FeatureGroup(name="✈ Luchthaven", show=True)
 
     # ── lodging + attractions ─────────────────────────────────────────────────
@@ -1010,6 +981,21 @@ def build_map(data: dict) -> folium.Map:
                 ),
             ).add_to(fg_final)
 
+    for location in route_planner_locations:
+        coords = location["coordinates"]
+        folium.Marker(
+            location=[coords["lat"], coords["lon"]],
+            tooltip=folium.Tooltip(
+                f'<div style="{TOOLTIP_STYLE}">'
+                f'<b>⚓ {location["name"]}</b><br>'
+                "Start- en eindpunt voor de routeplanner"
+                "</div>",
+                sticky=True,
+            ),
+            icon=folium.Icon(color="blue", icon="ship", prefix="fa"),
+            z_index_offset=2000,
+        ).add_to(fg_route_points)
+
     # ── airport ───────────────────────────────────────────────────────────────
     if airport and "coordinates" in airport:
         ac = airport["coordinates"]
@@ -1026,6 +1012,8 @@ def build_map(data: dict) -> folium.Map:
     layers = [fg_lodging, fg_attractions, fg_transfer]
     if final:
         layers.append(fg_final)
+    if route_planner_locations:
+        layers.append(fg_route_points)
     if airport:
         layers.append(fg_airport)
     for fg in layers:
@@ -1034,7 +1022,7 @@ def build_map(data: dict) -> folium.Map:
     route_locations = list(bases)
     if final:
         route_locations.append(final)
-    route_locations.extend(trip.get("route_planner_locations", []))
+    route_locations.extend(route_planner_locations)
     _add_route_planner(fmap, route_locations)
 
     return fmap
