@@ -427,6 +427,12 @@ def _transfer_stop_tooltip(stop: dict, route_desc: str, color: str) -> str:
     )
 
 
+def _transfer_candidates(transfer: dict) -> list:
+    return transfer.get("en_route_candidates", []) + transfer.get(
+        "en_route_stops", []
+    )
+
+
 def _final_stop_tooltip(stop: dict) -> str:
     color = FINAL_STOP_COLOR["hex"]
     attractions = stop.get("attractions", [])
@@ -477,7 +483,7 @@ def build_map(data: dict) -> folium.Map:
     for transfer in trip.get("transfer_routes", []):
         visible_coords.extend(
             [candidate["coordinates"]["lat"], candidate["coordinates"]["lon"]]
-            for candidate in transfer.get("en_route_candidates", [])
+            for candidate in _transfer_candidates(transfer)
             if "coordinates" in candidate
         )
     if final and "coordinates" in final:
@@ -633,7 +639,7 @@ def build_map(data: dict) -> folium.Map:
         )
         color = base_id_to_color.get(from_id, FINAL_STOP_COLOR)
 
-        for candidate in transfer.get("en_route_candidates", []):
+        for candidate in _transfer_candidates(transfer):
             ref = candidate.get("attraction_ref")
             if ref:
                 base_attr = attr_by_id.get(ref, {})
@@ -649,6 +655,11 @@ def build_map(data: dict) -> folium.Map:
                 **candidate,
                 "name": name,
             }
+            if "stop_duration_hours" not in merged and "duration_minutes" in merged:
+                merged["stop_duration_hours"] = merged["duration_minutes"] / 60
+            if "planning_note" not in merged:
+                merged["planning_note"] = merged.get("notes", "")
+            merged.setdefault("transfer_role", "candidate")
             pm = _priority(merged.get("priority", ""))
             folium.CircleMarker(
                 location=[coords["lat"], coords["lon"]],

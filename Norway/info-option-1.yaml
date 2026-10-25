@@ -417,9 +417,13 @@ trip:
     planning_note: "Mooie binnenlandse route langs meren en bergrivieren."
     en_route_stops:
       - name: Bygland (Setesdal)
+        priority: if_time
         type: scenic_coffee_stop
         duration_minutes: 45
         notes: "Gezellig houten dorpje aan het meer om even de benen te strekken."
+        coordinates:
+          lat: 58.8597
+          lon: 7.7771
 
   - id: transfer_base_1_to_base_2
     from: base_1
@@ -429,17 +433,29 @@ trip:
     planning_note: "Prachtige rit met verplichte tussenstops en korte veerboot Fodnes-Mannheller."
     en_route_stops:
       - name: Vøringsfossen Waterval & Trappenbrug
+        priority: must_do
         type: major_sightseeing_stop
         duration_minutes: 90
         notes: "Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof."
+        coordinates:
+          lat: 60.4266
+          lon: 7.2519
       - name: Stegastein Uitkijkpunt
+        priority: highly_recommended
         type: major_viewpoint_stop
         duration_minutes: 45
         notes: "Uitzichtplatform hangend boven de Aurlandsfjord."
+        coordinates:
+          lat: 60.9085
+          lon: 7.2137
       - name: Lærdalsøyri
+        priority: if_time
         type: historic_village_lunch_stop
         duration_minutes: 60
         notes: "Wandelen tussen de historische houten huisjes voor de lunch."
+        coordinates:
+          lat: 61.0985
+          lon: 7.4718
 
   - id: transfer_base_2_to_base_3
     from: base_2
@@ -449,9 +465,13 @@ trip:
     planning_note: "Zeer korte en ontspannen verhuisrit. Volledige dag beschikbaar voor activiteiten."
     en_route_stops:
       - name: Hornindalsvatnet
+        priority: if_time
         type: scenic_lake_stop
         duration_minutes: 30
         notes: "Korte stop bij het diepste meer van Europa."
+        coordinates:
+          lat: 61.9320
+          lon: 6.3487
 
   - id: transfer_base_3_to_bergen
     from: base_3
@@ -461,6 +481,10 @@ trip:
     planning_note: "Comfortabele rit via de E39 met twee korte fjordoversteken richting het appartement in Fridalen."
     en_route_stops:
       - name: Tvindefossen Waterval
+        priority: highly_recommended
         type: roadside_waterfall_stop
         duration_minutes: 30
         notes: "Ideale benen-strek stop langs de route met een mooie waterval."
+        coordinates:
+          lat: 60.7260
+          lon: 6.4910

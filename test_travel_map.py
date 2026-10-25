@@ -86,5 +86,51 @@ class MapOptionTests(unittest.TestCase):
         self.assertIn('<div class="cta">Bekijk kaart →</div>', page)
 
 
+class TransferStopTests(unittest.TestCase):
+    def test_map_renders_stops_from_the_option_one_yaml_schema(self):
+        fmap = travel_map.build_map(
+            {
+                "trip": {
+                    "country": "Norway",
+                    "lodging_locations": [],
+                    "transfer_routes": [
+                        {
+                            "from": "base_1",
+                            "to": "base_2",
+                            "description": "Geilo naar Aurland",
+                            "en_route_stops": [
+                                {
+                                    "name": "Stegastein",
+                                    "type": "viewpoint",
+                                    "duration_minutes": 45,
+                                    "notes": "Uitzicht over de fjord.",
+                                    "coordinates": {"lat": 60.9085, "lon": 7.2137},
+                                }
+                            ],
+                        }
+                    ],
+                }
+            }
+        )
+        transfer_layer = next(
+            child
+            for child in fmap._children.values()
+            if isinstance(child, folium.FeatureGroup)
+            and child.layer_name == "◇ Tussenstops"
+        )
+        markers = [
+            child
+            for child in transfer_layer._children.values()
+            if isinstance(child, folium.CircleMarker)
+        ]
+
+        self.assertEqual(len(markers), 1)
+        self.assertEqual(markers[0].location, [60.9085, 7.2137])
+        rendered_map = fmap.get_root().render()
+        self.assertIn("Stegastein", rendered_map)
+        self.assertIn("0.75 h", rendered_map)
+        self.assertIn("Uitzicht over de fjord.", rendered_map)
+
+
 if __name__ == "__main__":
     unittest.main()
