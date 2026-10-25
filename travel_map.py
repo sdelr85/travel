@@ -19,6 +19,7 @@ BASEMAP_ATTRIBUTION = (
     '&copy; <a href="https://www.openstreetmap.org/copyright">'
     "OpenStreetMap</a> contributors"
 )
+OSRM_ROUTING_URL = "https://router.project-osrm.org/route/v1/driving"
 
 # ISO 3166-1 alpha-2 codes used with the flag-icons CSS library
 COUNTRY_ISO = {
@@ -433,6 +434,311 @@ def _transfer_candidates(transfer: dict) -> list:
     )
 
 
+def _route_planner_html(map_name: str, bases: list) -> str:
+    route_starts = [
+        {
+            "name": loc["name"],
+            "lat": loc["coordinates"]["lat"],
+            "lon": loc["coordinates"]["lon"],
+        }
+        for loc in bases
+        if "coordinates" in loc
+    ]
+    if not route_starts:
+        return ""
+
+    import json
+
+    starts_json = json.dumps(route_starts, ensure_ascii=False).replace(
+        "<", r"\u003c"
+    )
+    route_planner = r"""
+    <!-- travel-route-planner:start -->
+    <style>
+        .route-planner-control {
+            width: min(300px, calc(100vw - 60px));
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            color: #263746;
+            font: 13px/1.4 sans-serif;
+        }
+        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .route-planner-control select {
+            width: 100%; padding: 7px; border: 1px solid #b8c2cc;
+            border-radius: 5px; background: white; color: #263746;
+        }
+        .route-planner-control button {
+            margin-top: 8px; padding: 6px 10px; border: 0; border-radius: 5px;
+            background: #e8edf2; color: #263746; cursor: pointer;
+        }
+        .route-planner-status { margin-top: 8px; }
+        .route-planner-summary { margin-top: 6px; white-space: pre-line; }
+        .route-planner-directions { margin-top: 8px; }
+        .route-planner-directions ol {
+            max-height: 180px; overflow-y: auto; padding-left: 22px;
+        }
+        .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+    </style>
+    <script>
+    window.addEventListener("load", function () {
+        const map = __MAP__;
+        const routeStarts = __STARTS__;
+        const routingUrl = __ROUTING_URL__;
+        let destination = null;
+        let activeRequest = null;
+        const initialBounds = map.getBounds();
+        const routeLineLayer = L.layerGroup().addTo(map);
+        const routePointsLayer = L.layerGroup().addTo(map);
+
+        const control = L.control({ position: "topleft" });
+        control.onAdd = function () {
+            const container = L.DomUtil.create("div", "route-planner-control");
+            container.innerHTML =
+                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label for="route-planner-start">Startverblijf</label>' +
+                '<select id="route-planner-start"></select>' +
+                '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
+                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                '<div class="route-planner-summary" id="route-planner-summary"></div>' +
+                '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
+                '<summary>Routebeschrijving</summary><ol></ol></details>' +
+                '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
+            return container;
+        };
+        control.addTo(map);
+
+        const panel = document.querySelector(".route-planner-control");
+        const startSelect = panel.querySelector("#route-planner-start");
+        const status = panel.querySelector("#route-planner-status");
+        const summary = panel.querySelector("#route-planner-summary");
+        const directions = panel.querySelector("#route-planner-directions");
+        const directionsList = directions.querySelector("ol");
+
+        routeStarts.forEach(function (start, index) {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
+            startSelect.appendChild(option);
+        });
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? "#b42318" : "#263746";
+        }
+
+        function formatDistance(meters) {
+            return (meters / 1000).toFixed(1).replace(".", ",") + " km";
+        }
+
+        function formatDuration(seconds) {
+            const minutes = Math.round(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const remainder = minutes % 60;
+            if (!hours) return minutes + " min";
+            return hours + " u" + (remainder ? " " + remainder + " min" : "");
+        }
+
+        function clearRoute() {
+            if (activeRequest) activeRequest.abort();
+            activeRequest = null;
+            destination = null;
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            if (initialBounds.isValid()) map.fitBounds(initialBounds);
+        }
+
+        function instructionFor(step) {
+            if (step.mode === "ferry") return "Neem de veerboot";
+            const maneuver = step.maneuver || {};
+            const action = {
+                depart: "Vertrek",
+                arrive: "Aankomst",
+                turn: "Sla af",
+                "end of road": "Sla aan het einde van de weg af",
+                continue: "Ga verder",
+                merge: "Voeg in",
+                fork: "Houd aan",
+                "on ramp": "Neem de oprit",
+                "off ramp": "Neem de afrit",
+                roundabout: "Neem de rotonde",
+                rotary: "Neem de rotonde"
+            }[maneuver.type] || "Vervolg";
+            const direction = {
+                left: "links",
+                right: "rechts",
+                straight: "rechtdoor",
+                "slight left": "licht links",
+                "slight right": "licht rechts",
+                "sharp left": "scherp links",
+                "sharp right": "scherp rechts",
+                uturn: "keer om"
+            }[maneuver.modifier] || "";
+            return action + (direction ? " " + direction : "");
+        }
+
+        async function calculateRoute() {
+            if (!destination) return;
+            if (activeRequest) activeRequest.abort();
+            const controller = new AbortController();
+            activeRequest = controller;
+            const start = routeStarts[Number(startSelect.value)];
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            L.circleMarker([start.lat, start.lon], {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#2980b9",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Start: " + start.name).addTo(routePointsLayer);
+            L.circleMarker(destination, {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            setStatus("Route wordt berekend…");
+
+            const coordinates = start.lon + "," + start.lat + ";" +
+                destination.lng + "," + destination.lat;
+            const url = routingUrl + "/" + coordinates +
+                "?overview=full&geometries=geojson&steps=true";
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error("Route-service antwoordde met HTTP " + response.status + ".");
+                const result = await response.json();
+                if (activeRequest !== controller) return;
+                if (result.code !== "Ok" || !result.routes || !result.routes.length) {
+                    throw new Error(result.message || "Er is geen autoroute gevonden.");
+                }
+
+                const route = result.routes[0];
+                const routeLine = L.geoJSON(route.geometry, {
+                    style: { color: "#1769aa", weight: 5, opacity: 0.85 },
+                    bubblingMouseEvents: false
+                }).addTo(routeLineLayer);
+                map.fitBounds(routeLine.getBounds().pad(0.12));
+
+                const steps = (route.legs || []).flatMap(function (leg) {
+                    return leg.steps || [];
+                });
+                const ferrySteps = steps.filter(function (step) {
+                    return step.mode === "ferry" ||
+                        /\b(ferry|veerboot|ferje|ferge)\b/i.test(step.name || "");
+                });
+                const ferryText = ferrySteps.length
+                    ? "⛴ Veerboot: " + ferrySteps.map(function (step) {
+                        return (step.name || "veerboottraject") +
+                            " (" + formatDuration(step.duration) + ")";
+                    }).join("; ")
+                    : "⛴ Geen veerbootsegment herkend";
+                summary.textContent = formatDistance(route.distance) + " · " +
+                    formatDuration(route.duration) + "\n" + ferryText;
+                setStatus("Route berekend.");
+
+                steps.forEach(function (step) {
+                    if (!step.distance && !step.duration) return;
+                    const item = document.createElement("li");
+                    item.textContent = instructionFor(step) +
+                        (step.name ? " — " + step.name : "") +
+                        " · " + formatDistance(step.distance) +
+                        " · " + formatDuration(step.duration);
+                    directionsList.appendChild(item);
+                });
+                directions.hidden = directionsList.children.length === 0;
+            } catch (error) {
+                if (error.name === "AbortError") return;
+                setStatus("Routeberekening mislukt: " + error.message, true);
+            }
+        }
+
+        function chooseDestination(latlng) {
+            destination = L.latLng(latlng.lat, latlng.lng);
+            calculateRoute();
+        }
+
+        startSelect.addEventListener("change", function () {
+            if (destination) calculateRoute();
+        });
+        panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        map.on("click", function (event) {
+            chooseDestination(event.latlng);
+        });
+
+        function enableMarkerDestinations(layer) {
+            if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+                layer.on("click", function (event) {
+                    if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+                    chooseDestination(event.latlng);
+                });
+            }
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(enableMarkerDestinations);
+            }
+        }
+        map.eachLayer(enableMarkerDestinations);
+    });
+    </script>
+    <!-- travel-route-planner:end -->
+    """
+    route_planner = (
+        route_planner.replace("__MAP__", map_name)
+        .replace("__STARTS__", starts_json)
+        .replace("__ROUTING_URL__", json.dumps(OSRM_ROUTING_URL))
+    )
+    return route_planner.strip()
+
+
+def _add_route_planner(fmap: folium.Map, bases: list) -> None:
+    route_planner = _route_planner_html(fmap.get_name(), bases)
+    if route_planner:
+        fmap.get_root().html.add_child(folium.Element(route_planner))
+
+
+def _legend_html(display_country: str, flag_html: str, bases: list) -> str:
+    legend_rows = "".join(
+        f'<li><span style="color:{BASE_COLORS[i % len(BASE_COLORS)]["hex"]};'
+        f'font-size:13px">●</span> {loc["name"]}</li>'
+        for i, loc in enumerate(bases)
+    )
+    return f"""
+    <style>
+        .travel-legend {{
+            position: fixed; bottom: 18px; left: 18px; z-index: 1000;
+            max-width: min(290px, calc(100vw - 32px));
+            background: rgba(255,255,255,.96); padding: 9px 12px;
+            border-radius: 7px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            font: 11px/1.35 sans-serif; color: #263746;
+        }}
+        .travel-legend-country {{ font-size: 12px; }}
+        .travel-legend-subtitle {{ margin-top: 4px; font-weight: 600; }}
+        .travel-legend ol {{ margin: 3px 0 0 20px; padding: 0; }}
+        .travel-legend li {{ padding: 1px 0; }}
+        @media (max-width: 600px) {{
+            .travel-legend {{
+                bottom: 8px; left: 8px;
+                max-width: min(220px, calc(100vw - 20px));
+                max-height: 28vh; overflow-y: auto; padding: 7px 9px;
+                font-size: 10px;
+            }}
+        }}
+    </style>
+    <div class="travel-legend">
+        <b class="travel-legend-country">Land: {flag_html}{display_country}</b>
+        <div class="travel-legend-subtitle">Verblijfplaatsen</div>
+        <ol>{legend_rows}</ol>
+    </div>
+    """.strip()
+
+
 def _final_stop_tooltip(stop: dict) -> str:
     color = FINAL_STOP_COLOR["hex"]
     attractions = stop.get("attractions", [])
@@ -526,57 +832,7 @@ def build_map(data: dict) -> folium.Map:
 
     # ── legend ────────────────────────────────────────────────────────────────
     bases = trip.get("lodging_locations", [])
-    legend_rows = ""
-    for i, loc in enumerate(bases):
-        c = BASE_COLORS[i % len(BASE_COLORS)]["hex"]
-        legend_rows += (
-            f'<tr><td><span style="color:{c};font-size:18px">■</span></td>'
-            f'<td style="padding-left:6px">{loc["name"]}</td></tr>'
-        )
-    if final:
-        legend_rows += (
-            f'<tr><td><span style="color:{FINAL_STOP_COLOR["hex"]};font-size:18px">■</span></td>'
-            f'<td style="padding-left:6px">{final_name} (eindbestemming)</td></tr>'
-        )
-    priority_rows = "".join(
-        f'<tr><td>{v["stars"]}</td><td style="padding-left:6px">{v["label"]}</td></tr>'
-        for v in PRIORITY_META.values()
-    )
-    legend_html = f"""
-    <style>
-        @media (max-width: 600px) {{
-            .travel-legend {{
-                bottom: 8px !important;
-                left: 8px !important;
-                right: 8px !important;
-                max-height: 38vh;
-                overflow-y: auto;
-                font-size: 11px !important;
-                padding: 8px 10px !important;
-            }}
-        }}
-    </style>
-    <div class="travel-legend" style="
-        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-        background: white; padding: 12px 16px; border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
-    ">
-        <b style="font-size:15px">{flag_html}{display_country}</b>
-        <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px">{legend_rows}</table>
-        <hr style="margin:8px 0">
-        <b style="font-size:14px">Prioriteit (markergrootte)</b>
-        <table style="border-collapse:collapse;margin-top:4px">{priority_rows}</table>
-        <hr style="margin:8px 0">
-        <span style="font-size:12px;color:#666">
-            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
-        </span>
-        <hr style="margin:8px 0">
-        <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
-    </div>
-    """
+    legend_html = _legend_html(display_country, flag_html, bases)
     fmap.get_root().header.add_child(folium.Element(FLAG_ICONS_CDN))
     fmap.get_root().html.add_child(folium.Element(legend_html))
 
@@ -732,6 +988,7 @@ def build_map(data: dict) -> folium.Map:
     for fg in layers:
         fg.add_to(fmap)
     folium.LayerControl(collapsed=False).add_to(fmap)
+    _add_route_planner(fmap, bases)
 
     return fmap
 

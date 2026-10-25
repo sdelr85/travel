@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_02da3e9d160a0cb4dda4847cbe42acf3 {
+                #map_b8a6d3bf7b76dab1525b1c53aae62584 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,50 +54,276 @@
 </head>
 <body>
     
-    
     <style>
+        .travel-legend {
+            position: fixed; bottom: 18px; left: 18px; z-index: 1000;
+            max-width: min(290px, calc(100vw - 32px));
+            background: rgba(255,255,255,.96); padding: 9px 12px;
+            border-radius: 7px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            font: 11px/1.35 sans-serif; color: #263746;
+        }
+        .travel-legend-country { font-size: 12px; }
+        .travel-legend-subtitle { margin-top: 4px; font-weight: 600; }
+        .travel-legend ol { margin: 3px 0 0 20px; padding: 0; }
+        .travel-legend li { padding: 1px 0; }
         @media (max-width: 600px) {
             .travel-legend {
-                bottom: 8px !important;
-                left: 8px !important;
-                right: 8px !important;
-                max-height: 38vh;
-                overflow-y: auto;
-                font-size: 11px !important;
-                padding: 8px 10px !important;
+                bottom: 8px; left: 8px;
+                max-width: min(220px, calc(100vw - 20px));
+                max-height: 28vh; overflow-y: auto; padding: 7px 9px;
+                font-size: 10px;
             }
         }
     </style>
-    <div class="travel-legend" style="
-        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-        background: white; padding: 12px 16px; border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
-    ">
-        <b style="font-size:15px"><span class="fi fi-ge" style="border-radius:3px;margin-right:5px"></span>Georgië</b>
-        <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Tbilisi</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Kazbegi / Stepantsminda</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Kakheti</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Mestia</td></tr></table>
-        <hr style="margin:8px 0">
-        <b style="font-size:14px">Prioriteit (markergrootte)</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
-        <hr style="margin:8px 0">
-        <span style="font-size:12px;color:#666">
-            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
-        </span>
-        <hr style="margin:8px 0">
-        <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
+    <div class="travel-legend">
+        <b class="travel-legend-country">Land: <span class="fi fi-ge" style="border-radius:3px;margin-right:5px"></span>Georgië</b>
+        <div class="travel-legend-subtitle">Verblijfplaatsen</div>
+        <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Tbilisi</li><li><span style="color:#2980b9;font-size:13px">●</span> Kazbegi / Stepantsminda</li><li><span style="color:#27ae60;font-size:13px">●</span> Kakheti</li><li><span style="color:#8e44ad;font-size:13px">●</span> Mestia</li></ol>
     </div>
+    <!-- travel-route-planner:start -->
+    <style>
+        .route-planner-control {
+            width: min(300px, calc(100vw - 60px));
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            color: #263746;
+            font: 13px/1.4 sans-serif;
+        }
+        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .route-planner-control select {
+            width: 100%; padding: 7px; border: 1px solid #b8c2cc;
+            border-radius: 5px; background: white; color: #263746;
+        }
+        .route-planner-control button {
+            margin-top: 8px; padding: 6px 10px; border: 0; border-radius: 5px;
+            background: #e8edf2; color: #263746; cursor: pointer;
+        }
+        .route-planner-status { margin-top: 8px; }
+        .route-planner-summary { margin-top: 6px; white-space: pre-line; }
+        .route-planner-directions { margin-top: 8px; }
+        .route-planner-directions ol {
+            max-height: 180px; overflow-y: auto; padding-left: 22px;
+        }
+        .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+    </style>
+    <script>
+    window.addEventListener("load", function () {
+        const map = map_b8a6d3bf7b76dab1525b1c53aae62584;
+        const routeStarts = [{"name": "Tbilisi", "lat": 41.7151, "lon": 44.8271}, {"name": "Kazbegi / Stepantsminda", "lat": 42.656, "lon": 44.643}, {"name": "Kakheti", "lat": 41.9198, "lon": 45.473}, {"name": "Mestia", "lat": 43.0458, "lon": 42.7278}];
+        const routingUrl = "https://router.project-osrm.org/route/v1/driving";
+        let destination = null;
+        let activeRequest = null;
+        const initialBounds = map.getBounds();
+        const routeLineLayer = L.layerGroup().addTo(map);
+        const routePointsLayer = L.layerGroup().addTo(map);
+
+        const control = L.control({ position: "topleft" });
+        control.onAdd = function () {
+            const container = L.DomUtil.create("div", "route-planner-control");
+            container.innerHTML =
+                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label for="route-planner-start">Startverblijf</label>' +
+                '<select id="route-planner-start"></select>' +
+                '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
+                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                '<div class="route-planner-summary" id="route-planner-summary"></div>' +
+                '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
+                '<summary>Routebeschrijving</summary><ol></ol></details>' +
+                '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
+            return container;
+        };
+        control.addTo(map);
+
+        const panel = document.querySelector(".route-planner-control");
+        const startSelect = panel.querySelector("#route-planner-start");
+        const status = panel.querySelector("#route-planner-status");
+        const summary = panel.querySelector("#route-planner-summary");
+        const directions = panel.querySelector("#route-planner-directions");
+        const directionsList = directions.querySelector("ol");
+
+        routeStarts.forEach(function (start, index) {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
+            startSelect.appendChild(option);
+        });
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? "#b42318" : "#263746";
+        }
+
+        function formatDistance(meters) {
+            return (meters / 1000).toFixed(1).replace(".", ",") + " km";
+        }
+
+        function formatDuration(seconds) {
+            const minutes = Math.round(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const remainder = minutes % 60;
+            if (!hours) return minutes + " min";
+            return hours + " u" + (remainder ? " " + remainder + " min" : "");
+        }
+
+        function clearRoute() {
+            if (activeRequest) activeRequest.abort();
+            activeRequest = null;
+            destination = null;
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            if (initialBounds.isValid()) map.fitBounds(initialBounds);
+        }
+
+        function instructionFor(step) {
+            if (step.mode === "ferry") return "Neem de veerboot";
+            const maneuver = step.maneuver || {};
+            const action = {
+                depart: "Vertrek",
+                arrive: "Aankomst",
+                turn: "Sla af",
+                "end of road": "Sla aan het einde van de weg af",
+                continue: "Ga verder",
+                merge: "Voeg in",
+                fork: "Houd aan",
+                "on ramp": "Neem de oprit",
+                "off ramp": "Neem de afrit",
+                roundabout: "Neem de rotonde",
+                rotary: "Neem de rotonde"
+            }[maneuver.type] || "Vervolg";
+            const direction = {
+                left: "links",
+                right: "rechts",
+                straight: "rechtdoor",
+                "slight left": "licht links",
+                "slight right": "licht rechts",
+                "sharp left": "scherp links",
+                "sharp right": "scherp rechts",
+                uturn: "keer om"
+            }[maneuver.modifier] || "";
+            return action + (direction ? " " + direction : "");
+        }
+
+        async function calculateRoute() {
+            if (!destination) return;
+            if (activeRequest) activeRequest.abort();
+            const controller = new AbortController();
+            activeRequest = controller;
+            const start = routeStarts[Number(startSelect.value)];
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            L.circleMarker([start.lat, start.lon], {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#2980b9",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Start: " + start.name).addTo(routePointsLayer);
+            L.circleMarker(destination, {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            setStatus("Route wordt berekend…");
+
+            const coordinates = start.lon + "," + start.lat + ";" +
+                destination.lng + "," + destination.lat;
+            const url = routingUrl + "/" + coordinates +
+                "?overview=full&geometries=geojson&steps=true";
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error("Route-service antwoordde met HTTP " + response.status + ".");
+                const result = await response.json();
+                if (activeRequest !== controller) return;
+                if (result.code !== "Ok" || !result.routes || !result.routes.length) {
+                    throw new Error(result.message || "Er is geen autoroute gevonden.");
+                }
+
+                const route = result.routes[0];
+                const routeLine = L.geoJSON(route.geometry, {
+                    style: { color: "#1769aa", weight: 5, opacity: 0.85 },
+                    bubblingMouseEvents: false
+                }).addTo(routeLineLayer);
+                map.fitBounds(routeLine.getBounds().pad(0.12));
+
+                const steps = (route.legs || []).flatMap(function (leg) {
+                    return leg.steps || [];
+                });
+                const ferrySteps = steps.filter(function (step) {
+                    return step.mode === "ferry" ||
+                        /\b(ferry|veerboot|ferje|ferge)\b/i.test(step.name || "");
+                });
+                const ferryText = ferrySteps.length
+                    ? "⛴ Veerboot: " + ferrySteps.map(function (step) {
+                        return (step.name || "veerboottraject") +
+                            " (" + formatDuration(step.duration) + ")";
+                    }).join("; ")
+                    : "⛴ Geen veerbootsegment herkend";
+                summary.textContent = formatDistance(route.distance) + " · " +
+                    formatDuration(route.duration) + "\n" + ferryText;
+                setStatus("Route berekend.");
+
+                steps.forEach(function (step) {
+                    if (!step.distance && !step.duration) return;
+                    const item = document.createElement("li");
+                    item.textContent = instructionFor(step) +
+                        (step.name ? " — " + step.name : "") +
+                        " · " + formatDistance(step.distance) +
+                        " · " + formatDuration(step.duration);
+                    directionsList.appendChild(item);
+                });
+                directions.hidden = directionsList.children.length === 0;
+            } catch (error) {
+                if (error.name === "AbortError") return;
+                setStatus("Routeberekening mislukt: " + error.message, true);
+            }
+        }
+
+        function chooseDestination(latlng) {
+            destination = L.latLng(latlng.lat, latlng.lng);
+            calculateRoute();
+        }
+
+        startSelect.addEventListener("change", function () {
+            if (destination) calculateRoute();
+        });
+        panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        map.on("click", function (event) {
+            chooseDestination(event.latlng);
+        });
+
+        function enableMarkerDestinations(layer) {
+            if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+                layer.on("click", function (event) {
+                    if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+                    chooseDestination(event.latlng);
+                });
+            }
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(enableMarkerDestinations);
+            }
+        }
+        map.eachLayer(enableMarkerDestinations);
+    });
+    </script>
+    <!-- travel-route-planner:end -->
     
-    
-            <div class="folium-map" id="map_02da3e9d160a0cb4dda4847cbe42acf3" ></div>
+            <div class="folium-map" id="map_b8a6d3bf7b76dab1525b1c53aae62584" ></div>
         
 </body>
 <script>
     
     
-            var map_02da3e9d160a0cb4dda4847cbe42acf3 = L.map(
-                "map_02da3e9d160a0cb4dda4847cbe42acf3",
+            var map_b8a6d3bf7b76dab1525b1c53aae62584 = L.map(
+                "map_b8a6d3bf7b76dab1525b1c53aae62584",
                 {
                     center: [42.346608333333336, 44.34970833333333],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +340,7 @@
 
         
     
-            var tile_layer_9ce1784d3780873b29892b881ff8d1f3 = L.tileLayer(
+            var tile_layer_6e926ae3a3e54eff46bf9837dd9e5da9 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -131,30 +357,30 @@
             );
         
     
-            tile_layer_9ce1784d3780873b29892b881ff8d1f3.addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            tile_layer_6e926ae3a3e54eff46bf9837dd9e5da9.addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
         
     
-            map_02da3e9d160a0cb4dda4847cbe42acf3.fitBounds(
+            map_b8a6d3bf7b76dab1525b1c53aae62584.fitBounds(
                 [[41.7151, 44.8271], [42.656, 44.643], [41.9198, 45.473], [43.0458, 42.7278], [41.6907, 44.8078], [41.6879, 44.8098], [41.77, 44.81], [41.694, 44.786], [42.6625, 44.62], [42.722, 44.56], [42.607, 44.363], [42.606, 44.633], [42.504, 44.556], [41.62, 45.923], [42.032, 45.377], [41.9198, 45.473], [42.916, 43.011], [43.067, 42.699], [43.082, 42.728], [43.0458, 42.7278], [43.053, 42.7], [42.163, 44.703], [42.47, 44.48], [41.6692, 44.9547]],
                 {}
             );
         
     
-            var feature_group_d9f97cda590fe501e9b93fcb338e97d3 = L.featureGroup(
+            var feature_group_445cb7db5fede9b94b22f0e48848965b = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_108b8bf7f5cdfb87c50eb7fa0927a9bb = L.marker(
+            var marker_c893387e6e535a75d6865106b1f628bd = L.marker(
                 [41.7151, 44.8271],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_d9f97cda590fe501e9b93fcb338e97d3);
+            ).addTo(feature_group_445cb7db5fede9b94b22f0e48848965b);
         
     
-            var icon_0c776d0930a34a3d371805fa354b1f34 = L.AwesomeMarkers.icon(
+            var icon_3d2b96066631af6bfb58690154d153eb = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,7 +391,7 @@
             );
         
     
-            marker_108b8bf7f5cdfb87c50eb7fa0927a9bb.bindTooltip(
+            marker_c893387e6e535a75d6865106b1f628bd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Tbilisi</b><br><span style="color:#555">Oost-Georgië</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3</div>
                  </div>`,
@@ -175,18 +401,18 @@
             );
         
     
-                marker_108b8bf7f5cdfb87c50eb7fa0927a9bb.setIcon(icon_0c776d0930a34a3d371805fa354b1f34);
+                marker_c893387e6e535a75d6865106b1f628bd.setIcon(icon_3d2b96066631af6bfb58690154d153eb);
             
     
-            var marker_e683ac073a4337335baacbc9e9b8ee84 = L.marker(
+            var marker_ae0e894ad1953e18256d7177b785bc7e = L.marker(
                 [42.656, 44.643],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_d9f97cda590fe501e9b93fcb338e97d3);
+            ).addTo(feature_group_445cb7db5fede9b94b22f0e48848965b);
         
     
-            var icon_aede3bbf3e1aaf3c7e6a823be512869b = L.AwesomeMarkers.icon(
+            var icon_24c525a628f0a233059a5b26ba85ced6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -197,7 +423,7 @@
             );
         
     
-            marker_e683ac073a4337335baacbc9e9b8ee84.bindTooltip(
+            marker_ae0e894ad1953e18256d7177b785bc7e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Kazbegi / Stepantsminda</b><br><span style="color:#555">Grotere Kaukasus</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4</div>
                  </div>`,
@@ -207,18 +433,18 @@
             );
         
     
-                marker_e683ac073a4337335baacbc9e9b8ee84.setIcon(icon_aede3bbf3e1aaf3c7e6a823be512869b);
+                marker_ae0e894ad1953e18256d7177b785bc7e.setIcon(icon_24c525a628f0a233059a5b26ba85ced6);
             
     
-            var marker_19540dfa9e1bd8bbc0b86974bd19e12e = L.marker(
+            var marker_37682185d27a4c31d3aa6f5877d1f2e6 = L.marker(
                 [41.9198, 45.473],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_d9f97cda590fe501e9b93fcb338e97d3);
+            ).addTo(feature_group_445cb7db5fede9b94b22f0e48848965b);
         
     
-            var icon_2690cbe316b54dcbc7d1c65248b36b4a = L.AwesomeMarkers.icon(
+            var icon_9342f2bc822c2da1f77280799af3eb48 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -229,7 +455,7 @@
             );
         
     
-            marker_19540dfa9e1bd8bbc0b86974bd19e12e.bindTooltip(
+            marker_37682185d27a4c31d3aa6f5877d1f2e6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Kakheti</b><br><span style="color:#555">Wijnstreek</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3</div>
                  </div>`,
@@ -239,18 +465,18 @@
             );
         
     
-                marker_19540dfa9e1bd8bbc0b86974bd19e12e.setIcon(icon_2690cbe316b54dcbc7d1c65248b36b4a);
+                marker_37682185d27a4c31d3aa6f5877d1f2e6.setIcon(icon_9342f2bc822c2da1f77280799af3eb48);
             
     
-            var marker_e7945ad83dcb28fc79ad86647016f959 = L.marker(
+            var marker_75021b1d8fa48e98cc52ac654ca40a2a = L.marker(
                 [43.0458, 42.7278],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_d9f97cda590fe501e9b93fcb338e97d3);
+            ).addTo(feature_group_445cb7db5fede9b94b22f0e48848965b);
         
     
-            var icon_58e5af658365435f7520e34030825bce = L.AwesomeMarkers.icon(
+            var icon_8c19f8ad0722cf36cb9e031997aac4f6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -261,7 +487,7 @@
             );
         
     
-            marker_e7945ad83dcb28fc79ad86647016f959.bindTooltip(
+            marker_75021b1d8fa48e98cc52ac654ca40a2a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Mestia</b><br><span style="color:#555">Svaneti</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Eén van de meest spectaculaire berggebieden van Europa.</i></div>
                  </div>`,
@@ -271,25 +497,25 @@
             );
         
     
-                marker_e7945ad83dcb28fc79ad86647016f959.setIcon(icon_58e5af658365435f7520e34030825bce);
+                marker_75021b1d8fa48e98cc52ac654ca40a2a.setIcon(icon_8c19f8ad0722cf36cb9e031997aac4f6);
             
     
-            feature_group_d9f97cda590fe501e9b93fcb338e97d3.addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            feature_group_445cb7db5fede9b94b22f0e48848965b.addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
         
     
-            var feature_group_f1bf438f1906a88c187a736684ae9b1b = L.featureGroup(
+            var feature_group_4c43a752e72a94315ae38ac2924909db = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3691e744d44f72c96bf2184b6e0e75fa = L.circleMarker(
+            var circle_marker_4df11327dcd813ff6be97476f7a96ed0 = L.circleMarker(
                 [41.6907, 44.8078],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_3691e744d44f72c96bf2184b6e0e75fa.bindTooltip(
+            circle_marker_4df11327dcd813ff6be97476f7a96ed0.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Oud Tbilisi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Tbilisi</span></div>
                  </div>`,
@@ -299,13 +525,13 @@
             );
         
     
-            var circle_marker_0807b6ecfccb78a3f53bf7d5f91189da = L.circleMarker(
+            var circle_marker_0b002672c91a2f940b5fe930cdc8276b = L.circleMarker(
                 [41.6879, 44.8098],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_0807b6ecfccb78a3f53bf7d5f91189da.bindTooltip(
+            circle_marker_0b002672c91a2f940b5fe930cdc8276b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het Narikala-fort</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#e74c3c">Tbilisi</span></div>
                  </div>`,
@@ -315,13 +541,13 @@
             );
         
     
-            var circle_marker_2fcd616686317de03739735a3e933c71 = L.circleMarker(
+            var circle_marker_72214a7033ce3d65fae51b86cc96cbcd = L.circleMarker(
                 [41.77, 44.81],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_2fcd616686317de03739735a3e933c71.bindTooltip(
+            circle_marker_72214a7033ce3d65fae51b86cc96cbcd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kronieken van Georgië</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> monument<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#e74c3c">Tbilisi</span></div>
                  </div>`,
@@ -331,13 +557,13 @@
             );
         
     
-            var circle_marker_b71a0c45e32d0281c1b6e3138754f225 = L.circleMarker(
+            var circle_marker_e085043f073486946fb946be6af7f1a4 = L.circleMarker(
                 [41.694, 44.786],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_b71a0c45e32d0281c1b6e3138754f225.bindTooltip(
+            circle_marker_e085043f073486946fb946be6af7f1a4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mtatsminda Park-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Tbilisi</span></div>
                  </div>`,
@@ -347,13 +573,13 @@
             );
         
     
-            var circle_marker_0011c959c1cadfad21fca33910d01cd8 = L.circleMarker(
+            var circle_marker_02eb1827812e63503f113f92268f7a42 = L.circleMarker(
                 [42.6625, 44.62],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_0011c959c1cadfad21fca33910d01cd8.bindTooltip(
+            circle_marker_02eb1827812e63503f113f92268f7a42.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Drievuldigheidskerk van Gergeti</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
                  </div>`,
@@ -363,13 +589,13 @@
             );
         
     
-            var circle_marker_85faf29dfc28ade26641abdee12979a2 = L.circleMarker(
+            var circle_marker_6161084cd3e04f8606e449491ff56bce = L.circleMarker(
                 [42.722, 44.56],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_85faf29dfc28ade26641abdee12979a2.bindTooltip(
+            circle_marker_6161084cd3e04f8606e449491ff56bce.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Gergeti-gletsjerroute</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 6 h<br><b>Basis:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
                  </div>`,
@@ -379,13 +605,13 @@
             );
         
     
-            var circle_marker_4a7c52f5e5c346681bdb2e9f6ec0d127 = L.circleMarker(
+            var circle_marker_b140331cab1208246dac9835a5eb5a29 = L.circleMarker(
                 [42.607, 44.363],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_4a7c52f5e5c346681bdb2e9f6ec0d127.bindTooltip(
+            circle_marker_b140331cab1208246dac9835a5eb5a29.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Truso-vallei</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> valleiwandeling<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
                  </div>`,
@@ -395,13 +621,13 @@
             );
         
     
-            var circle_marker_a57b4c96bba5214dcb33d202b9c94114 = L.circleMarker(
+            var circle_marker_748e85cdf0174395bf3862ccdacc01c7 = L.circleMarker(
                 [42.606, 44.633],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_a57b4c96bba5214dcb33d202b9c94114.bindTooltip(
+            circle_marker_748e85cdf0174395bf3862ccdacc01c7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sno-vallei</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige vallei<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
                  </div>`,
@@ -411,13 +637,13 @@
             );
         
     
-            var circle_marker_873e832a5bd4ccd44440aa4cef2ac821 = L.circleMarker(
+            var circle_marker_f4bb7bb67ec0ea667e48d64bdfebfe37 = L.circleMarker(
                 [42.504, 44.556],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_873e832a5bd4ccd44440aa4cef2ac821.bindTooltip(
+            circle_marker_f4bb7bb67ec0ea667e48d64bdfebfe37.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Georgische militaire snelweg</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Kazbegi / Stepantsminda</span></div>
                  </div>`,
@@ -427,13 +653,13 @@
             );
         
     
-            var circle_marker_e18b804ebb61539834b24bb54b5ce1a4 = L.circleMarker(
+            var circle_marker_497d74edc81b44a468bb1383c27b27e7 = L.circleMarker(
                 [41.62, 45.923],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_e18b804ebb61539834b24bb54b5ce1a4.bindTooltip(
+            circle_marker_497d74edc81b44a468bb1383c27b27e7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Signagi</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> heuvelstadje<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#27ae60">Kakheti</span></div>
                  </div>`,
@@ -443,13 +669,13 @@
             );
         
     
-            var circle_marker_d11975d36ed620e3ff4fa0ee84e9ec0b = L.circleMarker(
+            var circle_marker_c7836ed0b48256ed521b3b3dea595f28 = L.circleMarker(
                 [42.032, 45.377],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_d11975d36ed620e3ff4fa0ee84e9ec0b.bindTooltip(
+            circle_marker_c7836ed0b48256ed521b3b3dea595f28.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het Alaverdi-klooster</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> klooster<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#27ae60">Kakheti</span></div>
                  </div>`,
@@ -459,13 +685,13 @@
             );
         
     
-            var circle_marker_a5d287021f51191e702e8461b269d365 = L.circleMarker(
+            var circle_marker_d0cc958372b366aea85089d1958e2e81 = L.circleMarker(
                 [41.9198, 45.473],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_a5d287021f51191e702e8461b269d365.bindTooltip(
+            circle_marker_d0cc958372b366aea85089d1958e2e81.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kakheti-wijngaarden</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Kakheti</span></div>
                  </div>`,
@@ -475,13 +701,13 @@
             );
         
     
-            var circle_marker_8347e43e5161dec81a95ff251d3381e1 = L.circleMarker(
+            var circle_marker_f9d9e8abbcdccd4860d7132984e76027 = L.circleMarker(
                 [42.916, 43.011],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_8347e43e5161dec81a95ff251d3381e1.bindTooltip(
+            circle_marker_f9d9e8abbcdccd4860d7132984e76027.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ushguli</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergdorp<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#8e44ad">Mestia</span></div>
                  </div>`,
@@ -491,13 +717,13 @@
             );
         
     
-            var circle_marker_711e8aa550b4d3cb0945e0f6ff4b7aa3 = L.circleMarker(
+            var circle_marker_595c26f9fdfc5478b390db3427b256d7 = L.circleMarker(
                 [43.067, 42.699],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_711e8aa550b4d3cb0945e0f6ff4b7aa3.bindTooltip(
+            circle_marker_595c26f9fdfc5478b390db3427b256d7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Chaladigletsjer</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjerwandeling<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#8e44ad">Mestia</span></div>
                  </div>`,
@@ -507,13 +733,13 @@
             );
         
     
-            var circle_marker_6e182538c7a41508b2551366a06da761 = L.circleMarker(
+            var circle_marker_20639fa66e1babf926cb8e2d5752d395 = L.circleMarker(
                 [43.082, 42.728],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_6e182538c7a41508b2551366a06da761.bindTooltip(
+            circle_marker_20639fa66e1babf926cb8e2d5752d395.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Koruldi-meren</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpine wandeling<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#8e44ad">Mestia</span></div>
                  </div>`,
@@ -523,13 +749,13 @@
             );
         
     
-            var circle_marker_3a7f235a99f9764a0708108670512102 = L.circleMarker(
+            var circle_marker_4622e90b886d16d2ecb003ecf5120ace = L.circleMarker(
                 [43.0458, 42.7278],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_3a7f235a99f9764a0708108670512102.bindTooltip(
+            circle_marker_4622e90b886d16d2ecb003ecf5120ace.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Svan-torens van Mestia</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> culturele bezienswaardighed<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Mestia</span></div>
                  </div>`,
@@ -539,13 +765,13 @@
             );
         
     
-            var circle_marker_9aa13b8ac2dcd9834517cf4127f9f29f = L.circleMarker(
+            var circle_marker_7908cb8d21947533dae5cb7374f0b558 = L.circleMarker(
                 [43.053, 42.7],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_f1bf438f1906a88c187a736684ae9b1b);
+            ).addTo(feature_group_4c43a752e72a94315ae38ac2924909db);
         
     
-            circle_marker_9aa13b8ac2dcd9834517cf4127f9f29f.bindTooltip(
+            circle_marker_7908cb8d21947533dae5cb7374f0b558.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hatsvali-uitkijkpunt</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Mestia</span></div>
                  </div>`,
@@ -555,24 +781,24 @@
             );
         
     
-            feature_group_f1bf438f1906a88c187a736684ae9b1b.addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            feature_group_4c43a752e72a94315ae38ac2924909db.addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
         
     
-            var feature_group_7284e0001820f306498cc3188f22eb4c = L.featureGroup(
+            var feature_group_5fb15e1210849ab554ebbdec20c3bfaf = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_60f2079f02227c3503a637dddb1af793 = L.circleMarker(
+            var circle_marker_97ed00de0ca365d887c306c88a3d4776 = L.circleMarker(
                 [42.163, 44.703],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_7284e0001820f306498cc3188f22eb4c);
+            ).addTo(feature_group_5fb15e1210849ab554ebbdec20c3bfaf);
         
     
-            circle_marker_60f2079f02227c3503a637dddb1af793.bindTooltip(
+            circle_marker_97ed00de0ca365d887c306c88a3d4776.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Ananuri-fort</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vesting<br><b>Stopduur:</b> 1 h<br><b>Onderweg:</b> <span style="color:#e74c3c">Van Tbilisi naar Kazbegi</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Ananuri-fort</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vesting<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Van Tbilisi naar Kazbegi</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -580,15 +806,15 @@
             );
         
     
-            var circle_marker_1af3b10fe919ee651912c4c064f05be4 = L.circleMarker(
+            var circle_marker_639263b252574ebf809fb3ab5ee42cb9 = L.circleMarker(
                 [42.47, 44.48],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_7284e0001820f306498cc3188f22eb4c);
+            ).addTo(feature_group_5fb15e1210849ab554ebbdec20c3bfaf);
         
     
-            circle_marker_1af3b10fe919ee651912c4c064f05be4.bindTooltip(
+            circle_marker_639263b252574ebf809fb3ab5ee42cb9.bindTooltip(
                 `<div>
-                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Gudauri-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Onderweg:</b> <span style="color:#e74c3c">Van Tbilisi naar Kazbegi</span></div>
+                     <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Gudauri-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Van Tbilisi naar Kazbegi</span></div>
                  </div>`,
                 {
   "sticky": true,
@@ -596,23 +822,23 @@
             );
         
     
-            feature_group_7284e0001820f306498cc3188f22eb4c.addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            feature_group_5fb15e1210849ab554ebbdec20c3bfaf.addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
         
     
-            var feature_group_ecbc5bfbec28fc618f9906cc3f1cd659 = L.featureGroup(
+            var feature_group_66f0b28aea2322c3c1ff360e502dc8ea = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_b3ce20135c4c2dc7909cbc981ab6e6f6 = L.marker(
+            var marker_b8f1084041360390ca41fcd4d71de03a = L.marker(
                 [41.6692, 44.9547],
                 {
 }
-            ).addTo(feature_group_ecbc5bfbec28fc618f9906cc3f1cd659);
+            ).addTo(feature_group_66f0b28aea2322c3c1ff360e502dc8ea);
         
     
-            var icon_f966904bca079b30dbbbb8197c9e859c = L.AwesomeMarkers.icon(
+            var icon_657d06000f13175dc97fc98fb4153a1b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -623,7 +849,7 @@
             );
         
     
-            marker_b3ce20135c4c2dc7909cbc981ab6e6f6.bindTooltip(
+            marker_b8f1084041360390ca41fcd4d71de03a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif"><b>✈️ Internationale luchthaven van Tbilisi</b></div>
                  </div>`,
@@ -633,32 +859,32 @@
             );
         
     
-                marker_b3ce20135c4c2dc7909cbc981ab6e6f6.setIcon(icon_f966904bca079b30dbbbb8197c9e859c);
+                marker_b8f1084041360390ca41fcd4d71de03a.setIcon(icon_657d06000f13175dc97fc98fb4153a1b);
             
     
-            feature_group_ecbc5bfbec28fc618f9906cc3f1cd659.addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            feature_group_66f0b28aea2322c3c1ff360e502dc8ea.addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
         
     
-            var layer_control_bf0ff0d305feaaa8597d1994d54cb8c2_layers = {
+            var layer_control_19c5cffdac93dcf9613f7a2b964807c8_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_9ce1784d3780873b29892b881ff8d1f3,
+                    "OpenStreetMap" : tile_layer_6e926ae3a3e54eff46bf9837dd9e5da9,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_d9f97cda590fe501e9b93fcb338e97d3,
-                    "\u25cf Bezienswaardigheden" : feature_group_f1bf438f1906a88c187a736684ae9b1b,
-                    "\u25c7 Tussenstops" : feature_group_7284e0001820f306498cc3188f22eb4c,
-                    "\u2708 Luchthaven" : feature_group_ecbc5bfbec28fc618f9906cc3f1cd659,
+                    "\ud83c\udfe8 Verblijven" : feature_group_445cb7db5fede9b94b22f0e48848965b,
+                    "\u25cf Bezienswaardigheden" : feature_group_4c43a752e72a94315ae38ac2924909db,
+                    "\u25c7 Tussenstops" : feature_group_5fb15e1210849ab554ebbdec20c3bfaf,
+                    "\u2708 Luchthaven" : feature_group_66f0b28aea2322c3c1ff360e502dc8ea,
                 },
             };
-            let layer_control_bf0ff0d305feaaa8597d1994d54cb8c2 = L.control.layers(
-                layer_control_bf0ff0d305feaaa8597d1994d54cb8c2_layers.base_layers,
-                layer_control_bf0ff0d305feaaa8597d1994d54cb8c2_layers.overlays,
+            let layer_control_19c5cffdac93dcf9613f7a2b964807c8 = L.control.layers(
+                layer_control_19c5cffdac93dcf9613f7a2b964807c8_layers.base_layers,
+                layer_control_19c5cffdac93dcf9613f7a2b964807c8_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_02da3e9d160a0cb4dda4847cbe42acf3);
+            ).addTo(map_b8a6d3bf7b76dab1525b1c53aae62584);
 
         
 </script>

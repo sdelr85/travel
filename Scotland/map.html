@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9d7428d3ee09b81f14ec54b8988af159 {
+                #map_cc33cff395468c7e27f7ca2b4a45b43c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,50 +54,276 @@
 </head>
 <body>
     
-    
     <style>
+        .travel-legend {
+            position: fixed; bottom: 18px; left: 18px; z-index: 1000;
+            max-width: min(290px, calc(100vw - 32px));
+            background: rgba(255,255,255,.96); padding: 9px 12px;
+            border-radius: 7px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            font: 11px/1.35 sans-serif; color: #263746;
+        }
+        .travel-legend-country { font-size: 12px; }
+        .travel-legend-subtitle { margin-top: 4px; font-weight: 600; }
+        .travel-legend ol { margin: 3px 0 0 20px; padding: 0; }
+        .travel-legend li { padding: 1px 0; }
         @media (max-width: 600px) {
             .travel-legend {
-                bottom: 8px !important;
-                left: 8px !important;
-                right: 8px !important;
-                max-height: 38vh;
-                overflow-y: auto;
-                font-size: 11px !important;
-                padding: 8px 10px !important;
+                bottom: 8px; left: 8px;
+                max-width: min(220px, calc(100vw - 20px));
+                max-height: 28vh; overflow-y: auto; padding: 7px 9px;
+                font-size: 10px;
             }
         }
     </style>
-    <div class="travel-legend" style="
-        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-        background: white; padding: 12px 16px; border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
-    ">
-        <b style="font-size:15px"><span class="fi fi-gb-sct" style="border-radius:3px;margin-right:5px"></span>Schotland</b>
-        <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Glencoe/Fort William</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Eiland Skye</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Applecross/Torridon</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Ullapool / Assynt</td></tr><tr><td><span style="color:#2c3e50;font-size:18px">■</span></td><td style="padding-left:6px">Edinburgh</td></tr></table>
-        <hr style="margin:8px 0">
-        <b style="font-size:14px">Prioriteit (markergrootte)</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
-        <hr style="margin:8px 0">
-        <span style="font-size:12px;color:#666">
-            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
-        </span>
-        <hr style="margin:8px 0">
-        <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
+    <div class="travel-legend">
+        <b class="travel-legend-country">Land: <span class="fi fi-gb-sct" style="border-radius:3px;margin-right:5px"></span>Schotland</b>
+        <div class="travel-legend-subtitle">Verblijfplaatsen</div>
+        <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Glencoe/Fort William</li><li><span style="color:#2980b9;font-size:13px">●</span> Eiland Skye</li><li><span style="color:#27ae60;font-size:13px">●</span> Applecross/Torridon</li><li><span style="color:#8e44ad;font-size:13px">●</span> Ullapool / Assynt</li><li><span style="color:#2c3e50;font-size:13px">●</span> Edinburgh</li></ol>
     </div>
+    <!-- travel-route-planner:start -->
+    <style>
+        .route-planner-control {
+            width: min(300px, calc(100vw - 60px));
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            color: #263746;
+            font: 13px/1.4 sans-serif;
+        }
+        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .route-planner-control select {
+            width: 100%; padding: 7px; border: 1px solid #b8c2cc;
+            border-radius: 5px; background: white; color: #263746;
+        }
+        .route-planner-control button {
+            margin-top: 8px; padding: 6px 10px; border: 0; border-radius: 5px;
+            background: #e8edf2; color: #263746; cursor: pointer;
+        }
+        .route-planner-status { margin-top: 8px; }
+        .route-planner-summary { margin-top: 6px; white-space: pre-line; }
+        .route-planner-directions { margin-top: 8px; }
+        .route-planner-directions ol {
+            max-height: 180px; overflow-y: auto; padding-left: 22px;
+        }
+        .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+    </style>
+    <script>
+    window.addEventListener("load", function () {
+        const map = map_cc33cff395468c7e27f7ca2b4a45b43c;
+        const routeStarts = [{"name": "Glencoe/Fort William", "lat": 56.682, "lon": -5.103}, {"name": "Eiland Skye", "lat": 57.412, "lon": -6.194}, {"name": "Applecross/Torridon", "lat": 57.555, "lon": -5.81}, {"name": "Ullapool / Assynt", "lat": 57.896, "lon": -5.16}, {"name": "Edinburgh", "lat": 55.9533, "lon": -3.1883}];
+        const routingUrl = "https://router.project-osrm.org/route/v1/driving";
+        let destination = null;
+        let activeRequest = null;
+        const initialBounds = map.getBounds();
+        const routeLineLayer = L.layerGroup().addTo(map);
+        const routePointsLayer = L.layerGroup().addTo(map);
+
+        const control = L.control({ position: "topleft" });
+        control.onAdd = function () {
+            const container = L.DomUtil.create("div", "route-planner-control");
+            container.innerHTML =
+                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label for="route-planner-start">Startverblijf</label>' +
+                '<select id="route-planner-start"></select>' +
+                '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
+                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                '<div class="route-planner-summary" id="route-planner-summary"></div>' +
+                '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
+                '<summary>Routebeschrijving</summary><ol></ol></details>' +
+                '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
+            return container;
+        };
+        control.addTo(map);
+
+        const panel = document.querySelector(".route-planner-control");
+        const startSelect = panel.querySelector("#route-planner-start");
+        const status = panel.querySelector("#route-planner-status");
+        const summary = panel.querySelector("#route-planner-summary");
+        const directions = panel.querySelector("#route-planner-directions");
+        const directionsList = directions.querySelector("ol");
+
+        routeStarts.forEach(function (start, index) {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
+            startSelect.appendChild(option);
+        });
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? "#b42318" : "#263746";
+        }
+
+        function formatDistance(meters) {
+            return (meters / 1000).toFixed(1).replace(".", ",") + " km";
+        }
+
+        function formatDuration(seconds) {
+            const minutes = Math.round(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const remainder = minutes % 60;
+            if (!hours) return minutes + " min";
+            return hours + " u" + (remainder ? " " + remainder + " min" : "");
+        }
+
+        function clearRoute() {
+            if (activeRequest) activeRequest.abort();
+            activeRequest = null;
+            destination = null;
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            if (initialBounds.isValid()) map.fitBounds(initialBounds);
+        }
+
+        function instructionFor(step) {
+            if (step.mode === "ferry") return "Neem de veerboot";
+            const maneuver = step.maneuver || {};
+            const action = {
+                depart: "Vertrek",
+                arrive: "Aankomst",
+                turn: "Sla af",
+                "end of road": "Sla aan het einde van de weg af",
+                continue: "Ga verder",
+                merge: "Voeg in",
+                fork: "Houd aan",
+                "on ramp": "Neem de oprit",
+                "off ramp": "Neem de afrit",
+                roundabout: "Neem de rotonde",
+                rotary: "Neem de rotonde"
+            }[maneuver.type] || "Vervolg";
+            const direction = {
+                left: "links",
+                right: "rechts",
+                straight: "rechtdoor",
+                "slight left": "licht links",
+                "slight right": "licht rechts",
+                "sharp left": "scherp links",
+                "sharp right": "scherp rechts",
+                uturn: "keer om"
+            }[maneuver.modifier] || "";
+            return action + (direction ? " " + direction : "");
+        }
+
+        async function calculateRoute() {
+            if (!destination) return;
+            if (activeRequest) activeRequest.abort();
+            const controller = new AbortController();
+            activeRequest = controller;
+            const start = routeStarts[Number(startSelect.value)];
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            L.circleMarker([start.lat, start.lon], {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#2980b9",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Start: " + start.name).addTo(routePointsLayer);
+            L.circleMarker(destination, {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            setStatus("Route wordt berekend…");
+
+            const coordinates = start.lon + "," + start.lat + ";" +
+                destination.lng + "," + destination.lat;
+            const url = routingUrl + "/" + coordinates +
+                "?overview=full&geometries=geojson&steps=true";
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error("Route-service antwoordde met HTTP " + response.status + ".");
+                const result = await response.json();
+                if (activeRequest !== controller) return;
+                if (result.code !== "Ok" || !result.routes || !result.routes.length) {
+                    throw new Error(result.message || "Er is geen autoroute gevonden.");
+                }
+
+                const route = result.routes[0];
+                const routeLine = L.geoJSON(route.geometry, {
+                    style: { color: "#1769aa", weight: 5, opacity: 0.85 },
+                    bubblingMouseEvents: false
+                }).addTo(routeLineLayer);
+                map.fitBounds(routeLine.getBounds().pad(0.12));
+
+                const steps = (route.legs || []).flatMap(function (leg) {
+                    return leg.steps || [];
+                });
+                const ferrySteps = steps.filter(function (step) {
+                    return step.mode === "ferry" ||
+                        /\b(ferry|veerboot|ferje|ferge)\b/i.test(step.name || "");
+                });
+                const ferryText = ferrySteps.length
+                    ? "⛴ Veerboot: " + ferrySteps.map(function (step) {
+                        return (step.name || "veerboottraject") +
+                            " (" + formatDuration(step.duration) + ")";
+                    }).join("; ")
+                    : "⛴ Geen veerbootsegment herkend";
+                summary.textContent = formatDistance(route.distance) + " · " +
+                    formatDuration(route.duration) + "\n" + ferryText;
+                setStatus("Route berekend.");
+
+                steps.forEach(function (step) {
+                    if (!step.distance && !step.duration) return;
+                    const item = document.createElement("li");
+                    item.textContent = instructionFor(step) +
+                        (step.name ? " — " + step.name : "") +
+                        " · " + formatDistance(step.distance) +
+                        " · " + formatDuration(step.duration);
+                    directionsList.appendChild(item);
+                });
+                directions.hidden = directionsList.children.length === 0;
+            } catch (error) {
+                if (error.name === "AbortError") return;
+                setStatus("Routeberekening mislukt: " + error.message, true);
+            }
+        }
+
+        function chooseDestination(latlng) {
+            destination = L.latLng(latlng.lat, latlng.lng);
+            calculateRoute();
+        }
+
+        startSelect.addEventListener("change", function () {
+            if (destination) calculateRoute();
+        });
+        panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        map.on("click", function (event) {
+            chooseDestination(event.latlng);
+        });
+
+        function enableMarkerDestinations(layer) {
+            if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+                layer.on("click", function (event) {
+                    if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+                    chooseDestination(event.latlng);
+                });
+            }
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(enableMarkerDestinations);
+            }
+        }
+        map.eachLayer(enableMarkerDestinations);
+    });
+    </script>
+    <!-- travel-route-planner:end -->
     
-    
-            <div class="folium-map" id="map_9d7428d3ee09b81f14ec54b8988af159" ></div>
+            <div class="folium-map" id="map_cc33cff395468c7e27f7ca2b4a45b43c" ></div>
         
 </body>
 <script>
     
     
-            var map_9d7428d3ee09b81f14ec54b8988af159 = L.map(
-                "map_9d7428d3ee09b81f14ec54b8988af159",
+            var map_cc33cff395468c7e27f7ca2b4a45b43c = L.map(
+                "map_cc33cff395468c7e27f7ca2b4a45b43c",
                 {
                     center: [57.073884444444445, -4.955362222222222],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +340,7 @@
 
         
     
-            var tile_layer_ab5726dedf4b9765d011f0069deeaa35 = L.tileLayer(
+            var tile_layer_77ecaf67811440d456bb7da467d3fe6c = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -131,30 +357,30 @@
             );
         
     
-            tile_layer_ab5726dedf4b9765d011f0069deeaa35.addTo(map_9d7428d3ee09b81f14ec54b8988af159);
+            tile_layer_77ecaf67811440d456bb7da467d3fe6c.addTo(map_cc33cff395468c7e27f7ca2b4a45b43c);
         
     
-            map_9d7428d3ee09b81f14ec54b8988af159.fitBounds(
+            map_cc33cff395468c7e27f7ca2b4a45b43c.fitBounds(
                 [[56.682, -5.103], [57.412, -6.194], [57.555, -5.81], [57.896, -5.16], [55.9533, -3.1883], [56.6675, -4.9838], [56.56, -4.93], [56.8743, -5.4318], [56.8734, -5.434], [56.775, -4.9889], [56.7982, -4.9981], [57.5093, -6.1847], [57.6411, -6.2796], [57.25, -6.333], [57.4237, -6.7876], [57.2924, -6.1713], [57.1547, -6.104], [57.5012, -6.3618], [57.3614, -6.056], [57.4151, -5.6453], [57.5476, -5.4923], [57.4338, -5.8151], [57.5184, -5.6462], [57.6588, -5.6742], [57.9938, -5.2023], [58.1578, -5.321], [58.1351, -5.3371], [58.0455, -5.037], [58.1717, -5.0727], [58.0685, -5.0971], [58.5756, -4.7256], [55.9486, -3.1999], [55.9441, -3.162], [55.949, -3.1896], [55.9556, -3.1778], [55.9493, -3.2131], [55.9466, -3.192], [54.9902, -2.6028], [56.09, -4.588], [57.274, -5.516], [57.274, -5.516], [57.56, -5.2], [57.3232, -4.4244], [56.7084, -3.7312], [55.5096, -1.7127]],
                 {}
             );
         
     
-            var feature_group_9dec9cf250f3951ad57d44db27694562 = L.featureGroup(
+            var feature_group_574ec54871b1a7a499102f50ec8b5929 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_2098f64f1d23688633f6dedf49a5788a = L.marker(
+            var marker_1872793b96550528884904063b1b73db = L.marker(
                 [56.682, -5.103],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9dec9cf250f3951ad57d44db27694562);
+            ).addTo(feature_group_574ec54871b1a7a499102f50ec8b5929);
         
     
-            var icon_29f301103c9fb4893b647d08db8becd5 = L.AwesomeMarkers.icon(
+            var icon_ac536eaa2619ba11438f88aea82924b1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,7 +391,7 @@
             );
         
     
-            marker_2098f64f1d23688633f6dedf49a5788a.bindTooltip(
+            marker_1872793b96550528884904063b1b73db.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Glencoe/Fort William</b><br><span style="color:#555">Westelijke Hooglanden</span><br><hr style="margin:4px 0"><b>Nachten:</b> 2<br><i style="color:#666;font-size:14px">Ideale eerste Highlands-basis na aankomst vanuit Newcastle via Loch Lomond.</i></div>
                  </div>`,
@@ -175,18 +401,18 @@
             );
         
     
-                marker_2098f64f1d23688633f6dedf49a5788a.setIcon(icon_29f301103c9fb4893b647d08db8becd5);
+                marker_1872793b96550528884904063b1b73db.setIcon(icon_ac536eaa2619ba11438f88aea82924b1);
             
     
-            var marker_7760b9d4232c4edcb81b922269223e5c = L.marker(
+            var marker_c41c7d42235d288c11dfc041b599856f = L.marker(
                 [57.412, -6.194],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9dec9cf250f3951ad57d44db27694562);
+            ).addTo(feature_group_574ec54871b1a7a499102f50ec8b5929);
         
     
-            var icon_aa0eee3420503ae10ba5526aa0260fe3 = L.AwesomeMarkers.icon(
+            var icon_e4c7a253898749553caba874849a4eb8 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -197,7 +423,7 @@
             );
         
     
-            marker_7760b9d4232c4edcb81b922269223e5c.bindTooltip(
+            marker_c41c7d42235d288c11dfc041b599856f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Eiland Skye</b><br><span style="color:#555">Binnen-Hebriden</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Belangrijkste wandel- en fotografiebasis van de reis.</i></div>
                  </div>`,
@@ -207,18 +433,18 @@
             );
         
     
-                marker_7760b9d4232c4edcb81b922269223e5c.setIcon(icon_aa0eee3420503ae10ba5526aa0260fe3);
+                marker_c41c7d42235d288c11dfc041b599856f.setIcon(icon_e4c7a253898749553caba874849a4eb8);
             
     
-            var marker_c0b3f513525e6daf37ebb15c3dbff3df = L.marker(
+            var marker_8942b1bc7ce1392d29236c909a969b1b = L.marker(
                 [57.555, -5.81],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9dec9cf250f3951ad57d44db27694562);
+            ).addTo(feature_group_574ec54871b1a7a499102f50ec8b5929);
         
     
-            var icon_bb2e686af4fd2660e158ede6b0726d72 = L.AwesomeMarkers.icon(
+            var icon_496e999a767f173dbde92f06b818d39b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -229,7 +455,7 @@
             );
         
     
-            marker_c0b3f513525e6daf37ebb15c3dbff3df.bindTooltip(
+            marker_8942b1bc7ce1392d29236c909a969b1b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Applecross/Torridon</b><br><span style="color:#555">Wester Ross</span><br><hr style="margin:4px 0"><b>Nachten:</b> 2<br><i style="color:#666;font-size:14px">Focus op dramatische berglandschappen en de hoogste bergpas van Groot-Brittannië.</i></div>
                  </div>`,
@@ -239,18 +465,18 @@
             );
         
     
-                marker_c0b3f513525e6daf37ebb15c3dbff3df.setIcon(icon_bb2e686af4fd2660e158ede6b0726d72);
+                marker_8942b1bc7ce1392d29236c909a969b1b.setIcon(icon_496e999a767f173dbde92f06b818d39b);
             
     
-            var marker_a3684925afe33816e1a60e6baef660f6 = L.marker(
+            var marker_4daf2deb018f7df6a8f04a914b56d9db = L.marker(
                 [57.896, -5.16],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9dec9cf250f3951ad57d44db27694562);
+            ).addTo(feature_group_574ec54871b1a7a499102f50ec8b5929);
         
     
-            var icon_4af75a16ba1701075011152311a8fffb = L.AwesomeMarkers.icon(
+            var icon_c118d4ce302c93bfc94dafec20c656f5 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -261,7 +487,7 @@
             );
         
     
-            marker_a3684925afe33816e1a60e6baef660f6.bindTooltip(
+            marker_4daf2deb018f7df6a8f04a914b56d9db.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Ullapool / Assynt</b><br><span style="color:#555">Noordwestelijke Hooglanden</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Beste toegangspunt voor het dramatische Assynt-landschap zonder de volledige NC500-lus.</i></div>
                  </div>`,
@@ -271,18 +497,18 @@
             );
         
     
-                marker_a3684925afe33816e1a60e6baef660f6.setIcon(icon_4af75a16ba1701075011152311a8fffb);
+                marker_4daf2deb018f7df6a8f04a914b56d9db.setIcon(icon_c118d4ce302c93bfc94dafec20c656f5);
             
     
-            var marker_7c51a8428a44545e842003bfb27aa78a = L.marker(
+            var marker_2601fbfc161aa63b55422a0194f2b7d1 = L.marker(
                 [55.9533, -3.1883],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9dec9cf250f3951ad57d44db27694562);
+            ).addTo(feature_group_574ec54871b1a7a499102f50ec8b5929);
         
     
-            var icon_330388dec6a1471ed4224ea69902da7b = L.AwesomeMarkers.icon(
+            var icon_deead6531b16eecd1f73f602eb6ccc4a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -293,7 +519,7 @@
             );
         
     
-            marker_7c51a8428a44545e842003bfb27aa78a.bindTooltip(
+            marker_2601fbfc161aa63b55422a0194f2b7d1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2c3e50;font-size:16px">🏨 Edinburgh</b><br><span style="color:#555">Centraal Schotland</span><br><hr style="margin:4px 0"><b>Nachten:</b> 2<br><i style="color:#666;font-size:14px">Laatste culturele stop voordat je terugkeert naar Newcastle en de veerboot.</i></div>
                  </div>`,
@@ -303,25 +529,25 @@
             );
         
     
-                marker_7c51a8428a44545e842003bfb27aa78a.setIcon(icon_330388dec6a1471ed4224ea69902da7b);
+                marker_2601fbfc161aa63b55422a0194f2b7d1.setIcon(icon_deead6531b16eecd1f73f602eb6ccc4a);
             
     
-            feature_group_9dec9cf250f3951ad57d44db27694562.addTo(map_9d7428d3ee09b81f14ec54b8988af159);
+            feature_group_574ec54871b1a7a499102f50ec8b5929.addTo(map_cc33cff395468c7e27f7ca2b4a45b43c);
         
     
-            var feature_group_ab1eb50faa180ebc9f5b5cf5a5626488 = L.featureGroup(
+            var feature_group_9802ca566f24e8882d07cfecf4924622 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2228988d18f9c540ed02dd1e8e36668e = L.circleMarker(
+            var circle_marker_a7583d40b162225769d5a4afe7a9c707 = L.circleMarker(
                 [56.6675, -4.9838],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_2228988d18f9c540ed02dd1e8e36668e.bindTooltip(
+            circle_marker_a7583d40b162225769d5a4afe7a9c707.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Glencoe Drie Zusters</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtig wandelgebied<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Klassiek Glencoe-uitkijkpunt en valleiwandelingen.</i></div>
                  </div>`,
@@ -331,13 +557,13 @@
             );
         
     
-            var circle_marker_cf9f705064f31e7cf022666426df757a = L.circleMarker(
+            var circle_marker_67db9fa880107189c3e2cc689e61a53b = L.circleMarker(
                 [56.56, -4.93],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_cf9f705064f31e7cf022666426df757a.bindTooltip(
+            circle_marker_67db9fa880107189c3e2cc689e61a53b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Glen Etive</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Schilderachtige zijglen ten zuiden van Glencoe, gebruikt in Skyfall.</i></div>
                  </div>`,
@@ -347,13 +573,13 @@
             );
         
     
-            var circle_marker_70b1707a9ee5eb919b4a24f6b110c7e7 = L.circleMarker(
+            var circle_marker_ce0357c64c670921663dd57529a3bf5f = L.circleMarker(
                 [56.8743, -5.4318],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_70b1707a9ee5eb919b4a24f6b110c7e7.bindTooltip(
+            circle_marker_ce0357c64c670921663dd57529a3bf5f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Glenfinnan-viaduct</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Harry Potter locatie<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Bekijk de dienstregeling van de Jacobitische stoomtrein voor een bezoek op tijd.</i></div>
                  </div>`,
@@ -363,13 +589,13 @@
             );
         
     
-            var circle_marker_8b84e9f83be8585fc5742f6f2f2c458e = L.circleMarker(
+            var circle_marker_3a06a7ebbd4603b6a859c96a8d202d6a = L.circleMarker(
                 [56.8734, -5.434],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_8b84e9f83be8585fc5742f6f2f2c458e.bindTooltip(
+            circle_marker_3a06a7ebbd4603b6a859c96a8d202d6a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Glenfinnan-monument</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> monument<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Eenvoudige uitbreiding direct naast het viaductuitkijkpunt.</i></div>
                  </div>`,
@@ -379,13 +605,13 @@
             );
         
     
-            var circle_marker_4ebc7aac4b30a49a5461b9c10b4ab9fa = L.circleMarker(
+            var circle_marker_b4cf8ef1b3061736df325186abe280f7 = L.circleMarker(
                 [56.775, -4.9889],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_4ebc7aac4b30a49a5461b9c10b4ab9fa.bindTooltip(
+            circle_marker_b4cf8ef1b3061736df325186abe280f7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Glen Nevis</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> valleiwandeling<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Prachtige vallei onder Ben Nevis, goed voor een ontspannen familiewandeling.</i></div>
                  </div>`,
@@ -395,13 +621,13 @@
             );
         
     
-            var circle_marker_d95c65201e5103b7257e9d69378b1f0d = L.circleMarker(
+            var circle_marker_2f192e08c7ae926fae51e1dbbe36ba70 = L.circleMarker(
                 [56.7982, -4.9981],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_d95c65201e5103b7257e9d69378b1f0d.bindTooltip(
+            circle_marker_2f192e08c7ae926fae51e1dbbe36ba70.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ben Nevis Lower Valley-wandelingen</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Glencoe/Fort William</span><br><i style="color:#666;font-size:13px">Lager gelegen paden rond Ben Nevis, geschikt voor alle leeftijden.</i></div>
                  </div>`,
@@ -411,13 +637,13 @@
             );
         
     
-            var circle_marker_1628ea286514293aca3cff7c1b6f693d = L.circleMarker(
+            var circle_marker_efcef2eb0fce1158e32d7542db16eb8a = L.circleMarker(
                 [57.5093, -6.1847],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_1628ea286514293aca3cff7c1b6f693d.bindTooltip(
+            circle_marker_efcef2eb0fce1158e32d7542db16eb8a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Oude Man van Storr</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Iconische Skye-wandeling. Begin vroeg om drukte te vermijden.</i></div>
                  </div>`,
@@ -427,13 +653,13 @@
             );
         
     
-            var circle_marker_1def97c8f6aae8d416b2ad3dd6ada44f = L.circleMarker(
+            var circle_marker_a6bc3e1016fb10f7151c01d1e33af6a2 = L.circleMarker(
                 [57.6411, -6.2796],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_1def97c8f6aae8d416b2ad3dd6ada44f.bindTooltip(
+            circle_marker_a6bc3e1016fb10f7151c01d1e33af6a2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Quiraing</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Dramatisch landschap met unieke rotsformaties. Het beste in ochtendlicht.</i></div>
                  </div>`,
@@ -443,13 +669,13 @@
             );
         
     
-            var circle_marker_512bf47614d9a07c5163c754ff358465 = L.circleMarker(
+            var circle_marker_6cab43ee94ebf2a9e5e52a3f386aa598 = L.circleMarker(
                 [57.25, -6.333],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_512bf47614d9a07c5163c754ff358465.bindTooltip(
+            circle_marker_6cab43ee94ebf2a9e5e52a3f386aa598.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Fee zwembaden</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalwandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Zeer populaire kristalheldere zwembaden. Bezoek vroeg in de ochtend of in de avond.</i></div>
                  </div>`,
@@ -459,13 +685,13 @@
             );
         
     
-            var circle_marker_4c7e07e453478c9876f397c220e1af86 = L.circleMarker(
+            var circle_marker_5315e25287b8a21fd042c7a7a65c359c = L.circleMarker(
                 [57.4237, -6.7876],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_4c7e07e453478c9876f397c220e1af86.bindTooltip(
+            circle_marker_5315e25287b8a21fd042c7a7a65c359c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Neist-punt</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kust uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 60 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Westelijkste punt van Skye. Uitstekend uitzicht op de zonsondergang.</i></div>
                  </div>`,
@@ -475,13 +701,13 @@
             );
         
     
-            var circle_marker_f9b9d3b5fc8a274a999b0bc501b40aec = L.circleMarker(
+            var circle_marker_bbb62c2e8d7e8dcfa986f7efdb5ee7aa = L.circleMarker(
                 [57.2924, -6.1713],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_f9b9d3b5fc8a274a999b0bc501b40aec.bindTooltip(
+            circle_marker_bbb62c2e8d7e8dcfa986f7efdb5ee7aa.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sligachan</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Klassieke Cuillin-bergachtergrond. Geweldige fotostop en gemakkelijke wandelingen.</i></div>
                  </div>`,
@@ -491,13 +717,13 @@
             );
         
     
-            var circle_marker_6a42088c4f11e6c1bebb0d09cd2e337c = L.circleMarker(
+            var circle_marker_43fc3e26fc2ba240a13034659d5fb5f2 = L.circleMarker(
                 [57.1547, -6.104],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_6a42088c4f11e6c1bebb0d09cd2e337c.bindTooltip(
+            circle_marker_43fc3e26fc2ba240a13034659d5fb5f2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Elgol</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kustdorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Beste directe Cuillin-weergave. Boottochten naar Loch Coruisk beschikbaar.</i></div>
                  </div>`,
@@ -507,13 +733,13 @@
             );
         
     
-            var circle_marker_5b57fcda8b1b31dc198b06a4a1f49583 = L.circleMarker(
+            var circle_marker_d45915291d9cb246a15077caab7eedf2 = L.circleMarker(
                 [57.5012, -6.3618],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_5b57fcda8b1b31dc198b06a4a1f49583.bindTooltip(
+            circle_marker_d45915291d9cb246a15077caab7eedf2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Koraal strand</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Uniek wit schelpenzandstrand nabij Dunvegan.</i></div>
                  </div>`,
@@ -523,13 +749,13 @@
             );
         
     
-            var circle_marker_6f29cd2331803f31d50100089a4392f9 = L.circleMarker(
+            var circle_marker_bad3faac73b89581bb27c80bb726136b = L.circleMarker(
                 [57.3614, -6.056],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_6f29cd2331803f31d50100089a4392f9.bindTooltip(
+            circle_marker_bad3faac73b89581bb27c80bb726136b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Eiland Raasay</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> eiland dagtocht<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Eiland Skye</span><br><i style="color:#666;font-size:13px">Vreedzaam uitje op het eiland. 25 minuten durende veerboot vanaf Sconser.</i></div>
                  </div>`,
@@ -539,13 +765,13 @@
             );
         
     
-            var circle_marker_135c2d3e70086133e4714cd4149d8811 = L.circleMarker(
+            var circle_marker_1b8bb78851aa54aad2cd0ef306db796a = L.circleMarker(
                 [57.4151, -5.6453],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_135c2d3e70086133e4714cd4149d8811.bindTooltip(
+            circle_marker_1b8bb78851aa54aad2cd0ef306db796a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bealach na Ba</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige bergweg<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Applecross/Torridon</span><br><i style="color:#666;font-size:13px">Een van de hoogste en meest dramatische bergpassen van Groot-Brittannië.</i></div>
                  </div>`,
@@ -555,13 +781,13 @@
             );
         
     
-            var circle_marker_42d64755f3138e3914b26cc014d544b9 = L.circleMarker(
+            var circle_marker_db6d4784864f3f1225d2cffddb3a51f5 = L.circleMarker(
                 [57.5476, -5.4923],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_42d64755f3138e3914b26cc014d544b9.bindTooltip(
+            circle_marker_db6d4784864f3f1225d2cffddb3a51f5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Torridon-gebergte</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergen<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Applecross/Torridon</span><br><i style="color:#666;font-size:13px">Oude rode zandstenen bergen. Goede wandelingen vanuit het dorp Torridon.</i></div>
                  </div>`,
@@ -571,13 +797,13 @@
             );
         
     
-            var circle_marker_e72e35d960c2614a060fc8ea8dc52773 = L.circleMarker(
+            var circle_marker_689bf3859aac16171d3e343c3d8d168e = L.circleMarker(
                 [57.4338, -5.8151],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_e72e35d960c2614a060fc8ea8dc52773.bindTooltip(
+            circle_marker_689bf3859aac16171d3e343c3d8d168e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Applecross-dorp</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Applecross/Torridon</span><br><i style="color:#666;font-size:13px">Charmant kustplaatsje aan de voet van Bealach na Ba.</i></div>
                  </div>`,
@@ -587,13 +813,13 @@
             );
         
     
-            var circle_marker_506107160cf9681784301600d09f3746 = L.circleMarker(
+            var circle_marker_9661c9b841a0cea75b9fc07d3422d2f5 = L.circleMarker(
                 [57.5184, -5.6462],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_506107160cf9681784301600d09f3746.bindTooltip(
+            circle_marker_9661c9b841a0cea75b9fc07d3422d2f5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Schildaig</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Applecross/Torridon</span><br><i style="color:#666;font-size:13px">Mooi dorp aan het meer, goede lunchstop.</i></div>
                  </div>`,
@@ -603,13 +829,13 @@
             );
         
     
-            var circle_marker_533b1261c4156e8c1160154c232a3882 = L.circleMarker(
+            var circle_marker_e53c7e64665330aebec89c373db98709 = L.circleMarker(
                 [57.6588, -5.6742],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_533b1261c4156e8c1160154c232a3882.bindTooltip(
+            circle_marker_e53c7e64665330aebec89c373db98709.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Red Point-strand</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Applecross/Torridon</span><br><i style="color:#666;font-size:13px">Afgelegen roodzandstrand met uitzicht op het eiland Skye.</i></div>
                  </div>`,
@@ -619,13 +845,13 @@
             );
         
     
-            var circle_marker_2de10dc27f385bbb78f18259931be27d = L.circleMarker(
+            var circle_marker_dbda99bf119729c4d5400947f9a3fe6d = L.circleMarker(
                 [57.9938, -5.2023],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_2de10dc27f385bbb78f18259931be27d.bindTooltip(
+            circle_marker_dbda99bf119729c4d5400947f9a3fe6d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Stac Pollaidh</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Korte maar steile en lonende wandeling met uniek Assynt-panorama.</i></div>
                  </div>`,
@@ -635,13 +861,13 @@
             );
         
     
-            var circle_marker_1a22461b2decbe7d3271e7bba14f0659 = L.circleMarker(
+            var circle_marker_bf69b55a40ca5e1666dfa07813d83c06 = L.circleMarker(
                 [58.1578, -5.321],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_1a22461b2decbe7d3271e7bba14f0659.bindTooltip(
+            circle_marker_bf69b55a40ca5e1666dfa07813d83c06.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Achmelvich-strand</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Prachtig strand met turquoise water, vaak bijna leeg.</i></div>
                  </div>`,
@@ -651,13 +877,13 @@
             );
         
     
-            var circle_marker_06228fac35978c8ddd36d3aafab00dbe = L.circleMarker(
+            var circle_marker_0803b11cb77592d5eb67f280bb440d3d = L.circleMarker(
                 [58.1351, -5.3371],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_06228fac35978c8ddd36d3aafab00dbe.bindTooltip(
+            circle_marker_0803b11cb77592d5eb67f280bb440d3d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Clachtoll-strand</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Goed te combineren met Achmelvich op één stranddag.</i></div>
                  </div>`,
@@ -667,13 +893,13 @@
             );
         
     
-            var circle_marker_653b7b36419d97497503fc42784a1452 = L.circleMarker(
+            var circle_marker_778722dd80a1d97f0d7aa5055851655e = L.circleMarker(
                 [58.0455, -5.037],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_653b7b36419d97497503fc42784a1452.bindTooltip(
+            circle_marker_778722dd80a1d97f0d7aa5055851655e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Knockan Crag</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> geologische wandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Wereldberoemd geologisch monument met korte wandelingen en mooie uitzichten.</i></div>
                  </div>`,
@@ -683,13 +909,13 @@
             );
         
     
-            var circle_marker_fc4ded85e9b4c4d2528af5a0af50ef9c = L.circleMarker(
+            var circle_marker_8811600871184bee05b7efe84b14df87 = L.circleMarker(
                 [58.1717, -5.0727],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_fc4ded85e9b4c4d2528af5a0af50ef9c.bindTooltip(
+            circle_marker_8811600871184bee05b7efe84b14df87.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ardvreck-kasteel</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kasteelruïne<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Sfeervolle ruïne aan de oevers van Loch Assynt.</i></div>
                  </div>`,
@@ -699,13 +925,13 @@
             );
         
     
-            var circle_marker_c8313b912b1270c7356b48fbcae146be = L.circleMarker(
+            var circle_marker_c853822a37977fbddbbc60a7be0173dd = L.circleMarker(
                 [58.0685, -5.0971],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_c8313b912b1270c7356b48fbcae146be.bindTooltip(
+            circle_marker_c853822a37977fbddbbc60a7be0173dd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Suilven-gezichtspunten</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> landschap<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Iconisch Schots bergsilhouet, het best te zien vanuit het Lochinver-gebied.</i></div>
                  </div>`,
@@ -715,13 +941,13 @@
             );
         
     
-            var circle_marker_413ec37790d7c913686b85fa2637ec38 = L.circleMarker(
+            var circle_marker_f5426225d3e136d49314ac7da87cb748 = L.circleMarker(
                 [58.5756, -4.7256],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_413ec37790d7c913686b85fa2637ec38.bindTooltip(
+            circle_marker_f5426225d3e136d49314ac7da87cb748.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Smoo-grot</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> grot<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 90 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Ullapool / Assynt</span><br><i style="color:#666;font-size:13px">Omweg naar het verre noorden. Grote zeegrot, interessant maar zorgt voor een zeer lange dag.</i></div>
                  </div>`,
@@ -731,13 +957,13 @@
             );
         
     
-            var circle_marker_c438da2ab050d7864dd6a614df28b733 = L.circleMarker(
+            var circle_marker_c32d40ce80772218c459a6e8af0d4222 = L.circleMarker(
                 [55.9486, -3.1999],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_c438da2ab050d7864dd6a614df28b733.bindTooltip(
+            circle_marker_c32d40ce80772218c459a6e8af0d4222.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Edinburgh kasteel</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kasteel<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Iconisch monument. Reserveer vooraf kaartjes.</i></div>
                  </div>`,
@@ -747,13 +973,13 @@
             );
         
     
-            var circle_marker_72b7113d8bfb1b3bee042ec096624795 = L.circleMarker(
+            var circle_marker_3210cab6fafc655b7465d84f7da2a839 = L.circleMarker(
                 [55.9441, -3.162],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_72b7113d8bfb1b3bee042ec096624795.bindTooltip(
+            circle_marker_3210cab6fafc655b7465d84f7da2a839.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Arthur's stoel</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> stedelijke wandeling<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Uitgestorven vulkaan met panoramisch uitzicht over de stad. Gemakkelijke familiewandeling.</i></div>
                  </div>`,
@@ -763,13 +989,13 @@
             );
         
     
-            var circle_marker_bd58efb51150b8727735b6ccb08adf3e = L.circleMarker(
+            var circle_marker_dc0ffc97e65cb2ea6ea44f06282892c1 = L.circleMarker(
                 [55.949, -3.1896],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_bd58efb51150b8727735b6ccb08adf3e.bindTooltip(
+            circle_marker_dc0ffc97e65cb2ea6ea44f06282892c1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Koninklijke Mijl</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Historische hoofdstraat die het kasteel verbindt met Holyrood Palace.</i></div>
                  </div>`,
@@ -779,13 +1005,13 @@
             );
         
     
-            var circle_marker_c4268a8146f7224c34e917b2f4e5b784 = L.circleMarker(
+            var circle_marker_8d9f0846f78ff25e0666f67109a01a31 = L.circleMarker(
                 [55.9556, -3.1778],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_c4268a8146f7224c34e917b2f4e5b784.bindTooltip(
+            circle_marker_8d9f0846f78ff25e0666f67109a01a31.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Calton Heuvel</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 10 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Gemakkelijke wandeling naar de top met panoramisch uitzicht op Edinburgh. Geweldig bij zonsondergang.</i></div>
                  </div>`,
@@ -795,13 +1021,13 @@
             );
         
     
-            var circle_marker_be537909653cf6c341576b5bb9998771 = L.circleMarker(
+            var circle_marker_2f968ca65a177909011cfbc519637ce7 = L.circleMarker(
                 [55.9493, -3.2131],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_be537909653cf6c341576b5bb9998771.bindTooltip(
+            circle_marker_2f968ca65a177909011cfbc519637ce7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Dean Dorp</b><br><span style="color:#2c3e50;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Pittoresk historisch dorp in een rivierkloof, op korte loopafstand van het stadscentrum.</i></div>
                  </div>`,
@@ -811,13 +1037,13 @@
             );
         
     
-            var circle_marker_bfec38669db1117ee8952a531fbf035d = L.circleMarker(
+            var circle_marker_cf0a2b2f623a3d28de0004680d3abd14 = L.circleMarker(
                 [55.9466, -3.192],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_ab1eb50faa180ebc9f5b5cf5a5626488);
+            ).addTo(feature_group_9802ca566f24e8882d07cfecf4924622);
         
     
-            circle_marker_bfec38669db1117ee8952a531fbf035d.bindTooltip(
+            circle_marker_cf0a2b2f623a3d28de0004680d3abd14.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Nationaal Museum van Schotland</b><br><span style="color:#2c3e50;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> museum<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#2c3e50">Edinburgh</span><br><i style="color:#666;font-size:13px">Gratis toegang. Goede optie voor regenachtige dagen in Edinburgh.</i></div>
                  </div>`,
@@ -827,22 +1053,22 @@
             );
         
     
-            feature_group_ab1eb50faa180ebc9f5b5cf5a5626488.addTo(map_9d7428d3ee09b81f14ec54b8988af159);
+            feature_group_9802ca566f24e8882d07cfecf4924622.addTo(map_cc33cff395468c7e27f7ca2b4a45b43c);
         
     
-            var feature_group_8edc98a9b369fb172367124e155d1b49 = L.featureGroup(
+            var feature_group_104ac21619827d12d4be15fecbbef33c = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3a2feac347a745e0c23e17acd23b9859 = L.circleMarker(
+            var circle_marker_51a6a39fe4ddba5cd6f7c766f900f3db = L.circleMarker(
                 [54.9902, -2.6028],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_3a2feac347a745e0c23e17acd23b9859.bindTooltip(
+            circle_marker_51a6a39fe4ddba5cd6f7c766f900f3db.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Hadrianus muur</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> historische locatie<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Cultural Stop<br><b>Onderweg:</b> <span style="color:#e67e22">Newcastle naar Glencoe via Hadrian's Wall en Loch Lomond</span></div>
                  </div>`,
@@ -852,13 +1078,13 @@
             );
         
     
-            var circle_marker_42560d47fb8f376f1d3661e75f98fda4 = L.circleMarker(
+            var circle_marker_a046d79625efcb2935991dbba81990b8 = L.circleMarker(
                 [56.09, -4.588],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_42560d47fb8f376f1d3661e75f98fda4.bindTooltip(
+            circle_marker_a046d79625efcb2935991dbba81990b8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Loch Lomond</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtig loch<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> Scenic Stop<br><b>Onderweg:</b> <span style="color:#e67e22">Newcastle naar Glencoe via Hadrian's Wall en Loch Lomond</span></div>
                  </div>`,
@@ -868,13 +1094,13 @@
             );
         
     
-            var circle_marker_9960d2ea4d36df5bc2c8daa10f1563d2 = L.circleMarker(
+            var circle_marker_8d9ca3cd1b751705c7c35c2f73376580 = L.circleMarker(
                 [56.8743, -5.4318],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_9960d2ea4d36df5bc2c8daa10f1563d2.bindTooltip(
+            circle_marker_8d9ca3cd1b751705c7c35c2f73376580.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Glenfinnan-viaduct</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Harry Potter locatie<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Glencoe/Fort William naar Isle of Skye via Eilean Donan Castle</span></div>
                  </div>`,
@@ -884,13 +1110,13 @@
             );
         
     
-            var circle_marker_654ccc4e7185ca4b0afc9ad83c4390ed = L.circleMarker(
+            var circle_marker_aaf0f4dc8aa7308aa1e7daaf1973e580 = L.circleMarker(
                 [57.274, -5.516],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_654ccc4e7185ca4b0afc9ad83c4390ed.bindTooltip(
+            circle_marker_aaf0f4dc8aa7308aa1e7daaf1973e580.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Eilean Donan-kasteel</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kasteel<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Highlight<br><b>Onderweg:</b> <span style="color:#e74c3c">Glencoe/Fort William naar Isle of Skye via Eilean Donan Castle</span></div>
                  </div>`,
@@ -900,13 +1126,13 @@
             );
         
     
-            var circle_marker_489627c69c4a276e0dc23950168c0e12 = L.circleMarker(
+            var circle_marker_8a506f2b97a55977c5c49980dafdceb9 = L.circleMarker(
                 [57.274, -5.516],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_489627c69c4a276e0dc23950168c0e12.bindTooltip(
+            circle_marker_8a506f2b97a55977c5c49980dafdceb9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Eilean Donan-kasteel</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kasteel<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> Highlight<br><b>Onderweg:</b> <span style="color:#2980b9">Isle of Skye naar Applecross/Torridon via Eilean Donan Castle</span></div>
                  </div>`,
@@ -916,13 +1142,13 @@
             );
         
     
-            var circle_marker_280f6c993921669d6e456ef459906745 = L.circleMarker(
+            var circle_marker_39365d02f5cef3200f60c908e7431bc7 = L.circleMarker(
                 [57.56, -5.2],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_280f6c993921669d6e456ef459906745.bindTooltip(
+            circle_marker_39365d02f5cef3200f60c908e7431bc7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Schilderachtige Torridon-route</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> schilderachtige route<br><b>Onderweg:</b> <span style="color:#27ae60">Applecross / Torridon naar Ullapool via de schilderachtige Torridon-weg</span></div>
                  </div>`,
@@ -932,13 +1158,13 @@
             );
         
     
-            var circle_marker_cd54b509a8b072668a75ee9b9ca966db = L.circleMarker(
+            var circle_marker_40ede6e1f2576324041f1ac52ec622b2 = L.circleMarker(
                 [57.3232, -4.4244],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_cd54b509a8b072668a75ee9b9ca966db.bindTooltip(
+            circle_marker_40ede6e1f2576324041f1ac52ec622b2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Loch Ness/Urquhart Castle</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> historisch loch<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#8e44ad">Ullapool naar Edinburgh via Loch Ness en Pitlochry</span></div>
                  </div>`,
@@ -948,13 +1174,13 @@
             );
         
     
-            var circle_marker_6c44792c8dfb38c6610c7c876f471487 = L.circleMarker(
+            var circle_marker_60bb0b5234dc874c03ebb858e4dbdbd3 = L.circleMarker(
                 [56.7084, -3.7312],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_6c44792c8dfb38c6610c7c876f471487.bindTooltip(
+            circle_marker_60bb0b5234dc874c03ebb858e4dbdbd3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Pitlochry</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stadje<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> korte stop<br><b>Onderweg:</b> <span style="color:#8e44ad">Ullapool naar Edinburgh via Loch Ness en Pitlochry</span></div>
                  </div>`,
@@ -964,13 +1190,13 @@
             );
         
     
-            var circle_marker_d247232898851435480454cb8806ce72 = L.circleMarker(
+            var circle_marker_8d9cf97d5a7f4c9f8e2548248fd36805 = L.circleMarker(
                 [55.5096, -1.7127],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_8edc98a9b369fb172367124e155d1b49);
+            ).addTo(feature_group_104ac21619827d12d4be15fecbbef33c);
         
     
-            circle_marker_d247232898851435480454cb8806ce72.bindTooltip(
+            circle_marker_8d9cf97d5a7f4c9f8e2548248fd36805.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Kust van Northumberland / Bamburgh</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige kust<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> Scenic Stop<br><b>Onderweg:</b> <span style="color:#2c3e50">Edinburgh naar Newcastle via de kust van Northumberland</span></div>
                  </div>`,
@@ -980,28 +1206,28 @@
             );
         
     
-            feature_group_8edc98a9b369fb172367124e155d1b49.addTo(map_9d7428d3ee09b81f14ec54b8988af159);
+            feature_group_104ac21619827d12d4be15fecbbef33c.addTo(map_cc33cff395468c7e27f7ca2b4a45b43c);
         
     
-            var layer_control_5ca5bbfeba0b0d536c84b3a07e1b46c6_layers = {
+            var layer_control_0bc71a984d5e93ed415a7355a44ddc04_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_ab5726dedf4b9765d011f0069deeaa35,
+                    "OpenStreetMap" : tile_layer_77ecaf67811440d456bb7da467d3fe6c,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_9dec9cf250f3951ad57d44db27694562,
-                    "\u25cf Bezienswaardigheden" : feature_group_ab1eb50faa180ebc9f5b5cf5a5626488,
-                    "\u25c7 Tussenstops" : feature_group_8edc98a9b369fb172367124e155d1b49,
+                    "\ud83c\udfe8 Verblijven" : feature_group_574ec54871b1a7a499102f50ec8b5929,
+                    "\u25cf Bezienswaardigheden" : feature_group_9802ca566f24e8882d07cfecf4924622,
+                    "\u25c7 Tussenstops" : feature_group_104ac21619827d12d4be15fecbbef33c,
                 },
             };
-            let layer_control_5ca5bbfeba0b0d536c84b3a07e1b46c6 = L.control.layers(
-                layer_control_5ca5bbfeba0b0d536c84b3a07e1b46c6_layers.base_layers,
-                layer_control_5ca5bbfeba0b0d536c84b3a07e1b46c6_layers.overlays,
+            let layer_control_0bc71a984d5e93ed415a7355a44ddc04 = L.control.layers(
+                layer_control_0bc71a984d5e93ed415a7355a44ddc04_layers.base_layers,
+                layer_control_0bc71a984d5e93ed415a7355a44ddc04_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_9d7428d3ee09b81f14ec54b8988af159);
+            ).addTo(map_cc33cff395468c7e27f7ca2b4a45b43c);
 
         
 </script>

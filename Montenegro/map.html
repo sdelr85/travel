@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_289feb3d47c66e4da2ee03b4d6b62aeb {
+                #map_d3b23cbaa28062fec70f013aca4bdbdb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,50 +54,276 @@
 </head>
 <body>
     
-    
     <style>
+        .travel-legend {
+            position: fixed; bottom: 18px; left: 18px; z-index: 1000;
+            max-width: min(290px, calc(100vw - 32px));
+            background: rgba(255,255,255,.96); padding: 9px 12px;
+            border-radius: 7px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            font: 11px/1.35 sans-serif; color: #263746;
+        }
+        .travel-legend-country { font-size: 12px; }
+        .travel-legend-subtitle { margin-top: 4px; font-weight: 600; }
+        .travel-legend ol { margin: 3px 0 0 20px; padding: 0; }
+        .travel-legend li { padding: 1px 0; }
         @media (max-width: 600px) {
             .travel-legend {
-                bottom: 8px !important;
-                left: 8px !important;
-                right: 8px !important;
-                max-height: 38vh;
-                overflow-y: auto;
-                font-size: 11px !important;
-                padding: 8px 10px !important;
+                bottom: 8px; left: 8px;
+                max-width: min(220px, calc(100vw - 20px));
+                max-height: 28vh; overflow-y: auto; padding: 7px 9px;
+                font-size: 10px;
             }
         }
     </style>
-    <div class="travel-legend" style="
-        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-        background: white; padding: 12px 16px; border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
-    ">
-        <b style="font-size:15px"><span class="fi fi-me" style="border-radius:3px;margin-right:5px"></span>Montenegro</b>
-        <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Baai van Kotor / Perast / Dobrota</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Zabljak/Durmitor</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Virpazar / Skadarmeer</td></tr></table>
-        <hr style="margin:8px 0">
-        <b style="font-size:14px">Prioriteit (markergrootte)</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
-        <hr style="margin:8px 0">
-        <span style="font-size:12px;color:#666">
-            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
-        </span>
-        <hr style="margin:8px 0">
-        <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
+    <div class="travel-legend">
+        <b class="travel-legend-country">Land: <span class="fi fi-me" style="border-radius:3px;margin-right:5px"></span>Montenegro</b>
+        <div class="travel-legend-subtitle">Verblijfplaatsen</div>
+        <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Baai van Kotor / Perast / Dobrota</li><li><span style="color:#2980b9;font-size:13px">●</span> Zabljak/Durmitor</li><li><span style="color:#27ae60;font-size:13px">●</span> Virpazar / Skadarmeer</li></ol>
     </div>
+    <!-- travel-route-planner:start -->
+    <style>
+        .route-planner-control {
+            width: min(300px, calc(100vw - 60px));
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            color: #263746;
+            font: 13px/1.4 sans-serif;
+        }
+        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .route-planner-control select {
+            width: 100%; padding: 7px; border: 1px solid #b8c2cc;
+            border-radius: 5px; background: white; color: #263746;
+        }
+        .route-planner-control button {
+            margin-top: 8px; padding: 6px 10px; border: 0; border-radius: 5px;
+            background: #e8edf2; color: #263746; cursor: pointer;
+        }
+        .route-planner-status { margin-top: 8px; }
+        .route-planner-summary { margin-top: 6px; white-space: pre-line; }
+        .route-planner-directions { margin-top: 8px; }
+        .route-planner-directions ol {
+            max-height: 180px; overflow-y: auto; padding-left: 22px;
+        }
+        .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+    </style>
+    <script>
+    window.addEventListener("load", function () {
+        const map = map_d3b23cbaa28062fec70f013aca4bdbdb;
+        const routeStarts = [{"name": "Baai van Kotor / Perast / Dobrota", "lat": 42.4247, "lon": 18.7712}, {"name": "Zabljak/Durmitor", "lat": 43.1551, "lon": 19.1221}, {"name": "Virpazar / Skadarmeer", "lat": 42.2447, "lon": 19.0878}];
+        const routingUrl = "https://router.project-osrm.org/route/v1/driving";
+        let destination = null;
+        let activeRequest = null;
+        const initialBounds = map.getBounds();
+        const routeLineLayer = L.layerGroup().addTo(map);
+        const routePointsLayer = L.layerGroup().addTo(map);
+
+        const control = L.control({ position: "topleft" });
+        control.onAdd = function () {
+            const container = L.DomUtil.create("div", "route-planner-control");
+            container.innerHTML =
+                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label for="route-planner-start">Startverblijf</label>' +
+                '<select id="route-planner-start"></select>' +
+                '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
+                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                '<div class="route-planner-summary" id="route-planner-summary"></div>' +
+                '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
+                '<summary>Routebeschrijving</summary><ol></ol></details>' +
+                '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
+            return container;
+        };
+        control.addTo(map);
+
+        const panel = document.querySelector(".route-planner-control");
+        const startSelect = panel.querySelector("#route-planner-start");
+        const status = panel.querySelector("#route-planner-status");
+        const summary = panel.querySelector("#route-planner-summary");
+        const directions = panel.querySelector("#route-planner-directions");
+        const directionsList = directions.querySelector("ol");
+
+        routeStarts.forEach(function (start, index) {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
+            startSelect.appendChild(option);
+        });
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? "#b42318" : "#263746";
+        }
+
+        function formatDistance(meters) {
+            return (meters / 1000).toFixed(1).replace(".", ",") + " km";
+        }
+
+        function formatDuration(seconds) {
+            const minutes = Math.round(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const remainder = minutes % 60;
+            if (!hours) return minutes + " min";
+            return hours + " u" + (remainder ? " " + remainder + " min" : "");
+        }
+
+        function clearRoute() {
+            if (activeRequest) activeRequest.abort();
+            activeRequest = null;
+            destination = null;
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            if (initialBounds.isValid()) map.fitBounds(initialBounds);
+        }
+
+        function instructionFor(step) {
+            if (step.mode === "ferry") return "Neem de veerboot";
+            const maneuver = step.maneuver || {};
+            const action = {
+                depart: "Vertrek",
+                arrive: "Aankomst",
+                turn: "Sla af",
+                "end of road": "Sla aan het einde van de weg af",
+                continue: "Ga verder",
+                merge: "Voeg in",
+                fork: "Houd aan",
+                "on ramp": "Neem de oprit",
+                "off ramp": "Neem de afrit",
+                roundabout: "Neem de rotonde",
+                rotary: "Neem de rotonde"
+            }[maneuver.type] || "Vervolg";
+            const direction = {
+                left: "links",
+                right: "rechts",
+                straight: "rechtdoor",
+                "slight left": "licht links",
+                "slight right": "licht rechts",
+                "sharp left": "scherp links",
+                "sharp right": "scherp rechts",
+                uturn: "keer om"
+            }[maneuver.modifier] || "";
+            return action + (direction ? " " + direction : "");
+        }
+
+        async function calculateRoute() {
+            if (!destination) return;
+            if (activeRequest) activeRequest.abort();
+            const controller = new AbortController();
+            activeRequest = controller;
+            const start = routeStarts[Number(startSelect.value)];
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            L.circleMarker([start.lat, start.lon], {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#2980b9",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Start: " + start.name).addTo(routePointsLayer);
+            L.circleMarker(destination, {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            setStatus("Route wordt berekend…");
+
+            const coordinates = start.lon + "," + start.lat + ";" +
+                destination.lng + "," + destination.lat;
+            const url = routingUrl + "/" + coordinates +
+                "?overview=full&geometries=geojson&steps=true";
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error("Route-service antwoordde met HTTP " + response.status + ".");
+                const result = await response.json();
+                if (activeRequest !== controller) return;
+                if (result.code !== "Ok" || !result.routes || !result.routes.length) {
+                    throw new Error(result.message || "Er is geen autoroute gevonden.");
+                }
+
+                const route = result.routes[0];
+                const routeLine = L.geoJSON(route.geometry, {
+                    style: { color: "#1769aa", weight: 5, opacity: 0.85 },
+                    bubblingMouseEvents: false
+                }).addTo(routeLineLayer);
+                map.fitBounds(routeLine.getBounds().pad(0.12));
+
+                const steps = (route.legs || []).flatMap(function (leg) {
+                    return leg.steps || [];
+                });
+                const ferrySteps = steps.filter(function (step) {
+                    return step.mode === "ferry" ||
+                        /\b(ferry|veerboot|ferje|ferge)\b/i.test(step.name || "");
+                });
+                const ferryText = ferrySteps.length
+                    ? "⛴ Veerboot: " + ferrySteps.map(function (step) {
+                        return (step.name || "veerboottraject") +
+                            " (" + formatDuration(step.duration) + ")";
+                    }).join("; ")
+                    : "⛴ Geen veerbootsegment herkend";
+                summary.textContent = formatDistance(route.distance) + " · " +
+                    formatDuration(route.duration) + "\n" + ferryText;
+                setStatus("Route berekend.");
+
+                steps.forEach(function (step) {
+                    if (!step.distance && !step.duration) return;
+                    const item = document.createElement("li");
+                    item.textContent = instructionFor(step) +
+                        (step.name ? " — " + step.name : "") +
+                        " · " + formatDistance(step.distance) +
+                        " · " + formatDuration(step.duration);
+                    directionsList.appendChild(item);
+                });
+                directions.hidden = directionsList.children.length === 0;
+            } catch (error) {
+                if (error.name === "AbortError") return;
+                setStatus("Routeberekening mislukt: " + error.message, true);
+            }
+        }
+
+        function chooseDestination(latlng) {
+            destination = L.latLng(latlng.lat, latlng.lng);
+            calculateRoute();
+        }
+
+        startSelect.addEventListener("change", function () {
+            if (destination) calculateRoute();
+        });
+        panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        map.on("click", function (event) {
+            chooseDestination(event.latlng);
+        });
+
+        function enableMarkerDestinations(layer) {
+            if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+                layer.on("click", function (event) {
+                    if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+                    chooseDestination(event.latlng);
+                });
+            }
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(enableMarkerDestinations);
+            }
+        }
+        map.eachLayer(enableMarkerDestinations);
+    });
+    </script>
+    <!-- travel-route-planner:end -->
     
-    
-            <div class="folium-map" id="map_289feb3d47c66e4da2ee03b4d6b62aeb" ></div>
+            <div class="folium-map" id="map_d3b23cbaa28062fec70f013aca4bdbdb" ></div>
         
 </body>
 <script>
     
     
-            var map_289feb3d47c66e4da2ee03b4d6b62aeb = L.map(
-                "map_289feb3d47c66e4da2ee03b4d6b62aeb",
+            var map_d3b23cbaa28062fec70f013aca4bdbdb = L.map(
+                "map_d3b23cbaa28062fec70f013aca4bdbdb",
                 {
                     center: [42.573044, 18.956004],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +340,7 @@
 
         
     
-            var tile_layer_7bd4e5a5af19872bb1d245b3a0500f6d = L.tileLayer(
+            var tile_layer_983d7a143393a6dca4f16b9ff6db83cc = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -131,30 +357,30 @@
             );
         
     
-            tile_layer_7bd4e5a5af19872bb1d245b3a0500f6d.addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            tile_layer_983d7a143393a6dca4f16b9ff6db83cc.addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
         
     
-            map_289feb3d47c66e4da2ee03b4d6b62aeb.fitBounds(
+            map_d3b23cbaa28062fec70f013aca4bdbdb.fitBounds(
                 [[42.4247, 18.7712], [43.1551, 19.1221], [42.2447, 19.0878], [42.4247, 18.7712], [42.4258, 18.7735], [42.4865, 18.699], [42.4869, 18.6886], [42.3995, 18.8376], [42.3994, 18.837], [42.3931, 18.9214], [42.2564, 18.892], [42.2791, 18.84], [43.1401, 19.097], [43.1466, 19.2481], [43.1551, 19.1221], [43.1504, 19.2706], [43.05, 18.87], [43.1077, 19.0391], [42.2447, 19.0878], [42.304, 19.035], [42.317, 19.034], [42.4304, 19.2594], [42.0948, 19.149], [42.4047, 18.7233], [42.4047, 18.7233]],
                 {}
             );
         
     
-            var feature_group_5366cc23a5d883aac212cd3ca009a9f5 = L.featureGroup(
+            var feature_group_ddecf6039639443db58e1590ade3090e = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_60fc4749a306be718f53ab931bd813d4 = L.marker(
+            var marker_1e832b3b7c742e64d51ea4904ac5c424 = L.marker(
                 [42.4247, 18.7712],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5366cc23a5d883aac212cd3ca009a9f5);
+            ).addTo(feature_group_ddecf6039639443db58e1590ade3090e);
         
     
-            var icon_c2ab5dbd494f97acf6cedda506058d1b = L.AwesomeMarkers.icon(
+            var icon_18d46b67ab05b92c26186fad3785e708 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,7 +391,7 @@
             );
         
     
-            marker_60fc4749a306be718f53ab931bd813d4.bindTooltip(
+            marker_1e832b3b7c742e64d51ea4904ac5c424.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Baai van Kotor / Perast / Dobrota</b><br><span style="color:#555">Baai van Kotor en Lovcen</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Deze basis omvat Kotor, Perast, de baai van Kotor, Lovcen, Cetinje en eventueel Budva/Sveti Stefan als dagtocht.</i></div>
                  </div>`,
@@ -175,18 +401,18 @@
             );
         
     
-                marker_60fc4749a306be718f53ab931bd813d4.setIcon(icon_c2ab5dbd494f97acf6cedda506058d1b);
+                marker_1e832b3b7c742e64d51ea4904ac5c424.setIcon(icon_18d46b67ab05b92c26186fad3785e708);
             
     
-            var marker_d9449fe4374744cb33958e7bca69c581 = L.marker(
+            var marker_83f1eb8b16180e55bec5ff6187bbe67e = L.marker(
                 [43.1551, 19.1221],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5366cc23a5d883aac212cd3ca009a9f5);
+            ).addTo(feature_group_ddecf6039639443db58e1590ade3090e);
         
     
-            var icon_10337ec286672498b291584d79bb6713 = L.AwesomeMarkers.icon(
+            var icon_a86019cf58f02b3bca913d655d745735 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -197,7 +423,7 @@
             );
         
     
-            marker_d9449fe4374744cb33958e7bca69c581.bindTooltip(
+            marker_83f1eb8b16180e55bec5ff6187bbe67e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Zabljak/Durmitor</b><br><span style="color:#555">Durmitor Nationaal Park en Noord-Montenegro</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Bergbasis voor Durmitor National Park, Black Lake, Tara Canyon en de Durmitor Ring. Geef voldoende tijd voor hoogte en langzamere wegen.</i></div>
                  </div>`,
@@ -207,18 +433,18 @@
             );
         
     
-                marker_d9449fe4374744cb33958e7bca69c581.setIcon(icon_10337ec286672498b291584d79bb6713);
+                marker_83f1eb8b16180e55bec5ff6187bbe67e.setIcon(icon_a86019cf58f02b3bca913d655d745735);
             
     
-            var marker_c6fd8bdf690472ee7c9d9930aff3cd65 = L.marker(
+            var marker_5f61b335e76ca8038ef8aaae87e5c1b3 = L.marker(
                 [42.2447, 19.0878],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_5366cc23a5d883aac212cd3ca009a9f5);
+            ).addTo(feature_group_ddecf6039639443db58e1590ade3090e);
         
     
-            var icon_142eb73fb4ddab275b1f2aa4669e21fa = L.AwesomeMarkers.icon(
+            var icon_de757a148a07d5fb2a26a14c22854887 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -229,7 +455,7 @@
             );
         
     
-            marker_c6fd8bdf690472ee7c9d9930aff3cd65.bindTooltip(
+            marker_5f61b335e76ca8038ef8aaae87e5c1b3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Virpazar / Skadarmeer</b><br><span style="color:#555">Het Skadarmeer en de Adriatische kust</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Uitstekende uitvalsbasis voor boottochten op het Skadarmeer, het uitkijkpunt Pavlova Strana, Rijeka Crnojevica en een laatste kuststop voor vertrek.</i></div>
                  </div>`,
@@ -239,25 +465,25 @@
             );
         
     
-                marker_c6fd8bdf690472ee7c9d9930aff3cd65.setIcon(icon_142eb73fb4ddab275b1f2aa4669e21fa);
+                marker_5f61b335e76ca8038ef8aaae87e5c1b3.setIcon(icon_de757a148a07d5fb2a26a14c22854887);
             
     
-            feature_group_5366cc23a5d883aac212cd3ca009a9f5.addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            feature_group_ddecf6039639443db58e1590ade3090e.addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
         
     
-            var feature_group_e1d427ac2fc0b0c2afd46480c50491b2 = L.featureGroup(
+            var feature_group_9bf95eedbefda7e6b680e62ac30dd72e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_3f90f8a39a6a1276826dbe039a0d191c = L.circleMarker(
+            var circle_marker_aef506d3a625bb6ffa9a5907f59ddd84 = L.circleMarker(
                 [42.4247, 18.7712],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_3f90f8a39a6a1276826dbe039a0d191c.bindTooltip(
+            circle_marker_aef506d3a625bb6ffa9a5907f59ddd84.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">De oude binnenstad van Kotor</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> historische binnenstad<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 10 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Beste vroege ochtend of avond, vooral in de zomer of op cruiseschipdagen.</i></div>
                  </div>`,
@@ -267,13 +493,13 @@
             );
         
     
-            var circle_marker_63f78e5ca422caf296058e819a941b8a = L.circleMarker(
+            var circle_marker_5310ba6a296724685ebf68350c8d5b64 = L.circleMarker(
                 [42.4258, 18.7735],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_63f78e5ca422caf296058e819a941b8a.bindTooltip(
+            circle_marker_5310ba6a296724685ebf68350c8d5b64.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Stadsmuren / fortwandeling van Kotor</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling uitkijkpunt<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Geweldig uitzicht over de baai. Vermijd middaghitte.</i></div>
                  </div>`,
@@ -283,13 +509,13 @@
             );
         
     
-            var circle_marker_97caf059c000e49e0a8f223b8290c5a7 = L.circleMarker(
+            var circle_marker_1b3d0bd73a7cb29a3f481d9ced98db32 = L.circleMarker(
                 [42.4865, 18.699],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_97caf059c000e49e0a8f223b8290c5a7.bindTooltip(
+            circle_marker_1b3d0bd73a7cb29a3f481d9ced98db32.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Perast</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> historisch dorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Prachtig baaidorp, goed voor een ontspannen ochtend of late namiddag.</i></div>
                  </div>`,
@@ -299,13 +525,13 @@
             );
         
     
-            var circle_marker_20a93e88fa037820ac318b690848d1e5 = L.circleMarker(
+            var circle_marker_434e37a66f72b70012c5d9624ad6976e = L.circleMarker(
                 [42.4869, 18.6886],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_20a93e88fa037820ac318b690848d1e5.bindTooltip(
+            circle_marker_434e37a66f72b70012c5d9624ad6976e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Onze Lieve Vrouw van de Rotsen</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> korte boottocht<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Korte boottocht vanuit Perast.</i></div>
                  </div>`,
@@ -315,13 +541,13 @@
             );
         
     
-            var circle_marker_b3eced1ece94760bf5a2ce6338050a5c = L.circleMarker(
+            var circle_marker_0d25e55d65fa4a385a1ee67660313400 = L.circleMarker(
                 [42.3995, 18.8376],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_b3eced1ece94760bf5a2ce6338050a5c.bindTooltip(
+            circle_marker_0d25e55d65fa4a385a1ee67660313400.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lovcen Nationaal Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> nationaal park (berg)<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Goed bergcontrast met de kust. Combineer met Cetinje of de kronkelige weg van Kotor.</i></div>
                  </div>`,
@@ -331,13 +557,13 @@
             );
         
     
-            var circle_marker_cdc49cfeef745638b67ca15365bb52d3 = L.circleMarker(
+            var circle_marker_6a2d8aa16eed215aed0e085d17fcf33f = L.circleMarker(
                 [42.3994, 18.837],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_cdc49cfeef745638b67ca15365bb52d3.bindTooltip(
+            circle_marker_6a2d8aa16eed215aed0e085d17fcf33f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Njegos-mausoleum</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 85 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Mausoleum op de top met panoramisch uitzicht. Combineer met Lovcen.</i></div>
                  </div>`,
@@ -347,13 +573,13 @@
             );
         
     
-            var circle_marker_ce97f99dcfa93ff4f74a2ced8f5b285c = L.circleMarker(
+            var circle_marker_923882bc0086c643ec6204c4ec377ad4 = L.circleMarker(
                 [42.3931, 18.9214],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_ce97f99dcfa93ff4f74a2ced8f5b285c.bindTooltip(
+            circle_marker_923882bc0086c643ec6204c4ec377ad4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Cetinje</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> historische stad<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 70 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Voormalige koninklijke hoofdstad, goede culturele halve dag vanuit Kotor.</i></div>
                  </div>`,
@@ -363,13 +589,13 @@
             );
         
     
-            var circle_marker_863807fa71249f3a4d5830d418120334 = L.circleMarker(
+            var circle_marker_d32405f023488dea8cbbfaaadcd2a42e = L.circleMarker(
                 [42.2564, 18.892],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_863807fa71249f3a4d5830d418120334.bindTooltip(
+            circle_marker_d32405f023488dea8cbbfaaadcd2a42e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sveti Stefan-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kust uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Iconisch uitzichtpunt op het eilandhotel. Gemakkelijke dagtocht naar het zuiden langs de kust.</i></div>
                  </div>`,
@@ -379,13 +605,13 @@
             );
         
     
-            var circle_marker_67e667919ac5aa6c8e5fff873c908908 = L.circleMarker(
+            var circle_marker_251805ed34d44a9a6965a255164889fe = L.circleMarker(
                 [42.2791, 18.84],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_67e667919ac5aa6c8e5fff873c908908.bindTooltip(
+            circle_marker_251805ed34d44a9a6965a255164889fe.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">De oude binnenstad van Budva</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> historische binnenstad<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Baai van Kotor / Perast / Dobrota</span><br><i style="color:#666;font-size:13px">Levendige kustplaats, drukker dan Kotor maar zeker een kort bezoek waard.</i></div>
                  </div>`,
@@ -395,13 +621,13 @@
             );
         
     
-            var circle_marker_65cacc295513ee2abb71955886c008a9 = L.circleMarker(
+            var circle_marker_ff8bb80a1d347a30f6fbe14a47d462e9 = L.circleMarker(
                 [43.1401, 19.097],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_65cacc295513ee2abb71955886c008a9.bindTooltip(
+            circle_marker_ff8bb80a1d347a30f6fbe14a47d462e9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Zwarte Meer / Crno Jezero</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> meerwandeling<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Gemakkelijke wandeling langs het meer, rechtstreeks vanuit Zabljak. Beste eerste ochtendactiviteit.</i></div>
                  </div>`,
@@ -411,13 +637,13 @@
             );
         
     
-            var circle_marker_c5cd217028659b9fb4620bcf56dda94b = L.circleMarker(
+            var circle_marker_8cb69b00c5fa177aa52bd450c086945f = L.circleMarker(
                 [43.1466, 19.2481],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_c5cd217028659b9fb4620bcf56dda94b.bindTooltip(
+            circle_marker_8cb69b00c5fa177aa52bd450c086945f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Uitzichtpunt Tara Canyon</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> canyon uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Eén van de diepste canyons van Europa. Het Curevac-uitkijkpunt is het meest toegankelijk.</i></div>
                  </div>`,
@@ -427,13 +653,13 @@
             );
         
     
-            var circle_marker_af06d59d34a3725b15571edb5c437ff3 = L.circleMarker(
+            var circle_marker_056b2d869629dbe103a18b6864b50257 = L.circleMarker(
                 [43.1551, 19.1221],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_af06d59d34a3725b15571edb5c437ff3.bindTooltip(
+            circle_marker_056b2d869629dbe103a18b6864b50257.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Schilderachtige route Durmitor Ring</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Klassieke ronde bergrit door het nationale park met gletsjermeren en bergtoppen.</i></div>
                  </div>`,
@@ -443,13 +669,13 @@
             );
         
     
-            var circle_marker_d6eb9a914733d89168c7e3165166560f = L.circleMarker(
+            var circle_marker_e936914c342fbfe5b32667080afabdc2 = L.circleMarker(
                 [43.1504, 19.2706],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_d6eb9a914733d89168c7e3165166560f.bindTooltip(
+            circle_marker_e936914c342fbfe5b32667080afabdc2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tarabrug / Djurdjevica Tara</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Bridge Viewpoint<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Iconische betonnen boogbrug boven de kloof.</i></div>
                  </div>`,
@@ -459,13 +685,13 @@
             );
         
     
-            var circle_marker_c1ab36312437752dd5e8cfd657a53753 = L.circleMarker(
+            var circle_marker_0791d0114ed5790f247a7d839678c08b = L.circleMarker(
                 [43.05, 18.87],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_c1ab36312437752dd5e8cfd657a53753.bindTooltip(
+            circle_marker_0791d0114ed5790f247a7d839678c08b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Piva-kloof</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> canyon schilderachtige rit<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 50 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Dramatische weg uitgehouwen in de wanden van de kloof langs het Piva-reservoir.</i></div>
                  </div>`,
@@ -475,13 +701,13 @@
             );
         
     
-            var circle_marker_f63029d0d9ac210bd32e395e4b26640e = L.circleMarker(
+            var circle_marker_8c1f062d189b2d49a9d8ce4dc0a2dede = L.circleMarker(
                 [43.1077, 19.0391],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_f63029d0d9ac210bd32e395e4b26640e.bindTooltip(
+            circle_marker_8c1f062d189b2d49a9d8ce4dc0a2dede.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bobotov Kuk-wandeling</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> zware wandeling<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zabljak/Durmitor</span><br><i style="color:#666;font-size:13px">Hoogste top van Durmitor. Enkel voor een zeer gemotiveerde en fitte familiedag.</i></div>
                  </div>`,
@@ -491,13 +717,13 @@
             );
         
     
-            var circle_marker_bda90a0343c4c80fc0ed52e67a443515 = L.circleMarker(
+            var circle_marker_5913e3b6028f9dc7f71f914f5b658fdb = L.circleMarker(
                 [42.2447, 19.0878],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_bda90a0343c4c80fc0ed52e67a443515.bindTooltip(
+            circle_marker_5913e3b6028f9dc7f71f914f5b658fdb.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Boottocht op het Skadarmeer</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht meer<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Virpazar / Skadarmeer</span><br><i style="color:#666;font-size:13px">De beste manier om het meer te ervaren. Pelikanen, waterlelies, kloosters op eilanden.</i></div>
                  </div>`,
@@ -507,13 +733,13 @@
             );
         
     
-            var circle_marker_00f9e8c526315cbe2066cfccebbb142a = L.circleMarker(
+            var circle_marker_8d4de0437610c9ad4d8a2c5cfb7bd775 = L.circleMarker(
                 [42.304, 19.035],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_00f9e8c526315cbe2066cfccebbb142a.bindTooltip(
+            circle_marker_8d4de0437610c9ad4d8a2c5cfb7bd775.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Pavlova Strana-uitkijkpunt</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 20 min rijden<br><span style="color:#e67e22">🌅 Geschikt voor avondbezoek</span><br><b>Basis:</b> <span style="color:#27ae60">Virpazar / Skadarmeer</span><br><i style="color:#666;font-size:13px">Verhoogd uitkijkpunt over het meer en de rivierkloof Rijeka Crnojevica.</i></div>
                  </div>`,
@@ -523,13 +749,13 @@
             );
         
     
-            var circle_marker_881451f0c1c647450ede19b1a78bd9a2 = L.circleMarker(
+            var circle_marker_e532cd3d0601156dc0a24035834a88de = L.circleMarker(
                 [42.317, 19.034],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_881451f0c1c647450ede19b1a78bd9a2.bindTooltip(
+            circle_marker_e532cd3d0601156dc0a24035834a88de.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Rijeka Crnojevica</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp rivierkloof<br><b>Duur:</b> 1.5 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Virpazar / Skadarmeer</span><br><i style="color:#666;font-size:13px">Pittoresk dorpje aan de monding van de rivier. Goed te combineren met Pavlova Strana.</i></div>
                  </div>`,
@@ -539,13 +765,13 @@
             );
         
     
-            var circle_marker_c3e56f5a5caef65d2befa6bcafd9bf6b = L.circleMarker(
+            var circle_marker_bcd30f307a41cad995073d8ed64ccddc = L.circleMarker(
                 [42.4304, 19.2594],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_c3e56f5a5caef65d2befa6bcafd9bf6b.bindTooltip(
+            circle_marker_bcd30f307a41cad995073d8ed64ccddc.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Podgorica</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stad<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Virpazar / Skadarmeer</span><br><i style="color:#666;font-size:13px">Hoofdstad, handig als u vertrekt vanaf de luchthaven Podgorica.</i></div>
                  </div>`,
@@ -555,13 +781,13 @@
             );
         
     
-            var circle_marker_3bc59124c99db3432b59c932e9be271f = L.circleMarker(
+            var circle_marker_a15a996d68603fec7ccbaf6e53726408 = L.circleMarker(
                 [42.0948, 19.149],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_e1d427ac2fc0b0c2afd46480c50491b2);
+            ).addTo(feature_group_9bf95eedbefda7e6b680e62ac30dd72e);
         
     
-            circle_marker_3bc59124c99db3432b59c932e9be271f.bindTooltip(
+            circle_marker_a15a996d68603fec7ccbaf6e53726408.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Oude bar / Stari-bar</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> ruïnes historische locatie<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 50 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Virpazar / Skadarmeer</span><br><i style="color:#666;font-size:13px">Sfeervol middeleeuwse ruïnestad in de heuvels boven de moderne kustplaats.</i></div>
                  </div>`,
@@ -571,22 +797,22 @@
             );
         
     
-            feature_group_e1d427ac2fc0b0c2afd46480c50491b2.addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            feature_group_9bf95eedbefda7e6b680e62ac30dd72e.addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
         
     
-            var feature_group_3b41c20318977b282b5f1699791bf02a = L.featureGroup(
+            var feature_group_f0c2fc13311446f75e24268084694a7a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_046567debd0422497690eb2ef110be6a = L.circleMarker(
+            var circle_marker_273a78ad465a3d3d1393abbab19ae577 = L.circleMarker(
                 [42.4047, 18.7233],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_3b41c20318977b282b5f1699791bf02a);
+            ).addTo(feature_group_f0c2fc13311446f75e24268084694a7a);
         
     
-            circle_marker_046567debd0422497690eb2ef110be6a.bindTooltip(
+            circle_marker_273a78ad465a3d3d1393abbab19ae577.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Luchthaven Tivat</b><br><span style="color:#e67e22;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> aankomstpunt<br><b>Stopduur:</b> 0.5 h<br><b>Rol:</b> Arrival<br><b>Onderweg:</b> <span style="color:#e67e22">Tivat Airport naar de baai van Kotor</span></div>
                  </div>`,
@@ -596,13 +822,13 @@
             );
         
     
-            var circle_marker_3490184b6b84395ff2b8ba844edc53f1 = L.circleMarker(
+            var circle_marker_cf57ad76f9d00bb575258f399e008e7d = L.circleMarker(
                 [42.3995, 18.8376],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_3b41c20318977b282b5f1699791bf02a);
+            ).addTo(feature_group_f0c2fc13311446f75e24268084694a7a);
         
     
-            circle_marker_3490184b6b84395ff2b8ba844edc53f1.bindTooltip(
+            circle_marker_cf57ad76f9d00bb575258f399e008e7d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Lovcen Nationaal Park</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> nationaal park (berg)<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Baai van Kotor naar Zabljak via Lovcen en Cetinje</span></div>
                  </div>`,
@@ -612,13 +838,13 @@
             );
         
     
-            var circle_marker_5008e036d6988812271bca338d02da01 = L.circleMarker(
+            var circle_marker_cc6186c04553dd00e7ff363cc96a2709 = L.circleMarker(
                 [42.3931, 18.9214],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_3b41c20318977b282b5f1699791bf02a);
+            ).addTo(feature_group_f0c2fc13311446f75e24268084694a7a);
         
     
-            circle_marker_5008e036d6988812271bca338d02da01.bindTooltip(
+            circle_marker_cc6186c04553dd00e7ff363cc96a2709.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Cetinje</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> historische stad<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> korte stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Baai van Kotor naar Zabljak via Lovcen en Cetinje</span></div>
                  </div>`,
@@ -628,13 +854,13 @@
             );
         
     
-            var circle_marker_c126cc0486c2c788c165867297b1e883 = L.circleMarker(
+            var circle_marker_bd89672e91d0dc851f894abcbf8d6604 = L.circleMarker(
                 [43.05, 18.87],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_3b41c20318977b282b5f1699791bf02a);
+            ).addTo(feature_group_f0c2fc13311446f75e24268084694a7a);
         
     
-            circle_marker_c126cc0486c2c788c165867297b1e883.bindTooltip(
+            circle_marker_bd89672e91d0dc851f894abcbf8d6604.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Piva-kloof</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> canyon schilderachtige rit<br><b>Stopduur:</b> 2 h<br><b>Rol:</b> schilderachtige route<br><b>Onderweg:</b> <span style="color:#2980b9">Zabljak naar Virpazar / Skadarmeer via Piva Canyon</span></div>
                  </div>`,
@@ -644,23 +870,23 @@
             );
         
     
-            feature_group_3b41c20318977b282b5f1699791bf02a.addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            feature_group_f0c2fc13311446f75e24268084694a7a.addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
         
     
-            var feature_group_30ef351a1f9a1ed3a1db5ae893174801 = L.featureGroup(
+            var feature_group_412e116e792be10c3c1f6aa266b680a1 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_714488c7159f4b6e64cb1c2f3d956b8f = L.marker(
+            var marker_4c28e8838f090971b04576bf37db6a28 = L.marker(
                 [42.4047, 18.7233],
                 {
 }
-            ).addTo(feature_group_30ef351a1f9a1ed3a1db5ae893174801);
+            ).addTo(feature_group_412e116e792be10c3c1f6aa266b680a1);
         
     
-            var icon_27985ef0e29afa515f38df3532258666 = L.AwesomeMarkers.icon(
+            var icon_5133f54517d3f7ba49001364bb2b5fb9 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -671,7 +897,7 @@
             );
         
     
-            marker_714488c7159f4b6e64cb1c2f3d956b8f.bindTooltip(
+            marker_4c28e8838f090971b04576bf37db6a28.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif"><b>✈️ Luchthaven Tivat</b></div>
                  </div>`,
@@ -681,32 +907,32 @@
             );
         
     
-                marker_714488c7159f4b6e64cb1c2f3d956b8f.setIcon(icon_27985ef0e29afa515f38df3532258666);
+                marker_4c28e8838f090971b04576bf37db6a28.setIcon(icon_5133f54517d3f7ba49001364bb2b5fb9);
             
     
-            feature_group_30ef351a1f9a1ed3a1db5ae893174801.addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            feature_group_412e116e792be10c3c1f6aa266b680a1.addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
         
     
-            var layer_control_99acb602095cba013eed1c726dbf36ab_layers = {
+            var layer_control_f5094fe495be91c9945c18d439aa008b_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_7bd4e5a5af19872bb1d245b3a0500f6d,
+                    "OpenStreetMap" : tile_layer_983d7a143393a6dca4f16b9ff6db83cc,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_5366cc23a5d883aac212cd3ca009a9f5,
-                    "\u25cf Bezienswaardigheden" : feature_group_e1d427ac2fc0b0c2afd46480c50491b2,
-                    "\u25c7 Tussenstops" : feature_group_3b41c20318977b282b5f1699791bf02a,
-                    "\u2708 Luchthaven" : feature_group_30ef351a1f9a1ed3a1db5ae893174801,
+                    "\ud83c\udfe8 Verblijven" : feature_group_ddecf6039639443db58e1590ade3090e,
+                    "\u25cf Bezienswaardigheden" : feature_group_9bf95eedbefda7e6b680e62ac30dd72e,
+                    "\u25c7 Tussenstops" : feature_group_f0c2fc13311446f75e24268084694a7a,
+                    "\u2708 Luchthaven" : feature_group_412e116e792be10c3c1f6aa266b680a1,
                 },
             };
-            let layer_control_99acb602095cba013eed1c726dbf36ab = L.control.layers(
-                layer_control_99acb602095cba013eed1c726dbf36ab_layers.base_layers,
-                layer_control_99acb602095cba013eed1c726dbf36ab_layers.overlays,
+            let layer_control_f5094fe495be91c9945c18d439aa008b = L.control.layers(
+                layer_control_f5094fe495be91c9945c18d439aa008b_layers.base_layers,
+                layer_control_f5094fe495be91c9945c18d439aa008b_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_289feb3d47c66e4da2ee03b4d6b62aeb);
+            ).addTo(map_d3b23cbaa28062fec70f013aca4bdbdb);
 
         
 </script>

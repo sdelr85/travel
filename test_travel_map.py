@@ -132,5 +132,41 @@ class TransferStopTests(unittest.TestCase):
         self.assertIn("Uitzicht over de fjord.", rendered_map)
 
 
+class RoutePlannerTests(unittest.TestCase):
+    def test_map_includes_route_planner_for_lodging_locations(self):
+        fmap = travel_map.build_map(
+            {
+                "trip": {
+                    "country": "Norway",
+                    "lodging_locations": [
+                        {
+                            "id": "base_1",
+                            "name": "Geilo",
+                            "coordinates": {"lat": 60.5333, "lon": 8.2},
+                        },
+                        {
+                            "id": "base_2",
+                            "name": "Kalvåtn",
+                            "coordinates": {"lat": 61.948, "lon": 6.525},
+                        },
+                    ],
+                }
+            }
+        )
+        rendered_map = fmap.get_root().render()
+
+        self.assertIn("Routeplanner", rendered_map)
+        self.assertIn("Verblijf \" + (index + 1) + \": \" + start.name", rendered_map)
+        self.assertIn('"name": "Geilo"', rendered_map)
+        self.assertIn(travel_map.OSRM_ROUTING_URL, rendered_map)
+        self.assertIn('step.mode === "ferry"', rendered_map)
+        self.assertIn("Routebeschrijving", rendered_map)
+        self.assertIn("Land:", rendered_map)
+        self.assertIn("Verblijfplaatsen", rendered_map)
+        self.assertLess(rendered_map.index("Geilo"), rendered_map.index("Kalvåtn"))
+        self.assertNotIn("Prioriteit (markergrootte)", rendered_map)
+        self.assertNotIn("Terug naar landenselectie", rendered_map)
+
+
 if __name__ == "__main__":
     unittest.main()

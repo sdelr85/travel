@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1ff2b792de4a25e7f40bdd0fec2f78aa {
+                #map_aa07f623d5249e4025884fab46d0fcee {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,50 +54,276 @@
 </head>
 <body>
     
-    
     <style>
+        .travel-legend {
+            position: fixed; bottom: 18px; left: 18px; z-index: 1000;
+            max-width: min(290px, calc(100vw - 32px));
+            background: rgba(255,255,255,.96); padding: 9px 12px;
+            border-radius: 7px; box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            font: 11px/1.35 sans-serif; color: #263746;
+        }
+        .travel-legend-country { font-size: 12px; }
+        .travel-legend-subtitle { margin-top: 4px; font-weight: 600; }
+        .travel-legend ol { margin: 3px 0 0 20px; padding: 0; }
+        .travel-legend li { padding: 1px 0; }
         @media (max-width: 600px) {
             .travel-legend {
-                bottom: 8px !important;
-                left: 8px !important;
-                right: 8px !important;
-                max-height: 38vh;
-                overflow-y: auto;
-                font-size: 11px !important;
-                padding: 8px 10px !important;
+                bottom: 8px; left: 8px;
+                max-width: min(220px, calc(100vw - 20px));
+                max-height: 28vh; overflow-y: auto; padding: 7px 9px;
+                font-size: 10px;
             }
         }
     </style>
-    <div class="travel-legend" style="
-        position: fixed; bottom: 30px; left: 30px; z-index: 1000;
-        background: white; padding: 12px 16px; border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,.25); font-family: sans-serif; font-size: 13px;
-    ">
-        <b style="font-size:15px"><span class="fi fi-za" style="border-radius:3px;margin-right:5px"></span>Zuid-Afrika</b>
-        <hr style="margin:6px 0 4px">
-        <b style="font-size:14px">Verblijfplaatsen</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td><span style="color:#e74c3c;font-size:18px">■</span></td><td style="padding-left:6px">Kaapstad</td></tr><tr><td><span style="color:#2980b9;font-size:18px">■</span></td><td style="padding-left:6px">Hermanus</td></tr><tr><td><span style="color:#27ae60;font-size:18px">■</span></td><td style="padding-left:6px">Knysna / Plettenbergbaai</td></tr><tr><td><span style="color:#8e44ad;font-size:18px">■</span></td><td style="padding-left:6px">Tsitsikamma</td></tr><tr><td><span style="color:#2c3e50;font-size:18px">■</span></td><td style="padding-left:6px">Addo Olifantenpark</td></tr><tr><td><span style="color:#16a085;font-size:18px">■</span></td><td style="padding-left:6px">Kruger Nationaal Park</td></tr></table>
-        <hr style="margin:8px 0">
-        <b style="font-size:14px">Prioriteit (markergrootte)</b>
-        <table style="border-collapse:collapse;margin-top:4px"><tr><td>★★★★</td><td style="padding-left:6px">Absoluut doen</td></tr><tr><td>★★★☆</td><td style="padding-left:6px">Sterk aanbevolen</td></tr><tr><td>★★☆☆</td><td style="padding-left:6px">Als er tijd is</td></tr><tr><td>★☆☆☆</td><td style="padding-left:6px">Optionele betaalde activiteit</td></tr></table>
-        <hr style="margin:8px 0">
-        <span style="font-size:12px;color:#666">
-            🏨 = verblijf &nbsp;|&nbsp; ● = attractie &nbsp;|&nbsp; ◇ = tussenstop
-        </span>
-        <hr style="margin:8px 0">
-        <a href="../index.html"
-           style="font-size:12px;color:#2980b9;text-decoration:none">← Terug naar landenselectie</a>
+    <div class="travel-legend">
+        <b class="travel-legend-country">Land: <span class="fi fi-za" style="border-radius:3px;margin-right:5px"></span>Zuid-Afrika</b>
+        <div class="travel-legend-subtitle">Verblijfplaatsen</div>
+        <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Kaapstad</li><li><span style="color:#2980b9;font-size:13px">●</span> Hermanus</li><li><span style="color:#27ae60;font-size:13px">●</span> Knysna / Plettenbergbaai</li><li><span style="color:#8e44ad;font-size:13px">●</span> Tsitsikamma</li><li><span style="color:#2c3e50;font-size:13px">●</span> Addo Olifantenpark</li><li><span style="color:#16a085;font-size:13px">●</span> Kruger Nationaal Park</li></ol>
     </div>
+    <!-- travel-route-planner:start -->
+    <style>
+        .route-planner-control {
+            width: min(300px, calc(100vw - 60px));
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.97);
+            box-shadow: 0 2px 10px rgba(0,0,0,.25);
+            color: #263746;
+            font: 13px/1.4 sans-serif;
+        }
+        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
+        .route-planner-control select {
+            width: 100%; padding: 7px; border: 1px solid #b8c2cc;
+            border-radius: 5px; background: white; color: #263746;
+        }
+        .route-planner-control button {
+            margin-top: 8px; padding: 6px 10px; border: 0; border-radius: 5px;
+            background: #e8edf2; color: #263746; cursor: pointer;
+        }
+        .route-planner-status { margin-top: 8px; }
+        .route-planner-summary { margin-top: 6px; white-space: pre-line; }
+        .route-planner-directions { margin-top: 8px; }
+        .route-planner-directions ol {
+            max-height: 180px; overflow-y: auto; padding-left: 22px;
+        }
+        .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
+    </style>
+    <script>
+    window.addEventListener("load", function () {
+        const map = map_aa07f623d5249e4025884fab46d0fcee;
+        const routeStarts = [{"name": "Kaapstad", "lat": -33.9249, "lon": 18.4241}, {"name": "Hermanus", "lat": -34.4187, "lon": 19.2345}, {"name": "Knysna / Plettenbergbaai", "lat": -34.0363, "lon": 23.0471}, {"name": "Tsitsikamma", "lat": -34.03, "lon": 23.886}, {"name": "Addo Olifantenpark", "lat": -33.483, "lon": 25.748}, {"name": "Kruger Nationaal Park", "lat": -24.995, "lon": 31.596}];
+        const routingUrl = "https://router.project-osrm.org/route/v1/driving";
+        let destination = null;
+        let activeRequest = null;
+        const initialBounds = map.getBounds();
+        const routeLineLayer = L.layerGroup().addTo(map);
+        const routePointsLayer = L.layerGroup().addTo(map);
+
+        const control = L.control({ position: "topleft" });
+        control.onAdd = function () {
+            const container = L.DomUtil.create("div", "route-planner-control");
+            container.innerHTML =
+                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label for="route-planner-start">Startverblijf</label>' +
+                '<select id="route-planner-start"></select>' +
+                '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
+                'Kies een startverblijf en klik daarna op een bestemming op de kaart.</div>' +
+                '<div class="route-planner-summary" id="route-planner-summary"></div>' +
+                '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
+                '<summary>Routebeschrijving</summary><ol></ol></details>' +
+                '<button type="button" id="route-planner-clear">Wis route</button>' +
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
+            return container;
+        };
+        control.addTo(map);
+
+        const panel = document.querySelector(".route-planner-control");
+        const startSelect = panel.querySelector("#route-planner-start");
+        const status = panel.querySelector("#route-planner-status");
+        const summary = panel.querySelector("#route-planner-summary");
+        const directions = panel.querySelector("#route-planner-directions");
+        const directionsList = directions.querySelector("ol");
+
+        routeStarts.forEach(function (start, index) {
+            const option = document.createElement("option");
+            option.value = String(index);
+            option.textContent = "Verblijf " + (index + 1) + ": " + start.name;
+            startSelect.appendChild(option);
+        });
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? "#b42318" : "#263746";
+        }
+
+        function formatDistance(meters) {
+            return (meters / 1000).toFixed(1).replace(".", ",") + " km";
+        }
+
+        function formatDuration(seconds) {
+            const minutes = Math.round(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const remainder = minutes % 60;
+            if (!hours) return minutes + " min";
+            return hours + " u" + (remainder ? " " + remainder + " min" : "");
+        }
+
+        function clearRoute() {
+            if (activeRequest) activeRequest.abort();
+            activeRequest = null;
+            destination = null;
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            setStatus("Kies een startverblijf en klik daarna op een bestemming op de kaart.");
+            if (initialBounds.isValid()) map.fitBounds(initialBounds);
+        }
+
+        function instructionFor(step) {
+            if (step.mode === "ferry") return "Neem de veerboot";
+            const maneuver = step.maneuver || {};
+            const action = {
+                depart: "Vertrek",
+                arrive: "Aankomst",
+                turn: "Sla af",
+                "end of road": "Sla aan het einde van de weg af",
+                continue: "Ga verder",
+                merge: "Voeg in",
+                fork: "Houd aan",
+                "on ramp": "Neem de oprit",
+                "off ramp": "Neem de afrit",
+                roundabout: "Neem de rotonde",
+                rotary: "Neem de rotonde"
+            }[maneuver.type] || "Vervolg";
+            const direction = {
+                left: "links",
+                right: "rechts",
+                straight: "rechtdoor",
+                "slight left": "licht links",
+                "slight right": "licht rechts",
+                "sharp left": "scherp links",
+                "sharp right": "scherp rechts",
+                uturn: "keer om"
+            }[maneuver.modifier] || "";
+            return action + (direction ? " " + direction : "");
+        }
+
+        async function calculateRoute() {
+            if (!destination) return;
+            if (activeRequest) activeRequest.abort();
+            const controller = new AbortController();
+            activeRequest = controller;
+            const start = routeStarts[Number(startSelect.value)];
+            routeLineLayer.clearLayers();
+            routePointsLayer.clearLayers();
+            summary.textContent = "";
+            directions.hidden = true;
+            directionsList.replaceChildren();
+            L.circleMarker([start.lat, start.lon], {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#2980b9",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Start: " + start.name).addTo(routePointsLayer);
+            L.circleMarker(destination, {
+                radius: 7, color: "#fff", weight: 2, fillColor: "#e74c3c",
+                fillOpacity: 1, bubblingMouseEvents: false
+            }).bindTooltip("Gekozen bestemming").addTo(routePointsLayer);
+            setStatus("Route wordt berekend…");
+
+            const coordinates = start.lon + "," + start.lat + ";" +
+                destination.lng + "," + destination.lat;
+            const url = routingUrl + "/" + coordinates +
+                "?overview=full&geometries=geojson&steps=true";
+            try {
+                const response = await fetch(url, { signal: controller.signal });
+                if (!response.ok) throw new Error("Route-service antwoordde met HTTP " + response.status + ".");
+                const result = await response.json();
+                if (activeRequest !== controller) return;
+                if (result.code !== "Ok" || !result.routes || !result.routes.length) {
+                    throw new Error(result.message || "Er is geen autoroute gevonden.");
+                }
+
+                const route = result.routes[0];
+                const routeLine = L.geoJSON(route.geometry, {
+                    style: { color: "#1769aa", weight: 5, opacity: 0.85 },
+                    bubblingMouseEvents: false
+                }).addTo(routeLineLayer);
+                map.fitBounds(routeLine.getBounds().pad(0.12));
+
+                const steps = (route.legs || []).flatMap(function (leg) {
+                    return leg.steps || [];
+                });
+                const ferrySteps = steps.filter(function (step) {
+                    return step.mode === "ferry" ||
+                        /\b(ferry|veerboot|ferje|ferge)\b/i.test(step.name || "");
+                });
+                const ferryText = ferrySteps.length
+                    ? "⛴ Veerboot: " + ferrySteps.map(function (step) {
+                        return (step.name || "veerboottraject") +
+                            " (" + formatDuration(step.duration) + ")";
+                    }).join("; ")
+                    : "⛴ Geen veerbootsegment herkend";
+                summary.textContent = formatDistance(route.distance) + " · " +
+                    formatDuration(route.duration) + "\n" + ferryText;
+                setStatus("Route berekend.");
+
+                steps.forEach(function (step) {
+                    if (!step.distance && !step.duration) return;
+                    const item = document.createElement("li");
+                    item.textContent = instructionFor(step) +
+                        (step.name ? " — " + step.name : "") +
+                        " · " + formatDistance(step.distance) +
+                        " · " + formatDuration(step.duration);
+                    directionsList.appendChild(item);
+                });
+                directions.hidden = directionsList.children.length === 0;
+            } catch (error) {
+                if (error.name === "AbortError") return;
+                setStatus("Routeberekening mislukt: " + error.message, true);
+            }
+        }
+
+        function chooseDestination(latlng) {
+            destination = L.latLng(latlng.lat, latlng.lng);
+            calculateRoute();
+        }
+
+        startSelect.addEventListener("change", function () {
+            if (destination) calculateRoute();
+        });
+        panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
+        map.on("click", function (event) {
+            chooseDestination(event.latlng);
+        });
+
+        function enableMarkerDestinations(layer) {
+            if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
+                layer.on("click", function (event) {
+                    if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+                    chooseDestination(event.latlng);
+                });
+            }
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(enableMarkerDestinations);
+            }
+        }
+        map.eachLayer(enableMarkerDestinations);
+    });
+    </script>
+    <!-- travel-route-planner:end -->
     
-    
-            <div class="folium-map" id="map_1ff2b792de4a25e7f40bdd0fec2f78aa" ></div>
+            <div class="folium-map" id="map_aa07f623d5249e4025884fab46d0fcee" ></div>
         
 </body>
 <script>
     
     
-            var map_1ff2b792de4a25e7f40bdd0fec2f78aa = L.map(
-                "map_1ff2b792de4a25e7f40bdd0fec2f78aa",
+            var map_aa07f623d5249e4025884fab46d0fcee = L.map(
+                "map_aa07f623d5249e4025884fab46d0fcee",
                 {
                     center: [-32.53944166666667, 23.036358333333332],
                     crs: L.CRS.EPSG3857,
@@ -114,7 +340,7 @@
 
         
     
-            var tile_layer_90c812ab7ec32fabd12ecbcab2e8dcd0 = L.tileLayer(
+            var tile_layer_7ec3ed0ba574bdf028aaa97fc954c2b5 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -131,30 +357,30 @@
             );
         
     
-            tile_layer_90c812ab7ec32fabd12ecbcab2e8dcd0.addTo(map_1ff2b792de4a25e7f40bdd0fec2f78aa);
+            tile_layer_7ec3ed0ba574bdf028aaa97fc954c2b5.addTo(map_aa07f623d5249e4025884fab46d0fcee);
         
     
-            map_1ff2b792de4a25e7f40bdd0fec2f78aa.fitBounds(
+            map_aa07f623d5249e4025884fab46d0fcee.fitBounds(
                 [[-33.9249, 18.4241], [-34.4187, 19.2345], [-34.0363, 23.0471], [-34.03, 23.886], [-33.483, 25.748], [-24.995, 31.596], [-33.9628, 18.4098], [-33.9349, 18.3946], [-34.3568, 18.474], [-34.1961, 18.451], [-34.0719, 18.353], [-33.95, 18.377], [-34.418, 19.243], [-34.4187, 19.2345], [-34.055, 23.056], [-34.1015, 23.363], [-34.05, 23.371], [-34.028, 23.893], [-34.023, 23.889], [-34.024, 23.892], [-33.483, 25.748], [-24.995, 31.596], [-24.995, 31.596], [-24.995, 31.596]],
                 {}
             );
         
     
-            var feature_group_96ae749e2a1d4b595f2432938cbd45a1 = L.featureGroup(
+            var feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_802e71f60fdb8a9a7dc1e2870f386a4b = L.marker(
+            var marker_601ea6ca19ffe2d5f8d8b2099f235a7f = L.marker(
                 [-33.9249, 18.4241],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_6c1ec4e77a9a27d710a206fa641c5c51 = L.AwesomeMarkers.icon(
+            var icon_ad6489b3a7000a0726609bf3880457c8 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -165,7 +391,7 @@
             );
         
     
-            marker_802e71f60fdb8a9a7dc1e2870f386a4b.bindTooltip(
+            marker_601ea6ca19ffe2d5f8d8b2099f235a7f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Kaapstad</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 5</div>
                  </div>`,
@@ -175,18 +401,18 @@
             );
         
     
-                marker_802e71f60fdb8a9a7dc1e2870f386a4b.setIcon(icon_6c1ec4e77a9a27d710a206fa641c5c51);
+                marker_601ea6ca19ffe2d5f8d8b2099f235a7f.setIcon(icon_ad6489b3a7000a0726609bf3880457c8);
             
     
-            var marker_fce78e53159c79b67aca56c0d454d0af = L.marker(
+            var marker_c1a74a7ccaee5f97d6ca778ab959fe22 = L.marker(
                 [-34.4187, 19.2345],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_f5b1cc86a57ca2d19a7d551f24f3df28 = L.AwesomeMarkers.icon(
+            var icon_260de4cf8e461535efc4a78589f1418b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -197,7 +423,7 @@
             );
         
     
-            marker_fce78e53159c79b67aca56c0d454d0af.bindTooltip(
+            marker_c1a74a7ccaee5f97d6ca778ab959fe22.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Hermanus</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 2</div>
                  </div>`,
@@ -207,18 +433,18 @@
             );
         
     
-                marker_fce78e53159c79b67aca56c0d454d0af.setIcon(icon_f5b1cc86a57ca2d19a7d551f24f3df28);
+                marker_c1a74a7ccaee5f97d6ca778ab959fe22.setIcon(icon_260de4cf8e461535efc4a78589f1418b);
             
     
-            var marker_e9bd764dce79407b4dc91287a6f76f37 = L.marker(
+            var marker_dfc988fbf72c8e9e75169817d2c1785f = L.marker(
                 [-34.0363, 23.0471],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_d3438f0fd1805dd565b595e496fcd3ba = L.AwesomeMarkers.icon(
+            var icon_bd73cfce0af47abcd40d756fb95bfeff = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -229,7 +455,7 @@
             );
         
     
-            marker_e9bd764dce79407b4dc91287a6f76f37.bindTooltip(
+            marker_dfc988fbf72c8e9e75169817d2c1785f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Knysna / Plettenbergbaai</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 4</div>
                  </div>`,
@@ -239,18 +465,18 @@
             );
         
     
-                marker_e9bd764dce79407b4dc91287a6f76f37.setIcon(icon_d3438f0fd1805dd565b595e496fcd3ba);
+                marker_dfc988fbf72c8e9e75169817d2c1785f.setIcon(icon_bd73cfce0af47abcd40d756fb95bfeff);
             
     
-            var marker_876ea46b7bed9dfc493bfcf7214a932d = L.marker(
+            var marker_2221e100e937cb74cbabe87cfb64fb27 = L.marker(
                 [-34.03, 23.886],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_cbab9e56c58e54a238e4dc1914580787 = L.AwesomeMarkers.icon(
+            var icon_941b839a061fef21e4a2b6fd683c57a7 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -261,7 +487,7 @@
             );
         
     
-            marker_876ea46b7bed9dfc493bfcf7214a932d.bindTooltip(
+            marker_2221e100e937cb74cbabe87cfb64fb27.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Tsitsikamma</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 2</div>
                  </div>`,
@@ -271,18 +497,18 @@
             );
         
     
-                marker_876ea46b7bed9dfc493bfcf7214a932d.setIcon(icon_cbab9e56c58e54a238e4dc1914580787);
+                marker_2221e100e937cb74cbabe87cfb64fb27.setIcon(icon_941b839a061fef21e4a2b6fd683c57a7);
             
     
-            var marker_4d0664e06c555dcae620ba588a2df3fe = L.marker(
+            var marker_6d436f61393266db36d3c27de12d4a7e = L.marker(
                 [-33.483, 25.748],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_9223d9172bd2105d4391ea056c627240 = L.AwesomeMarkers.icon(
+            var icon_3d5e45d15e5af40b1c3ff54bf9d43bae = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -293,7 +519,7 @@
             );
         
     
-            marker_4d0664e06c555dcae620ba588a2df3fe.bindTooltip(
+            marker_6d436f61393266db36d3c27de12d4a7e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2c3e50;font-size:16px">🏨 Addo Olifantenpark</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 2</div>
                  </div>`,
@@ -303,18 +529,18 @@
             );
         
     
-                marker_4d0664e06c555dcae620ba588a2df3fe.setIcon(icon_9223d9172bd2105d4391ea056c627240);
+                marker_6d436f61393266db36d3c27de12d4a7e.setIcon(icon_3d5e45d15e5af40b1c3ff54bf9d43bae);
             
     
-            var marker_c80adf2aa14de7759c02eb059a4d0bc8 = L.marker(
+            var marker_aa00df23f56f9c34f64c3ca23aa3e0c2 = L.marker(
                 [-24.995, 31.596],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_96ae749e2a1d4b595f2432938cbd45a1);
+            ).addTo(feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4);
         
     
-            var icon_edfa130e1c69a83e4ab37e987acdb36d = L.AwesomeMarkers.icon(
+            var icon_7a0a57fd5e2f39db6bf644f60d647a27 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkgreen",
   "iconColor": "white",
@@ -325,7 +551,7 @@
             );
         
     
-            marker_c80adf2aa14de7759c02eb059a4d0bc8.bindTooltip(
+            marker_aa00df23f56f9c34f64c3ca23aa3e0c2.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#16a085;font-size:16px">🏨 Kruger Nationaal Park</b><br><span style="color:#555"></span><br><hr style="margin:4px 0"><b>Nachten:</b> 3</div>
                  </div>`,
@@ -335,25 +561,25 @@
             );
         
     
-                marker_c80adf2aa14de7759c02eb059a4d0bc8.setIcon(icon_edfa130e1c69a83e4ab37e987acdb36d);
+                marker_aa00df23f56f9c34f64c3ca23aa3e0c2.setIcon(icon_7a0a57fd5e2f39db6bf644f60d647a27);
             
     
-            feature_group_96ae749e2a1d4b595f2432938cbd45a1.addTo(map_1ff2b792de4a25e7f40bdd0fec2f78aa);
+            feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4.addTo(map_aa07f623d5249e4025884fab46d0fcee);
         
     
-            var feature_group_78cefc0d182b4d75b42f1c235ba3a63b = L.featureGroup(
+            var feature_group_afe810b8a0376f1c174e511351f69562 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_e03201710659771add277f20dee9a1df = L.circleMarker(
+            var circle_marker_fa816fae558ab66609291975f1a28e17 = L.circleMarker(
                 [-33.9628, 18.4098],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_e03201710659771add277f20dee9a1df.bindTooltip(
+            circle_marker_fa816fae558ab66609291975f1a28e17.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tafelberg</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen uitkijkpunt<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -363,13 +589,13 @@
             );
         
     
-            var circle_marker_ccf54ef9d474d0ac2a0d6b41ef7494d9 = L.circleMarker(
+            var circle_marker_7bf85a774baa8f3189677dda6a07bba6 = L.circleMarker(
                 [-33.9349, 18.3946],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_ccf54ef9d474d0ac2a0d6b41ef7494d9.bindTooltip(
+            circle_marker_7bf85a774baa8f3189677dda6a07bba6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Leeuwenkop</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -379,13 +605,13 @@
             );
         
     
-            var circle_marker_fa7de31a4d084f82bfecd81c6da85a9b = L.circleMarker(
+            var circle_marker_2dfb949748614bdc5a926f778eb11648 = L.circleMarker(
                 [-34.3568, 18.474],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_fa7de31a4d084f82bfecd81c6da85a9b.bindTooltip(
+            circle_marker_2dfb949748614bdc5a926f778eb11648.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kaap de Goede Hoop</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kustlandschap<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -395,13 +621,13 @@
             );
         
     
-            var circle_marker_c9fd912cbb9770c589979e9966fe5420 = L.circleMarker(
+            var circle_marker_0d6d3b6260dedc17fdaba88322a60771 = L.circleMarker(
                 [-34.1961, 18.451],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_c9fd912cbb9770c589979e9966fe5420.bindTooltip(
+            circle_marker_0d6d3b6260dedc17fdaba88322a60771.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Boulders Beach-pinguïns</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -411,13 +637,13 @@
             );
         
     
-            var circle_marker_9e8575d97b8c94269da3999ce133c0e2 = L.circleMarker(
+            var circle_marker_2091a8b7694b1b79a9e448af83b3eb89 = L.circleMarker(
                 [-34.0719, 18.353],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_9e8575d97b8c94269da3999ce133c0e2.bindTooltip(
+            circle_marker_2091a8b7694b1b79a9e448af83b3eb89.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Chapmans Peak Drive</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -427,13 +653,13 @@
             );
         
     
-            var circle_marker_837cb10c03f154762bcb6aad1db51e52 = L.circleMarker(
+            var circle_marker_4d4ef2c5dbed1ffb739ea8066590fb94 = L.circleMarker(
                 [-33.95, 18.377],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_837cb10c03f154762bcb6aad1db51e52.bindTooltip(
+            circle_marker_4d4ef2c5dbed1ffb739ea8066590fb94.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Campsbaai</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Kaapstad</span></div>
                  </div>`,
@@ -443,13 +669,13 @@
             );
         
     
-            var circle_marker_d11f1a725481ed059cb088650f135bc8 = L.circleMarker(
+            var circle_marker_25e168dc3845b656a28c1f75c4287820 = L.circleMarker(
                 [-34.418, 19.243],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_d11f1a725481ed059cb088650f135bc8.bindTooltip(
+            circle_marker_25e168dc3845b656a28c1f75c4287820.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hermanus Cliff-pad</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kustwandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">Hermanus</span></div>
                  </div>`,
@@ -459,13 +685,13 @@
             );
         
     
-            var circle_marker_c83e1ffd11332f3731f3f174d3fe2828 = L.circleMarker(
+            var circle_marker_78969f5cf022fd31c454f3fc8d4bed58 = L.circleMarker(
                 [-34.4187, 19.2345],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_c83e1ffd11332f3731f3f174d3fe2828.bindTooltip(
+            circle_marker_78969f5cf022fd31c454f3fc8d4bed58.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Walvissen spotten</b><br><span style="color:#2980b9;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Hermanus</span></div>
                  </div>`,
@@ -475,13 +701,13 @@
             );
         
     
-            var circle_marker_0a00925165092236abda8b828d371e81 = L.circleMarker(
+            var circle_marker_20eaf8b888473c7d4bfef8e2d02fbfab = L.circleMarker(
                 [-34.055, 23.056],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_0a00925165092236abda8b828d371e81.bindTooltip(
+            circle_marker_20eaf8b888473c7d4bfef8e2d02fbfab.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Knysna-hoofden</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Knysna / Plettenbergbaai</span></div>
                  </div>`,
@@ -491,13 +717,13 @@
             );
         
     
-            var circle_marker_31fd9b15c4399896caf68d87d042157f = L.circleMarker(
+            var circle_marker_835f33b3bf695f8135eea0f127db8608 = L.circleMarker(
                 [-34.1015, 23.363],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_31fd9b15c4399896caf68d87d042157f.bindTooltip(
+            circle_marker_835f33b3bf695f8135eea0f127db8608.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Schiereiland Robbberg</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#27ae60">Knysna / Plettenbergbaai</span></div>
                  </div>`,
@@ -507,13 +733,13 @@
             );
         
     
-            var circle_marker_01d6ed0cea29de1f056a74155aa8248b = L.circleMarker(
+            var circle_marker_73ae168243a02bb442cadd276510fed6 = L.circleMarker(
                 [-34.05, 23.371],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_01d6ed0cea29de1f056a74155aa8248b.bindTooltip(
+            circle_marker_73ae168243a02bb442cadd276510fed6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Stranden van Plettenbergbaai</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Knysna / Plettenbergbaai</span></div>
                  </div>`,
@@ -523,13 +749,13 @@
             );
         
     
-            var circle_marker_4f3983ac37c51b6e5d52b5708d363b52 = L.circleMarker(
+            var circle_marker_c86811ac80c55538d40b4c420d8cb082 = L.circleMarker(
                 [-34.028, 23.893],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_4f3983ac37c51b6e5d52b5708d363b52.bindTooltip(
+            circle_marker_c86811ac80c55538d40b4c420d8cb082.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Storms River-hangbrug</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kustwandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Tsitsikamma</span></div>
                  </div>`,
@@ -539,13 +765,13 @@
             );
         
     
-            var circle_marker_854af0b8694c5b82c0fe33745571f907 = L.circleMarker(
+            var circle_marker_08c5a78f9c6e75adb662e817f9285a77 = L.circleMarker(
                 [-34.023, 23.889],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_854af0b8694c5b82c0fe33745571f907.bindTooltip(
+            circle_marker_08c5a78f9c6e75adb662e817f9285a77.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Watervalpad</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Tsitsikamma</span></div>
                  </div>`,
@@ -555,13 +781,13 @@
             );
         
     
-            var circle_marker_5742a44017aff73c87ba684c5d347efd = L.circleMarker(
+            var circle_marker_07998652185bdbdbc95517c2dfebb38a = L.circleMarker(
                 [-34.024, 23.892],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_5742a44017aff73c87ba684c5d347efd.bindTooltip(
+            circle_marker_07998652185bdbdbc95517c2dfebb38a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Storms rivierkajakken</b><br><span style="color:#8e44ad;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> avontuur<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#8e44ad">Tsitsikamma</span></div>
                  </div>`,
@@ -571,13 +797,13 @@
             );
         
     
-            var circle_marker_216c96b59ba5da3adb24cf2e876b3147 = L.circleMarker(
+            var circle_marker_3839da545bfad8370a0e17ba129b1c74 = L.circleMarker(
                 [-33.483, 25.748],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_216c96b59ba5da3adb24cf2e876b3147.bindTooltip(
+            circle_marker_3839da545bfad8370a0e17ba129b1c74.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Addo Gamedrive</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> safari<br><b>Duur:</b> 6 h<br><b>Basis:</b> <span style="color:#2c3e50">Addo Olifantenpark</span></div>
                  </div>`,
@@ -587,13 +813,13 @@
             );
         
     
-            var circle_marker_25d2457535431578e89f700461a74a04 = L.circleMarker(
+            var circle_marker_d29f42a8d47de86e71241d04ee79139d = L.circleMarker(
                 [-24.995, 31.596],
                 {"bubblingMouseEvents": true, "color": "#16a085", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a085", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_25d2457535431578e89f700461a74a04.bindTooltip(
+            circle_marker_d29f42a8d47de86e71241d04ee79139d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kruger Safari</b><br><span style="color:#16a085;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> safari<br><b>Duur:</b> 8 h<br><b>Basis:</b> <span style="color:#16a085">Kruger Nationaal Park</span></div>
                  </div>`,
@@ -603,13 +829,13 @@
             );
         
     
-            var circle_marker_023a1926faf2e73ee436f3b457742a68 = L.circleMarker(
+            var circle_marker_57b0cb53b4bb4a59e8f933385944a719 = L.circleMarker(
                 [-24.995, 31.596],
                 {"bubblingMouseEvents": true, "color": "#16a085", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a085", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_023a1926faf2e73ee436f3b457742a68.bindTooltip(
+            circle_marker_57b0cb53b4bb4a59e8f933385944a719.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Zonsopgangsafari</b><br><span style="color:#16a085;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> safari<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#16a085">Kruger Nationaal Park</span></div>
                  </div>`,
@@ -619,13 +845,13 @@
             );
         
     
-            var circle_marker_a104367caeeadf14ffa186cb56799a65 = L.circleMarker(
+            var circle_marker_d64fcb0390c413f5a30deaa489de482f = L.circleMarker(
                 [-24.995, 31.596],
                 {"bubblingMouseEvents": true, "color": "#16a085", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#16a085", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_78cefc0d182b4d75b42f1c235ba3a63b);
+            ).addTo(feature_group_afe810b8a0376f1c174e511351f69562);
         
     
-            circle_marker_a104367caeeadf14ffa186cb56799a65.bindTooltip(
+            circle_marker_d64fcb0390c413f5a30deaa489de482f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Zonsondergangsafari</b><br><span style="color:#16a085;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> safari<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#16a085">Kruger Nationaal Park</span></div>
                  </div>`,
@@ -635,37 +861,37 @@
             );
         
     
-            feature_group_78cefc0d182b4d75b42f1c235ba3a63b.addTo(map_1ff2b792de4a25e7f40bdd0fec2f78aa);
+            feature_group_afe810b8a0376f1c174e511351f69562.addTo(map_aa07f623d5249e4025884fab46d0fcee);
         
     
-            var feature_group_314593e0a37a788d110c4f5d2c733290 = L.featureGroup(
+            var feature_group_f86029c1ac28a0dc90ce5f801891f490 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_314593e0a37a788d110c4f5d2c733290.addTo(map_1ff2b792de4a25e7f40bdd0fec2f78aa);
+            feature_group_f86029c1ac28a0dc90ce5f801891f490.addTo(map_aa07f623d5249e4025884fab46d0fcee);
         
     
-            var layer_control_4f81fdf78532667814435ca0557df022_layers = {
+            var layer_control_569595c3755046f53fa42822d5c58590_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_90c812ab7ec32fabd12ecbcab2e8dcd0,
+                    "OpenStreetMap" : tile_layer_7ec3ed0ba574bdf028aaa97fc954c2b5,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_96ae749e2a1d4b595f2432938cbd45a1,
-                    "\u25cf Bezienswaardigheden" : feature_group_78cefc0d182b4d75b42f1c235ba3a63b,
-                    "\u25c7 Tussenstops" : feature_group_314593e0a37a788d110c4f5d2c733290,
+                    "\ud83c\udfe8 Verblijven" : feature_group_38aa4994fa01d8bcd31fcd70a3ee82c4,
+                    "\u25cf Bezienswaardigheden" : feature_group_afe810b8a0376f1c174e511351f69562,
+                    "\u25c7 Tussenstops" : feature_group_f86029c1ac28a0dc90ce5f801891f490,
                 },
             };
-            let layer_control_4f81fdf78532667814435ca0557df022 = L.control.layers(
-                layer_control_4f81fdf78532667814435ca0557df022_layers.base_layers,
-                layer_control_4f81fdf78532667814435ca0557df022_layers.overlays,
+            let layer_control_569595c3755046f53fa42822d5c58590 = L.control.layers(
+                layer_control_569595c3755046f53fa42822d5c58590_layers.base_layers,
+                layer_control_569595c3755046f53fa42822d5c58590_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_1ff2b792de4a25e7f40bdd0fec2f78aa);
+            ).addTo(map_aa07f623d5249e4025884fab46d0fcee);
 
         
 </script>
