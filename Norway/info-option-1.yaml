@@ -10,9 +10,8 @@ trip:
     summary_reason: >-
       Een geoptimaliseerde en betaalbare familie-roadtrip gericht op ruige natuur, 
       avontuur, iconische wandelingen en gezellige Noorse dorpen. Door strategische 
-      accommodatiekeuzes blijven de dagelijkse rijtijden naar topattracties zeer beperkt. 
-      De internationale overtochten via Hirtshals en Bergen zorgen voor een 
-      ontspannen logistieke opbouw.
+      accommodatiekeuzes blijven de dagelijkse rijtijden naar topattracties uiterst beperkt 
+      (vrijwel alles < 45 min). Elke basis beschikt over een rijk keuzemenu aan uitstappen.
     transport: "🚗 Eigen elektrische auto (EV)"
     duration_days: 15
     travel_style: "Familie roadtrip vanuit België (EV)"
@@ -20,20 +19,21 @@ trip:
       - Overnachting Hirtshals vooraf voor een stressvrije overtocht
       - Houten voetgangersbruggetjes, vlonderpaden en Vøringsfossen op de Hardangervidda
       - Turquoise gletsjermeren Lovatnet & Briksdalsbreen gletsjer
-      - Loen Skylift & de ruige Atlantische kust bij Hoddevik / Vestkapp
-      - Hjørundfjord & Norangsdalen vanuit Stranda-regio
-      - Geirangerfjord autoveerboot & Trollstigen bergpas
+      - Loen Skylift & Rakssetra grasdak-hytter wandeling
+      - Geirangerfjord autoveerboot (vanuit Hornindal)
+      - Hjørundfjord, Norangsdalen & Sunnmøre-alpen vanuit Stranda
+      - Trollstigen bergpas & Gudbrandsjuvet
       - Afsluiter in Bergen (Fridalen) met tram (Bybanen), Bryggen en Fløibanen
       - Fjord Line cruiseferry Bergen-Hirtshals
     cost:
       couple:
-        eur_range: "€3,500 - €4,500"
+        eur_range: "€2,500 - €4,500"
       family:
-        eur_range: "€4,000 - €5,000"
+        eur_range: "€3,000 - €4,500"
       relative_costs: "low_to_moderate"
       assumptions:
-      - Goedgekeurde hytter/appartementen (totaal €2.500 voor 14 nachten)
-      - Fjord Line overtochten & lokale autoveerboten (€1.500)
+      - Goedgekeurde hytter/appartementen (totaal €2.457 voor 14 nachten)
+      - Fjord Line overtochten & lokale autoveerboten (€490 - €640)
       - Laden via snelladers (Eviny, Circle K) met EV-voordelen
       - Zelf koken in hytter gemengd met lokale horeca
   direction: belgium_hirtshals_geilo_hornindal_stranda_bergen
@@ -275,9 +275,36 @@ trip:
         primary_base: base_1
         notes: "Avontuurlijk bergpark met elanden, wolven, lynxen en poolvossen. Erg leuk voor de kinderen."
 
+    - id: ustedalsfjorden_hike
+      name: Ustedalsfjorden Meerwandeling
+      priority: if_time
+      type: lake_hike
+      visit_duration_hours: 3
+      drive_time_minutes: 5
+      coordinates:
+        lat: 60.5300
+        lon: 8.2100
+      difficulty: easy
+      visit_strategy:
+        primary_base: base_1
+        notes: "Ontspannen en vlakke gezinswandeling rond het meer van Geilo over houten vlonders en paadjes."
+
+    - id: geilo_hoyt_lav
+      name: Geilo Høyt & Lav Klimpark / Ziplines
+      priority: if_time
+      type: adventure_park
+      visit_duration_hours: 3
+      drive_time_minutes: 5
+      coordinates:
+        lat: 60.5350
+        lon: 8.2050
+      visit_strategy:
+        primary_base: base_1
+        notes: "Boomtop klimpark met spannende tokkelbanen en downhill fietsopties voor het gezin."
+
   - id: base_2
     name: Hornindal / Haugen / Kalvåtn
-    region: Nordfjord, gletsjers en Atlantische kust (vlakbij Hornindal Skisenter)
+    region: Nordfjord, gletsjers en Geirangerfjord (vlakbij Hornindal Skisenter)
     stay_nights: 5
     cost_eur: 1019
     coordinates:
@@ -286,9 +313,22 @@ trip:
     lodging_preference_note: "Hytte nabij Hornindal / Haugen en de E39/Fv60."
     planning_note: >
       Budgetvriendelijke en strategische basis in het hart van de Nordfjord, vlak bij Hornindal. 
-      Slechts 35-45 minuten van Lovatnet, Loen Skylift en Briksdalsbreen.
+      Slechts 35-45 minuten van Lovatnet, Loen Skylift, Briksdalsbreen én Hellesylt (Geiranger-boot).
 
     base_attractions:
+    - id: geirangerfjord_cruise_from_base2
+      name: Geirangerfjord Autoveerboot (via Hellesylt)
+      priority: must_do
+      type: fjord_cruise_viewpoint
+      visit_duration_hours: 5
+      drive_time_minutes: 40
+      coordinates:
+        lat: 62.0860
+        lon: 6.8680
+      visit_strategy:
+        primary_base: base_2
+        notes: "Rijd naar Hellesylt voor de beroemde veerboot door de Geirangerfjord langs de Seven Sisters watervallen en Flydalsjuvet."
+
     - id: lake_lovatnet_kjenndalsbreen
       name: Lovatnet Meer & Kjenndalsbreen
       priority: must_do
@@ -329,22 +369,36 @@ trip:
         primary_base: base_2
         notes: "Steile kabelbaan omhoog naar 1.011m voor panoramische bergwandelingen op het plateau."
 
-    - id: hoddevik_vestkapp
-      name: Hoddevik Zandstrand & Vestkapp
+    - id: rakssetra_hike
+      name: Rakssetra Grasdak-Hytter Wandeling
       priority: highly_recommended
-      type: coastal_cliff_hike
-      visit_duration_hours: 5
-      drive_time_minutes: 75
+      type: panoramic_hike
+      visit_duration_hours: 2.5
+      drive_time_minutes: 35
       coordinates:
-        lat: 62.1260
-        lon: 5.1620
+        lat: 61.8800
+        lon: 6.8200
+      difficulty: moderate
       visit_strategy:
         primary_base: base_2
-        notes: "Ruige Atlantische kust, wandelen over het iconische surfstrand van Hoddevik tussen steile kliffen."
+        notes: "Prachtige korte klim (45 min) naar een idyllische alm met houten grasdakhutten en uitzicht over de fjord."
+
+    - id: gamle_strynefjellsvegen
+      name: Gamle Strynefjellsvegen Bergweg
+      priority: if_time
+      type: scenic_mountain_drive
+      visit_duration_hours: 3.5
+      drive_time_minutes: 40
+      coordinates:
+        lat: 61.9800
+        lon: 7.4000
+      visit_strategy:
+        primary_base: base_2
+        notes: "Historische, ruige bergweg met sneeuwmuren, steenmannetjes en watervallen."
 
   - id: base_3
     name: Sykkylven / Stranda
-    region: Sunnmøre-alpen, Hjørundfjord en Geirangerfjord
+    region: Sunnmøre-alpen, Hjørundfjord en Trollstigen
     stay_nights: 4
     cost_eur: 777
     coordinates:
@@ -352,8 +406,8 @@ trip:
       lon: 6.7200
     lodging_preference_note: "Hytte tussen Sykkylven en Stranda."
     planning_note: >
-      Ideale basis midden in de Sunnmøre-alpen voor de Geirangerfjord, Trollstigen, 
-      Valldal én de nabijgelegen Hjørundfjord en Norangsdalen-vallei.
+      Ideale basis midden in de Sunnmøre-alpen voor Trollstigen, Valldal, 
+      de nabijgelegen Hjørundfjord, Norangsdalen-vallei én spectaculaire bergwandelingen.
 
     base_attractions:
     - id: hjorundfjord_norangsdalen
@@ -369,19 +423,6 @@ trip:
         primary_base: base_3
         notes: "Wandelen door een van de smalste en mooiste valleien van Noorwegen met gezonken ruïnes, direct nabij Stranda."
 
-    - id: geirangerfjord_cruise
-      name: Autoveerboot Hellesylt - Geiranger
-      priority: must_do
-      type: fjord_cruise_hike
-      visit_duration_hours: 5
-      drive_time_minutes: 40
-      coordinates:
-        lat: 62.0860
-        lon: 6.8680
-      visit_strategy:
-        primary_base: base_3
-        notes: "Spectaculaire vaartocht door de Geirangerfjord langs de Seven Sisters watervallen, gecombineerd met de Fossevandring watervalwandeling."
-
     - id: trollstigen_gudbrandsjuvet
       name: Trollstigen Bergpas & Gudbrandsjuvet
       priority: must_do
@@ -396,7 +437,7 @@ trip:
         notes: "Wandelen over zwevende roosters boven de kolkende kloof van Gudbrandsjuvet, de aardbeien van Valldal en de 11 haarspeldbochten van Trollstigen."
 
     - id: strandafjellet_gondel
-      name: Strandafjellet Gondel
+      name: Strandafjellet Gondel & Panoramapad
       priority: highly_recommended
       type: panorama_mountain_walk
       visit_duration_hours: 3
@@ -408,6 +449,33 @@ trip:
         primary_base: base_3
         notes: "Panoramische wandeling op de top met fenomenaal uitzicht over de Storfjord."
 
+    - id: saksa_urke_hike
+      name: Saksa / Urke Bergwandeling (Sunnmøre-alpen)
+      priority: highly_recommended
+      type: mountain_hike
+      visit_duration_hours: 4.5
+      drive_time_minutes: 35
+      coordinates:
+        lat: 62.2150
+        lon: 6.5600
+      difficulty: moderate_to_demanding
+      visit_strategy:
+        primary_base: base_3
+        notes: "Avontuurlijke klim vanuit Urke met fenomenaal uitzicht over de spitse bergtoppen en de diepe Hjørundfjord."
+
+    - id: valldal_rafting_canyoning
+      name: Valldal Gezins-Rafting of River Walk
+      priority: if_time
+      type: river_adventure
+      visit_duration_hours: 3.5
+      drive_time_minutes: 40
+      coordinates:
+        lat: 62.3000
+        lon: 7.2600
+      visit_strategy:
+        primary_base: base_3
+        notes: "Spannende maar veilige rivier- en raftingactiviteiten voor het gezin op de Valldøla-rivier."
+
   transfer_routes:
   - id: transfer_kristiansand_to_base_1
     from: kristiansand_ferry
@@ -417,13 +485,9 @@ trip:
     planning_note: "Mooie binnenlandse route langs meren en bergrivieren."
     en_route_stops:
       - name: Bygland (Setesdal)
-        priority: if_time
         type: scenic_coffee_stop
         duration_minutes: 45
         notes: "Gezellig houten dorpje aan het meer om even de benen te strekken."
-        coordinates:
-          lat: 58.8597
-          lon: 7.7771
 
   - id: transfer_base_1_to_base_2
     from: base_1
@@ -433,29 +497,17 @@ trip:
     planning_note: "Prachtige rit met verplichte tussenstops en korte veerboot Fodnes-Mannheller."
     en_route_stops:
       - name: Vøringsfossen Waterval & Trappenbrug
-        priority: must_do
         type: major_sightseeing_stop
         duration_minutes: 90
         notes: "Direct in de ochtend meepikken op de Hardangervidda voor de loopbrug en kloof."
-        coordinates:
-          lat: 60.4266
-          lon: 7.2519
       - name: Stegastein Uitkijkpunt
-        priority: highly_recommended
         type: major_viewpoint_stop
         duration_minutes: 45
         notes: "Uitzichtplatform hangend boven de Aurlandsfjord."
-        coordinates:
-          lat: 60.9085
-          lon: 7.2137
       - name: Lærdalsøyri
-        priority: if_time
         type: historic_village_lunch_stop
         duration_minutes: 60
         notes: "Wandelen tussen de historische houten huisjes voor de lunch."
-        coordinates:
-          lat: 61.0985
-          lon: 7.4718
 
   - id: transfer_base_2_to_base_3
     from: base_2
@@ -465,13 +517,9 @@ trip:
     planning_note: "Zeer korte en ontspannen verhuisrit. Volledige dag beschikbaar voor activiteiten."
     en_route_stops:
       - name: Hornindalsvatnet
-        priority: if_time
         type: scenic_lake_stop
         duration_minutes: 30
         notes: "Korte stop bij het diepste meer van Europa."
-        coordinates:
-          lat: 61.9320
-          lon: 6.3487
 
   - id: transfer_base_3_to_bergen
     from: base_3
@@ -481,10 +529,6 @@ trip:
     planning_note: "Comfortabele rit via de E39 met twee korte fjordoversteken richting het appartement in Fridalen."
     en_route_stops:
       - name: Tvindefossen Waterval
-        priority: highly_recommended
         type: roadside_waterfall_stop
         duration_minutes: 30
         notes: "Ideale benen-strek stop langs de route met een mooie waterval."
-        coordinates:
-          lat: 60.7260
-          lon: 6.4910
