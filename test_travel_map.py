@@ -1,4 +1,6 @@
 import unittest
+import json
+import re
 from html import escape
 
 import folium
@@ -161,6 +163,48 @@ class TransferStopTests(unittest.TestCase):
 
 
 class RoutePlannerTests(unittest.TestCase):
+    def test_numbered_locations_are_only_added_while_planner_is_enabled(self):
+        planner = travel_map._route_planner_html(
+            "test_map",
+            [{"name": "Geilo", "coordinates": {"lat": 60.5333, "lon": 8.2}}],
+        )
+
+        self.assertIn("const numberedLocations = L.layerGroup();", planner)
+        self.assertIn('const label = (index + 1) + ". " + location.name;', planner)
+        self.assertIn('className: "route-planner-number"', planner)
+        self.assertIn("html: String(index + 1)", planner)
+        self.assertIn("map.removeLayer(numberedLocations);", planner)
+        self.assertIn("numberedLocations.addTo(map);", planner)
+
+    def test_explicit_route_order_must_include_each_location_once(self):
+        for order in (["base_1", "base_1"], ["unknown"], [], "base_1"):
+            with self.subTest(order=order):
+                with self.assertRaisesRegex(ValueError, "exactly once"):
+                    travel_map.build_map({"trip": {
+                        "lodging_locations": [{
+                            "id": "base_1",
+                            "name": "Geilo",
+                            "coordinates": {"lat": 60.5333, "lon": 8.2},
+                        }],
+                        "route_planner_order": order,
+                    }})
+
+    def test_norway_numbering_follows_chronological_stay_order(self):
+        with (travel_map.HERE / "Norway" / "info-option-1.yaml").open(
+            encoding="utf-8"
+        ) as file:
+            data = yaml.safe_load(file)
+        rendered = travel_map.build_map(data).get_root().render()
+        locations = json.loads(
+            re.search(r"const routeLocations = (.*);", rendered)[1]
+        )
+        self.assertEqual(
+            [location["name"] for location in locations],
+            ["Hirtshals", "Geilo / Hardangervidda",
+             "Hornindal / Haugen / Kalvåtn", "Sykkylven / Stranda",
+             "Bergen (Fridalen)"],
+        )
+
     def test_map_includes_route_planner_for_lodging_locations(self):
         fmap = travel_map.build_map(
             {

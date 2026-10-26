@@ -189,6 +189,13 @@ trip:
         type: viewpoint_hike
         notes: "Bos- en trollenwandelingen op de top van Mount Fløyen bij zonsondergang."
 
+  route_planner_order:
+    - hirtshals_ferry
+    - base_1
+    - base_2
+    - base_3
+    - bergen_fridalen
+
   route_planner_locations:
     - id: hirtshals_ferry
       name: Hirtshals

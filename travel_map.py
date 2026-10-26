@@ -4,6 +4,8 @@ Run this script to regenerate index.html and each country's map.html.
 An internet connection is required to display the basemap.
 The route planner stays collapsed until enabled; compact map controls and
 scrollable panels keep the map usable on phones, including landscape mode.
+While enabled, numbered map badges match the start-point list. Trips can set
+route_planner_order to the chronological list of location IDs when needed.
 """
 
 import pathlib
@@ -535,6 +537,13 @@ def _route_planner_html(map_name: str, locations: list) -> str:
             min-height: 28px; margin: 0; cursor: pointer;
         }
         .route-planner-toggle input { margin: 0; flex-shrink: 0; }
+        .route-planner-number {
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white; border-radius: 50%;
+            background: #1769aa; color: white;
+            font: bold 13px/1 sans-serif;
+            box-shadow: 0 1px 5px rgba(0,0,0,.4);
+        }
         @media (max-width: 600px), (max-height: 500px) {
             .route-planner-control { width: min(220px, calc(100vw - 120px)); }
             .route-planner-control .route-planner-toggle { min-height: 32px; }
@@ -557,6 +566,7 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         const initialBounds = map.getBounds();
         const routeLineLayer = L.layerGroup().addTo(map);
         const routePointsLayer = L.layerGroup().addTo(map);
+        const numberedLocations = L.layerGroup();
 
         const control = L.control({ position: "topleft" });
         control.onAdd = function () {
@@ -596,8 +606,23 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         routeLocations.forEach(function (location, index) {
             const startOption = document.createElement("option");
             startOption.value = String(index);
-            startOption.textContent = location.name;
+            const label = (index + 1) + ". " + location.name;
+            startOption.textContent = label;
             startSelect.appendChild(startOption);
+            L.marker([location.lat, location.lon], {
+                icon: L.divIcon({
+                    className: "route-planner-number",
+                    html: String(index + 1),
+                    iconSize: [26, 26],
+                    iconAnchor: [-8, 36]
+                }),
+                title: label,
+                alt: label,
+                zIndexOffset: 3000,
+                bubblingMouseEvents: false
+            }).on("click", function (event) {
+                chooseDestination(event.latlng);
+            }).addTo(numberedLocations);
         });
 
         function setStatus(message, isError) {
@@ -753,9 +778,11 @@ def _route_planner_html(map_name: str, locations: list) -> str:
             plannerBody.hidden = !routePlannerEnabled;
             routeToggle.setAttribute("aria-expanded", String(routePlannerEnabled));
             if (!routePlannerEnabled) {
+                map.removeLayer(numberedLocations);
                 clearRoute();
                 return;
             }
+            numberedLocations.addTo(map);
             setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
         });
         map.on("click", function (event) {
@@ -1133,6 +1160,22 @@ def build_map(data: dict) -> folium.Map:
     if final:
         route_locations.append(final)
     route_locations.extend(route_planner_locations)
+    if "route_planner_order" in trip:
+        location_ids = [location.get("id") for location in route_locations]
+        order = trip["route_planner_order"]
+        if (
+            not isinstance(order, list)
+            or any(not isinstance(location_id, str) for location_id in order)
+            or any(not isinstance(location_id, str) for location_id in location_ids)
+            or len(set(location_ids)) != len(location_ids)
+            or len(order) != len(location_ids)
+            or set(order) != set(location_ids)
+        ):
+            raise ValueError(
+                "route_planner_order must list every route location ID exactly once"
+            )
+        locations_by_id = {location["id"]: location for location in route_locations}
+        route_locations = [locations_by_id[location_id] for location_id in order]
     _add_route_planner(fmap, route_locations)
 
     return fmap

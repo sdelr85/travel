@@ -122,6 +122,13 @@
             min-height: 28px; margin: 0; cursor: pointer;
         }
         .route-planner-toggle input { margin: 0; flex-shrink: 0; }
+        .route-planner-number {
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white; border-radius: 50%;
+            background: #1769aa; color: white;
+            font: bold 13px/1 sans-serif;
+            box-shadow: 0 1px 5px rgba(0,0,0,.4);
+        }
         @media (max-width: 600px), (max-height: 500px) {
             .route-planner-control { width: min(220px, calc(100vw - 120px)); }
             .route-planner-control .route-planner-toggle { min-height: 32px; }
@@ -136,7 +143,7 @@
     <script>
     window.addEventListener("load", function () {
         const map = map_8f0edfa82c53e213e3f42086f01b9eb1;
-        const routeLocations = [{"name": "Geilo / Hardangervidda", "lat": 60.5333, "lon": 8.2}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.31, "lon": 6.72}, {"name": "Bergen (Fridalen)", "lat": 60.3695, "lon": 5.3582}, {"name": "Hirtshals", "lat": 57.5884, "lon": 9.97}];
+        const routeLocations = [{"name": "Hirtshals", "lat": 57.5884, "lon": 9.97}, {"name": "Geilo / Hardangervidda", "lat": 60.5333, "lon": 8.2}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.31, "lon": 6.72}, {"name": "Bergen (Fridalen)", "lat": 60.3695, "lon": 5.3582}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
         let destinationName = "";
@@ -144,6 +151,7 @@
         const initialBounds = map.getBounds();
         const routeLineLayer = L.layerGroup().addTo(map);
         const routePointsLayer = L.layerGroup().addTo(map);
+        const numberedLocations = L.layerGroup();
 
         const control = L.control({ position: "topleft" });
         control.onAdd = function () {
@@ -183,8 +191,23 @@
         routeLocations.forEach(function (location, index) {
             const startOption = document.createElement("option");
             startOption.value = String(index);
-            startOption.textContent = location.name;
+            const label = (index + 1) + ". " + location.name;
+            startOption.textContent = label;
             startSelect.appendChild(startOption);
+            L.marker([location.lat, location.lon], {
+                icon: L.divIcon({
+                    className: "route-planner-number",
+                    html: String(index + 1),
+                    iconSize: [26, 26],
+                    iconAnchor: [-8, 36]
+                }),
+                title: label,
+                alt: label,
+                zIndexOffset: 3000,
+                bubblingMouseEvents: false
+            }).on("click", function (event) {
+                chooseDestination(event.latlng);
+            }).addTo(numberedLocations);
         });
 
         function setStatus(message, isError) {
@@ -340,9 +363,11 @@
             plannerBody.hidden = !routePlannerEnabled;
             routeToggle.setAttribute("aria-expanded", String(routePlannerEnabled));
             if (!routePlannerEnabled) {
+                map.removeLayer(numberedLocations);
                 clearRoute();
                 return;
             }
+            numberedLocations.addTo(map);
             setStatus("Kies een startpunt en klik daarna op de kaart voor het tweede punt.");
         });
         map.on("click", function (event) {
