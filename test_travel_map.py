@@ -195,7 +195,7 @@ class RoutePlannerTests(unittest.TestCase):
         self.assertIn("Routebeschrijving", rendered_map)
         self.assertIn('id="route-planner-enabled"', rendered_map)
         self.assertIn(
-            '<input type="checkbox" id="route-planner-enabled">',
+            '<input type="checkbox" id="route-planner-enabled" ',
             rendered_map,
         )
         self.assertIn("let routePlannerEnabled = false;", rendered_map)
@@ -210,6 +210,45 @@ class RoutePlannerTests(unittest.TestCase):
         self.assertLess(rendered_map.index("Geilo"), rendered_map.index("Kalvåtn"))
         self.assertNotIn("Prioriteit (markergrootte)", rendered_map)
         self.assertNotIn("Terug naar landenselectie", rendered_map)
+
+    def test_planner_starts_collapsed_and_only_shows_body_when_enabled(self):
+        planner = travel_map._route_planner_html(
+            "test_map",
+            [{"name": "Geilo", "coordinates": {"lat": 60.5333, "lon": 8.2}}],
+        )
+
+        self.assertIn('id="route-planner-body" hidden>', planner)
+        self.assertIn('aria-controls="route-planner-body" aria-expanded="false"', planner)
+        self.assertLess(
+            planner.index('id="route-planner-enabled"'),
+            planner.index('id="route-planner-body"'),
+        )
+        self.assertIn("plannerBody.hidden = !routePlannerEnabled;", planner)
+        self.assertIn(
+            'routeToggle.setAttribute("aria-expanded", String(routePlannerEnabled));',
+            planner,
+        )
+        self.assertIn("max-height: min(360px, 50vh); overflow-y: auto;", planner)
+        self.assertIn(".route-planner-body { max-height: 35vh; }", planner)
+        self.assertIn(".route-planner-body { max-height: 20vh; }", planner)
+        self.assertIn(
+            ".leaflet-left .route-planner-control {\n            clear: none;",
+            planner,
+        )
+        self.assertIn("width: min(220px, calc(100vw - 120px));", planner)
+
+    def test_layer_list_is_responsive_even_without_route_locations(self):
+        rendered_map = travel_map.build_map(
+            {"trip": {"country": "Iceland"}}
+        ).get_root().render()
+
+        self.assertIn(
+            'window.matchMedia("(max-width: 600px), (max-height: 500px)")',
+            rendered_map,
+        )
+        self.assertIn("if (mobile.matches) layers.collapse();", rendered_map)
+        self.assertIn("else layers.expand();", rendered_map)
+        self.assertIn('mobile.addEventListener("change", updateLayerControl);', rendered_map)
 
     def test_norway_option_one_includes_bergen_and_hirtshals_as_route_points(self):
         option_path = travel_map.HERE / "Norway" / "info-option-1.yaml"

@@ -2,6 +2,8 @@
 
 Run this script to regenerate index.html and each country's map.html.
 An internet connection is required to display the basemap.
+The route planner stays collapsed until enabled; compact map controls and
+scrollable panels keep the map usable on phones, including landscape mode.
 """
 
 import pathlib
@@ -493,16 +495,25 @@ def _route_planner_html(map_name: str, locations: list) -> str:
     route_planner = r"""
     <!-- travel-route-planner:start -->
     <style>
+        .leaflet-left .route-planner-control {
+            clear: none;
+        }
         .route-planner-control {
-            width: min(300px, calc(100vw - 60px));
-            padding: 12px;
+            box-sizing: border-box;
+            width: min(260px, calc(100vw - 120px));
+            padding: 7px 9px;
             border-radius: 8px;
             background: rgba(255,255,255,.97);
             box-shadow: 0 2px 10px rgba(0,0,0,.25);
             color: #263746;
-            font: 13px/1.4 sans-serif;
+            font: 12px/1.35 sans-serif;
+            overflow-wrap: anywhere;
         }
-        .route-planner-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .route-planner-body {
+            max-height: min(360px, 50vh); overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+        .route-planner-body[hidden] { display: none; }
         .route-planner-control label { display: block; font-weight: 600; margin-bottom: 4px; }
         .route-planner-control select {
             width: 100%; padding: 7px; border: 1px solid #b8c2cc;
@@ -521,9 +532,19 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         .route-planner-note { display: block; margin-top: 8px; color: #65727e; }
         .route-planner-control .route-planner-toggle {
             display: flex; align-items: center; gap: 6px;
-            margin-top: 8px; cursor: pointer;
+            min-height: 28px; margin: 0; cursor: pointer;
         }
-        .route-planner-toggle input { margin: 0; }
+        .route-planner-toggle input { margin: 0; flex-shrink: 0; }
+        @media (max-width: 600px), (max-height: 500px) {
+            .route-planner-control { width: min(220px, calc(100vw - 120px)); }
+            .route-planner-control .route-planner-toggle { min-height: 32px; }
+            .route-planner-body { max-height: 35vh; }
+            .route-planner-control select { font-size: 16px; min-height: 44px; }
+            .route-planner-control button { min-height: 44px; }
+        }
+        @media (max-height: 500px) {
+            .route-planner-body { max-height: 20vh; }
+        }
     </style>
     <script>
     window.addEventListener("load", function () {
@@ -541,7 +562,11 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         control.onAdd = function () {
             const container = L.DomUtil.create("div", "route-planner-control");
             container.innerHTML =
-                '<div class="route-planner-title">🧭 Routeplanner</div>' +
+                '<label class="route-planner-toggle" for="route-planner-enabled">' +
+                '<input type="checkbox" id="route-planner-enabled" ' +
+                'aria-controls="route-planner-body" aria-expanded="false">' +
+                '🧭 Routeplanner</label>' +
+                '<div class="route-planner-body" id="route-planner-body" hidden>' +
                 '<label for="route-planner-start">Kies een bestemming als startpunt</label>' +
                 '<select id="route-planner-start"></select>' +
                 '<div class="route-planner-status" id="route-planner-status" aria-live="polite">' +
@@ -550,9 +575,8 @@ def _route_planner_html(map_name: str, locations: list) -> str:
                 '<details class="route-planner-directions" id="route-planner-directions" hidden>' +
                 '<summary>Routebeschrijving</summary><ol></ol></details>' +
                 '<button type="button" id="route-planner-clear">Wis route</button>' +
-                '<label class="route-planner-toggle" for="route-planner-enabled">' +
-                '<input type="checkbox" id="route-planner-enabled">Routeplanner inschakelen</label>' +
-                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>';
+                '<small class="route-planner-note">OSRM-schatting; geen live verkeer, veerbootschema’s of wachttijden.</small>' +
+                '</div>';
             L.DomEvent.disableClickPropagation(container);
             L.DomEvent.disableScrollPropagation(container);
             return container;
@@ -560,6 +584,7 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         control.addTo(map);
 
         const panel = document.querySelector(".route-planner-control");
+        const plannerBody = panel.querySelector("#route-planner-body");
         const startSelect = panel.querySelector("#route-planner-start");
         const status = panel.querySelector("#route-planner-status");
         const summary = panel.querySelector("#route-planner-summary");
@@ -725,6 +750,8 @@ def _route_planner_html(map_name: str, locations: list) -> str:
         panel.querySelector("#route-planner-clear").addEventListener("click", clearRoute);
         routeToggle.addEventListener("change", function () {
             routePlannerEnabled = routeToggle.checked;
+            plannerBody.hidden = !routePlannerEnabled;
+            routeToggle.setAttribute("aria-expanded", String(routePlannerEnabled));
             if (!routePlannerEnabled) {
                 clearRoute();
                 return;
@@ -785,7 +812,7 @@ def _legend_html(display_country: str, flag_html: str, bases: list) -> str:
         .travel-legend-subtitle {{ margin-top: 4px; font-weight: 600; }}
         .travel-legend ol {{ margin: 3px 0 0 20px; padding: 0; }}
         .travel-legend li {{ padding: 1px 0; }}
-        @media (max-width: 600px) {{
+        @media (max-width: 600px), (max-height: 500px) {{
             .travel-legend {{
                 bottom: 8px; left: 8px;
                 max-width: min(220px, calc(100vw - 20px));
@@ -1087,7 +1114,21 @@ def build_map(data: dict) -> folium.Map:
         layers.append(fg_airport)
     for fg in layers:
         fg.add_to(fmap)
-    folium.LayerControl(collapsed=False).add_to(fmap)
+    layer_control = folium.LayerControl(collapsed=True).add_to(fmap)
+    fmap.get_root().html.add_child(folium.Element(f"""
+    <script>
+    window.addEventListener("load", function () {{
+        const layers = {layer_control.get_name()};
+        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
+        function updateLayerControl() {{
+            if (mobile.matches) layers.collapse();
+            else layers.expand();
+        }}
+        updateLayerControl();
+        mobile.addEventListener("change", updateLayerControl);
+    }});
+    </script>
+    """))
     route_locations = list(bases)
     if final:
         route_locations.append(final)
