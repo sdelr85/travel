@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_37570297e59e4199df40fb3eef0fdab7 {
+                #map_957c00438bbe625ea1bf29ca749b78cc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -83,7 +83,7 @@
     
     <script>
     window.addEventListener("load", function () {
-        const layers = layer_control_e1df8abe7a2b8cfade65c80cdf1f9ae8;
+        const layers = layer_control_5497aa6ca31c62ac62826bff5e4c9651;
         const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
         function updateLayerControl() {
             if (mobile.matches) layers.collapse();
@@ -156,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_37570297e59e4199df40fb3eef0fdab7;
+        const map = map_957c00438bbe625ea1bf29ca749b78cc;
         const routeLocations = [{"name": "Ortisei / Selva di Val Gardena", "lat": 46.5756, "lon": 11.6717}, {"name": "Cortina d'Ampezzo", "lat": 46.5405, "lon": 12.1357}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -405,14 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_37570297e59e4199df40fb3eef0fdab7" ></div>
+            <div class="folium-map" id="map_957c00438bbe625ea1bf29ca749b78cc" ></div>
         
 </body>
 <script>
     
     
-            var map_37570297e59e4199df40fb3eef0fdab7 = L.map(
-                "map_37570297e59e4199df40fb3eef0fdab7",
+            var map_957c00438bbe625ea1bf29ca749b78cc = L.map(
+                "map_957c00438bbe625ea1bf29ca749b78cc",
                 {
                     center: [46.56002631578947, 11.927647368421052],
                     crs: L.CRS.EPSG3857,
@@ -429,7 +429,7 @@
 
         
     
-            var tile_layer_53650b13ed74e0cb7f6761525f8d3c8f = L.tileLayer(
+            var tile_layer_9be6cebd92b80e185dda5035f629f903 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -446,30 +446,30 @@
             );
         
     
-            tile_layer_53650b13ed74e0cb7f6761525f8d3c8f.addTo(map_37570297e59e4199df40fb3eef0fdab7);
+            tile_layer_9be6cebd92b80e185dda5035f629f903.addTo(map_957c00438bbe625ea1bf29ca749b78cc);
         
     
-            map_37570297e59e4199df40fb3eef0fdab7.fitBounds(
+            map_957c00438bbe625ea1bf29ca749b78cc.fitBounds(
                 [[46.5756, 11.6717], [46.5405, 12.1357], [46.6221, 11.7283], [46.555, 11.654], [46.642, 11.728], [46.6408, 11.7284], [46.489, 11.81], [46.506, 11.761], [46.41, 11.577], [46.591, 11.688], [46.6186, 12.3038], [46.6125, 12.297], [46.694, 12.084], [46.518, 12.038], [46.482, 12.066], [46.552, 12.009], [46.5864, 12.2544], [46.486, 12.083], [46.519, 12.008]],
                 {}
             );
         
     
-            var feature_group_503a08cf882c03740ca4e26e9c2e5603 = L.featureGroup(
+            var feature_group_d1f9ee4e4801ba7ec5ff2abd6bc29fcb = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_7c29025814f67d467e83bd581a80d455 = L.marker(
+            var marker_03e488f5e207f362d837076f794f37eb = L.marker(
                 [46.5756, 11.6717],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_503a08cf882c03740ca4e26e9c2e5603);
+            ).addTo(feature_group_d1f9ee4e4801ba7ec5ff2abd6bc29fcb);
         
     
-            var icon_2a8bdd2771fb7e78192fae97966c3b77 = L.AwesomeMarkers.icon(
+            var icon_319d260ba1e7ff7042cf06da188fcc9e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -480,7 +480,7 @@
             );
         
     
-            marker_7c29025814f67d467e83bd581a80d455.bindTooltip(
+            marker_03e488f5e207f362d837076f794f37eb.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Ortisei / Selva di Val Gardena</b><br><span style="color:#555">Westelijke Dolomieten</span><br><hr style="margin:4px 0"><b>Nachten:</b> 7<br><i style="color:#666;font-size:14px">Beste centrale uitvalsbasis voor Seceda, Alpe di Siusi, Val di Funes en de Sella Group.</i></div>
                  </div>`,
@@ -490,18 +490,18 @@
             );
         
     
-                marker_7c29025814f67d467e83bd581a80d455.setIcon(icon_2a8bdd2771fb7e78192fae97966c3b77);
+                marker_03e488f5e207f362d837076f794f37eb.setIcon(icon_319d260ba1e7ff7042cf06da188fcc9e);
             
     
-            var marker_6f7db4937a2050e6d2d9d36b61e70cf2 = L.marker(
+            var marker_cf9ff383194560496762e5b6020d151b = L.marker(
                 [46.5405, 12.1357],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_503a08cf882c03740ca4e26e9c2e5603);
+            ).addTo(feature_group_d1f9ee4e4801ba7ec5ff2abd6bc29fcb);
         
     
-            var icon_e76c6e5fd059c3c0cdc7dc257b28fdc9 = L.AwesomeMarkers.icon(
+            var icon_dfcde73595693d5f6ef144753eb5047e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -512,7 +512,7 @@
             );
         
     
-            marker_6f7db4937a2050e6d2d9d36b61e70cf2.bindTooltip(
+            marker_cf9ff383194560496762e5b6020d151b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Cortina d'Ampezzo</b><br><span style="color:#555">Oostelijke Dolomieten</span><br><hr style="margin:4px 0"><b>Nachten:</b> 6<br><i style="color:#666;font-size:14px">Focus op Tre Cime, Lago di Braies, Cadini di Misurina en de beroemdste oostelijke Dolomietenlandschappen.</i></div>
                  </div>`,
@@ -522,25 +522,25 @@
             );
         
     
-                marker_6f7db4937a2050e6d2d9d36b61e70cf2.setIcon(icon_e76c6e5fd059c3c0cdc7dc257b28fdc9);
+                marker_cf9ff383194560496762e5b6020d151b.setIcon(icon_dfcde73595693d5f6ef144753eb5047e);
             
     
-            feature_group_503a08cf882c03740ca4e26e9c2e5603.addTo(map_37570297e59e4199df40fb3eef0fdab7);
+            feature_group_d1f9ee4e4801ba7ec5ff2abd6bc29fcb.addTo(map_957c00438bbe625ea1bf29ca749b78cc);
         
     
-            var feature_group_30c263eacf1ff8c7ce76c92b08292645 = L.featureGroup(
+            var feature_group_12c9b5b6484b26f19c46b7e34a91b36a = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1fed5265dee3f4f55a62657b7bda63a8 = L.circleMarker(
+            var circle_marker_b577f66ef68bcf08a4086e854d6561b8 = L.circleMarker(
                 [46.6221, 11.7283],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_1fed5265dee3f4f55a62657b7bda63a8.bindTooltip(
+            circle_marker_b577f66ef68bcf08a4086e854d6561b8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Seceda Ridgeline</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -550,13 +550,13 @@
             );
         
     
-            var circle_marker_debfc43a091f5f7c3de158a6196c8d1c = L.circleMarker(
+            var circle_marker_1f1bd0b6afb4ee6486edce2c39f3ed73 = L.circleMarker(
                 [46.555, 11.654],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_debfc43a091f5f7c3de158a6196c8d1c.bindTooltip(
+            circle_marker_1f1bd0b6afb4ee6486edce2c39f3ed73.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Alpe di Siusi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenweiland<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -566,13 +566,13 @@
             );
         
     
-            var circle_marker_acda1b2bba3cdddccc28ab691e6a2881 = L.circleMarker(
+            var circle_marker_4134169670d5a32f79ee216b0b00acca = L.circleMarker(
                 [46.642, 11.728],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_acda1b2bba3cdddccc28ab691e6a2881.bindTooltip(
+            circle_marker_4134169670d5a32f79ee216b0b00acca.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Val di Funes</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vallei<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -582,13 +582,13 @@
             );
         
     
-            var circle_marker_8168acf73498659c4d4100f977e9f859 = L.circleMarker(
+            var circle_marker_2a02d648c55470d9861ad02c346cff57 = L.circleMarker(
                 [46.6408, 11.7284],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_8168acf73498659c4d4100f977e9f859.bindTooltip(
+            circle_marker_2a02d648c55470d9861ad02c346cff57.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">St. Magdalena-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -598,13 +598,13 @@
             );
         
     
-            var circle_marker_7925c3dd1d4c82ff68b784ecee56908b = L.circleMarker(
+            var circle_marker_5b3ae57c6037e222ff999c86ac93c1e5 = L.circleMarker(
                 [46.489, 11.81],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_7925c3dd1d4c82ff68b784ecee56908b.bindTooltip(
+            circle_marker_5b3ae57c6037e222ff999c86ac93c1e5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sas Pordoi</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> kabelbaan uitkijkpunt<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -614,13 +614,13 @@
             );
         
     
-            var circle_marker_67a396b4619b040f4cf786f973d7af93 = L.circleMarker(
+            var circle_marker_ec01d430a26b9b78a8e76972bd7e4fb9 = L.circleMarker(
                 [46.506, 11.761],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_67a396b4619b040f4cf786f973d7af93.bindTooltip(
+            circle_marker_ec01d430a26b9b78a8e76972bd7e4fb9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Passo Sella</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> bergpas<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -630,13 +630,13 @@
             );
         
     
-            var circle_marker_816d0ae69a6bbb9c4b7b62c7f70271d4 = L.circleMarker(
+            var circle_marker_f5e21208d31bb96aff2d5f9fa0933e32 = L.circleMarker(
                 [46.41, 11.577],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_816d0ae69a6bbb9c4b7b62c7f70271d4.bindTooltip(
+            circle_marker_f5e21208d31bb96aff2d5f9fa0933e32.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lago di Carezza</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 50 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -646,13 +646,13 @@
             );
         
     
-            var circle_marker_224d247067d0ec69f5af64804fbec0b7 = L.circleMarker(
+            var circle_marker_e10d9730c1eb7c71cb6a4911622c0c73 = L.circleMarker(
                 [46.591, 11.688],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_224d247067d0ec69f5af64804fbec0b7.bindTooltip(
+            circle_marker_e10d9730c1eb7c71cb6a4911622c0c73.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Resciesa-plateau</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Ortisei / Selva di Val Gardena</span></div>
                  </div>`,
@@ -662,13 +662,13 @@
             );
         
     
-            var circle_marker_bc65a881238d74deefbd9a61eba0de11 = L.circleMarker(
+            var circle_marker_42828790e781785e334ba173bbb928d5 = L.circleMarker(
                 [46.6186, 12.3038],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_bc65a881238d74deefbd9a61eba0de11.bindTooltip(
+            circle_marker_42828790e781785e334ba173bbb928d5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tre Cime di Lavaredo</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> iconische wandeling<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -678,13 +678,13 @@
             );
         
     
-            var circle_marker_0d23bc6b2c8597e9d0a81d6e6b0bb471 = L.circleMarker(
+            var circle_marker_c96f8a13b09d3354e3a57471ce4d6fb5 = L.circleMarker(
                 [46.6125, 12.297],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_0d23bc6b2c8597e9d0a81d6e6b0bb471.bindTooltip(
+            circle_marker_c96f8a13b09d3354e3a57471ce4d6fb5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Cadini di Misurina-uitkijkpunt</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt wandeling<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -694,13 +694,13 @@
             );
         
     
-            var circle_marker_3ca37e5165f57c951b420f30d9a41fb5 = L.circleMarker(
+            var circle_marker_4abeef562c4cbb4a280154e922feea86 = L.circleMarker(
                 [46.694, 12.084],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_3ca37e5165f57c951b420f30d9a41fb5.bindTooltip(
+            circle_marker_4abeef562c4cbb4a280154e922feea86.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lago di Braies</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -710,13 +710,13 @@
             );
         
     
-            var circle_marker_169c53a450d59605ee2e4e2b7b7080cd = L.circleMarker(
+            var circle_marker_27fcd058b9de101413b5c4e36307105a = L.circleMarker(
                 [46.518, 12.038],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_169c53a450d59605ee2e4e2b7b7080cd.bindTooltip(
+            circle_marker_27fcd058b9de101413b5c4e36307105a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Cinque Torri</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -726,13 +726,13 @@
             );
         
     
-            var circle_marker_e01673a3d490327a9353dce85b2373a4 = L.circleMarker(
+            var circle_marker_1e7b6a988c6e0aa73fcdb252692526dd = L.circleMarker(
                 [46.482, 12.066],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_e01673a3d490327a9353dce85b2373a4.bindTooltip(
+            circle_marker_1e7b6a988c6e0aa73fcdb252692526dd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Passo Giau</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige bergpas<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -742,13 +742,13 @@
             );
         
     
-            var circle_marker_8acff5b067da6b0a00f2c01fceeeab61 = L.circleMarker(
+            var circle_marker_dfec830fb00b591990b940491998aca4 = L.circleMarker(
                 [46.552, 12.009],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_8acff5b067da6b0a00f2c01fceeeab61.bindTooltip(
+            circle_marker_dfec830fb00b591990b940491998aca4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lagazuoi</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kabelbaan en wandeling<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -758,13 +758,13 @@
             );
         
     
-            var circle_marker_69dfe9c68095b44d8bf90b1c56366497 = L.circleMarker(
+            var circle_marker_bcb0845f634d0ab9aa89d81295b4c5ea = L.circleMarker(
                 [46.5864, 12.2544],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_69dfe9c68095b44d8bf90b1c56366497.bindTooltip(
+            circle_marker_bcb0845f634d0ab9aa89d81295b4c5ea.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lago di Misurina</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> meer<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -774,13 +774,13 @@
             );
         
     
-            var circle_marker_4c7b37f7b459cb845db14f6e1fd35343 = L.circleMarker(
+            var circle_marker_aaf0e529b49ba7b515d52129e9c49514 = L.circleMarker(
                 [46.486, 12.083],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_30c263eacf1ff8c7ce76c92b08292645);
+            ).addTo(feature_group_12c9b5b6484b26f19c46b7e34a91b36a);
         
     
-            circle_marker_4c7b37f7b459cb845db14f6e1fd35343.bindTooltip(
+            circle_marker_aaf0e529b49ba7b515d52129e9c49514.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Croda da Lago</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 25 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -790,22 +790,22 @@
             );
         
     
-            feature_group_30c263eacf1ff8c7ce76c92b08292645.addTo(map_37570297e59e4199df40fb3eef0fdab7);
+            feature_group_12c9b5b6484b26f19c46b7e34a91b36a.addTo(map_957c00438bbe625ea1bf29ca749b78cc);
         
     
-            var feature_group_b73c390ce0e2e23942dd56ed7c31d9b0 = L.featureGroup(
+            var feature_group_cdeb3f4165340c46bfad76ea12fc7737 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_9a04bbf1918f0d856c3716aa2b887624 = L.circleMarker(
+            var circle_marker_2c5c299f6d71501496123faa3aaa3a63 = L.circleMarker(
                 [46.482, 12.066],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_b73c390ce0e2e23942dd56ed7c31d9b0);
+            ).addTo(feature_group_cdeb3f4165340c46bfad76ea12fc7737);
         
     
-            circle_marker_9a04bbf1918f0d856c3716aa2b887624.bindTooltip(
+            circle_marker_2c5c299f6d71501496123faa3aaa3a63.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Passo Giau</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige bergpas<br><b>Stopduur:</b> ? h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Val Gardena tot Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -815,13 +815,13 @@
             );
         
     
-            var circle_marker_202312ae056259d4d7e30ea5c0485790 = L.circleMarker(
+            var circle_marker_fd8a6f43d668754709b79e7e1a6b9e54 = L.circleMarker(
                 [46.519, 12.008],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_b73c390ce0e2e23942dd56ed7c31d9b0);
+            ).addTo(feature_group_cdeb3f4165340c46bfad76ea12fc7737);
         
     
-            circle_marker_202312ae056259d4d7e30ea5c0485790.bindTooltip(
+            circle_marker_fd8a6f43d668754709b79e7e1a6b9e54.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Passo Falzarego</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige bergpas<br><b>Stopduur:</b> ? h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Val Gardena tot Cortina d'Ampezzo</span></div>
                  </div>`,
@@ -831,28 +831,28 @@
             );
         
     
-            feature_group_b73c390ce0e2e23942dd56ed7c31d9b0.addTo(map_37570297e59e4199df40fb3eef0fdab7);
+            feature_group_cdeb3f4165340c46bfad76ea12fc7737.addTo(map_957c00438bbe625ea1bf29ca749b78cc);
         
     
-            var layer_control_e1df8abe7a2b8cfade65c80cdf1f9ae8_layers = {
+            var layer_control_5497aa6ca31c62ac62826bff5e4c9651_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_53650b13ed74e0cb7f6761525f8d3c8f,
+                    "OpenStreetMap" : tile_layer_9be6cebd92b80e185dda5035f629f903,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_503a08cf882c03740ca4e26e9c2e5603,
-                    "\u25cf Bezienswaardigheden" : feature_group_30c263eacf1ff8c7ce76c92b08292645,
-                    "\u25c7 Tussenstops" : feature_group_b73c390ce0e2e23942dd56ed7c31d9b0,
+                    "\ud83c\udfe8 Verblijven" : feature_group_d1f9ee4e4801ba7ec5ff2abd6bc29fcb,
+                    "\u25cf Bezienswaardigheden" : feature_group_12c9b5b6484b26f19c46b7e34a91b36a,
+                    "\u25c7 Tussenstops" : feature_group_cdeb3f4165340c46bfad76ea12fc7737,
                 },
             };
-            let layer_control_e1df8abe7a2b8cfade65c80cdf1f9ae8 = L.control.layers(
-                layer_control_e1df8abe7a2b8cfade65c80cdf1f9ae8_layers.base_layers,
-                layer_control_e1df8abe7a2b8cfade65c80cdf1f9ae8_layers.overlays,
+            let layer_control_5497aa6ca31c62ac62826bff5e4c9651 = L.control.layers(
+                layer_control_5497aa6ca31c62ac62826bff5e4c9651_layers.base_layers,
+                layer_control_5497aa6ca31c62ac62826bff5e4c9651_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_37570297e59e4199df40fb3eef0fdab7);
+            ).addTo(map_957c00438bbe625ea1bf29ca749b78cc);
 
         
 </script>

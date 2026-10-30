@@ -163,8 +163,8 @@ trip:
     cost_eur: 129
 
     coordinates:
-      lat: 60.39299
-      lon: 5.32415
+      lat: 60.36183879852164
+      lon: 5.3569205520804015
     accommodation_url: "https://www.airbnb.be/rooms/1619098670075427209?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997958766&check_in=2027-08-03&check_out=2027-08-04&source_impression_id=p3_1793372229_P3Em0dWTmvmjCnmY&previous_page_section_name=1000"
     accommodation_label: "Airbnb: Centraal gelegen 4-kamerappartement Bergen"
 
@@ -200,8 +200,8 @@ trip:
     - id: hirtshals_ferry
       name: Hirtshals
       coordinates:
-        lat: 57.5884
-        lon: 9.9700
+        lat: 57.52772811058586
+        lon: 10.096103702991805
       accommodation_url: "https://www.airbnb.be/rooms/18759880?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997950286&source_impression_id=p3_1792922228_P3TnUlGMLzVAtF0q&previous_page_section_name=1000"
       accommodation_label: "Airbnb: Højgaards bijgebouw"
 
@@ -232,8 +232,8 @@ trip:
     stay_nights: 3
     cost_eur: 434
     coordinates:
-      lat: 60.615
-      lon: 8.302
+      lat: 60.65110181058504
+      lon: 8.030372127089928
     accommodation_url: "https://www.airbnb.be/rooms/1782660726560827808?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11007018077206&check_in=2027-07-22&check_out=2027-07-25&source_impression_id=p3_1793372229_P3vUupi3SP2gunr2&previous_page_section_name=1000"
     accommodation_label: "Airbnb: Gezellig houten huis tussen bergen en meer"
     lodging_preference_note: "Hytte / chalet in Geilo."
@@ -329,8 +329,8 @@ trip:
     stay_nights: 5
     cost_eur: 1019
     coordinates:
-      lat: 61.9480
-      lon: 6.5250
+      lat: 62.00679513228905
+      lon: 6.559291542028096
     accommodation_url: "https://www.airbnb.be/rooms/933445901700871988?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006983865889&check_in=2027-07-28&check_out=2027-08-02&source_impression_id=p3_1792922228_P3BIEr_QDbjiwNCe&previous_page_section_name=1000"
     accommodation_label: "Airbnb: Nieuw huisje, fantastische locatie"
     lodging_preference_note: "Hytte nabij Hornindal / Haugen en de E39/Fv60."
@@ -439,8 +439,8 @@ trip:
     stay_nights: 4
     cost_eur: 777
     coordinates:
-      lat: 62.2915
-      lon: 6.6812
+      lat: 62.33594111791395
+      lon: 6.766466198407112
     accommodation_url: "https://www.airbnb.be/rooms/1508874310563063690?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11007005139787&check_in=2027-07-30&check_out=2027-08-03&source_impression_id=p3_1793372332_P37_bvQCp28alKIO&previous_page_section_name=1000"
     accommodation_label: "Airbnb: Hut op Fjællsetra"
     lodging_preference_note: "Hytte tussen Sykkylven en Stranda."

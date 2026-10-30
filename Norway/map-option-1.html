@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f9aa9cf5da8cc7df807159cf87457b6b {
+                #map_9912410ae87b6786afc7baf6fa596e53 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -83,7 +83,7 @@
     
     <script>
     window.addEventListener("load", function () {
-        const layers = layer_control_e07bcc55c2945c27fcb28bbbcfdc8d12;
+        const layers = layer_control_58f60c5000a597c5cd69ce67d69563af;
         const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
         function updateLayerControl() {
             if (mobile.matches) layers.collapse();
@@ -156,8 +156,8 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_f9aa9cf5da8cc7df807159cf87457b6b;
-        const routeLocations = [{"name": "Hirtshals", "lat": 57.5884, "lon": 9.97}, {"name": "Geilo / Hardangervidda", "lat": 60.615, "lon": 8.302}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 61.948, "lon": 6.525}, {"name": "Sykkylven / Stranda", "lat": 62.2915, "lon": 6.6812}, {"name": "Bergen (Fridalen)", "lat": 60.39299, "lon": 5.32415}];
+        const map = map_9912410ae87b6786afc7baf6fa596e53;
+        const routeLocations = [{"name": "Hirtshals", "lat": 57.52772811058586, "lon": 10.096103702991805}, {"name": "Geilo / Hardangervidda", "lat": 60.65110181058504, "lon": 8.030372127089928}, {"name": "Hornindal / Haugen / Kalvåtn", "lat": 62.00679513228905, "lon": 6.559291542028096}, {"name": "Sykkylven / Stranda", "lat": 62.33594111791395, "lon": 6.766466198407112}, {"name": "Bergen (Fridalen)", "lat": 60.36183879852164, "lon": 5.3569205520804015}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
         let destinationName = "";
@@ -405,16 +405,16 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_f9aa9cf5da8cc7df807159cf87457b6b" ></div>
+            <div class="folium-map" id="map_9912410ae87b6786afc7baf6fa596e53" ></div>
         
 </body>
 <script>
     
     
-            var map_f9aa9cf5da8cc7df807159cf87457b6b = L.map(
-                "map_f9aa9cf5da8cc7df807159cf87457b6b",
+            var map_9912410ae87b6786afc7baf6fa596e53 = L.map(
+                "map_9912410ae87b6786afc7baf6fa596e53",
                 {
-                    center: [61.174699677419355, 7.271691935483871],
+                    center: [61.17623241838373, 7.271911423309592],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 6,
@@ -429,7 +429,7 @@
 
         
     
-            var tile_layer_01f1f2ec285285f263f608ea46f35a32 = L.tileLayer(
+            var tile_layer_8bf64f5e3510c8a36b55414678d37966 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -446,30 +446,30 @@
             );
         
     
-            tile_layer_01f1f2ec285285f263f608ea46f35a32.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            tile_layer_8bf64f5e3510c8a36b55414678d37966.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            map_f9aa9cf5da8cc7df807159cf87457b6b.fitBounds(
-                [[60.615, 8.302], [61.948, 6.525], [62.2915, 6.6812], [60.42, 8.05], [60.4266, 7.2519], [60.542, 8.12], [60.448, 8.882], [60.53, 8.21], [60.535, 8.205], [62.086, 6.868], [61.815, 6.89], [61.6646, 6.8749], [61.8708, 6.8444], [61.9167, 6.0833], [61.88, 6.82], [61.98, 7.4], [62.22, 6.58], [62.45, 7.67], [62.308, 6.812], [62.215, 6.56], [62.3, 7.26], [58.828, 7.796], [60.4266, 7.2519], [60.9085, 7.2137], [60.863, 7.113], [61.099, 7.482], [61.148, 7.382], [61.973, 6.509], [60.726, 6.491], [57.5884, 9.97], [60.39299, 5.32415]],
+            map_9912410ae87b6786afc7baf6fa596e53.fitBounds(
+                [[60.65110181058504, 8.030372127089928], [62.00679513228905, 6.559291542028096], [62.33594111791395, 6.766466198407112], [60.42, 8.05], [60.4266, 7.2519], [60.542, 8.12], [60.448, 8.882], [60.53, 8.21], [60.535, 8.205], [62.086, 6.868], [61.815, 6.89], [61.6646, 6.8749], [61.8708, 6.8444], [61.9167, 6.0833], [61.88, 6.82], [61.98, 7.4], [62.22, 6.58], [62.45, 7.67], [62.308, 6.812], [62.215, 6.56], [62.3, 7.26], [58.828, 7.796], [60.4266, 7.2519], [60.9085, 7.2137], [60.863, 7.113], [61.099, 7.482], [61.148, 7.382], [61.973, 6.509], [60.726, 6.491], [57.52772811058586, 10.096103702991805], [60.36183879852164, 5.3569205520804015]],
                 {}
             );
         
     
-            var feature_group_88ed6907f438e792211c1992b27f62e2 = L.featureGroup(
+            var feature_group_b6aba268e9a373d9c609ead40a26ab84 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_472ae77f8b68e54532a42fccdcb35b4f = L.marker(
-                [60.615, 8.302],
+            var marker_3d923e1923c64526abb8828ec1b348d6 = L.marker(
+                [60.65110181058504, 8.030372127089928],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_88ed6907f438e792211c1992b27f62e2);
+            ).addTo(feature_group_b6aba268e9a373d9c609ead40a26ab84);
         
     
-            var icon_f92df8a8b1d66cb157a5113b53480122 = L.AwesomeMarkers.icon(
+            var icon_b3ec77003ab5bf598f310b02d0fb89ba = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -480,24 +480,24 @@
             );
         
     
-        var popup_91dbcfc2de0960c64353acdf2f10b7da = L.popup({
+        var popup_658afc48d46e415fa6d8ccc6197d0d22 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_9979085363a0114403bd7985f875610d = $(`<div id="html_9979085363a0114403bd7985f875610d" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Geilo / Hardangervidda</b><br><a href="https://www.airbnb.be/rooms/1782660726560827808?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11007018077206&amp;check_in=2027-07-22&amp;check_out=2027-07-25&amp;source_impression_id=p3_1793372229_P3vUupi3SP2gunr2&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Gezellig houten huis tussen bergen en meer</a></div></div>`)[0];
-                popup_91dbcfc2de0960c64353acdf2f10b7da.setContent(html_9979085363a0114403bd7985f875610d);
+                var html_ec05fcd4d3a389e7727f62d0e4eccc98 = $(`<div id="html_ec05fcd4d3a389e7727f62d0e4eccc98" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Geilo / Hardangervidda</b><br><a href="https://www.airbnb.be/rooms/1782660726560827808?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11007018077206&amp;check_in=2027-07-22&amp;check_out=2027-07-25&amp;source_impression_id=p3_1793372229_P3vUupi3SP2gunr2&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Gezellig houten huis tussen bergen en meer</a></div></div>`)[0];
+                popup_658afc48d46e415fa6d8ccc6197d0d22.setContent(html_ec05fcd4d3a389e7727f62d0e4eccc98);
             
         
 
-        marker_472ae77f8b68e54532a42fccdcb35b4f.bindPopup(popup_91dbcfc2de0960c64353acdf2f10b7da)
+        marker_3d923e1923c64526abb8828ec1b348d6.bindPopup(popup_658afc48d46e415fa6d8ccc6197d0d22)
         ;
 
         
     
     
-            marker_472ae77f8b68e54532a42fccdcb35b4f.bindTooltip(
+            marker_3d923e1923c64526abb8828ec1b348d6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Geilo / Hardangervidda</b><br><span style="color:#555">Hardangervidda, Numedal en hoogvlakte</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Eerste basis op de hoogvlakte. Focus op avontuurlijke wandelingen met  houten voetgangersbruggetjes, vlonderpaden, watervallen en wildlife.
 </i></div>
@@ -508,18 +508,18 @@
             );
         
     
-                marker_472ae77f8b68e54532a42fccdcb35b4f.setIcon(icon_f92df8a8b1d66cb157a5113b53480122);
+                marker_3d923e1923c64526abb8828ec1b348d6.setIcon(icon_b3ec77003ab5bf598f310b02d0fb89ba);
             
     
-            var marker_bee82ca090941b04347e45b175350086 = L.marker(
-                [61.948, 6.525],
+            var marker_86ccd6dc0380a5f95c8fd3d4b40a1e9c = L.marker(
+                [62.00679513228905, 6.559291542028096],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_88ed6907f438e792211c1992b27f62e2);
+            ).addTo(feature_group_b6aba268e9a373d9c609ead40a26ab84);
         
     
-            var icon_cf749d57f40af125ba19122125367b6c = L.AwesomeMarkers.icon(
+            var icon_f8e213a26c5be043a780df4c360984a2 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -530,24 +530,24 @@
             );
         
     
-        var popup_b2e6c8e66ef9b028b73050f635f07110 = L.popup({
+        var popup_805abb0b7a96f24836ce60084bca89f1 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_355ef7485c901e0c5fa1191870a3d612 = $(`<div id="html_355ef7485c901e0c5fa1191870a3d612" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Hornindal / Haugen / Kalvåtn</b><br><a href="https://www.airbnb.be/rooms/933445901700871988?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006983865889&amp;check_in=2027-07-28&amp;check_out=2027-08-02&amp;source_impression_id=p3_1792922228_P3BIEr_QDbjiwNCe&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Nieuw huisje, fantastische locatie</a></div></div>`)[0];
-                popup_b2e6c8e66ef9b028b73050f635f07110.setContent(html_355ef7485c901e0c5fa1191870a3d612);
+                var html_92512a401911ff06531510859fc72974 = $(`<div id="html_92512a401911ff06531510859fc72974" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Hornindal / Haugen / Kalvåtn</b><br><a href="https://www.airbnb.be/rooms/933445901700871988?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006983865889&amp;check_in=2027-07-28&amp;check_out=2027-08-02&amp;source_impression_id=p3_1792922228_P3BIEr_QDbjiwNCe&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Nieuw huisje, fantastische locatie</a></div></div>`)[0];
+                popup_805abb0b7a96f24836ce60084bca89f1.setContent(html_92512a401911ff06531510859fc72974);
             
         
 
-        marker_bee82ca090941b04347e45b175350086.bindPopup(popup_b2e6c8e66ef9b028b73050f635f07110)
+        marker_86ccd6dc0380a5f95c8fd3d4b40a1e9c.bindPopup(popup_805abb0b7a96f24836ce60084bca89f1)
         ;
 
         
     
     
-            marker_bee82ca090941b04347e45b175350086.bindTooltip(
+            marker_86ccd6dc0380a5f95c8fd3d4b40a1e9c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Hornindal / Haugen / Kalvåtn</b><br><span style="color:#555">Nordfjord, gletsjers en Geirangerfjord (vlakbij Hornindal Skisenter)</span><br><hr style="margin:4px 0"><b>Nachten:</b> 5<br><i style="color:#666;font-size:14px">Budgetvriendelijke en strategische basis in het hart van de Nordfjord, vlak bij Hornindal.  Slechts 35-45 minuten van Lovatnet, Loen Skylift, Briksdalsbreen én Hellesylt (Geiranger-boot).
 </i></div>
@@ -558,18 +558,18 @@
             );
         
     
-                marker_bee82ca090941b04347e45b175350086.setIcon(icon_cf749d57f40af125ba19122125367b6c);
+                marker_86ccd6dc0380a5f95c8fd3d4b40a1e9c.setIcon(icon_f8e213a26c5be043a780df4c360984a2);
             
     
-            var marker_de5b89d226e25763f80ca427f85ea641 = L.marker(
-                [62.2915, 6.6812],
+            var marker_78fadaa5751765af3246ed88b5050486 = L.marker(
+                [62.33594111791395, 6.766466198407112],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_88ed6907f438e792211c1992b27f62e2);
+            ).addTo(feature_group_b6aba268e9a373d9c609ead40a26ab84);
         
     
-            var icon_97aaeddde25dcba3010be25a26d849d3 = L.AwesomeMarkers.icon(
+            var icon_56d5e0817bb5ec0453b805b06557a429 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -580,24 +580,24 @@
             );
         
     
-        var popup_639010f8050db237d2b8e32850ad9b92 = L.popup({
+        var popup_125a3086f022b8abea1abe8c5cc0e6c5 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_cc4f1161fca5199280cec44cb6907ab9 = $(`<div id="html_cc4f1161fca5199280cec44cb6907ab9" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Sykkylven / Stranda</b><br><a href="https://www.airbnb.be/rooms/1508874310563063690?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11007005139787&amp;check_in=2027-07-30&amp;check_out=2027-08-03&amp;source_impression_id=p3_1793372332_P37_bvQCp28alKIO&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Hut op Fjællsetra</a></div></div>`)[0];
-                popup_639010f8050db237d2b8e32850ad9b92.setContent(html_cc4f1161fca5199280cec44cb6907ab9);
+                var html_41db38f7c407344c2dd864ca491410e8 = $(`<div id="html_41db38f7c407344c2dd864ca491410e8" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Sykkylven / Stranda</b><br><a href="https://www.airbnb.be/rooms/1508874310563063690?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11007005139787&amp;check_in=2027-07-30&amp;check_out=2027-08-03&amp;source_impression_id=p3_1793372332_P37_bvQCp28alKIO&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Hut op Fjællsetra</a></div></div>`)[0];
+                popup_125a3086f022b8abea1abe8c5cc0e6c5.setContent(html_41db38f7c407344c2dd864ca491410e8);
             
         
 
-        marker_de5b89d226e25763f80ca427f85ea641.bindPopup(popup_639010f8050db237d2b8e32850ad9b92)
+        marker_78fadaa5751765af3246ed88b5050486.bindPopup(popup_125a3086f022b8abea1abe8c5cc0e6c5)
         ;
 
         
     
     
-            marker_de5b89d226e25763f80ca427f85ea641.bindTooltip(
+            marker_78fadaa5751765af3246ed88b5050486.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Sykkylven / Stranda</b><br><span style="color:#555">Sunnmøre-alpen, Hjørundfjord en Trollstigen</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Ideale basis midden in de Sunnmøre-alpen voor Trollstigen, Valldal,  de nabijgelegen Hjørundfjord, Norangsdalen-vallei én spectaculaire bergwandelingen.
 </i></div>
@@ -608,25 +608,25 @@
             );
         
     
-                marker_de5b89d226e25763f80ca427f85ea641.setIcon(icon_97aaeddde25dcba3010be25a26d849d3);
+                marker_78fadaa5751765af3246ed88b5050486.setIcon(icon_56d5e0817bb5ec0453b805b06557a429);
             
     
-            feature_group_88ed6907f438e792211c1992b27f62e2.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            feature_group_b6aba268e9a373d9c609ead40a26ab84.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            var feature_group_4e817c2b9b3d510860e7f1500491a996 = L.featureGroup(
+            var feature_group_dc01ca999cf6921578dc610f94637e5e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_d1d499e89aa37008d7bba7245521eec2 = L.circleMarker(
+            var circle_marker_dd54bc91dd580ccbf2e0bb8a809cd2a1 = L.circleMarker(
                 [60.42, 8.05],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_d1d499e89aa37008d7bba7245521eec2.bindTooltip(
+            circle_marker_dd54bc91dd580ccbf2e0bb8a809cd2a1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tunga Bru & Hardangervidda Vlonderpaden</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Wooden Bridge Hike<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Avontuurlijke wandeling over karakteristieke houten voetgangersbrggen en langgerekte houten vlonderpaden over snelstromende bergrivieren.</i></div>
                  </div>`,
@@ -636,13 +636,13 @@
             );
         
     
-            var circle_marker_1d71bdc3efe17458c373276a2cb7032a = L.circleMarker(
+            var circle_marker_7c82efc156d506c572a4267cdfc438ae = L.circleMarker(
                 [60.4266, 7.2519],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_1d71bdc3efe17458c373276a2cb7032a.bindTooltip(
+            circle_marker_7c82efc156d506c572a4267cdfc438ae.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Vøringsfossen Trappenbrug & Canyon</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Waterfall Bridge Hike<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 70 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Spectaculaire stalen loopbrug met 99 traptreden direct zwevend boven de diepe kloof en waterval.</i></div>
                  </div>`,
@@ -652,13 +652,13 @@
             );
         
     
-            var circle_marker_61f429af6951cd7e3dd29df1db0536fd = L.circleMarker(
+            var circle_marker_41715fbdda3784b28bf10ca842af0b4a = L.circleMarker(
                 [60.542, 8.12],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_61f429af6951cd7e3dd29df1db0536fd.bindTooltip(
+            circle_marker_41715fbdda3784b28bf10ca842af0b4a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Prestholtrunden (Sherpa-trappen)</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 3.5 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Indrukwekkende klim via stenen trappen (gebouwd door Nepalese Sherpa's) naar het Hallingskarvet plateau.</i></div>
                  </div>`,
@@ -668,13 +668,13 @@
             );
         
     
-            var circle_marker_249f0044fabf3b50745f3d03716dadf7 = L.circleMarker(
+            var circle_marker_fa79436e99adb0078eca3d46aa8d6761 = L.circleMarker(
                 [60.448, 8.882],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_249f0044fabf3b50745f3d03716dadf7.bindTooltip(
+            circle_marker_fa79436e99adb0078eca3d46aa8d6761.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Langedrag Naturpark</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Wildlife Adventure<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Avontuurlijk bergpark met elanden, wolven, lynxen en poolvossen. Erg leuk voor de kinderen.</i></div>
                  </div>`,
@@ -684,13 +684,13 @@
             );
         
     
-            var circle_marker_cf96d0768684931465cbe224c1cd9f6a = L.circleMarker(
+            var circle_marker_fb3149b49be313067f2f6d72eefa2f0e = L.circleMarker(
                 [60.53, 8.21],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_cf96d0768684931465cbe224c1cd9f6a.bindTooltip(
+            circle_marker_fb3149b49be313067f2f6d72eefa2f0e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ustedalsfjorden Meerwandeling</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> Lake Hike<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Ontspannen en vlakke gezinswandeling rond het meer van Geilo over houten vlonders en paadjes.</i></div>
                  </div>`,
@@ -700,13 +700,13 @@
             );
         
     
-            var circle_marker_037f9849735824f854e8f53adfa8c00a = L.circleMarker(
+            var circle_marker_3b11bf4e6c40bf899b1340cc3755f0cd = L.circleMarker(
                 [60.535, 8.205],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_037f9849735824f854e8f53adfa8c00a.bindTooltip(
+            circle_marker_3b11bf4e6c40bf899b1340cc3755f0cd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Geilo Høyt & Lav Klimpark / Ziplines</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> Adventure Park<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Geilo / Hardangervidda</span><br><i style="color:#666;font-size:13px">Boomtop klimpark met spannende tokkelbanen en downhill fietsopties voor het gezin.</i></div>
                  </div>`,
@@ -716,13 +716,13 @@
             );
         
     
-            var circle_marker_af8ac0fd5ddc51011fff7cec66bf0dc1 = L.circleMarker(
+            var circle_marker_beaaa499685248972ba124b9fb51f664 = L.circleMarker(
                 [62.086, 6.868],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_af8ac0fd5ddc51011fff7cec66bf0dc1.bindTooltip(
+            circle_marker_beaaa499685248972ba124b9fb51f664.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Geirangerfjord Autoveerboot (via Hellesylt)</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Fjord Cruise Viewpoint<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Rijd naar Hellesylt voor de beroemde veerboot door de Geirangerfjord langs de Seven Sisters watervallen en Flydalsjuvet.</i></div>
                  </div>`,
@@ -732,13 +732,13 @@
             );
         
     
-            var circle_marker_9cc0ae7e37fabea7b266d5917fd8fac5 = L.circleMarker(
+            var circle_marker_41dcd5b3d24b5508e4f24e7e87202e4e = L.circleMarker(
                 [61.815, 6.89],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_9cc0ae7e37fabea7b266d5917fd8fac5.bindTooltip(
+            circle_marker_41dcd5b3d24b5508e4f24e7e87202e4e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lovatnet Meer & Kjenndalsbreen</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Lake Glacier Hike<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Wandelen en kanoën langs het knalblauwe gletsjermeer richting de Kjenndalsbreen gletsjertong.</i></div>
                  </div>`,
@@ -748,13 +748,13 @@
             );
         
     
-            var circle_marker_9d7dd3c88e2d408b6ee2de4195238ef7 = L.circleMarker(
+            var circle_marker_f73f5290316d4c4786ceb529432527de = L.circleMarker(
                 [61.6646, 6.8749],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_9d7dd3c88e2d408b6ee2de4195238ef7.bindTooltip(
+            circle_marker_f73f5290316d4c4786ceb529432527de.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Briksdalsbreen Gletsjerwandeling</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjerwandeling<br><b>Duur:</b> 3.5 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Mooie hike langs watervallen naar de ijsmassa van de Briksdalsbreen.</i></div>
                  </div>`,
@@ -764,13 +764,13 @@
             );
         
     
-            var circle_marker_ead6ce09a5d3db3d9e6a87cd85c32913 = L.circleMarker(
+            var circle_marker_c62c611797154e1a6c20ba55f72b5d12 = L.circleMarker(
                 [61.8708, 6.8444],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_ead6ce09a5d3db3d9e6a87cd85c32913.bindTooltip(
+            circle_marker_c62c611797154e1a6c20ba55f72b5d12.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Loen Skylift & Mount Hoven</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Cable Car Mountain Hike<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Steile kabelbaan omhoog naar 1.011m voor panoramische bergwandelingen op het plateau.</i></div>
                  </div>`,
@@ -780,13 +780,13 @@
             );
         
     
-            var circle_marker_52d60275eb7043d4985d03ccd297ca97 = L.circleMarker(
+            var circle_marker_aa9e69f6548d164b8cad5383b1d72e1e = L.circleMarker(
                 [61.9167, 6.0833],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_52d60275eb7043d4985d03ccd297ca97.bindTooltip(
+            circle_marker_aa9e69f6548d164b8cad5383b1d72e1e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Nordfjord Panoramaroute & Fjordverkenning</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Fjord Exploration<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Schilderachtige rit of wandeling langs de oevers van de Nordfjord, inclusief gezellige stop in Stryn of Utvik.</i></div>
                  </div>`,
@@ -796,13 +796,13 @@
             );
         
     
-            var circle_marker_743037a37ddc547d7da741b451e75dee = L.circleMarker(
+            var circle_marker_adb33feba39e2b4ef932f16b9d7d183f = L.circleMarker(
                 [61.88, 6.82],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_743037a37ddc547d7da741b451e75dee.bindTooltip(
+            circle_marker_adb33feba39e2b4ef932f16b9d7d183f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Rakssetra Grasdak-Hytter Wandeling</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Panoramic Hike<br><b>Duur:</b> 2.5 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Prachtige korte klim (45 min) naar een idyllische alm met houten grasdakhutten en uitzicht over de fjord.</i></div>
                  </div>`,
@@ -812,13 +812,13 @@
             );
         
     
-            var circle_marker_18b1b7b911910c7cee75739f0985241e = L.circleMarker(
+            var circle_marker_d59f275455f15855759465b2568b4a13 = L.circleMarker(
                 [61.98, 7.4],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_18b1b7b911910c7cee75739f0985241e.bindTooltip(
+            circle_marker_d59f275455f15855759465b2568b4a13.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Gamle Strynefjellsvegen Bergweg</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Mountain Drive<br><b>Duur:</b> 3.5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Hornindal / Haugen / Kalvåtn</span><br><i style="color:#666;font-size:13px">Historische, ruige bergweg met sneeuwmuren, steenmannetjes en watervallen.</i></div>
                  </div>`,
@@ -828,13 +828,13 @@
             );
         
     
-            var circle_marker_c68054200014a2216d5bbcb6e4818e8b = L.circleMarker(
+            var circle_marker_4917df593e1f059768b98616655da713 = L.circleMarker(
                 [62.22, 6.58],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_c68054200014a2216d5bbcb6e4818e8b.bindTooltip(
+            circle_marker_4917df593e1f059768b98616655da713.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hjørundfjord & Norangsdalen Vallei</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Valley Hike<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Sykkylven / Stranda</span><br><i style="color:#666;font-size:13px">Wandelen door een van de smalste en mooiste valleien van Noorwegen met gezonken ruïnes, direct nabij Stranda.</i></div>
                  </div>`,
@@ -844,13 +844,13 @@
             );
         
     
-            var circle_marker_f79f23a49c4d737ebcee480171e326c2 = L.circleMarker(
+            var circle_marker_616471c38ddf4ca1663b02d1e8cbd6ea = L.circleMarker(
                 [62.45, 7.67],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_f79f23a49c4d737ebcee480171e326c2.bindTooltip(
+            circle_marker_616471c38ddf4ca1663b02d1e8cbd6ea.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Trollstigen Bergpas & Gudbrandsjuvet</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Mountain Pass Gorge Walk<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Sykkylven / Stranda</span><br><i style="color:#666;font-size:13px">Wandelen over zwevende roosters boven de kolkende kloof van Gudbrandsjuvet, de aardbeien van Valldal en de 11 haarspeldbochten van Trollstigen.</i></div>
                  </div>`,
@@ -860,13 +860,13 @@
             );
         
     
-            var circle_marker_7657b10a5efe2cc8471f94e3e9064427 = L.circleMarker(
+            var circle_marker_b2ee622d3e93c5b4d10121edce918e6d = L.circleMarker(
                 [62.308, 6.812],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_7657b10a5efe2cc8471f94e3e9064427.bindTooltip(
+            circle_marker_b2ee622d3e93c5b4d10121edce918e6d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Strandafjellet Gondel & Panoramapad</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Panorama Mountain Walk<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Sykkylven / Stranda</span><br><i style="color:#666;font-size:13px">Panoramische wandeling op de top met fenomenaal uitzicht over de Storfjord.</i></div>
                  </div>`,
@@ -876,13 +876,13 @@
             );
         
     
-            var circle_marker_d90d75b959385bc05d247fdb3b682ac1 = L.circleMarker(
+            var circle_marker_27c6a4106a48c2a3fdc923c4744a4459 = L.circleMarker(
                 [62.215, 6.56],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_d90d75b959385bc05d247fdb3b682ac1.bindTooltip(
+            circle_marker_27c6a4106a48c2a3fdc923c4744a4459.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Saksa / Urke Bergwandeling (Sunnmøre-alpen)</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 4.5 h<br><b>Vanaf basis:</b> 35 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Sykkylven / Stranda</span><br><i style="color:#666;font-size:13px">Avontuurlijke klim vanuit Urke met fenomenaal uitzicht over de spitse bergtoppen en de diepe Hjørundfjord.</i></div>
                  </div>`,
@@ -892,13 +892,13 @@
             );
         
     
-            var circle_marker_3a6e7bd376f3bec09094b8ed8ea3cf76 = L.circleMarker(
+            var circle_marker_1ec0eee3fe142b3d95ea2e9c769fa86d = L.circleMarker(
                 [62.3, 7.26],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_4e817c2b9b3d510860e7f1500491a996);
+            ).addTo(feature_group_dc01ca999cf6921578dc610f94637e5e);
         
     
-            circle_marker_3a6e7bd376f3bec09094b8ed8ea3cf76.bindTooltip(
+            circle_marker_1ec0eee3fe142b3d95ea2e9c769fa86d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Valldal Gezins-Rafting of River Walk</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> River Adventure<br><b>Duur:</b> 3.5 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Sykkylven / Stranda</span><br><i style="color:#666;font-size:13px">Spannende maar veilige rivier- en raftingactiviteiten voor het gezin op de Valldøla-rivier.</i></div>
                  </div>`,
@@ -908,22 +908,22 @@
             );
         
     
-            feature_group_4e817c2b9b3d510860e7f1500491a996.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            feature_group_dc01ca999cf6921578dc610f94637e5e.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            var feature_group_0d8da84469cebfd1b657c06480f2762d = L.featureGroup(
+            var feature_group_fb56600b56a3aacdd232b3a0f036fcea = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_7e1ae8b8f231ca2ecb0f6522b3f7a26f = L.circleMarker(
+            var circle_marker_4e04c74ecbdb0119c0d4ba1bcb3a2a46 = L.circleMarker(
                 [58.828, 7.796],
                 {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_7e1ae8b8f231ca2ecb0f6522b3f7a26f.bindTooltip(
+            circle_marker_4e04c74ecbdb0119c0d4ba1bcb3a2a46.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Bygland (Setesdal)</b><br><span style="color:#e67e22;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Coffee Stop<br><b>Stopduur:</b> 0.75 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e67e22">Kristiansand naar Geilo via Setesdal (Rv9)</span><br><i style="color:#666;font-size:13px">Gezellig houten dorpje aan het meer om even de benen te strekken.</i></div>
                  </div>`,
@@ -933,13 +933,13 @@
             );
         
     
-            var circle_marker_d7afc92fb76e87b86ba91a567080f522 = L.circleMarker(
+            var circle_marker_4a49affcbe84c50838d4d7d3d5b8a682 = L.circleMarker(
                 [60.4266, 7.2519],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_d7afc92fb76e87b86ba91a567080f522.bindTooltip(
+            circle_marker_4a49affcbe84c50838d4d7d3d5b8a682.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Vøringsfossen Waterval & Trappenbrug</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Major Sightseeing Stop<br><b>Stopduur:</b> 1.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord</span><br><i style="color:#666;font-size:13px">Direct in de ochtend meepikken op de Hardangervidda voor de spectaculaire loopbrug en canyon.</i></div>
                  </div>`,
@@ -949,13 +949,13 @@
             );
         
     
-            var circle_marker_026bc327fe3ac5b4cab27d5a01702ea7 = L.circleMarker(
+            var circle_marker_7cbccaddc41f8af6ecdc00b12d16377c = L.circleMarker(
                 [60.9085, 7.2137],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_026bc327fe3ac5b4cab27d5a01702ea7.bindTooltip(
+            circle_marker_7cbccaddc41f8af6ecdc00b12d16377c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Stegastein Uitkijkpunt (Aurlandsfjord)</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Major Viewpoint Stop<br><b>Stopduur:</b> 0.75 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord</span><br><i style="color:#666;font-size:13px">Zwevend houten uitzichtplatform met adembenemend panorama over de Aurlandsfjord.</i></div>
                  </div>`,
@@ -965,13 +965,13 @@
             );
         
     
-            var circle_marker_16d5ab1df0cf1a10326c86df51df0b34 = L.circleMarker(
+            var circle_marker_ffe9bcf3c92ce9baaeda25e46194cc35 = L.circleMarker(
                 [60.863, 7.113],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_16d5ab1df0cf1a10326c86df51df0b34.bindTooltip(
+            circle_marker_ffe9bcf3c92ce9baaeda25e46194cc35.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Flåm & Nærøyfjord Panorama (Gudvangen)</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Fjord Stop<br><b>Stopduur:</b> 1.0 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord</span><br><i style="color:#666;font-size:13px">Korte stop in het fjordenvallei-hart bij Flåm of Gudvangen (Nærøyfjord, UNESCO Werelderfgoed).</i></div>
                  </div>`,
@@ -981,13 +981,13 @@
             );
         
     
-            var circle_marker_0eb439a57542dcc96152adf6edc14743 = L.circleMarker(
+            var circle_marker_5b7c072c7553869c943ff97f7140439a = L.circleMarker(
                 [61.099, 7.482],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_0eb439a57542dcc96152adf6edc14743.bindTooltip(
+            circle_marker_5b7c072c7553869c943ff97f7140439a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Lærdalsøyri Historisch Dorp</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> Historic Village Lunch Stop<br><b>Stopduur:</b> 0.75 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord</span><br><i style="color:#666;font-size:13px">Sfeervolle lunchstop tussen de beschermde 18e-eeuwse houten huisjes.</i></div>
                  </div>`,
@@ -997,13 +997,13 @@
             );
         
     
-            var circle_marker_643da1280bc53d76785cacc030987b02 = L.circleMarker(
+            var circle_marker_8eaaa07611cedb194d10760e11dbe140 = L.circleMarker(
                 [61.148, 7.382],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_643da1280bc53d76785cacc030987b02.bindTooltip(
+            circle_marker_8eaaa07611cedb194d10760e11dbe140.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Sognefjord Fjordoversteek (Fodnes - Mannheller)</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> Car Ferry Crossing<br><b>Stopduur:</b> 0.3333333333333333 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Geilo naar Hornindal/Haugen via Aurlandsfjord, Nærøyfjord & Sognefjord</span><br><i style="color:#666;font-size:13px">Korte en ontspannen autoveerboot-oversteek over de langste fjord van Noorwegen.</i></div>
                  </div>`,
@@ -1013,13 +1013,13 @@
             );
         
     
-            var circle_marker_72d796c99002bdf7c503015f82cd6702 = L.circleMarker(
+            var circle_marker_74bdfdc917f0074eb63cd8d8d25368a1 = L.circleMarker(
                 [61.973, 6.509],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_72d796c99002bdf7c503015f82cd6702.bindTooltip(
+            circle_marker_74bdfdc917f0074eb63cd8d8d25368a1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Hornindalsvatnet</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Scenic Lake Stop<br><b>Stopduur:</b> 0.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#2980b9">Hornindal/Haugen naar Sykkylven/Stranda</span><br><i style="color:#666;font-size:13px">Korte stop bij het diepste meer van Europa (514m diep).</i></div>
                  </div>`,
@@ -1029,13 +1029,13 @@
             );
         
     
-            var circle_marker_e1a777639fd7b10af137f6cc40e1a7f2 = L.circleMarker(
+            var circle_marker_86f87ba1588e1b92f1961be696736611 = L.circleMarker(
                 [60.726, 6.491],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_0d8da84469cebfd1b657c06480f2762d);
+            ).addTo(feature_group_fb56600b56a3aacdd232b3a0f036fcea);
         
     
-            circle_marker_e1a777639fd7b10af137f6cc40e1a7f2.bindTooltip(
+            circle_marker_86f87ba1588e1b92f1961be696736611.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Tvindefossen Waterval</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> Roadside Waterfall Stop<br><b>Stopduur:</b> 0.5 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#27ae60">Sykkylven/Stranda naar Bergen (Fridalen) via E39</span><br><i style="color:#666;font-size:13px">Ideale benen-strek stop langs de route met een mooie, brede waterval.</i></div>
                  </div>`,
@@ -1045,24 +1045,24 @@
             );
         
     
-            feature_group_0d8da84469cebfd1b657c06480f2762d.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            feature_group_fb56600b56a3aacdd232b3a0f036fcea.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            var feature_group_24e6915aae94d468951e19ae02f9c2b7 = L.featureGroup(
+            var feature_group_a4509e2a5b05d5372e6a300533ab5152 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_22fb98633c9428588588cea28aaeb001 = L.marker(
-                [60.39299, 5.32415],
+            var marker_6f6cb818e0cd60548abf0a44c81c5f41 = L.marker(
+                [60.36183879852164, 5.3569205520804015],
                 {
   "zIndexOffset": 2000,
 }
-            ).addTo(feature_group_24e6915aae94d468951e19ae02f9c2b7);
+            ).addTo(feature_group_a4509e2a5b05d5372e6a300533ab5152);
         
     
-            var icon_985255d44f0528005af7f66e4696d813 = L.AwesomeMarkers.icon(
+            var icon_c22257d738a59055a7466ed6a34a6084 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -1073,24 +1073,24 @@
             );
         
     
-        var popup_2c31b623ddebafe8b0ae83ceaa79b9e3 = L.popup({
+        var popup_e2e03e9f5c0c0ef7cc76994c112647ca = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_5d57c36dd2371be9a7ca48e4966eebb9 = $(`<div id="html_5d57c36dd2371be9a7ca48e4966eebb9" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Bergen (Fridalen)</b><br><a href="https://www.airbnb.be/rooms/1619098670075427209?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006997958766&amp;check_in=2027-08-03&amp;check_out=2027-08-04&amp;source_impression_id=p3_1793372229_P3Em0dWTmvmjCnmY&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Centraal gelegen 4-kamerappartement Bergen</a></div></div>`)[0];
-                popup_2c31b623ddebafe8b0ae83ceaa79b9e3.setContent(html_5d57c36dd2371be9a7ca48e4966eebb9);
+                var html_d71e06102aa51d2fc1cb1371127e6133 = $(`<div id="html_d71e06102aa51d2fc1cb1371127e6133" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Bergen (Fridalen)</b><br><a href="https://www.airbnb.be/rooms/1619098670075427209?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006997958766&amp;check_in=2027-08-03&amp;check_out=2027-08-04&amp;source_impression_id=p3_1793372229_P3Em0dWTmvmjCnmY&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Centraal gelegen 4-kamerappartement Bergen</a></div></div>`)[0];
+                popup_e2e03e9f5c0c0ef7cc76994c112647ca.setContent(html_d71e06102aa51d2fc1cb1371127e6133);
             
         
 
-        marker_22fb98633c9428588588cea28aaeb001.bindPopup(popup_2c31b623ddebafe8b0ae83ceaa79b9e3)
+        marker_6f6cb818e0cd60548abf0a44c81c5f41.bindPopup(popup_e2e03e9f5c0c0ef7cc76994c112647ca)
         ;
 
         
     
     
-            marker_22fb98633c9428588588cea28aaeb001.bindTooltip(
+            marker_6f6cb818e0cd60548abf0a44c81c5f41.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e67e22;font-size:16px">🏙️ Bergen (Fridalen)</b><br><span style="color:#555">Eindbestemming · ook startpunt routeplanner</span><hr style="margin:4px 0"><ul style='margin:4px 0 0 14px;padding:0'><li>Bryggen Hanzewijk</li><li>Fløibanen Kabelbaan & Mount Fløyen</li></ul><br><i style="color:#666;font-size:13px">Strategisch appartement in de groene woonwijk Fridalen, vlak bij de  tramhalte (Bybanen). Vermijdt duur stadsparkeren en drukte. 15 min van ferry.
 </i></div>
@@ -1101,27 +1101,27 @@
             );
         
     
-                marker_22fb98633c9428588588cea28aaeb001.setIcon(icon_985255d44f0528005af7f66e4696d813);
+                marker_6f6cb818e0cd60548abf0a44c81c5f41.setIcon(icon_c22257d738a59055a7466ed6a34a6084);
             
     
-            feature_group_24e6915aae94d468951e19ae02f9c2b7.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            feature_group_a4509e2a5b05d5372e6a300533ab5152.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            var feature_group_ecdd663b8fe921bcdbe14ae018810acf = L.featureGroup(
+            var feature_group_b1f244b1d6731a92b80d6a463206eec9 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_22eba98c726a271486e223b156d482a9 = L.marker(
-                [57.5884, 9.97],
+            var marker_6f8ce123811b1e73f49f86ec57154e88 = L.marker(
+                [57.52772811058586, 10.096103702991805],
                 {
   "zIndexOffset": 2000,
 }
-            ).addTo(feature_group_ecdd663b8fe921bcdbe14ae018810acf);
+            ).addTo(feature_group_b1f244b1d6731a92b80d6a463206eec9);
         
     
-            var icon_a48fa4a3f2364baf5bee5e11292efab5 = L.AwesomeMarkers.icon(
+            var icon_1b0b71e61afbaea9878ce982789e9151 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -1132,24 +1132,24 @@
             );
         
     
-        var popup_862616bf5cb5e8e0e772bc667ad0addb = L.popup({
+        var popup_62b33da1f5d6f465bea308888506b502 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_ebe5e6cc185086f6a57e24e9b12d4978 = $(`<div id="html_ebe5e6cc185086f6a57e24e9b12d4978" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Hirtshals</b><br><a href="https://www.airbnb.be/rooms/18759880?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006997950286&amp;source_impression_id=p3_1792922228_P3TnUlGMLzVAtF0q&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Højgaards bijgebouw</a></div></div>`)[0];
-                popup_862616bf5cb5e8e0e772bc667ad0addb.setContent(html_ebe5e6cc185086f6a57e24e9b12d4978);
+                var html_32f2db008e3c7e833437e30a3c7bbab7 = $(`<div id="html_32f2db008e3c7e833437e30a3c7bbab7" style="width: 100.0%; height: 100.0%;"><div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>Hirtshals</b><br><a href="https://www.airbnb.be/rooms/18759880?adults=4&amp;children=1&amp;infants=0&amp;pets=0&amp;wishlist_item_id=11006997950286&amp;source_impression_id=p3_1792922228_P3TnUlGMLzVAtF0q&amp;previous_page_section_name=1000" target="_blank" rel="noopener noreferrer">Airbnb: Højgaards bijgebouw</a></div></div>`)[0];
+                popup_62b33da1f5d6f465bea308888506b502.setContent(html_32f2db008e3c7e833437e30a3c7bbab7);
             
         
 
-        marker_22eba98c726a271486e223b156d482a9.bindPopup(popup_862616bf5cb5e8e0e772bc667ad0addb)
+        marker_6f8ce123811b1e73f49f86ec57154e88.bindPopup(popup_62b33da1f5d6f465bea308888506b502)
         ;
 
         
     
     
-            marker_22eba98c726a271486e223b156d482a9.bindTooltip(
+            marker_6f8ce123811b1e73f49f86ec57154e88.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b>⚓ Hirtshals</b><br>Start- en eindpunt voor de routeplanner</div>
                  </div>`,
@@ -1159,33 +1159,33 @@
             );
         
     
-                marker_22eba98c726a271486e223b156d482a9.setIcon(icon_a48fa4a3f2364baf5bee5e11292efab5);
+                marker_6f8ce123811b1e73f49f86ec57154e88.setIcon(icon_1b0b71e61afbaea9878ce982789e9151);
             
     
-            feature_group_ecdd663b8fe921bcdbe14ae018810acf.addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            feature_group_b1f244b1d6731a92b80d6a463206eec9.addTo(map_9912410ae87b6786afc7baf6fa596e53);
         
     
-            var layer_control_e07bcc55c2945c27fcb28bbbcfdc8d12_layers = {
+            var layer_control_58f60c5000a597c5cd69ce67d69563af_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_01f1f2ec285285f263f608ea46f35a32,
+                    "OpenStreetMap" : tile_layer_8bf64f5e3510c8a36b55414678d37966,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_88ed6907f438e792211c1992b27f62e2,
-                    "\u25cf Bezienswaardigheden" : feature_group_4e817c2b9b3d510860e7f1500491a996,
-                    "\u25c7 Tussenstops" : feature_group_0d8da84469cebfd1b657c06480f2762d,
-                    "\ud83c\udfe0 Bergen (Fridalen)" : feature_group_24e6915aae94d468951e19ae02f9c2b7,
-                    "\u2693 Start- en eindpunten" : feature_group_ecdd663b8fe921bcdbe14ae018810acf,
+                    "\ud83c\udfe8 Verblijven" : feature_group_b6aba268e9a373d9c609ead40a26ab84,
+                    "\u25cf Bezienswaardigheden" : feature_group_dc01ca999cf6921578dc610f94637e5e,
+                    "\u25c7 Tussenstops" : feature_group_fb56600b56a3aacdd232b3a0f036fcea,
+                    "\ud83c\udfe0 Bergen (Fridalen)" : feature_group_a4509e2a5b05d5372e6a300533ab5152,
+                    "\u2693 Start- en eindpunten" : feature_group_b1f244b1d6731a92b80d6a463206eec9,
                 },
             };
-            let layer_control_e07bcc55c2945c27fcb28bbbcfdc8d12 = L.control.layers(
-                layer_control_e07bcc55c2945c27fcb28bbbcfdc8d12_layers.base_layers,
-                layer_control_e07bcc55c2945c27fcb28bbbcfdc8d12_layers.overlays,
+            let layer_control_58f60c5000a597c5cd69ce67d69563af = L.control.layers(
+                layer_control_58f60c5000a597c5cd69ce67d69563af_layers.base_layers,
+                layer_control_58f60c5000a597c5cd69ce67d69563af_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_f9aa9cf5da8cc7df807159cf87457b6b);
+            ).addTo(map_9912410ae87b6786afc7baf6fa596e53);
 
         
 </script>
