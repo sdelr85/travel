@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9f0196ad2ebdda16ad232061516bcd8c {
+                #map_d357ae4029e8019a59f2d4d9783f3439 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -80,6 +80,20 @@
         <div class="travel-legend-subtitle">Verblijfplaatsen</div>
         <ol><li><span style="color:#e74c3c;font-size:13px">●</span> Furnas / Sao Miguel</li><li><span style="color:#2980b9;font-size:13px">●</span> Madalena / Pico</li></ol>
     </div>
+    
+    <script>
+    window.addEventListener("load", function () {
+        const layers = layer_control_828f136827b9f363dd3ced7d03ae4f38;
+        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
+        function updateLayerControl() {
+            if (mobile.matches) layers.collapse();
+            else layers.expand();
+        }
+        updateLayerControl();
+        mobile.addEventListener("change", updateLayerControl);
+    });
+    </script>
+    
     <!-- travel-route-planner:start -->
     <style>
         .leaflet-left .route-planner-control {
@@ -142,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_9f0196ad2ebdda16ad232061516bcd8c;
+        const map = map_d357ae4029e8019a59f2d4d9783f3439;
         const routeLocations = [{"name": "Furnas / Sao Miguel", "lat": 37.793, "lon": -25.3237}, {"name": "Madalena / Pico", "lat": 38.536, "lon": -28.526}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -391,26 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_9f0196ad2ebdda16ad232061516bcd8c" ></div>
+            <div class="folium-map" id="map_d357ae4029e8019a59f2d4d9783f3439" ></div>
         
-    <script>
-    window.addEventListener("load", function () {
-        const layers = layer_control_f64422fb2cd781ec637ae0a32f9fb864;
-        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
-        function updateLayerControl() {
-            if (mobile.matches) layers.collapse();
-            else layers.expand();
-        }
-        updateLayerControl();
-        mobile.addEventListener("change", updateLayerControl);
-    });
-    </script>
 </body>
 <script>
     
     
-            var map_9f0196ad2ebdda16ad232061516bcd8c = L.map(
-                "map_9f0196ad2ebdda16ad232061516bcd8c",
+            var map_d357ae4029e8019a59f2d4d9783f3439 = L.map(
+                "map_d357ae4029e8019a59f2d4d9783f3439",
                 {
                     center: [37.962481249999996, -26.2027875],
                     crs: L.CRS.EPSG3857,
@@ -427,7 +429,7 @@
 
         
     
-            var tile_layer_dae41f94f310aca0b5cec26c2be338aa = L.tileLayer(
+            var tile_layer_e0bb68742c01667d388a5e3cfcb5d133 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -444,30 +446,30 @@
             );
         
     
-            tile_layer_dae41f94f310aca0b5cec26c2be338aa.addTo(map_9f0196ad2ebdda16ad232061516bcd8c);
+            tile_layer_e0bb68742c01667d388a5e3cfcb5d133.addTo(map_d357ae4029e8019a59f2d4d9783f3439);
         
     
-            map_9f0196ad2ebdda16ad232061516bcd8c.fitBounds(
+            map_d357ae4029e8019a59f2d4d9783f3439.fitBounds(
                 [[37.793, -25.3237], [38.536, -28.526], [37.8617, -25.7285], [37.8392, -25.7397], [37.7693, -25.4976], [37.793, -25.3237], [37.7937, -25.3214], [37.7919, -25.321], [37.8007, -25.5402], [37.8178, -25.2501], [37.7341, -25.1862], [37.7412, -25.6756], [37.7412, -25.6756], [38.4699, -28.4008], [38.5208, -28.4835], [38.3962, -28.251]],
                 {}
             );
         
     
-            var feature_group_9e130d08bed97ee74ebbba21d787c85c = L.featureGroup(
+            var feature_group_3b18deee213434de43d6c14e1d8618d3 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_11fc48dcdd661ab0ecf79d773a78ea50 = L.marker(
+            var marker_694c1120837f78a9ca587fb0e91ab142 = L.marker(
                 [37.793, -25.3237],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9e130d08bed97ee74ebbba21d787c85c);
+            ).addTo(feature_group_3b18deee213434de43d6c14e1d8618d3);
         
     
-            var icon_43d31e2c3723e162ccc22371f7b43ced = L.AwesomeMarkers.icon(
+            var icon_00630f786873d3ff0bf97634b7a1940a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -478,7 +480,7 @@
             );
         
     
-            marker_11fc48dcdd661ab0ecf79d773a78ea50.bindTooltip(
+            marker_694c1120837f78a9ca587fb0e91ab142.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Furnas / Sao Miguel</b><br><span style="color:#555">São Miguel</span><br><hr style="margin:4px 0"><b>Nachten:</b> 6<br><i style="color:#666;font-size:14px">Uitstekende locatie nabij geothermische activiteit en toch gemakkelijke toegang tot het volledige eiland.</i></div>
                  </div>`,
@@ -488,18 +490,18 @@
             );
         
     
-                marker_11fc48dcdd661ab0ecf79d773a78ea50.setIcon(icon_43d31e2c3723e162ccc22371f7b43ced);
+                marker_694c1120837f78a9ca587fb0e91ab142.setIcon(icon_00630f786873d3ff0bf97634b7a1940a);
             
     
-            var marker_1bec9f4c457e67a89e6a867cb84b0349 = L.marker(
+            var marker_be4f86c6784b123aab800fdd2758e447 = L.marker(
                 [38.536, -28.526],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_9e130d08bed97ee74ebbba21d787c85c);
+            ).addTo(feature_group_3b18deee213434de43d6c14e1d8618d3);
         
     
-            var icon_961e0b5c9d8ee71adc11fa8974369d78 = L.AwesomeMarkers.icon(
+            var icon_c96601adb0cd8ce1474f3b7486cbdcfa = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -510,7 +512,7 @@
             );
         
     
-            marker_1bec9f4c457e67a89e6a867cb84b0349.bindTooltip(
+            marker_be4f86c6784b123aab800fdd2758e447.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Madalena / Pico</b><br><span style="color:#555">Pico</span><br><hr style="margin:4px 0"><b>Nachten:</b> 5<br><i style="color:#666;font-size:14px">Beste locatie voor de Pico-berg en de UNESCO-wijngaarden.</i></div>
                  </div>`,
@@ -520,25 +522,25 @@
             );
         
     
-                marker_1bec9f4c457e67a89e6a867cb84b0349.setIcon(icon_961e0b5c9d8ee71adc11fa8974369d78);
+                marker_be4f86c6784b123aab800fdd2758e447.setIcon(icon_c96601adb0cd8ce1474f3b7486cbdcfa);
             
     
-            feature_group_9e130d08bed97ee74ebbba21d787c85c.addTo(map_9f0196ad2ebdda16ad232061516bcd8c);
+            feature_group_3b18deee213434de43d6c14e1d8618d3.addTo(map_d357ae4029e8019a59f2d4d9783f3439);
         
     
-            var feature_group_2e1f79e05525acf6345d637f79de7ecd = L.featureGroup(
+            var feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_0897552cdce4bc885b5b39c21f08c45f = L.circleMarker(
+            var circle_marker_4b527952e3a253d5443805cb9d480131 = L.circleMarker(
                 [37.8617, -25.7285],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_0897552cdce4bc885b5b39c21f08c45f.bindTooltip(
+            circle_marker_4b527952e3a253d5443805cb9d480131.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sete Cidades</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanische caldera<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -548,13 +550,13 @@
             );
         
     
-            var circle_marker_1dd032b81750db45e50367a04944ad20 = L.circleMarker(
+            var circle_marker_6a19efd3a31f193c20012462cb174960 = L.circleMarker(
                 [37.8392, -25.7397],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_1dd032b81750db45e50367a04944ad20.bindTooltip(
+            circle_marker_6a19efd3a31f193c20012462cb174960.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Uitzichtpunt Vista do Rei</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -564,13 +566,13 @@
             );
         
     
-            var circle_marker_45f70c839b7e5f6f31364ab4c175bc92 = L.circleMarker(
+            var circle_marker_ba01aea041ae34a6d5f16b093eefe4c7 = L.circleMarker(
                 [37.7693, -25.4976],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_45f70c839b7e5f6f31364ab4c175bc92.bindTooltip(
+            circle_marker_ba01aea041ae34a6d5f16b093eefe4c7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lagoa do Fogo</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanisch meer<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -580,13 +582,13 @@
             );
         
     
-            var circle_marker_0d2252aaf9115f53052fabb206127f48 = L.circleMarker(
+            var circle_marker_1fe58ddb611e37e3589dd61ac2741e13 = L.circleMarker(
                 [37.793, -25.3237],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_0d2252aaf9115f53052fabb206127f48.bindTooltip(
+            circle_marker_1fe58ddb611e37e3589dd61ac2741e13.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Geothermisch gebied Furnas</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> geothermisch gebied<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -596,13 +598,13 @@
             );
         
     
-            var circle_marker_aa4c247e26525695383b308fa19a1ffa = L.circleMarker(
+            var circle_marker_b8a6bb15936bd115d578e702edc65b89 = L.circleMarker(
                 [37.7937, -25.3214],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_aa4c247e26525695383b308fa19a1ffa.bindTooltip(
+            circle_marker_b8a6bb15936bd115d578e702edc65b89.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Terra Nostra-park</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> thermaal bad<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -612,13 +614,13 @@
             );
         
     
-            var circle_marker_12a6e3ec5128d0764fa469439a5adb09 = L.circleMarker(
+            var circle_marker_bc2e28256006be305ac4eb7b55392920 = L.circleMarker(
                 [37.7919, -25.321],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_12a6e3ec5128d0764fa469439a5adb09.bindTooltip(
+            circle_marker_bc2e28256006be305ac4eb7b55392920.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Poca da Dona Beija</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> thermaal bad<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -628,13 +630,13 @@
             );
         
     
-            var circle_marker_4caafa6feda32b69391506769dc10500 = L.circleMarker(
+            var circle_marker_231bb8ff88454718db3db6b2e21cd653 = L.circleMarker(
                 [37.8007, -25.5402],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_4caafa6feda32b69391506769dc10500.bindTooltip(
+            circle_marker_231bb8ff88454718db3db6b2e21cd653.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Salto do Cabrito</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalwandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -644,13 +646,13 @@
             );
         
     
-            var circle_marker_24a632f8678a7f853140ae69223d041b = L.circleMarker(
+            var circle_marker_2eae160a5697faa6ce3b9ce36f3a1aa6 = L.circleMarker(
                 [37.8178, -25.2501],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_24a632f8678a7f853140ae69223d041b.bindTooltip(
+            circle_marker_2eae160a5697faa6ce3b9ce36f3a1aa6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ribeira dos Caldeiroes</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalpark<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -660,13 +662,13 @@
             );
         
     
-            var circle_marker_9cd6fb1bcde584ca8597d8352d880ddc = L.circleMarker(
+            var circle_marker_df86baf115f4ac9f941646112d5cbe9d = L.circleMarker(
                 [37.7341, -25.1862],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_9cd6fb1bcde584ca8597d8352d880ddc.bindTooltip(
+            circle_marker_df86baf115f4ac9f941646112d5cbe9d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sanguinho-pad</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -676,13 +678,13 @@
             );
         
     
-            var circle_marker_232fa2eb381de60210759e73420535d2 = L.circleMarker(
+            var circle_marker_46b00b95fcf23b7d238a529990d6df49 = L.circleMarker(
                 [37.7412, -25.6756],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_232fa2eb381de60210759e73420535d2.bindTooltip(
+            circle_marker_46b00b95fcf23b7d238a529990d6df49.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ponta Delgada</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stadje<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -692,13 +694,13 @@
             );
         
     
-            var circle_marker_2e82f75560195d8b21f0595af42cdd71 = L.circleMarker(
+            var circle_marker_328a2ac61850a22d2ceb249ef497250e = L.circleMarker(
                 [37.7412, -25.6756],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_2e82f75560195d8b21f0595af42cdd71.bindTooltip(
+            circle_marker_328a2ac61850a22d2ceb249ef497250e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Walvissen spotten</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Furnas / Sao Miguel</span></div>
                  </div>`,
@@ -708,13 +710,13 @@
             );
         
     
-            var circle_marker_27155530a90673ab71ce3a321e433e4e = L.circleMarker(
+            var circle_marker_4b23b20673acd1c2b22bfdbd3fc2cfe5 = L.circleMarker(
                 [38.4699, -28.4008],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_27155530a90673ab71ce3a321e433e4e.bindTooltip(
+            circle_marker_4b23b20673acd1c2b22bfdbd3fc2cfe5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Monte Pico</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaanwandeling<br><b>Duur:</b> 7 h<br><b>Basis:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -724,13 +726,13 @@
             );
         
     
-            var circle_marker_173c9a890cbd7cca38e83ded76fbeecc = L.circleMarker(
+            var circle_marker_ecce495edd95fd5f2e3b330819cc89b1 = L.circleMarker(
                 [38.5208, -28.4835],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_173c9a890cbd7cca38e83ded76fbeecc.bindTooltip(
+            circle_marker_ecce495edd95fd5f2e3b330819cc89b1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Pico-wijnlandschap</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> UNESCO landschap<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -740,13 +742,13 @@
             );
         
     
-            var circle_marker_0bee02c6bed73809396678f6a58d0aa6 = L.circleMarker(
+            var circle_marker_6548da6a9d19ccffbc365987ce740ab8 = L.circleMarker(
                 [38.3962, -28.251],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_2e1f79e05525acf6345d637f79de7ecd);
+            ).addTo(feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd);
         
     
-            circle_marker_0bee02c6bed73809396678f6a58d0aa6.bindTooltip(
+            circle_marker_6548da6a9d19ccffbc365987ce740ab8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lajes do Pico</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> dorp<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">Madalena / Pico</span></div>
                  </div>`,
@@ -756,37 +758,37 @@
             );
         
     
-            feature_group_2e1f79e05525acf6345d637f79de7ecd.addTo(map_9f0196ad2ebdda16ad232061516bcd8c);
+            feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd.addTo(map_d357ae4029e8019a59f2d4d9783f3439);
         
     
-            var feature_group_cbe6980eec4c634f4089575de9b3b11f = L.featureGroup(
+            var feature_group_93a6045ef5ef9957fb4ccfcf889b4bdd = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_cbe6980eec4c634f4089575de9b3b11f.addTo(map_9f0196ad2ebdda16ad232061516bcd8c);
+            feature_group_93a6045ef5ef9957fb4ccfcf889b4bdd.addTo(map_d357ae4029e8019a59f2d4d9783f3439);
         
     
-            var layer_control_f64422fb2cd781ec637ae0a32f9fb864_layers = {
+            var layer_control_828f136827b9f363dd3ced7d03ae4f38_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_dae41f94f310aca0b5cec26c2be338aa,
+                    "OpenStreetMap" : tile_layer_e0bb68742c01667d388a5e3cfcb5d133,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_9e130d08bed97ee74ebbba21d787c85c,
-                    "\u25cf Bezienswaardigheden" : feature_group_2e1f79e05525acf6345d637f79de7ecd,
-                    "\u25c7 Tussenstops" : feature_group_cbe6980eec4c634f4089575de9b3b11f,
+                    "\ud83c\udfe8 Verblijven" : feature_group_3b18deee213434de43d6c14e1d8618d3,
+                    "\u25cf Bezienswaardigheden" : feature_group_ceaaa0c8e439864d18cd7dddd8fcd6fd,
+                    "\u25c7 Tussenstops" : feature_group_93a6045ef5ef9957fb4ccfcf889b4bdd,
                 },
             };
-            let layer_control_f64422fb2cd781ec637ae0a32f9fb864 = L.control.layers(
-                layer_control_f64422fb2cd781ec637ae0a32f9fb864_layers.base_layers,
-                layer_control_f64422fb2cd781ec637ae0a32f9fb864_layers.overlays,
+            let layer_control_828f136827b9f363dd3ced7d03ae4f38 = L.control.layers(
+                layer_control_828f136827b9f363dd3ced7d03ae4f38_layers.base_layers,
+                layer_control_828f136827b9f363dd3ced7d03ae4f38_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_9f0196ad2ebdda16ad232061516bcd8c);
+            ).addTo(map_d357ae4029e8019a59f2d4d9783f3439);
 
         
 </script>

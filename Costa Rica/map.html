@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_021a86a4f622d3a8032a454aed828e66 {
+                #map_96ea901453442bdfa035d404ce859a64 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -80,6 +80,20 @@
         <div class="travel-legend-subtitle">Verblijfplaatsen</div>
         <ol><li><span style="color:#e74c3c;font-size:13px">●</span> La Fortuna/Arenal</li><li><span style="color:#2980b9;font-size:13px">●</span> Monteverde</li><li><span style="color:#27ae60;font-size:13px">●</span> Tenorio/Rio Celeste</li><li><span style="color:#8e44ad;font-size:13px">●</span> Tortuguero</li><li><span style="color:#2c3e50;font-size:13px">●</span> Manuel Antonio</li></ol>
     </div>
+    
+    <script>
+    window.addEventListener("load", function () {
+        const layers = layer_control_fc68353756bbb6ac14aae7fac363d165;
+        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
+        function updateLayerControl() {
+            if (mobile.matches) layers.collapse();
+            else layers.expand();
+        }
+        updateLayerControl();
+        mobile.addEventListener("change", updateLayerControl);
+    });
+    </script>
+    
     <!-- travel-route-planner:start -->
     <style>
         .leaflet-left .route-planner-control {
@@ -142,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_021a86a4f622d3a8032a454aed828e66;
+        const map = map_96ea901453442bdfa035d404ce859a64;
         const routeLocations = [{"name": "La Fortuna/Arenal", "lat": 10.4717, "lon": -84.645}, {"name": "Monteverde", "lat": 10.3, "lon": -84.816}, {"name": "Tenorio/Rio Celeste", "lat": 10.735, "lon": -85.014}, {"name": "Tortuguero", "lat": 10.541, "lon": -83.502}, {"name": "Manuel Antonio", "lat": 9.412, "lon": -84.155}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -391,26 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_021a86a4f622d3a8032a454aed828e66" ></div>
+            <div class="folium-map" id="map_96ea901453442bdfa035d404ce859a64" ></div>
         
-    <script>
-    window.addEventListener("load", function () {
-        const layers = layer_control_9ebaf128431074bb0f2f09ec8e9e1285;
-        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
-        function updateLayerControl() {
-            if (mobile.matches) layers.collapse();
-            else layers.expand();
-        }
-        updateLayerControl();
-        mobile.addEventListener("change", updateLayerControl);
-    });
-    </script>
 </body>
 <script>
     
     
-            var map_021a86a4f622d3a8032a454aed828e66 = L.map(
-                "map_021a86a4f622d3a8032a454aed828e66",
+            var map_96ea901453442bdfa035d404ce859a64 = L.map(
+                "map_96ea901453442bdfa035d404ce859a64",
                 {
                     center: [10.221392592592593, -84.4382962962963],
                     crs: L.CRS.EPSG3857,
@@ -427,7 +429,7 @@
 
         
     
-            var tile_layer_ccdce2b4b779b54a555bf2a1560fb495 = L.tileLayer(
+            var tile_layer_b38728394f9e7efb7c813ba646c2ef81 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -444,30 +446,30 @@
             );
         
     
-            tile_layer_ccdce2b4b779b54a555bf2a1560fb495.addTo(map_021a86a4f622d3a8032a454aed828e66);
+            tile_layer_b38728394f9e7efb7c813ba646c2ef81.addTo(map_96ea901453442bdfa035d404ce859a64);
         
     
-            map_021a86a4f622d3a8032a454aed828e66.fitBounds(
+            map_96ea901453442bdfa035d404ce859a64.fitBounds(
                 [[10.4717, -84.645], [10.3, -84.816], [10.735, -85.014], [10.541, -83.502], [9.412, -84.155], [10.4636, -84.7039], [10.471, -84.645], [10.5002, -84.755], [10.497, -84.698], [10.473, -84.642], [10.535, -84.695], [10.305, -84.8], [10.323, -84.806], [10.318, -84.822], [10.307, -84.795], [10.3, -84.82], [10.706, -84.991], [10.742, -84.994], [10.541, -83.502], [10.54, -83.504], [10.543, -83.503], [9.392, -84.154], [9.388, -84.168], [9.395, -84.16], [9.39, -84.17], [9.39, -84.17], [9.9981, -84.2041]],
                 {}
             );
         
     
-            var feature_group_ff285b941dd7f88ccde990788586c9ec = L.featureGroup(
+            var feature_group_297f4c907a1e6fe9974cd6db2f0a03b7 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_c45b932004525f10b8ed20b5a0477e05 = L.marker(
+            var marker_f894c8ef98306241327a73444a40f1a5 = L.marker(
                 [10.4717, -84.645],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_ff285b941dd7f88ccde990788586c9ec);
+            ).addTo(feature_group_297f4c907a1e6fe9974cd6db2f0a03b7);
         
     
-            var icon_739032c0fe54b2a5f4d291e3e6581890 = L.AwesomeMarkers.icon(
+            var icon_2ad7c74fdbe6a8a4163d660757583796 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -478,7 +480,7 @@
             );
         
     
-            marker_c45b932004525f10b8ed20b5a0477e05.bindTooltip(
+            marker_f894c8ef98306241327a73444a40f1a5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 La Fortuna/Arenal</b><br><span style="color:#555">Noordelijke Hooglanden</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Beste vulkaan- en avonturenbasis in Costa Rica.</i></div>
                  </div>`,
@@ -488,18 +490,18 @@
             );
         
     
-                marker_c45b932004525f10b8ed20b5a0477e05.setIcon(icon_739032c0fe54b2a5f4d291e3e6581890);
+                marker_f894c8ef98306241327a73444a40f1a5.setIcon(icon_2ad7c74fdbe6a8a4163d660757583796);
             
     
-            var marker_fad46ac4506f96fb785b1a7adc555bf4 = L.marker(
+            var marker_509e139afeedd677eb41cdf14922df69 = L.marker(
                 [10.3, -84.816],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_ff285b941dd7f88ccde990788586c9ec);
+            ).addTo(feature_group_297f4c907a1e6fe9974cd6db2f0a03b7);
         
     
-            var icon_0cec351d4449dc6a6a6a2462435c9b00 = L.AwesomeMarkers.icon(
+            var icon_ad3f301f75fa54720abcf55e43a72606 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -510,7 +512,7 @@
             );
         
     
-            marker_fad46ac4506f96fb785b1a7adc555bf4.bindTooltip(
+            marker_509e139afeedd677eb41cdf14922df69.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Monteverde</b><br><span style="color:#555">Nevelwoud</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Uniek nevelwoud-ecosysteem en een van de beste natuurgebieden van Costa Rica.</i></div>
                  </div>`,
@@ -520,18 +522,18 @@
             );
         
     
-                marker_fad46ac4506f96fb785b1a7adc555bf4.setIcon(icon_0cec351d4449dc6a6a6a2462435c9b00);
+                marker_509e139afeedd677eb41cdf14922df69.setIcon(icon_ad3f301f75fa54720abcf55e43a72606);
             
     
-            var marker_38ba7e5abd51129e8366610db748424e = L.marker(
+            var marker_6e9d90118a09f69ee20dd36d9bdbc09b = L.marker(
                 [10.735, -85.014],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_ff285b941dd7f88ccde990788586c9ec);
+            ).addTo(feature_group_297f4c907a1e6fe9974cd6db2f0a03b7);
         
     
-            var icon_43b2c5defc3b986cfd73e4481c5d6333 = L.AwesomeMarkers.icon(
+            var icon_a0e7855d69430c295bd56a0df8b6d250 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -542,7 +544,7 @@
             );
         
     
-            marker_38ba7e5abd51129e8366610db748424e.bindTooltip(
+            marker_6e9d90118a09f69ee20dd36d9bdbc09b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Tenorio/Rio Celeste</b><br><span style="color:#555">Noord-Costa Rica</span><br><hr style="margin:4px 0"><b>Nachten:</b> 2</div>
                  </div>`,
@@ -552,18 +554,18 @@
             );
         
     
-                marker_38ba7e5abd51129e8366610db748424e.setIcon(icon_43b2c5defc3b986cfd73e4481c5d6333);
+                marker_6e9d90118a09f69ee20dd36d9bdbc09b.setIcon(icon_a0e7855d69430c295bd56a0df8b6d250);
             
     
-            var marker_14284230185d8359fd96ad31cd28320b = L.marker(
+            var marker_c629ca1b7a43fececd7a10840ee51c47 = L.marker(
                 [10.541, -83.502],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_ff285b941dd7f88ccde990788586c9ec);
+            ).addTo(feature_group_297f4c907a1e6fe9974cd6db2f0a03b7);
         
     
-            var icon_b84b33160c0a6b480c201da0b5555ebc = L.AwesomeMarkers.icon(
+            var icon_4024404c0737f33a677c9b17a9a56877 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -574,7 +576,7 @@
             );
         
     
-            marker_14284230185d8359fd96ad31cd28320b.bindTooltip(
+            marker_c629ca1b7a43fececd7a10840ee51c47.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Tortuguero</b><br><span style="color:#555">Caribische kust</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Beste natuurregio en een van de beste bestemmingen voor zeeschildpadden.</i></div>
                  </div>`,
@@ -584,18 +586,18 @@
             );
         
     
-                marker_14284230185d8359fd96ad31cd28320b.setIcon(icon_b84b33160c0a6b480c201da0b5555ebc);
+                marker_c629ca1b7a43fececd7a10840ee51c47.setIcon(icon_4024404c0737f33a677c9b17a9a56877);
             
     
-            var marker_629a42d063f789d00f3420d2f9bda5be = L.marker(
+            var marker_1fc48ac32557a938aed9ab9893a99166 = L.marker(
                 [9.412, -84.155],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_ff285b941dd7f88ccde990788586c9ec);
+            ).addTo(feature_group_297f4c907a1e6fe9974cd6db2f0a03b7);
         
     
-            var icon_4c8d9fc80e73d84442e30a15f05efa04 = L.AwesomeMarkers.icon(
+            var icon_3d4a66f95ce5ba19a07b2a1b06e34cc1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "darkblue",
   "iconColor": "white",
@@ -606,7 +608,7 @@
             );
         
     
-            marker_629a42d063f789d00f3420d2f9bda5be.bindTooltip(
+            marker_1fc48ac32557a938aed9ab9893a99166.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2c3e50;font-size:16px">🏨 Manuel Antonio</b><br><span style="color:#555">Pacifische kust</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Combineert regenwoud, dieren in het wild, stranden en snorkelen.</i></div>
                  </div>`,
@@ -616,25 +618,25 @@
             );
         
     
-                marker_629a42d063f789d00f3420d2f9bda5be.setIcon(icon_4c8d9fc80e73d84442e30a15f05efa04);
+                marker_1fc48ac32557a938aed9ab9893a99166.setIcon(icon_3d4a66f95ce5ba19a07b2a1b06e34cc1);
             
     
-            feature_group_ff285b941dd7f88ccde990788586c9ec.addTo(map_021a86a4f622d3a8032a454aed828e66);
+            feature_group_297f4c907a1e6fe9974cd6db2f0a03b7.addTo(map_96ea901453442bdfa035d404ce859a64);
         
     
-            var feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f = L.featureGroup(
+            var feature_group_ef9956149352e8d6112617fd432084ea = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_c7866a7bf7e0faad1c45183448f60302 = L.circleMarker(
+            var circle_marker_a1c871985d35d285c1c63b6ae9ff7e4d = L.circleMarker(
                 [10.4636, -84.7039],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_c7866a7bf7e0faad1c45183448f60302.bindTooltip(
+            circle_marker_a1c871985d35d285c1c63b6ae9ff7e4d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Arenal-vulkaan</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaan<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -644,13 +646,13 @@
             );
         
     
-            var circle_marker_62f86c40464b9b1d11c25e7d4ce7e5a8 = L.circleMarker(
+            var circle_marker_92cfbbd5d4982c6a7c24fb4d4e970533 = L.circleMarker(
                 [10.471, -84.645],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_62f86c40464b9b1d11c25e7d4ce7e5a8.bindTooltip(
+            circle_marker_92cfbbd5d4982c6a7c24fb4d4e970533.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">La Fortuna-waterval</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -660,13 +662,13 @@
             );
         
     
-            var circle_marker_358881a13df26c1bf35f52c4e5495a84 = L.circleMarker(
+            var circle_marker_3e53f7120f6e326a4aa4fbbb95c14675 = L.circleMarker(
                 [10.5002, -84.755],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_358881a13df26c1bf35f52c4e5495a84.bindTooltip(
+            circle_marker_3e53f7120f6e326a4aa4fbbb95c14675.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mistico Hangbruggen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> regenwoudwandeling<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -676,13 +678,13 @@
             );
         
     
-            var circle_marker_3cefa2edcfb65fdb0453e4d6f35fe250 = L.circleMarker(
+            var circle_marker_3c26f424dbf8af19d39ac317ad0df845 = L.circleMarker(
                 [10.497, -84.698],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_3cefa2edcfb65fdb0453e4d6f35fe250.bindTooltip(
+            circle_marker_3c26f424dbf8af19d39ac317ad0df845.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Arenal-warmwaterbronnen</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> thermaal bad<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -692,13 +694,13 @@
             );
         
     
-            var circle_marker_7d9c8011cd838723d64a51d5fcaedc16 = L.circleMarker(
+            var circle_marker_7302a7da8572b826d0595638d22c79c5 = L.circleMarker(
                 [10.473, -84.642],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_7d9c8011cd838723d64a51d5fcaedc16.bindTooltip(
+            circle_marker_7302a7da8572b826d0595638d22c79c5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Luiaardpad</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -708,13 +710,13 @@
             );
         
     
-            var circle_marker_eb17afbafe35e23d0a129f9445d1abf3 = L.circleMarker(
+            var circle_marker_6bf75b2aa999e1e8ec19b479d01f6ca6 = L.circleMarker(
                 [10.535, -84.695],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_eb17afbafe35e23d0a129f9445d1abf3.bindTooltip(
+            circle_marker_6bf75b2aa999e1e8ec19b479d01f6ca6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Arenal-zipline</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> avontuur<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">La Fortuna/Arenal</span></div>
                  </div>`,
@@ -724,13 +726,13 @@
             );
         
     
-            var circle_marker_d8c905ebdf22b5206087e93dbac0c496 = L.circleMarker(
+            var circle_marker_5fac25cce9bd3b61a1d4a14b3679aef1 = L.circleMarker(
                 [10.305, -84.8],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_d8c905ebdf22b5206087e93dbac0c496.bindTooltip(
+            circle_marker_5fac25cce9bd3b61a1d4a14b3679aef1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Monteverdenevelwoud</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wolkenbos<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#2980b9">Monteverde</span></div>
                  </div>`,
@@ -740,13 +742,13 @@
             );
         
     
-            var circle_marker_03f11ac6da86dd78ba50adcc081a77f4 = L.circleMarker(
+            var circle_marker_c081109b55c0984f55f257678415a7e1 = L.circleMarker(
                 [10.323, -84.806],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_03f11ac6da86dd78ba50adcc081a77f4.bindTooltip(
+            circle_marker_c081109b55c0984f55f257678415a7e1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Santa Elena-reservaat</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wolkenbos<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Monteverde</span></div>
                  </div>`,
@@ -756,13 +758,13 @@
             );
         
     
-            var circle_marker_01c7d850744fa6c1efac873225e4a8e3 = L.circleMarker(
+            var circle_marker_22fe09c4263908b9641bae94ab599790 = L.circleMarker(
                 [10.318, -84.822],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_01c7d850744fa6c1efac873225e4a8e3.bindTooltip(
+            circle_marker_22fe09c4263908b9641bae94ab599790.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hangbruggen van Monteverde</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> regenwoudwandeling<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Monteverde</span></div>
                  </div>`,
@@ -772,13 +774,13 @@
             );
         
     
-            var circle_marker_894f7abe7bffd85622088c845fc6896b = L.circleMarker(
+            var circle_marker_8b447e4f7d5187212ccb034f1065fcaf = L.circleMarker(
                 [10.307, -84.795],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_894f7abe7bffd85622088c845fc6896b.bindTooltip(
+            circle_marker_8b447e4f7d5187212ccb034f1065fcaf.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kolibrietuin</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#2980b9">Monteverde</span></div>
                  </div>`,
@@ -788,13 +790,13 @@
             );
         
     
-            var circle_marker_9a7aac1010a3b4896ca313beb3921495 = L.circleMarker(
+            var circle_marker_cb1f51e74d6730d642727b4ff1e73f24 = L.circleMarker(
                 [10.3, -84.82],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_9a7aac1010a3b4896ca313beb3921495.bindTooltip(
+            circle_marker_cb1f51e74d6730d642727b4ff1e73f24.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Monteverde Canopy-tour</b><br><span style="color:#2980b9;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> avontuur<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Monteverde</span></div>
                  </div>`,
@@ -804,13 +806,13 @@
             );
         
     
-            var circle_marker_eff8d64b56590d3f439f89ccff8f7c47 = L.circleMarker(
+            var circle_marker_3d0d01f197f77f8a59040bac569043b3 = L.circleMarker(
                 [10.706, -84.991],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_eff8d64b56590d3f439f89ccff8f7c47.bindTooltip(
+            circle_marker_3d0d01f197f77f8a59040bac569043b3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Rio Celeste</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> watervalwandeling<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Tenorio/Rio Celeste</span></div>
                  </div>`,
@@ -820,13 +822,13 @@
             );
         
     
-            var circle_marker_b17e5c6dae17bca113968a4b6cd78875 = L.circleMarker(
+            var circle_marker_ac81ea7b161c406291d7b76e037fd0d0 = L.circleMarker(
                 [10.742, -84.994],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_b17e5c6dae17bca113968a4b6cd78875.bindTooltip(
+            circle_marker_ac81ea7b161c406291d7b76e037fd0d0.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tenorio Nationaal Park</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> regenwoudwandeling<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Tenorio/Rio Celeste</span></div>
                  </div>`,
@@ -836,13 +838,13 @@
             );
         
     
-            var circle_marker_93f1fc5853f12d746986514d58940f86 = L.circleMarker(
+            var circle_marker_39f3acfe82b76edef97aece9da9e2fb8 = L.circleMarker(
                 [10.541, -83.502],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_93f1fc5853f12d746986514d58940f86.bindTooltip(
+            circle_marker_39f3acfe82b76edef97aece9da9e2fb8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tortuguero-kanalen</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife boottocht<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#8e44ad">Tortuguero</span></div>
                  </div>`,
@@ -852,13 +854,13 @@
             );
         
     
-            var circle_marker_30b749c8bb83fa5178f2e7ff52a5eaf7 = L.circleMarker(
+            var circle_marker_7fad508b889af9cee51ac57ef0d82a75 = L.circleMarker(
                 [10.54, -83.504],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_30b749c8bb83fa5178f2e7ff52a5eaf7.bindTooltip(
+            circle_marker_7fad508b889af9cee51ac57ef0d82a75.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Zeeschildpadden kijken</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#8e44ad">Tortuguero</span></div>
                  </div>`,
@@ -868,13 +870,13 @@
             );
         
     
-            var circle_marker_061c265f25e986a16054149b1e9ade53 = L.circleMarker(
+            var circle_marker_e6fb457f2bc1d547a413bc2de1bdfc66 = L.circleMarker(
                 [10.543, -83.503],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_061c265f25e986a16054149b1e9ade53.bindTooltip(
+            circle_marker_e6fb457f2bc1d547a413bc2de1bdfc66.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Tortuguero-dorp</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> dorp<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Tortuguero</span></div>
                  </div>`,
@@ -884,13 +886,13 @@
             );
         
     
-            var circle_marker_2dbeae6f6bfbdf902b8f21a427d8e9b1 = L.circleMarker(
+            var circle_marker_ba68670ec25ebcea03fbb62e8269558d = L.circleMarker(
                 [9.392, -84.154],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_2dbeae6f6bfbdf902b8f21a427d8e9b1.bindTooltip(
+            circle_marker_ba68670ec25ebcea03fbb62e8269558d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Manuel Antonio Nationaal Park</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> regenwoud strand<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2c3e50">Manuel Antonio</span></div>
                  </div>`,
@@ -900,13 +902,13 @@
             );
         
     
-            var circle_marker_db1550433b44bf6576258b23bd828657 = L.circleMarker(
+            var circle_marker_352362dcdb2cbfa051a0f51e042a5343 = L.circleMarker(
                 [9.388, -84.168],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_db1550433b44bf6576258b23bd828657.bindTooltip(
+            circle_marker_352362dcdb2cbfa051a0f51e042a5343.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Manuel Antonio-strand</b><br><span style="color:#2c3e50;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> strand<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2c3e50">Manuel Antonio</span></div>
                  </div>`,
@@ -916,13 +918,13 @@
             );
         
     
-            var circle_marker_00e8605b7685dc03e0a394b398b2a08a = L.circleMarker(
+            var circle_marker_06408d8f0909c1f020d3f425613fc428 = L.circleMarker(
                 [9.395, -84.16],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_00e8605b7685dc03e0a394b398b2a08a.bindTooltip(
+            circle_marker_06408d8f0909c1f020d3f425613fc428.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Apenkijkgebieden</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2c3e50">Manuel Antonio</span></div>
                  </div>`,
@@ -932,13 +934,13 @@
             );
         
     
-            var circle_marker_807072380ee6132396d7fdef4d1f2dc8 = L.circleMarker(
+            var circle_marker_1325a8a99aa16d0de34d9358c917103e = L.circleMarker(
                 [9.39, -84.17],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_807072380ee6132396d7fdef4d1f2dc8.bindTooltip(
+            circle_marker_1325a8a99aa16d0de34d9358c917103e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Snorkeltocht</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> snorkelen<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#2c3e50">Manuel Antonio</span></div>
                  </div>`,
@@ -948,13 +950,13 @@
             );
         
     
-            var circle_marker_178695f5cddbb49e19a913fdb83a00d3 = L.circleMarker(
+            var circle_marker_894cb4c99627064f2d80ed7fefce7a1a = L.circleMarker(
                 [9.39, -84.17],
                 {"bubblingMouseEvents": true, "color": "#2c3e50", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2c3e50", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f);
+            ).addTo(feature_group_ef9956149352e8d6112617fd432084ea);
         
     
-            circle_marker_178695f5cddbb49e19a913fdb83a00d3.bindTooltip(
+            circle_marker_894cb4c99627064f2d80ed7fefce7a1a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Snorkelen met zeeschildpadden</b><br><span style="color:#2c3e50;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> snorkelen wildlife<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#2c3e50">Manuel Antonio</span></div>
                  </div>`,
@@ -964,32 +966,32 @@
             );
         
     
-            feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f.addTo(map_021a86a4f622d3a8032a454aed828e66);
+            feature_group_ef9956149352e8d6112617fd432084ea.addTo(map_96ea901453442bdfa035d404ce859a64);
         
     
-            var feature_group_be197633e08aef1bbb5008ab8c90cbb7 = L.featureGroup(
+            var feature_group_76a40c4c9a953bdc1e62e4b0017f6115 = L.featureGroup(
                 {
 }
             );
         
     
-            feature_group_be197633e08aef1bbb5008ab8c90cbb7.addTo(map_021a86a4f622d3a8032a454aed828e66);
+            feature_group_76a40c4c9a953bdc1e62e4b0017f6115.addTo(map_96ea901453442bdfa035d404ce859a64);
         
     
-            var feature_group_e162433d494ca0d947d3637f07465851 = L.featureGroup(
+            var feature_group_905104798deafb84d128bfd619bc6436 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_6872add17c71b6938581a7648dba8ec8 = L.marker(
+            var marker_c266cf8e098507f1f72c18b71d82b98b = L.marker(
                 [9.9981, -84.2041],
                 {
 }
-            ).addTo(feature_group_e162433d494ca0d947d3637f07465851);
+            ).addTo(feature_group_905104798deafb84d128bfd619bc6436);
         
     
-            var icon_91ce74b38d34bcea164875ae6e41cce8 = L.AwesomeMarkers.icon(
+            var icon_8b326eb6a6433a8ca14fdfc6ac4f971b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -1000,7 +1002,7 @@
             );
         
     
-            marker_6872add17c71b6938581a7648dba8ec8.bindTooltip(
+            marker_c266cf8e098507f1f72c18b71d82b98b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif"><b>✈️ Internationale luchthaven Juan Santamaria</b></div>
                  </div>`,
@@ -1010,32 +1012,32 @@
             );
         
     
-                marker_6872add17c71b6938581a7648dba8ec8.setIcon(icon_91ce74b38d34bcea164875ae6e41cce8);
+                marker_c266cf8e098507f1f72c18b71d82b98b.setIcon(icon_8b326eb6a6433a8ca14fdfc6ac4f971b);
             
     
-            feature_group_e162433d494ca0d947d3637f07465851.addTo(map_021a86a4f622d3a8032a454aed828e66);
+            feature_group_905104798deafb84d128bfd619bc6436.addTo(map_96ea901453442bdfa035d404ce859a64);
         
     
-            var layer_control_9ebaf128431074bb0f2f09ec8e9e1285_layers = {
+            var layer_control_fc68353756bbb6ac14aae7fac363d165_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_ccdce2b4b779b54a555bf2a1560fb495,
+                    "OpenStreetMap" : tile_layer_b38728394f9e7efb7c813ba646c2ef81,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_ff285b941dd7f88ccde990788586c9ec,
-                    "\u25cf Bezienswaardigheden" : feature_group_c38e0fdbe30d0a4d9d7b3a6dc50de10f,
-                    "\u25c7 Tussenstops" : feature_group_be197633e08aef1bbb5008ab8c90cbb7,
-                    "\u2708 Luchthaven" : feature_group_e162433d494ca0d947d3637f07465851,
+                    "\ud83c\udfe8 Verblijven" : feature_group_297f4c907a1e6fe9974cd6db2f0a03b7,
+                    "\u25cf Bezienswaardigheden" : feature_group_ef9956149352e8d6112617fd432084ea,
+                    "\u25c7 Tussenstops" : feature_group_76a40c4c9a953bdc1e62e4b0017f6115,
+                    "\u2708 Luchthaven" : feature_group_905104798deafb84d128bfd619bc6436,
                 },
             };
-            let layer_control_9ebaf128431074bb0f2f09ec8e9e1285 = L.control.layers(
-                layer_control_9ebaf128431074bb0f2f09ec8e9e1285_layers.base_layers,
-                layer_control_9ebaf128431074bb0f2f09ec8e9e1285_layers.overlays,
+            let layer_control_fc68353756bbb6ac14aae7fac363d165 = L.control.layers(
+                layer_control_fc68353756bbb6ac14aae7fac363d165_layers.base_layers,
+                layer_control_fc68353756bbb6ac14aae7fac363d165_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_021a86a4f622d3a8032a454aed828e66);
+            ).addTo(map_96ea901453442bdfa035d404ce859a64);
 
         
 </script>

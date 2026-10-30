@@ -163,10 +163,10 @@ trip:
     cost_eur: 129
 
     coordinates:
-      lat: 60.3695
-      lon: 5.3582
-    accommodation_url: "https://www.booking.com/hotel/no/central-4-room-apartment.html?aid=304142&label=mkt123sc-7e7e6517-c8ab-4727-94dc-f8edfe60f181&sid=dc8c3bbaa57eab8bbe48d6bf11d235c5&all_sr_blocks=1579669301_429064520_6_0_0&checkin=2027-08-06&checkout=2027-08-07&dest_id=-252873&dest_type=city&dist=0&group_adults=5&group_children=0&hapos=1&highlighted_blocks=1579669301_429064520_6_0_0&hpos=1&matching_block_id=1579669301_429064520_6_0_0&no_rooms=1&req_adults=5&req_children=0&room1=A%2CA%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1579669301_429064520_6_0_0__135000&srepoch=1792922328&srpvid=b11146288984009d&type=total&ucfs=1&)"
-    accommodation_label: "Booking.com: Central 4 room, Bergen"
+      lat: 60.39299
+      lon: 5.32415
+    accommodation_url: "https://www.airbnb.be/rooms/1619098670075427209?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997958766&check_in=2027-08-03&check_out=2027-08-04&source_impression_id=p3_1793372229_P3Em0dWTmvmjCnmY&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Centraal gelegen 4-kamerappartement Bergen"
 
     planning_note: >
       Strategisch appartement in de groene woonwijk Fridalen, vlak bij de 
@@ -232,10 +232,10 @@ trip:
     stay_nights: 3
     cost_eur: 434
     coordinates:
-      lat: 60.5333
-      lon: 8.2000
-    accommodation_url: "https://www.airbnb.be/rooms/1575326504878023726?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006994583275&check_in=2027-07-25&check_out=2027-07-28&source_impression_id=p3_1792922228_P3o6WqpYbwy_wWkw&previous_page_section_name=1000"
-    accommodation_label: "Airbnb: Soltun Geilo"
+      lat: 60.615
+      lon: 8.302
+    accommodation_url: "https://www.airbnb.be/rooms/1782660726560827808?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11007018077206&check_in=2027-07-22&check_out=2027-07-25&source_impression_id=p3_1793372229_P3vUupi3SP2gunr2&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Gezellig houten huis tussen bergen en meer"
     lodging_preference_note: "Hytte / chalet in Geilo."
     planning_note: >
       Eerste basis op de hoogvlakte. Focus op avontuurlijke wandelingen met 
@@ -439,10 +439,10 @@ trip:
     stay_nights: 4
     cost_eur: 777
     coordinates:
-      lat: 62.3100
-      lon: 6.7200
-    accommodation_url: "https://www.airbnb.be/rooms/1690369542702713045?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006997429322&check_in=2027-08-02&check_out=2027-08-06&source_impression_id=p3_1792922228_P3BxNO7vH9tpjZwy&previous_page_section_name=1000"
-    accommodation_label: "Airbnb: Welkom bij Solglytt!"
+      lat: 62.2915
+      lon: 6.6812
+    accommodation_url: "https://www.airbnb.be/rooms/1508874310563063690?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11007005139787&check_in=2027-07-30&check_out=2027-08-03&source_impression_id=p3_1793372332_P37_bvQCp28alKIO&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Hut op Fjællsetra"
     lodging_preference_note: "Hytte tussen Sykkylven en Stranda."
     planning_note: >
       Ideale basis midden in de Sunnmøre-alpen voor Trollstigen, Valldal, 

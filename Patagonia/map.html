@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_c3be2ba6f268bdbba01f11a41df83eb7 {
+                #map_f5a11fa72e14389a96a7997374ef5afc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -80,6 +80,20 @@
         <div class="travel-legend-subtitle">Verblijfplaatsen</div>
         <ol><li><span style="color:#e74c3c;font-size:13px">●</span> El Calafate</li><li><span style="color:#2980b9;font-size:13px">●</span> El Chalten</li><li><span style="color:#27ae60;font-size:13px">●</span> Torres del Paine</li><li><span style="color:#8e44ad;font-size:13px">●</span> Puerto Natales</li></ol>
     </div>
+    
+    <script>
+    window.addEventListener("load", function () {
+        const layers = layer_control_da52cfeadc71eb1e2f37a9605a3d6c9b;
+        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
+        function updateLayerControl() {
+            if (mobile.matches) layers.collapse();
+            else layers.expand();
+        }
+        updateLayerControl();
+        mobile.addEventListener("change", updateLayerControl);
+    });
+    </script>
+    
     <!-- travel-route-planner:start -->
     <style>
         .leaflet-left .route-planner-control {
@@ -142,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_c3be2ba6f268bdbba01f11a41df83eb7;
+        const map = map_f5a11fa72e14389a96a7997374ef5afc;
         const routeLocations = [{"name": "El Calafate", "lat": -50.3379, "lon": -72.2648}, {"name": "El Chalten", "lat": -49.3315, "lon": -72.8863}, {"name": "Torres del Paine", "lat": -51.0788, "lon": -73.0308}, {"name": "Puerto Natales", "lat": -51.729, "lon": -72.506}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -391,26 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_c3be2ba6f268bdbba01f11a41df83eb7" ></div>
+            <div class="folium-map" id="map_f5a11fa72e14389a96a7997374ef5afc" ></div>
         
-    <script>
-    window.addEventListener("load", function () {
-        const layers = layer_control_b156dacb6a312c3c4246ec129065181f;
-        const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
-        function updateLayerControl() {
-            if (mobile.matches) layers.collapse();
-            else layers.expand();
-        }
-        updateLayerControl();
-        mobile.addEventListener("change", updateLayerControl);
-    });
-    </script>
 </body>
 <script>
     
     
-            var map_c3be2ba6f268bdbba01f11a41df83eb7 = L.map(
-                "map_c3be2ba6f268bdbba01f11a41df83eb7",
+            var map_f5a11fa72e14389a96a7997374ef5afc = L.map(
+                "map_f5a11fa72e14389a96a7997374ef5afc",
                 {
                     center: [-50.51739259259259, -72.83865185185185],
                     crs: L.CRS.EPSG3857,
@@ -427,7 +429,7 @@
 
         
     
-            var tile_layer_2b85d87e8f7d7b8dcf622d9027761ec5 = L.tileLayer(
+            var tile_layer_4c94fc2ce60754a4bc992e2f60c2ae43 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -444,30 +446,30 @@
             );
         
     
-            tile_layer_2b85d87e8f7d7b8dcf622d9027761ec5.addTo(map_c3be2ba6f268bdbba01f11a41df83eb7);
+            tile_layer_4c94fc2ce60754a4bc992e2f60c2ae43.addTo(map_f5a11fa72e14389a96a7997374ef5afc);
         
     
-            map_c3be2ba6f268bdbba01f11a41df83eb7.fitBounds(
+            map_f5a11fa72e14389a96a7997374ef5afc.fitBounds(
                 [[-50.3379, -72.2648], [-49.3315, -72.8863], [-51.0788, -73.0308], [-51.729, -72.506], [-50.495, -73.0485], [-50.496, -73.048], [-50.495, -73.0485], [-50.3343, -72.2525], [-50.3379, -72.2648], [-49.2711, -73.0385], [-49.285, -73.043], [-49.3007, -72.9956], [-49.338, -72.968], [-49.3351, -72.8922], [-49.2784, -72.8657], [-50.959, -72.979], [-51.168, -73.166], [-51.173, -73.158], [-51.0674, -73.0152], [-51.082, -73.001], [-51.06, -72.983], [-51.054, -72.976], [-51.08, -72.95], [-51.728, -72.505], [-51.5735, -72.6072], [-51.731, -72.5], [-49.85, -72.65]],
                 {}
             );
         
     
-            var feature_group_39f4e9977c07ea64defb89fc2fbdf9d0 = L.featureGroup(
+            var feature_group_b94be90d15bc89e3c9a67e498b397310 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_8fd9fc2f7a8773110864187febd414e4 = L.marker(
+            var marker_aa0769d3ce4ba0abf8afc846ab44b8bb = L.marker(
                 [-50.3379, -72.2648],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_39f4e9977c07ea64defb89fc2fbdf9d0);
+            ).addTo(feature_group_b94be90d15bc89e3c9a67e498b397310);
         
     
-            var icon_30388c2f09296e3253a4c22cedc396fb = L.AwesomeMarkers.icon(
+            var icon_6838c3572d3b88a97960519e0de54815 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -478,7 +480,7 @@
             );
         
     
-            marker_8fd9fc2f7a8773110864187febd414e4.bindTooltip(
+            marker_aa0769d3ce4ba0abf8afc846ab44b8bb.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 El Calafate</b><br><span style="color:#555">Nationaal park Los Glaciares</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Belangrijkste gletsjerbasis en aankomstpunt voor de reis.</i></div>
                  </div>`,
@@ -488,18 +490,18 @@
             );
         
     
-                marker_8fd9fc2f7a8773110864187febd414e4.setIcon(icon_30388c2f09296e3253a4c22cedc396fb);
+                marker_aa0769d3ce4ba0abf8afc846ab44b8bb.setIcon(icon_6838c3572d3b88a97960519e0de54815);
             
     
-            var marker_e9845794fd70d34835f052de6bdf7ba4 = L.marker(
+            var marker_6c43cfdf32dc02996e26e8efbe24ed1d = L.marker(
                 [-49.3315, -72.8863],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_39f4e9977c07ea64defb89fc2fbdf9d0);
+            ).addTo(feature_group_b94be90d15bc89e3c9a67e498b397310);
         
     
-            var icon_9f9c2bacaf1ec6441b871fcb9258e842 = L.AwesomeMarkers.icon(
+            var icon_69a416488fae804f60b6b3abf7098ef6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -510,7 +512,7 @@
             );
         
     
-            marker_e9845794fd70d34835f052de6bdf7ba4.bindTooltip(
+            marker_6c43cfdf32dc02996e26e8efbe24ed1d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 El Chalten</b><br><span style="color:#555">Fitz Roy-gebied</span><br><hr style="margin:4px 0"><b>Nachten:</b> 5<br><i style="color:#666;font-size:14px">De wandelhoofdstad van Argentinië. Deze basis zou de meeste grote wandelingen moeten kunnen maken.</i></div>
                  </div>`,
@@ -520,18 +522,18 @@
             );
         
     
-                marker_e9845794fd70d34835f052de6bdf7ba4.setIcon(icon_9f9c2bacaf1ec6441b871fcb9258e842);
+                marker_6c43cfdf32dc02996e26e8efbe24ed1d.setIcon(icon_69a416488fae804f60b6b3abf7098ef6);
             
     
-            var marker_0a609eb2df8f12cdf4b42f267018cd3e = L.marker(
+            var marker_08567ca60faf1be338414011eb66e901 = L.marker(
                 [-51.0788, -73.0308],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_39f4e9977c07ea64defb89fc2fbdf9d0);
+            ).addTo(feature_group_b94be90d15bc89e3c9a67e498b397310);
         
     
-            var icon_5405897f614c896c6d907cc3715c6a04 = L.AwesomeMarkers.icon(
+            var icon_4597edad850a0a2ae0f15ce1259a0d0f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -542,7 +544,7 @@
             );
         
     
-            marker_0a609eb2df8f12cdf4b42f267018cd3e.bindTooltip(
+            marker_08567ca60faf1be338414011eb66e901.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Torres del Paine</b><br><span style="color:#555">Nationaal park Torres del Paine</span><br><hr style="margin:4px 0"><b>Nachten:</b> 5<br><i style="color:#666;font-size:14px">Meest spectaculaire berglandschap in Chileens Patagonië.</i></div>
                  </div>`,
@@ -552,18 +554,18 @@
             );
         
     
-                marker_0a609eb2df8f12cdf4b42f267018cd3e.setIcon(icon_5405897f614c896c6d907cc3715c6a04);
+                marker_08567ca60faf1be338414011eb66e901.setIcon(icon_4597edad850a0a2ae0f15ce1259a0d0f);
             
     
-            var marker_0a2433fe37cf56fc6d3fca2936db78b7 = L.marker(
+            var marker_be3072e7a7a29a033b29704835b32bbc = L.marker(
                 [-51.729, -72.506],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_39f4e9977c07ea64defb89fc2fbdf9d0);
+            ).addTo(feature_group_b94be90d15bc89e3c9a67e498b397310);
         
     
-            var icon_b2ea3d8fa922a38d63ebb2a923a64514 = L.AwesomeMarkers.icon(
+            var icon_d397569ac3c540464ecd3c1e0d59bb38 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -574,7 +576,7 @@
             );
         
     
-            marker_0a2433fe37cf56fc6d3fca2936db78b7.bindTooltip(
+            marker_be3072e7a7a29a033b29704835b32bbc.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Puerto Natales</b><br><span style="color:#555">Chileens Patagonië</span><br><hr style="margin:4px 0"><b>Nachten:</b> 2<br><i style="color:#666;font-size:14px">Ontspannen einde voor vertrek.</i></div>
                  </div>`,
@@ -584,25 +586,25 @@
             );
         
     
-                marker_0a2433fe37cf56fc6d3fca2936db78b7.setIcon(icon_b2ea3d8fa922a38d63ebb2a923a64514);
+                marker_be3072e7a7a29a033b29704835b32bbc.setIcon(icon_d397569ac3c540464ecd3c1e0d59bb38);
             
     
-            feature_group_39f4e9977c07ea64defb89fc2fbdf9d0.addTo(map_c3be2ba6f268bdbba01f11a41df83eb7);
+            feature_group_b94be90d15bc89e3c9a67e498b397310.addTo(map_f5a11fa72e14389a96a7997374ef5afc);
         
     
-            var feature_group_855339e116eff6f993a1e998df8b6b01 = L.featureGroup(
+            var feature_group_398b1da1de54e94986574bea93a609b9 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_19fe770df97f8fc5cc0e8bc10969bbc7 = L.circleMarker(
+            var circle_marker_8b61477929cf50a7db3de5c20853d3b9 = L.circleMarker(
                 [-50.495, -73.0485],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_19fe770df97f8fc5cc0e8bc10969bbc7.bindTooltip(
+            circle_marker_8b61477929cf50a7db3de5c20853d3b9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Perito Moreno-gletsjer</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#e74c3c">El Calafate</span><br><i style="color:#666;font-size:13px">Eén van de meest indrukwekkende gletsjers ter wereld en de belangrijkste reden om El Calafate te bezoeken.</i></div>
                  </div>`,
@@ -612,13 +614,13 @@
             );
         
     
-            var circle_marker_8b23690ec3fdc716579fcfa5218cb02b = L.circleMarker(
+            var circle_marker_f8d6381d4f367f86f581aa48b4abdb9a = L.circleMarker(
                 [-50.496, -73.048],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_8b23690ec3fdc716579fcfa5218cb02b.bindTooltip(
+            circle_marker_f8d6381d4f367f86f581aa48b4abdb9a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Perito Moreno-loopbruggen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">El Calafate</span></div>
                  </div>`,
@@ -628,13 +630,13 @@
             );
         
     
-            var circle_marker_c9a8b8c7ab0d21a3a3381ccf55b6020f = L.circleMarker(
+            var circle_marker_6f5c6e4ccceb9c2fa8ceb7d3a18231f6 = L.circleMarker(
                 [-50.495, -73.0485],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_c9a8b8c7ab0d21a3a3381ccf55b6020f.bindTooltip(
+            circle_marker_6f5c6e4ccceb9c2fa8ceb7d3a18231f6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Gletsjerbootnavigatie</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> boottocht<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">El Calafate</span></div>
                  </div>`,
@@ -644,13 +646,13 @@
             );
         
     
-            var circle_marker_5ae9d59c88f55948f54f360d462ced9e = L.circleMarker(
+            var circle_marker_13e64e84958633c68113b9c1911e66a3 = L.circleMarker(
                 [-50.3343, -72.2525],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_5ae9d59c88f55948f54f360d462ced9e.bindTooltip(
+            circle_marker_13e64e84958633c68113b9c1911e66a3.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Laguna Nimez</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife wandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">El Calafate</span></div>
                  </div>`,
@@ -660,13 +662,13 @@
             );
         
     
-            var circle_marker_747fb4e5bc33a33c6822f829a46f6ac3 = L.circleMarker(
+            var circle_marker_b16585eb4a7fbd927e183b1a1056e5f6 = L.circleMarker(
                 [-50.3379, -72.2648],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_747fb4e5bc33a33c6822f829a46f6ac3.bindTooltip(
+            circle_marker_b16585eb4a7fbd927e183b1a1056e5f6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">El Calafate</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stadje<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">El Calafate</span></div>
                  </div>`,
@@ -676,13 +678,13 @@
             );
         
     
-            var circle_marker_73c2e7c9c61d6f374ff580e96ea2f62e = L.circleMarker(
+            var circle_marker_bf5d7f21016432c16264e9b382ba1045 = L.circleMarker(
                 [-49.2711, -73.0385],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_73c2e7c9c61d6f374ff580e96ea2f62e.bindTooltip(
+            circle_marker_bf5d7f21016432c16264e9b382ba1045.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Laguna de los Tres</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 8 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -692,13 +694,13 @@
             );
         
     
-            var circle_marker_01e080de3679274a63b17ccb232af775 = L.circleMarker(
+            var circle_marker_0e91c22c333242863c4680d6c056b979 = L.circleMarker(
                 [-49.285, -73.043],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_01e080de3679274a63b17ccb232af775.bindTooltip(
+            circle_marker_0e91c22c333242863c4680d6c056b979.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Fitz Roy-standpunten</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berglandschap<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -708,13 +710,13 @@
             );
         
     
-            var circle_marker_0f3e703c65b8212f14dfbed9bb5f27ca = L.circleMarker(
+            var circle_marker_cf5807423e59f16a3eee6c292ad33818 = L.circleMarker(
                 [-49.3007, -72.9956],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_0f3e703c65b8212f14dfbed9bb5f27ca.bindTooltip(
+            circle_marker_cf5807423e59f16a3eee6c292ad33818.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Laguna Torre</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjermeer wandeling<br><b>Duur:</b> 6 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -724,13 +726,13 @@
             );
         
     
-            var circle_marker_1e1895b4a8cd07f79315c22648ce9f8d = L.circleMarker(
+            var circle_marker_8ed568d8e2f31ea21ea0f43a478fd283 = L.circleMarker(
                 [-49.338, -72.968],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_1e1895b4a8cd07f79315c22648ce9f8d.bindTooltip(
+            circle_marker_8ed568d8e2f31ea21ea0f43a478fd283.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Loma del Pliegue Tumbado</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 7 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -740,13 +742,13 @@
             );
         
     
-            var circle_marker_83f123367536e628c5281c17bed3b100 = L.circleMarker(
+            var circle_marker_b38654657486e45dde801e17d111d006 = L.circleMarker(
                 [-49.3351, -72.8922],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_83f123367536e628c5281c17bed3b100.bindTooltip(
+            circle_marker_b38654657486e45dde801e17d111d006.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mirador de los Condores</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> korte wandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -756,13 +758,13 @@
             );
         
     
-            var circle_marker_5a709aa060af6368ed7fb55a4975cb76 = L.circleMarker(
+            var circle_marker_b226745440edc79fea7fef6f73625df8 = L.circleMarker(
                 [-49.2784, -72.8657],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_5a709aa060af6368ed7fb55a4975cb76.bindTooltip(
+            circle_marker_b226745440edc79fea7fef6f73625df8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Chorillo del Salto</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#2980b9">El Chalten</span></div>
                  </div>`,
@@ -772,13 +774,13 @@
             );
         
     
-            var circle_marker_24d3928c138875892dbc7d7d5f138bfd = L.circleMarker(
+            var circle_marker_5005380bfdac03148dd09252afd2f93e = L.circleMarker(
                 [-50.959, -72.979],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_24d3928c138875892dbc7d7d5f138bfd.bindTooltip(
+            circle_marker_5005380bfdac03148dd09252afd2f93e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mirador Las Torres</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergwandeling<br><b>Duur:</b> 8 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -788,13 +790,13 @@
             );
         
     
-            var circle_marker_6f97ff383ac46bba32c7039c07793a20 = L.circleMarker(
+            var circle_marker_a8cd528291c5ac24740df6163d4f6be5 = L.circleMarker(
                 [-51.168, -73.166],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_6f97ff383ac46bba32c7039c07793a20.bindTooltip(
+            circle_marker_a8cd528291c5ac24740df6163d4f6be5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Grijze gletsjer</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -804,13 +806,13 @@
             );
         
     
-            var circle_marker_2f4d9534ce24b758f2dedec56a8507ea = L.circleMarker(
+            var circle_marker_d32d49c03cb647fda91a75cf8144234a = L.circleMarker(
                 [-51.173, -73.158],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_2f4d9534ce24b758f2dedec56a8507ea.bindTooltip(
+            circle_marker_d32d49c03cb647fda91a75cf8144234a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Grijze gletsjer-uitkijkpunt</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -820,13 +822,13 @@
             );
         
     
-            var circle_marker_ebd24273f883d8ed9ddbc61a49a10680 = L.circleMarker(
+            var circle_marker_459ad63184e950d84b4e76d5aa126f3c = L.circleMarker(
                 [-51.0674, -73.0152],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_ebd24273f883d8ed9ddbc61a49a10680.bindTooltip(
+            circle_marker_459ad63184e950d84b4e76d5aa126f3c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Salto Grande</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -836,13 +838,13 @@
             );
         
     
-            var circle_marker_37a6ce6979a4f8ecc36fc5a32ef6dd0b = L.circleMarker(
+            var circle_marker_a7ad253eea52971d2aaafa999d040dda = L.circleMarker(
                 [-51.082, -73.001],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_37a6ce6979a4f8ecc36fc5a32ef6dd0b.bindTooltip(
+            circle_marker_a7ad253eea52971d2aaafa999d040dda.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Cuernos del Paine</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berg uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -852,13 +854,13 @@
             );
         
     
-            var circle_marker_38d55cd1b401aa8ac6250bb15a516d5c = L.circleMarker(
+            var circle_marker_c40004fc616f52fc814844d5bbe152c9 = L.circleMarker(
                 [-51.06, -72.983],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_38d55cd1b401aa8ac6250bb15a516d5c.bindTooltip(
+            circle_marker_c40004fc616f52fc814844d5bbe152c9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lago Pehoe</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> meer<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -868,13 +870,13 @@
             );
         
     
-            var circle_marker_03af9b4dcc7ab9ab2beb2114b13d2e68 = L.circleMarker(
+            var circle_marker_2992aa3914bf347dfa0476ffb10a2531 = L.circleMarker(
                 [-51.054, -72.976],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_03af9b4dcc7ab9ab2beb2114b13d2e68.bindTooltip(
+            circle_marker_2992aa3914bf347dfa0476ffb10a2531.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Condor-uitkijkpunt</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandeling uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -884,13 +886,13 @@
             );
         
     
-            var circle_marker_613898c8ca8f47483a12982cc6df4ee4 = L.circleMarker(
+            var circle_marker_24020f7b4bc5a564de6dcb7bf6640133 = L.circleMarker(
                 [-51.08, -72.95],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_613898c8ca8f47483a12982cc6df4ee4.bindTooltip(
+            circle_marker_24020f7b4bc5a564de6dcb7bf6640133.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Route voor het bekijken van wilde dieren</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wildlife<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#27ae60">Torres del Paine</span></div>
                  </div>`,
@@ -900,13 +902,13 @@
             );
         
     
-            var circle_marker_15c1b94ea2d33a282b0a63becb118201 = L.circleMarker(
+            var circle_marker_78f6aceaff6ea7bf85e9a675b40d8e02 = L.circleMarker(
                 [-51.728, -72.505],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_15c1b94ea2d33a282b0a63becb118201.bindTooltip(
+            circle_marker_78f6aceaff6ea7bf85e9a675b40d8e02.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Waterkant van Puerto Natales</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> stadswandeling<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Puerto Natales</span></div>
                  </div>`,
@@ -916,13 +918,13 @@
             );
         
     
-            var circle_marker_2dd31393195d3a9246eb92f341a1571b = L.circleMarker(
+            var circle_marker_4699deb6866beecded0e9382adf5866d = L.circleMarker(
                 [-51.5735, -72.6072],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_2dd31393195d3a9246eb92f341a1571b.bindTooltip(
+            circle_marker_4699deb6866beecded0e9382adf5866d.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Milodon-grot</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> geologische locatie<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Puerto Natales</span></div>
                  </div>`,
@@ -932,13 +934,13 @@
             );
         
     
-            var circle_marker_a17dee7301676a166a959b1d0d98d62a = L.circleMarker(
+            var circle_marker_d83f068f5918fdcaa62ef96c3029ee50 = L.circleMarker(
                 [-51.731, -72.5],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_855339e116eff6f993a1e998df8b6b01);
+            ).addTo(feature_group_398b1da1de54e94986574bea93a609b9);
         
     
-            circle_marker_a17dee7301676a166a959b1d0d98d62a.bindTooltip(
+            circle_marker_d83f068f5918fdcaa62ef96c3029ee50.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ultima Esperanza-geluid</b><br><span style="color:#8e44ad;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> kustlandschap<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#8e44ad">Puerto Natales</span></div>
                  </div>`,
@@ -948,22 +950,22 @@
             );
         
     
-            feature_group_855339e116eff6f993a1e998df8b6b01.addTo(map_c3be2ba6f268bdbba01f11a41df83eb7);
+            feature_group_398b1da1de54e94986574bea93a609b9.addTo(map_f5a11fa72e14389a96a7997374ef5afc);
         
     
-            var feature_group_a18dabd9faac20e7c698b2b9c00e98d7 = L.featureGroup(
+            var feature_group_79900a7de720934c74309ca699775e6e = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_6409fe008bc722bfd8bda76d5b1985c7 = L.circleMarker(
+            var circle_marker_93d1aa4813faa6d4bc1e45fb55683c15 = L.circleMarker(
                 [-49.85, -72.65],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_a18dabd9faac20e7c698b2b9c00e98d7);
+            ).addTo(feature_group_79900a7de720934c74309ca699775e6e);
         
     
-            circle_marker_6409fe008bc722bfd8bda76d5b1985c7.bindTooltip(
+            circle_marker_93d1aa4813faa6d4bc1e45fb55683c15.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Ruta 40 schilderachtige stops</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtige rit<br><b>Stopduur:</b> 1 h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Van El Calafate naar El Chalten</span></div>
                  </div>`,
@@ -973,28 +975,28 @@
             );
         
     
-            feature_group_a18dabd9faac20e7c698b2b9c00e98d7.addTo(map_c3be2ba6f268bdbba01f11a41df83eb7);
+            feature_group_79900a7de720934c74309ca699775e6e.addTo(map_f5a11fa72e14389a96a7997374ef5afc);
         
     
-            var layer_control_b156dacb6a312c3c4246ec129065181f_layers = {
+            var layer_control_da52cfeadc71eb1e2f37a9605a3d6c9b_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_2b85d87e8f7d7b8dcf622d9027761ec5,
+                    "OpenStreetMap" : tile_layer_4c94fc2ce60754a4bc992e2f60c2ae43,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_39f4e9977c07ea64defb89fc2fbdf9d0,
-                    "\u25cf Bezienswaardigheden" : feature_group_855339e116eff6f993a1e998df8b6b01,
-                    "\u25c7 Tussenstops" : feature_group_a18dabd9faac20e7c698b2b9c00e98d7,
+                    "\ud83c\udfe8 Verblijven" : feature_group_b94be90d15bc89e3c9a67e498b397310,
+                    "\u25cf Bezienswaardigheden" : feature_group_398b1da1de54e94986574bea93a609b9,
+                    "\u25c7 Tussenstops" : feature_group_79900a7de720934c74309ca699775e6e,
                 },
             };
-            let layer_control_b156dacb6a312c3c4246ec129065181f = L.control.layers(
-                layer_control_b156dacb6a312c3c4246ec129065181f_layers.base_layers,
-                layer_control_b156dacb6a312c3c4246ec129065181f_layers.overlays,
+            let layer_control_da52cfeadc71eb1e2f37a9605a3d6c9b = L.control.layers(
+                layer_control_da52cfeadc71eb1e2f37a9605a3d6c9b_layers.base_layers,
+                layer_control_da52cfeadc71eb1e2f37a9605a3d6c9b_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_c3be2ba6f268bdbba01f11a41df83eb7);
+            ).addTo(map_f5a11fa72e14389a96a7997374ef5afc);
 
         
 </script>
