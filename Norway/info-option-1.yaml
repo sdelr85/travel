@@ -233,9 +233,9 @@ trip:
     cost_eur: 434
     coordinates:
       lat: 60.65110181058504
-      lon: 8.030372127089928
-    accommodation_url: "https://www.airbnb.be/rooms/1782660726560827808?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11007018077206&check_in=2027-07-22&check_out=2027-07-25&source_impression_id=p3_1793372229_P3vUupi3SP2gunr2&previous_page_section_name=1000"
-    accommodation_label: "Airbnb: Gezellig houten huis tussen bergen en meer"
+      lon: 8.210002202461661
+    accommodation_url: "https://www.airbnb.be/rooms/1334905394737841733?adults=3&children=2&infants=0&pets=0&wishlist_item_id=11007018753021&check_in=2027-07-22&check_out=2027-07-25&source_impression_id=p3_1793618297_P3R3oEqe-OqPadCv&previous_page_section_name=1001"
+    accommodation_label: "Airbnb: Gezellig huis bij Geilo"
     lodging_preference_note: "Hytte / chalet in Geilo."
     planning_note: >
       Eerste basis op de hoogvlakte. Focus op avontuurlijke wandelingen met 
@@ -329,14 +329,13 @@ trip:
     stay_nights: 5
     cost_eur: 1019
     coordinates:
-      lat: 62.00679513228905
-      lon: 6.559291542028096
-    accommodation_url: "https://www.airbnb.be/rooms/933445901700871988?adults=4&children=1&infants=0&pets=0&wishlist_item_id=11006983865889&check_in=2027-07-28&check_out=2027-08-02&source_impression_id=p3_1792922228_P3BIEr_QDbjiwNCe&previous_page_section_name=1000"
-    accommodation_label: "Airbnb: Nieuw huisje, fantastische locatie"
-    lodging_preference_note: "Hytte nabij Hornindal / Haugen en de E39/Fv60."
+      lat: 61.88887624376794
+      lon: 6.559642039911134
+    accommodation_url: "https://www.airbnb.be/rooms/31123044?adults=3&children=2&infants=0&pets=0&wishlist_item_id=11007025555051&check_in=2027-07-25&check_out=2027-07-30&source_impression_id=p3_1793617385_P3kSXzPhyHl4Vong&previous_page_section_name=1000"
+    accommodation_label: "Airbnb: Haugen Gard, panorama Stryn"
+    lodging_preference_note: "Woning met panomara uitzicht over Stryn"
     planning_note: >
-      Budgetvriendelijke en strategische basis in het hart van de Nordfjord, vlak bij Hornindal. 
-      Slechts 35-45 minuten van Lovatnet, Loen Skylift, Briksdalsbreen én Hellesylt (Geiranger-boot).
+      Budgetvriendelijke en strategische basis in het hart van de Nordfjord.
 
     base_attractions:
     - id: geirangerfjord_cruise_from_base2
