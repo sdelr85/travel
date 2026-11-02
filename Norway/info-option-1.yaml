@@ -232,8 +232,8 @@ trip:
     stay_nights: 3
     cost_eur: 434
     coordinates:
-      lat: 60.65110181058504
-      lon: 8.210002202461661
+      lat: 60.53414065714968 
+      lon: 8.211011930506508
     accommodation_url: "https://www.airbnb.be/rooms/1334905394737841733?adults=3&children=2&infants=0&pets=0&wishlist_item_id=11007018753021&check_in=2027-07-22&check_out=2027-07-25&source_impression_id=p3_1793618297_P3R3oEqe-OqPadCv&previous_page_section_name=1001"
     accommodation_label: "Airbnb: Gezellig huis bij Geilo"
     lodging_preference_note: "Hytte / chalet in Geilo."

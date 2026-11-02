@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_7952b8f120d85984e0cad3f38a22d47c {
+                #map_1493791fdd888e4172b0ee2bba2d3503 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -83,7 +83,7 @@
     
     <script>
     window.addEventListener("load", function () {
-        const layers = layer_control_a55c3f220ac9482a8b924622645cc535;
+        const layers = layer_control_dee3610abf2c9cee7c319c4418e5f767;
         const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
         function updateLayerControl() {
             if (mobile.matches) layers.collapse();
@@ -156,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_7952b8f120d85984e0cad3f38a22d47c;
+        const map = map_1493791fdd888e4172b0ee2bba2d3503;
         const routeLocations = [{"name": "Sint-Gilles-les-Bains", "lat": -21.055, "lon": 55.227}, {"name": "Cilaos", "lat": -21.136, "lon": 55.471}, {"name": "Bourg-Murat", "lat": -21.21, "lon": 55.573}, {"name": "Hell-Bourg", "lat": -21.063, "lon": 55.518}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -405,14 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_7952b8f120d85984e0cad3f38a22d47c" ></div>
+            <div class="folium-map" id="map_1493791fdd888e4172b0ee2bba2d3503" ></div>
         
 </body>
 <script>
     
     
-            var map_7952b8f120d85984e0cad3f38a22d47c = L.map(
-                "map_7952b8f120d85984e0cad3f38a22d47c",
+            var map_1493791fdd888e4172b0ee2bba2d3503 = L.map(
+                "map_1493791fdd888e4172b0ee2bba2d3503",
                 {
                     center: [-21.122869565217393, 55.524086956521735],
                     crs: L.CRS.EPSG3857,
@@ -429,7 +429,7 @@
 
         
     
-            var tile_layer_6a20052439ac14c3399af2c6d0a7e285 = L.tileLayer(
+            var tile_layer_88f800e50566c552e28bc7f6b3ef943c = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -446,30 +446,30 @@
             );
         
     
-            tile_layer_6a20052439ac14c3399af2c6d0a7e285.addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            tile_layer_88f800e50566c552e28bc7f6b3ef943c.addTo(map_1493791fdd888e4172b0ee2bba2d3503);
         
     
-            map_7952b8f120d85984e0cad3f38a22d47c.fitBounds(
+            map_1493791fdd888e4172b0ee2bba2d3503.fitBounds(
                 [[-21.055, 55.227], [-21.136, 55.471], [-21.21, 55.573], [-21.063, 55.518], [-21.082, 55.227], [-21.053, 55.226], [-21.042, 55.219], [-21.077, 55.383], [-21.128, 55.472], [-21.137, 55.472], [-21.154, 55.455], [-21.244, 55.708], [-21.247, 55.697], [-21.225, 55.625], [-21.343, 55.822], [-21.231, 55.579], [-21.062, 55.516], [-21.037, 55.532], [-21.037, 55.66], [-21.1, 55.65], [-21.191, 55.838], [-21.082, 55.668], [-20.89, 55.516]],
                 {}
             );
         
     
-            var feature_group_7a46ec26c6ba97982db7a369ef3b1aa8 = L.featureGroup(
+            var feature_group_d11c13451ae333b5884e184bdde60566 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_e06543ccb6132137040be29e7fa9654a = L.marker(
+            var marker_cdd957004ab122c21c0356c6a91cbab4 = L.marker(
                 [-21.055, 55.227],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_7a46ec26c6ba97982db7a369ef3b1aa8);
+            ).addTo(feature_group_d11c13451ae333b5884e184bdde60566);
         
     
-            var icon_50b4b187a90047a69d2fc924aca521a5 = L.AwesomeMarkers.icon(
+            var icon_60548467ba2b409098221c8ca76a1ab6 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -480,7 +480,7 @@
             );
         
     
-            marker_e06543ccb6132137040be29e7fa9654a.bindTooltip(
+            marker_cdd957004ab122c21c0356c6a91cbab4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Sint-Gilles-les-Bains</b><br><span style="color:#555">Lagunes aan de westkust</span><br><hr style="margin:4px 0"><b>Nachten:</b> 4<br><i style="color:#666;font-size:14px">Beste uitvalsbasis voor ontspanning, snorkelen, schildpadden spotten, stranden en geleidelijke aanpassing na de lange vlucht.</i></div>
                  </div>`,
@@ -490,18 +490,18 @@
             );
         
     
-                marker_e06543ccb6132137040be29e7fa9654a.setIcon(icon_50b4b187a90047a69d2fc924aca521a5);
+                marker_cdd957004ab122c21c0356c6a91cbab4.setIcon(icon_60548467ba2b409098221c8ca76a1ab6);
             
     
-            var marker_98866273c77524d2729ad8850e906fd9 = L.marker(
+            var marker_adad32e8d4c7e96c0dc6ec8428dbf163 = L.marker(
                 [-21.136, 55.471],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_7a46ec26c6ba97982db7a369ef3b1aa8);
+            ).addTo(feature_group_d11c13451ae333b5884e184bdde60566);
         
     
-            var icon_e6115539cb862ee38ceba9a8a7bb3515 = L.AwesomeMarkers.icon(
+            var icon_0be971e84d06a96aea2387d6e1321a41 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -512,7 +512,7 @@
             );
         
     
-            marker_98866273c77524d2729ad8850e906fd9.bindTooltip(
+            marker_adad32e8d4c7e96c0dc6ec8428dbf163.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Cilaos</b><br><span style="color:#555">Cirque de Cilaos</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Bergbasis in het hart van het eiland. Spectaculaire landschappen, korte wandelingen en canyonlandschappen.</i></div>
                  </div>`,
@@ -522,18 +522,18 @@
             );
         
     
-                marker_98866273c77524d2729ad8850e906fd9.setIcon(icon_e6115539cb862ee38ceba9a8a7bb3515);
+                marker_adad32e8d4c7e96c0dc6ec8428dbf163.setIcon(icon_0be971e84d06a96aea2387d6e1321a41);
             
     
-            var marker_e13e9e389fd09b0bf3ab22d38f2b6110 = L.marker(
+            var marker_738b82f94caf0440142a64e6b4837eff = L.marker(
                 [-21.21, 55.573],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_7a46ec26c6ba97982db7a369ef3b1aa8);
+            ).addTo(feature_group_d11c13451ae333b5884e184bdde60566);
         
     
-            var icon_29cafa5bca21ecaab221fa907c296a13 = L.AwesomeMarkers.icon(
+            var icon_d91fb2f44932cc8d3a703e6b860d5e9e = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -544,7 +544,7 @@
             );
         
     
-            marker_e13e9e389fd09b0bf3ab22d38f2b6110.bindTooltip(
+            marker_738b82f94caf0440142a64e6b4837eff.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#27ae60;font-size:16px">🏨 Bourg-Murat</b><br><span style="color:#555">Vulkaan gebied</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Speciale vulkaanbasis. Dit gebied verdient meerdere dagen omdat de weersomstandigheden snel kunnen veranderen.</i></div>
                  </div>`,
@@ -554,18 +554,18 @@
             );
         
     
-                marker_e13e9e389fd09b0bf3ab22d38f2b6110.setIcon(icon_29cafa5bca21ecaab221fa907c296a13);
+                marker_738b82f94caf0440142a64e6b4837eff.setIcon(icon_d91fb2f44932cc8d3a703e6b860d5e9e);
             
     
-            var marker_5f4f2635ca5e5b973484fc169ce2fc6d = L.marker(
+            var marker_cf456ab9c7de1ee00dc96a72ce32076f = L.marker(
                 [-21.063, 55.518],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_7a46ec26c6ba97982db7a369ef3b1aa8);
+            ).addTo(feature_group_d11c13451ae333b5884e184bdde60566);
         
     
-            var icon_56e8317e559e4f319d423b34b2dcb353 = L.AwesomeMarkers.icon(
+            var icon_af3d29eb0ee9c531f8f1d21c8467bb8a = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -576,7 +576,7 @@
             );
         
     
-            marker_5f4f2635ca5e5b973484fc169ce2fc6d.bindTooltip(
+            marker_cf456ab9c7de1ee00dc96a72ce32076f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#8e44ad;font-size:16px">🏨 Hell-Bourg</b><br><span style="color:#555">Cirque de Salazie</span><br><hr style="margin:4px 0"><b>Nachten:</b> 3<br><i style="color:#666;font-size:14px">Het groenste en meest tropische deel van het eiland. Ideale eindbasis met watervallen, bossen en iconische uitzichtpunten.</i></div>
                  </div>`,
@@ -586,25 +586,25 @@
             );
         
     
-                marker_5f4f2635ca5e5b973484fc169ce2fc6d.setIcon(icon_56e8317e559e4f319d423b34b2dcb353);
+                marker_cf456ab9c7de1ee00dc96a72ce32076f.setIcon(icon_af3d29eb0ee9c531f8f1d21c8467bb8a);
             
     
-            feature_group_7a46ec26c6ba97982db7a369ef3b1aa8.addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            feature_group_d11c13451ae333b5884e184bdde60566.addTo(map_1493791fdd888e4172b0ee2bba2d3503);
         
     
-            var feature_group_9432f19eab5e6d415f28972eed2d1829 = L.featureGroup(
+            var feature_group_ad29353b4e54614af0c2bcac3f68a726 = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_1568323b1c9a20106efa2ef6369b0892 = L.circleMarker(
+            var circle_marker_67d6515858871606ef0a69c6b162a11f = L.circleMarker(
                 [-21.082, 55.227],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_1568323b1c9a20106efa2ef6369b0892.bindTooltip(
+            circle_marker_67d6515858871606ef0a69c6b162a11f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">L'Hermitage-lagune</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> snorkelen<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Sint-Gilles-les-Bains</span></div>
                  </div>`,
@@ -614,13 +614,13 @@
             );
         
     
-            var circle_marker_87a6eddff426d92fb541f03abead578a = L.circleMarker(
+            var circle_marker_384e7d26f2689adb4644298d434ccb26 = L.circleMarker(
                 [-21.053, 55.226],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_87a6eddff426d92fb541f03abead578a.bindTooltip(
+            circle_marker_384e7d26f2689adb4644298d434ccb26.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Excursie om walvissen te spotten</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> betaalde activiteit<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Sint-Gilles-les-Bains</span></div>
                  </div>`,
@@ -630,13 +630,13 @@
             );
         
     
-            var circle_marker_324e367004f583215bd568601a484611 = L.circleMarker(
+            var circle_marker_954c4fce29b3510521a7cf458fae174a = L.circleMarker(
                 [-21.042, 55.219],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_324e367004f583215bd568601a484611.bindTooltip(
+            circle_marker_954c4fce29b3510521a7cf458fae174a.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Aquarium van Réunion</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> gezinsactiviteit<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 10 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Sint-Gilles-les-Bains</span></div>
                  </div>`,
@@ -646,13 +646,13 @@
             );
         
     
-            var circle_marker_714adc89eb2668425fd9a6c85f637537 = L.circleMarker(
+            var circle_marker_227fd97d5757d22353829d2f6d3c379c = L.circleMarker(
                 [-21.077, 55.383],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_714adc89eb2668425fd9a6c85f637537.bindTooltip(
+            circle_marker_227fd97d5757d22353829d2f6d3c379c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Maido-uitkijkpunt</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Sint-Gilles-les-Bains</span></div>
                  </div>`,
@@ -662,13 +662,13 @@
             );
         
     
-            var circle_marker_261641bf7a5a091b23b4ddec5bd7dfef = L.circleMarker(
+            var circle_marker_578dfb75e5d1aa916953541123e222b6 = L.circleMarker(
                 [-21.128, 55.472],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_261641bf7a5a091b23b4ddec5bd7dfef.bindTooltip(
+            circle_marker_578dfb75e5d1aa916953541123e222b6.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Roche Merveilleuse</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cilaos</span></div>
                  </div>`,
@@ -678,13 +678,13 @@
             );
         
     
-            var circle_marker_5dfc447c17823506d70127e2630de50f = L.circleMarker(
+            var circle_marker_b54865e9daff7e7ee64c718588ad88d0 = L.circleMarker(
                 [-21.137, 55.472],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_5dfc447c17823506d70127e2630de50f.bindTooltip(
+            circle_marker_b54865e9daff7e7ee64c718588ad88d0.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het dorp Cilaos</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> bergdorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cilaos</span></div>
                  </div>`,
@@ -694,13 +694,13 @@
             );
         
     
-            var circle_marker_1fb96c9a6a5f99a9e0c7ff12a922eb7a = L.circleMarker(
+            var circle_marker_f95c96b996d3413a60e7524e16bc8164 = L.circleMarker(
                 [-21.154, 55.455],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_1fb96c9a6a5f99a9e0c7ff12a922eb7a.bindTooltip(
+            circle_marker_f95c96b996d3413a60e7524e16bc8164.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bras Rouge-wandeling</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 15 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Cilaos</span></div>
                  </div>`,
@@ -710,13 +710,13 @@
             );
         
     
-            var circle_marker_b2d4f0c4c1bc7830b2df77cabedd77d2 = L.circleMarker(
+            var circle_marker_55a9c4fdecc72ad68f620dc82caec62f = L.circleMarker(
                 [-21.244, 55.708],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_b2d4f0c4c1bc7830b2df77cabedd77d2.bindTooltip(
+            circle_marker_55a9c4fdecc72ad68f620dc82caec62f.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Piton de la Fournaise</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaan<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Bourg-Murat</span></div>
                  </div>`,
@@ -726,13 +726,13 @@
             );
         
     
-            var circle_marker_2894a1d8562ac7b4d403029380727246 = L.circleMarker(
+            var circle_marker_b649e07ee12f0e991dd2a956a0a158db = L.circleMarker(
                 [-21.247, 55.697],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_2894a1d8562ac7b4d403029380727246.bindTooltip(
+            circle_marker_b649e07ee12f0e991dd2a956a0a158db.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Pas de Bellecombe</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 40 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Bourg-Murat</span></div>
                  </div>`,
@@ -742,13 +742,13 @@
             );
         
     
-            var circle_marker_911fe1c98fb6c5e4db54fdf9d7e962bf = L.circleMarker(
+            var circle_marker_7415ec46a202b1f25347e2b0860e8893 = L.circleMarker(
                 [-21.225, 55.625],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_911fe1c98fb6c5e4db54fdf9d7e962bf.bindTooltip(
+            circle_marker_7415ec46a202b1f25347e2b0860e8893.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Plaine des Sables</b><br><span style="color:#27ae60;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanisch landschap<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 30 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Bourg-Murat</span></div>
                  </div>`,
@@ -758,13 +758,13 @@
             );
         
     
-            var circle_marker_6f8dde6a33ed8b3d646b0a61c6be0d87 = L.circleMarker(
+            var circle_marker_c7de747676a2b25fab0bfbeef98398f7 = L.circleMarker(
                 [-21.343, 55.822],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_6f8dde6a33ed8b3d646b0a61c6be0d87.bindTooltip(
+            circle_marker_c7de747676a2b25fab0bfbeef98398f7.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Grand Brule Lavakust</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> vulkanische kustlijn<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Bourg-Murat</span></div>
                  </div>`,
@@ -774,13 +774,13 @@
             );
         
     
-            var circle_marker_6fe51210e9895446af5c43ceae00053b = L.circleMarker(
+            var circle_marker_6766547bd076843bfa4686a37bfbb863 = L.circleMarker(
                 [-21.231, 55.579],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#27ae60", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_6fe51210e9895446af5c43ceae00053b.bindTooltip(
+            circle_marker_6766547bd076843bfa4686a37bfbb863.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Cité du Volcan</b><br><span style="color:#27ae60;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> vulkaancentrum<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#27ae60">Bourg-Murat</span></div>
                  </div>`,
@@ -790,13 +790,13 @@
             );
         
     
-            var circle_marker_f455cf64de435fce5f0cd6602cd8ac40 = L.circleMarker(
+            var circle_marker_4ef2abfca57e4c812e03cde4e2e46a4e = L.circleMarker(
                 [-21.062, 55.516],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_f455cf64de435fce5f0cd6602cd8ac40.bindTooltip(
+            circle_marker_4ef2abfca57e4c812e03cde4e2e46a4e.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Hell-Bourg</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> schilderachtig dorp<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 5 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Hell-Bourg</span></div>
                  </div>`,
@@ -806,13 +806,13 @@
             );
         
     
-            var circle_marker_3567cfe85a112cbbf3eee1a9c6912493 = L.circleMarker(
+            var circle_marker_36ef99c0ebb12d0e6cef34c65c64f650 = L.circleMarker(
                 [-21.037, 55.532],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_3567cfe85a112cbbf3eee1a9c6912493.bindTooltip(
+            circle_marker_36ef99c0ebb12d0e6cef34c65c64f650.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Voile de la Mariee-watervallen</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 1 h<br><b>Vanaf basis:</b> 20 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Hell-Bourg</span></div>
                  </div>`,
@@ -822,13 +822,13 @@
             );
         
     
-            var circle_marker_52440d60b57e958f6b3fe94b3ba9d151 = L.circleMarker(
+            var circle_marker_0c4f07c6326ec498e61610ce59df78cd = L.circleMarker(
                 [-21.037, 55.66],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_52440d60b57e958f6b3fe94b3ba9d151.bindTooltip(
+            circle_marker_0c4f07c6326ec498e61610ce59df78cd.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Trou de Fer-uitkijkpunten</b><br><span style="color:#8e44ad;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> canyon waterval<br><b>Duur:</b> 5 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Hell-Bourg</span></div>
                  </div>`,
@@ -838,13 +838,13 @@
             );
         
     
-            var circle_marker_2c4eb6d086b5c507de9107b9d47f6c90 = L.circleMarker(
+            var circle_marker_d7b945d87b740042a97df4ce28599231 = L.circleMarker(
                 [-21.1, 55.65],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_2c4eb6d086b5c507de9107b9d47f6c90.bindTooltip(
+            circle_marker_d7b945d87b740042a97df4ce28599231.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bebour-bos</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> regenwoud<br><b>Duur:</b> 4 h<br><b>Vanaf basis:</b> 45 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Hell-Bourg</span></div>
                  </div>`,
@@ -854,13 +854,13 @@
             );
         
     
-            var circle_marker_410ba14394d4dfe46778e087cc5723d1 = L.circleMarker(
+            var circle_marker_8bf54cfc2f7f06ff48a353acc47f6de8 = L.circleMarker(
                 [-21.191, 55.838],
                 {"bubblingMouseEvents": true, "color": "#8e44ad", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8e44ad", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_9432f19eab5e6d415f28972eed2d1829);
+            ).addTo(feature_group_ad29353b4e54614af0c2bcac3f68a726);
         
     
-            circle_marker_410ba14394d4dfe46778e087cc5723d1.bindTooltip(
+            circle_marker_8bf54cfc2f7f06ff48a353acc47f6de8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Anse des Cascades</b><br><span style="color:#8e44ad;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kustwatervallen<br><b>Duur:</b> 2 h<br><b>Vanaf basis:</b> 75 min rijden<br><b>Basis:</b> <span style="color:#8e44ad">Hell-Bourg</span></div>
                  </div>`,
@@ -870,22 +870,22 @@
             );
         
     
-            feature_group_9432f19eab5e6d415f28972eed2d1829.addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            feature_group_ad29353b4e54614af0c2bcac3f68a726.addTo(map_1493791fdd888e4172b0ee2bba2d3503);
         
     
-            var feature_group_3696436a6a5c6f8914596d4725d51073 = L.featureGroup(
+            var feature_group_962a347a0508c9a8c697642bd14dd66b = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_c1c4df366f7fe77ccd03f990a738e452 = L.circleMarker(
+            var circle_marker_dad5f556164af3de2e6466a577445f75 = L.circleMarker(
                 [-21.082, 55.668],
                 {"bubblingMouseEvents": true, "color": "#27ae60", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_3696436a6a5c6f8914596d4725d51073);
+            ).addTo(feature_group_962a347a0508c9a8c697642bd14dd66b);
         
     
-            circle_marker_c1c4df366f7fe77ccd03f990a738e452.bindTooltip(
+            circle_marker_dad5f556164af3de2e6466a577445f75.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Grote Etang</b><br><span style="color:#27ae60;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> kratermeer<br><b>Stopduur:</b> ? h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#27ae60">base_3 → base_4</span></div>
                  </div>`,
@@ -895,23 +895,23 @@
             );
         
     
-            feature_group_3696436a6a5c6f8914596d4725d51073.addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            feature_group_962a347a0508c9a8c697642bd14dd66b.addTo(map_1493791fdd888e4172b0ee2bba2d3503);
         
     
-            var feature_group_5752352d055b443e0d8d1211df3e13bd = L.featureGroup(
+            var feature_group_0d1a52505d04c1a775f5fe3d1b17aeb8 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_fdaa3804a90a04e3b4c119c19f4b83ec = L.marker(
+            var marker_8b7c5695f3cc8765ba2dd9ea04c9f8e1 = L.marker(
                 [-20.89, 55.516],
                 {
 }
-            ).addTo(feature_group_5752352d055b443e0d8d1211df3e13bd);
+            ).addTo(feature_group_0d1a52505d04c1a775f5fe3d1b17aeb8);
         
     
-            var icon_6dc0638dda61207d0025832258e33e2f = L.AwesomeMarkers.icon(
+            var icon_c76ad98990409b5ca5e8b0c94d7ecee3 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "gray",
   "iconColor": "white",
@@ -922,7 +922,7 @@
             );
         
     
-            marker_fdaa3804a90a04e3b4c119c19f4b83ec.bindTooltip(
+            marker_8b7c5695f3cc8765ba2dd9ea04c9f8e1.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif"><b>✈️ Luchthaven Roland Garros</b></div>
                  </div>`,
@@ -932,32 +932,32 @@
             );
         
     
-                marker_fdaa3804a90a04e3b4c119c19f4b83ec.setIcon(icon_6dc0638dda61207d0025832258e33e2f);
+                marker_8b7c5695f3cc8765ba2dd9ea04c9f8e1.setIcon(icon_c76ad98990409b5ca5e8b0c94d7ecee3);
             
     
-            feature_group_5752352d055b443e0d8d1211df3e13bd.addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            feature_group_0d1a52505d04c1a775f5fe3d1b17aeb8.addTo(map_1493791fdd888e4172b0ee2bba2d3503);
         
     
-            var layer_control_a55c3f220ac9482a8b924622645cc535_layers = {
+            var layer_control_dee3610abf2c9cee7c319c4418e5f767_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_6a20052439ac14c3399af2c6d0a7e285,
+                    "OpenStreetMap" : tile_layer_88f800e50566c552e28bc7f6b3ef943c,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_7a46ec26c6ba97982db7a369ef3b1aa8,
-                    "\u25cf Bezienswaardigheden" : feature_group_9432f19eab5e6d415f28972eed2d1829,
-                    "\u25c7 Tussenstops" : feature_group_3696436a6a5c6f8914596d4725d51073,
-                    "\u2708 Luchthaven" : feature_group_5752352d055b443e0d8d1211df3e13bd,
+                    "\ud83c\udfe8 Verblijven" : feature_group_d11c13451ae333b5884e184bdde60566,
+                    "\u25cf Bezienswaardigheden" : feature_group_ad29353b4e54614af0c2bcac3f68a726,
+                    "\u25c7 Tussenstops" : feature_group_962a347a0508c9a8c697642bd14dd66b,
+                    "\u2708 Luchthaven" : feature_group_0d1a52505d04c1a775f5fe3d1b17aeb8,
                 },
             };
-            let layer_control_a55c3f220ac9482a8b924622645cc535 = L.control.layers(
-                layer_control_a55c3f220ac9482a8b924622645cc535_layers.base_layers,
-                layer_control_a55c3f220ac9482a8b924622645cc535_layers.overlays,
+            let layer_control_dee3610abf2c9cee7c319c4418e5f767 = L.control.layers(
+                layer_control_dee3610abf2c9cee7c319c4418e5f767_layers.base_layers,
+                layer_control_dee3610abf2c9cee7c319c4418e5f767_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_7952b8f120d85984e0cad3f38a22d47c);
+            ).addTo(map_1493791fdd888e4172b0ee2bba2d3503);
 
         
 </script>

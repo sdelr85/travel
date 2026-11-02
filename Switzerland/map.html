@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_0ed12d68e9601be4b6e032e7d53c0b8d {
+                #map_992f9341fc6acebb6bd8d93a5cc27fda {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -83,7 +83,7 @@
     
     <script>
     window.addEventListener("load", function () {
-        const layers = layer_control_ec68b2bbbff564ab91860d9d20b6c729;
+        const layers = layer_control_ffed2f3217a0724e2f3b02f7a71b141a;
         const mobile = window.matchMedia("(max-width: 600px), (max-height: 500px)");
         function updateLayerControl() {
             if (mobile.matches) layers.collapse();
@@ -156,7 +156,7 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        const map = map_0ed12d68e9601be4b6e032e7d53c0b8d;
+        const map = map_992f9341fc6acebb6bd8d93a5cc27fda;
         const routeLocations = [{"name": "Lauterbrunnen / Wengen", "lat": 46.593, "lon": 7.909}, {"name": "Zermatt", "lat": 46.0207, "lon": 7.7491}];
         const routingUrl = "https://router.project-osrm.org/route/v1/driving";
         let destination = null;
@@ -405,14 +405,14 @@
     </script>
     <!-- travel-route-planner:end -->
     
-            <div class="folium-map" id="map_0ed12d68e9601be4b6e032e7d53c0b8d" ></div>
+            <div class="folium-map" id="map_992f9341fc6acebb6bd8d93a5cc27fda" ></div>
         
 </body>
 <script>
     
     
-            var map_0ed12d68e9601be4b6e032e7d53c0b8d = L.map(
-                "map_0ed12d68e9601be4b6e032e7d53c0b8d",
+            var map_992f9341fc6acebb6bd8d93a5cc27fda = L.map(
+                "map_992f9341fc6acebb6bd8d93a5cc27fda",
                 {
                     center: [46.38315652173913, 7.8889826086956525],
                     crs: L.CRS.EPSG3857,
@@ -429,7 +429,7 @@
 
         
     
-            var tile_layer_a6837cb79238e281420cd4870c8fb679 = L.tileLayer(
+            var tile_layer_dd0aca57276d392b1468047214741554 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -446,30 +446,30 @@
             );
         
     
-            tile_layer_a6837cb79238e281420cd4870c8fb679.addTo(map_0ed12d68e9601be4b6e032e7d53c0b8d);
+            tile_layer_dd0aca57276d392b1468047214741554.addTo(map_992f9341fc6acebb6bd8d93a5cc27fda);
         
     
-            map_0ed12d68e9601be4b6e032e7d53c0b8d.fitBounds(
+            map_992f9341fc6acebb6bd8d93a5cc27fda.fitBounds(
                 [[46.593, 7.909], [46.0207, 7.7491], [46.593, 7.909], [46.5938, 7.9083], [46.5724, 7.9117], [46.618, 7.942], [46.5848, 7.9619], [46.6585, 8.0413], [46.672, 8.038], [46.4989, 7.7267], [46.6997, 7.855], [46.755, 8.034], [46.717, 8.209], [46.548, 7.985], [45.9763, 7.6586], [45.9838, 7.7841], [45.9833, 7.7485], [46.003, 7.782], [46.028, 7.8], [45.938, 7.72], [46.438, 8.041], [46.0207, 7.7491], [46.3167, 7.9833]],
                 {}
             );
         
     
-            var feature_group_f9a27e5e0246039af5a480e0a51b03f6 = L.featureGroup(
+            var feature_group_cd9d2fd3d50768e25acd3f861d5a0457 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_e4ebccbbf71e32879d9423cb25344a27 = L.marker(
+            var marker_d0c10babad79a95eced9bc8b46971617 = L.marker(
                 [46.593, 7.909],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_f9a27e5e0246039af5a480e0a51b03f6);
+            ).addTo(feature_group_cd9d2fd3d50768e25acd3f861d5a0457);
         
     
-            var icon_69e2c4fbdf297978e9bf251f124b98e7 = L.AwesomeMarkers.icon(
+            var icon_772977740652e7a7c1a99104a83bbae5 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -480,7 +480,7 @@
             );
         
     
-            marker_e4ebccbbf71e32879d9423cb25344a27.bindTooltip(
+            marker_d0c10babad79a95eced9bc8b46971617.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#e74c3c;font-size:16px">🏨 Lauterbrunnen / Wengen</b><br><span style="color:#555">Berner Oberland</span><br><hr style="margin:4px 0"><b>Nachten:</b> 7<br><i style="color:#666;font-size:14px">Eersteklas Zwitserse bergbasis. Bestrijkt het grootste deel van het iconische landschap van het Berner Oberland.</i></div>
                  </div>`,
@@ -490,18 +490,18 @@
             );
         
     
-                marker_e4ebccbbf71e32879d9423cb25344a27.setIcon(icon_69e2c4fbdf297978e9bf251f124b98e7);
+                marker_d0c10babad79a95eced9bc8b46971617.setIcon(icon_772977740652e7a7c1a99104a83bbae5);
             
     
-            var marker_c0b5431606b0c41e26b264d65ea361ba = L.marker(
+            var marker_ed7894a649c5905bf73ecfed582736b8 = L.marker(
                 [46.0207, 7.7491],
                 {
   "zIndexOffset": 1000,
 }
-            ).addTo(feature_group_f9a27e5e0246039af5a480e0a51b03f6);
+            ).addTo(feature_group_cd9d2fd3d50768e25acd3f861d5a0457);
         
     
-            var icon_60090d593ab2d70c72f84b2b3dbd652b = L.AwesomeMarkers.icon(
+            var icon_5dc2f5440e230de6331536a5b73f0185 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -512,7 +512,7 @@
             );
         
     
-            marker_c0b5431606b0c41e26b264d65ea361ba.bindTooltip(
+            marker_ed7894a649c5905bf73ecfed582736b8.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="color:#2980b9;font-size:16px">🏨 Zermatt</b><br><span style="color:#555">Matterhorn-regio</span><br><hr style="margin:4px 0"><b>Nachten:</b> 6<br><i style="color:#666;font-size:14px">Speciale Matterhorn-basis. Focus op iconische berglandschappen en gletsjerlandschappen.</i></div>
                  </div>`,
@@ -522,25 +522,25 @@
             );
         
     
-                marker_c0b5431606b0c41e26b264d65ea361ba.setIcon(icon_60090d593ab2d70c72f84b2b3dbd652b);
+                marker_ed7894a649c5905bf73ecfed582736b8.setIcon(icon_5dc2f5440e230de6331536a5b73f0185);
             
     
-            feature_group_f9a27e5e0246039af5a480e0a51b03f6.addTo(map_0ed12d68e9601be4b6e032e7d53c0b8d);
+            feature_group_cd9d2fd3d50768e25acd3f861d5a0457.addTo(map_992f9341fc6acebb6bd8d93a5cc27fda);
         
     
-            var feature_group_192d5d4e8e61801a663594eb5fbb13bb = L.featureGroup(
+            var feature_group_8625d87db70274a40d74ef76dca2a03b = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_ab8ddefd273d5f4d85484a4e6074da9a = L.circleMarker(
+            var circle_marker_cde521567db0bb5cc11272f56c7157ab = L.circleMarker(
                 [46.593, 7.909],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_ab8ddefd273d5f4d85484a4e6074da9a.bindTooltip(
+            circle_marker_cde521567db0bb5cc11272f56c7157ab.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Lauterbrunnenvallei</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> vallei<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -550,13 +550,13 @@
             );
         
     
-            var circle_marker_9e4e35fe916fbe54fc6ed02a427251ea = L.circleMarker(
+            var circle_marker_be97c6923e8a268969d488da068603af = L.circleMarker(
                 [46.5938, 7.9083],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_9e4e35fe916fbe54fc6ed02a427251ea.bindTooltip(
+            circle_marker_be97c6923e8a268969d488da068603af.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Staubbach-watervallen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 1 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -566,13 +566,13 @@
             );
         
     
-            var circle_marker_712e09a1c775d2a47bf6c497515c9abc = L.circleMarker(
+            var circle_marker_087bb4fd93a20c74c3a99070a5344765 = L.circleMarker(
                 [46.5724, 7.9117],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_712e09a1c775d2a47bf6c497515c9abc.bindTooltip(
+            circle_marker_087bb4fd93a20c74c3a99070a5344765.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Trümmelbach-watervallen</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> waterval<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -582,13 +582,13 @@
             );
         
     
-            var circle_marker_da885329b6dad0a556ff13b327f75ebe = L.circleMarker(
+            var circle_marker_7a74d6677f4a98a165415022bcef4610 = L.circleMarker(
                 [46.618, 7.942],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_da885329b6dad0a556ff13b327f75ebe.bindTooltip(
+            circle_marker_7a74d6677f4a98a165415022bcef4610.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Mannlichen</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -598,13 +598,13 @@
             );
         
     
-            var circle_marker_776e33eccc676f43089a317d9e61ee56 = L.circleMarker(
+            var circle_marker_62def7fb90e67c44c785a2e094e74200 = L.circleMarker(
                 [46.5848, 7.9619],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_776e33eccc676f43089a317d9e61ee56.bindTooltip(
+            circle_marker_62def7fb90e67c44c785a2e094e74200.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Kleine Scheidegg</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergscenerie<br><b>Duur:</b> 4 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -614,13 +614,13 @@
             );
         
     
-            var circle_marker_7b4100a1fac38dab09d9399bb2184a8d = L.circleMarker(
+            var circle_marker_73310dfb07dc3473fbb1d89289593e21 = L.circleMarker(
                 [46.6585, 8.0413],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_7b4100a1fac38dab09d9399bb2184a8d.bindTooltip(
+            circle_marker_73310dfb07dc3473fbb1d89289593e21.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Grindelwald eerst</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berggebied<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -630,13 +630,13 @@
             );
         
     
-            var circle_marker_1fdf7459993a967c2c7faca6ab7cd6bd = L.circleMarker(
+            var circle_marker_92fe0b17f8baf6bd46a0605e949e0f77 = L.circleMarker(
                 [46.672, 8.038],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_1fdf7459993a967c2c7faca6ab7cd6bd.bindTooltip(
+            circle_marker_92fe0b17f8baf6bd46a0605e949e0f77.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Bachalpsee</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -646,13 +646,13 @@
             );
         
     
-            var circle_marker_1c53877d3bd1a1cbe790aea3dfb9f0a5 = L.circleMarker(
+            var circle_marker_8342ac40e1bca3ca2aac9312a48812fe = L.circleMarker(
                 [46.4989, 7.7267],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_1c53877d3bd1a1cbe790aea3dfb9f0a5.bindTooltip(
+            circle_marker_8342ac40e1bca3ca2aac9312a48812fe.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Oeschinensee</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 60 min rijden<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -662,13 +662,13 @@
             );
         
     
-            var circle_marker_46e04d93bf9325f155f475b3233796c8 = L.circleMarker(
+            var circle_marker_0a561a6655f52221d278ae312b2bf90b = L.circleMarker(
                 [46.6997, 7.855],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_46e04d93bf9325f155f475b3233796c8.bindTooltip(
+            circle_marker_0a561a6655f52221d278ae312b2bf90b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Harder Kulm</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -678,13 +678,13 @@
             );
         
     
-            var circle_marker_6f05ecb1529a15f1d76dacd3dec09adb = L.circleMarker(
+            var circle_marker_c8dc7ec5d580d42a822f822dc3412c54 = L.circleMarker(
                 [46.755, 8.034],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_6f05ecb1529a15f1d76dacd3dec09adb.bindTooltip(
+            circle_marker_c8dc7ec5d580d42a822f822dc3412c54.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het Brienzermeer</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> meer<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -694,13 +694,13 @@
             );
         
     
-            var circle_marker_4119743e3763a1fc9b227486783f50bd = L.circleMarker(
+            var circle_marker_16576793ca093cdb6337311c046bb333 = L.circleMarker(
                 [46.717, 8.209],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_4119743e3763a1fc9b227486783f50bd.bindTooltip(
+            circle_marker_16576793ca093cdb6337311c046bb333.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Aare-kloof</b><br><span style="color:#e74c3c;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> canyon<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -710,13 +710,13 @@
             );
         
     
-            var circle_marker_79b9780f57965bfc89929f81075ab5eb = L.circleMarker(
+            var circle_marker_de42793c60a4942617bae77e7c300304 = L.circleMarker(
                 [46.548, 7.985],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_79b9780f57965bfc89929f81075ab5eb.bindTooltip(
+            circle_marker_de42793c60a4942617bae77e7c300304.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Jungfraujoch</b><br><span style="color:#e74c3c;font-weight:bold">★☆☆☆ Optionele betaalde activiteit</span><br><hr style="margin:4px 0"><b>Type:</b> bergspoorweg<br><b>Duur:</b> 6 h<br><b>Basis:</b> <span style="color:#e74c3c">Lauterbrunnen / Wengen</span></div>
                  </div>`,
@@ -726,13 +726,13 @@
             );
         
     
-            var circle_marker_6a06ce07fc10fd8dec536f7b5ed5e2c4 = L.circleMarker(
+            var circle_marker_e01d657779bc1eeeb04477f345087dd5 = L.circleMarker(
                 [45.9763, 7.6586],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_6a06ce07fc10fd8dec536f7b5ed5e2c4.bindTooltip(
+            circle_marker_e01d657779bc1eeeb04477f345087dd5.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Matterhorn-uitkijkpunten</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> berg<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -742,13 +742,13 @@
             );
         
     
-            var circle_marker_a3ed6f1adebd9502d89c139161bb5d9b = L.circleMarker(
+            var circle_marker_eef0c81f9880c7d0613f69dc410ba3d9 = L.circleMarker(
                 [45.9838, 7.7841],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_a3ed6f1adebd9502d89c139161bb5d9b.bindTooltip(
+            circle_marker_eef0c81f9880c7d0613f69dc410ba3d9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Gornergrat</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> bergspoorweg<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -758,13 +758,13 @@
             );
         
     
-            var circle_marker_b3054d572d9ddc892ac625d2605fda9e = L.circleMarker(
+            var circle_marker_a977ea2537a2bdff6daf282c8c3bc9f9 = L.circleMarker(
                 [45.9833, 7.7485],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_b3054d572d9ddc892ac625d2605fda9e.bindTooltip(
+            circle_marker_a977ea2537a2bdff6daf282c8c3bc9f9.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Ruffelsee</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> alpenmeer<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -774,13 +774,13 @@
             );
         
     
-            var circle_marker_7dcd3d105308fa1904fb6bad2729e427 = L.circleMarker(
+            var circle_marker_83ca2557de81082a231c51c1d7a5b803 = L.circleMarker(
                 [46.003, 7.782],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_7dcd3d105308fa1904fb6bad2729e427.bindTooltip(
+            circle_marker_83ca2557de81082a231c51c1d7a5b803.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Vijf Merenwandeling</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> wandelen<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -790,13 +790,13 @@
             );
         
     
-            var circle_marker_84a916e20cf22ee353e6e8b2d5a79c94 = L.circleMarker(
+            var circle_marker_bfae9332391577e5d8e5c6784dd4e6b4 = L.circleMarker(
                 [46.028, 7.8],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_84a916e20cf22ee353e6e8b2d5a79c94.bindTooltip(
+            circle_marker_bfae9332391577e5d8e5c6784dd4e6b4.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Sunnegga</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> uitkijkpunt<br><b>Duur:</b> 3 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -806,13 +806,13 @@
             );
         
     
-            var circle_marker_9452da6c21e3a261dd04831be01eb869 = L.circleMarker(
+            var circle_marker_6154f47b205b1915291c223c6f3669ef = L.circleMarker(
                 [45.938, 7.72],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_9452da6c21e3a261dd04831be01eb869.bindTooltip(
+            circle_marker_6154f47b205b1915291c223c6f3669ef.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Matterhorn-gletsjerparadijs</b><br><span style="color:#2980b9;font-weight:bold">★★★☆ Sterk aanbevolen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer<br><b>Duur:</b> 5 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -822,13 +822,13 @@
             );
         
     
-            var circle_marker_9d3dc249e82d5f373f6fc0128452d0cf = L.circleMarker(
+            var circle_marker_e5e72a48f4d046a17fdb4815b83a379c = L.circleMarker(
                 [46.438, 8.041],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_9d3dc249e82d5f373f6fc0128452d0cf.bindTooltip(
+            circle_marker_e5e72a48f4d046a17fdb4815b83a379c.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Aletschgletsjer</b><br><span style="color:#2980b9;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer<br><b>Duur:</b> 6 h<br><b>Vanaf basis:</b> 90 min rijden<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -838,13 +838,13 @@
             );
         
     
-            var circle_marker_4638ba603332f8c959ee75f3e9561c40 = L.circleMarker(
+            var circle_marker_4a270b5ab5856bb078920ca1aa64123b = L.circleMarker(
                 [46.0207, 7.7491],
                 {"bubblingMouseEvents": true, "color": "#2980b9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2980b9", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
-            ).addTo(feature_group_192d5d4e8e61801a663594eb5fbb13bb);
+            ).addTo(feature_group_8625d87db70274a40d74ef76dca2a03b);
         
     
-            circle_marker_4638ba603332f8c959ee75f3e9561c40.bindTooltip(
+            circle_marker_4a270b5ab5856bb078920ca1aa64123b.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">Het dorp Zermatt</b><br><span style="color:#2980b9;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> bergdorp<br><b>Duur:</b> 2 h<br><b>Basis:</b> <span style="color:#2980b9">Zermatt</span></div>
                  </div>`,
@@ -854,22 +854,22 @@
             );
         
     
-            feature_group_192d5d4e8e61801a663594eb5fbb13bb.addTo(map_0ed12d68e9601be4b6e032e7d53c0b8d);
+            feature_group_8625d87db70274a40d74ef76dca2a03b.addTo(map_992f9341fc6acebb6bd8d93a5cc27fda);
         
     
-            var feature_group_a73eac37b223ff79239889b83ef6ab63 = L.featureGroup(
+            var feature_group_0aea974433ba504a5056f2e7e61755dd = L.featureGroup(
                 {
 }
             );
         
     
-            var circle_marker_2185b5f4008f42fe6d860376c6b77245 = L.circleMarker(
+            var circle_marker_fca057690ca081f52ac83cd93eff3b74 = L.circleMarker(
                 [46.438, 8.041],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_a73eac37b223ff79239889b83ef6ab63);
+            ).addTo(feature_group_0aea974433ba504a5056f2e7e61755dd);
         
     
-            circle_marker_2185b5f4008f42fe6d860376c6b77245.bindTooltip(
+            circle_marker_fca057690ca081f52ac83cd93eff3b74.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Aletschgletsjer</b><br><span style="color:#e74c3c;font-weight:bold">★★★★ Absoluut doen</span><br><hr style="margin:4px 0"><b>Type:</b> gletsjer<br><b>Stopduur:</b> ? h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Berner Oberland naar Zermatt</span></div>
                  </div>`,
@@ -879,13 +879,13 @@
             );
         
     
-            var circle_marker_577dbac56a998aba36bb563b8919b171 = L.circleMarker(
+            var circle_marker_5e1e277a92420e2bca0ba6a97a254cff = L.circleMarker(
                 [46.3167, 7.9833],
                 {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": "6 4", "dashOffset": null, "fill": true, "fillColor": "white", "fillOpacity": 0.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11, "stroke": true, "weight": 2.5}
-            ).addTo(feature_group_a73eac37b223ff79239889b83ef6ab63);
+            ).addTo(feature_group_0aea974433ba504a5056f2e7e61755dd);
         
     
-            circle_marker_577dbac56a998aba36bb563b8919b171.bindTooltip(
+            circle_marker_5e1e277a92420e2bca0ba6a97a254cff.bindTooltip(
                 `<div>
                      <div style="font-family:sans-serif;font-size:14px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);min-width:0;white-space:normal;overflow-wrap:anywhere;"><b style="font-size:15px">🔷 Brig</b><br><span style="color:#e74c3c;font-weight:bold">★★☆☆ Als er tijd is</span><br><hr style="margin:4px 0"><b>Type:</b> stadje<br><b>Stopduur:</b> ? h<br><b>Rol:</b> mogelijke stop<br><b>Onderweg:</b> <span style="color:#e74c3c">Berner Oberland naar Zermatt</span></div>
                  </div>`,
@@ -895,28 +895,28 @@
             );
         
     
-            feature_group_a73eac37b223ff79239889b83ef6ab63.addTo(map_0ed12d68e9601be4b6e032e7d53c0b8d);
+            feature_group_0aea974433ba504a5056f2e7e61755dd.addTo(map_992f9341fc6acebb6bd8d93a5cc27fda);
         
     
-            var layer_control_ec68b2bbbff564ab91860d9d20b6c729_layers = {
+            var layer_control_ffed2f3217a0724e2f3b02f7a71b141a_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_a6837cb79238e281420cd4870c8fb679,
+                    "OpenStreetMap" : tile_layer_dd0aca57276d392b1468047214741554,
                 },
                 overlays :  {
-                    "\ud83c\udfe8 Verblijven" : feature_group_f9a27e5e0246039af5a480e0a51b03f6,
-                    "\u25cf Bezienswaardigheden" : feature_group_192d5d4e8e61801a663594eb5fbb13bb,
-                    "\u25c7 Tussenstops" : feature_group_a73eac37b223ff79239889b83ef6ab63,
+                    "\ud83c\udfe8 Verblijven" : feature_group_cd9d2fd3d50768e25acd3f861d5a0457,
+                    "\u25cf Bezienswaardigheden" : feature_group_8625d87db70274a40d74ef76dca2a03b,
+                    "\u25c7 Tussenstops" : feature_group_0aea974433ba504a5056f2e7e61755dd,
                 },
             };
-            let layer_control_ec68b2bbbff564ab91860d9d20b6c729 = L.control.layers(
-                layer_control_ec68b2bbbff564ab91860d9d20b6c729_layers.base_layers,
-                layer_control_ec68b2bbbff564ab91860d9d20b6c729_layers.overlays,
+            let layer_control_ffed2f3217a0724e2f3b02f7a71b141a = L.control.layers(
+                layer_control_ffed2f3217a0724e2f3b02f7a71b141a_layers.base_layers,
+                layer_control_ffed2f3217a0724e2f3b02f7a71b141a_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_0ed12d68e9601be4b6e032e7d53c0b8d);
+            ).addTo(map_992f9341fc6acebb6bd8d93a5cc27fda);
 
         
 </script>
